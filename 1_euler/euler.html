@@ -375,8 +375,8 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#principe-general">
-   Principe général
+  <a class="reference internal nav-link" href="#equation-differentielle-d-ordre-1">
+   Équation différentielle d’ordre 1
   </a>
  </li>
 </ul>
@@ -399,8 +399,8 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#principe-general">
-   Principe général
+  <a class="reference internal nav-link" href="#equation-differentielle-d-ordre-1">
+   Équation différentielle d’ordre 1
   </a>
  </li>
 </ul>
@@ -416,11 +416,11 @@ title="Print to PDF"
   <section class="tex2jax_ignore mathjax_ignore" id="methode-d-euler">
 <h1>Méthode d’Euler<a class="headerlink" href="#methode-d-euler" title="Permalink to this headline">#</a></h1>
 <blockquote>
-<div><p>La méthode d’Euler permet d’approximer une solution d’une équation différentielle.</p>
+<div><p>La méthode d’Euler permet d’approximer une solution d’une équation différentielle.<br />
+Dans le programme, nous nous restreignons à une équation différentielle d’ordre <span class="math notranslate nohighlight">\(1\)</span>, c’est-à-dire où seules apparaissent des dérivées premières.</p>
 </div></blockquote>
-<p>Dans le programme, nous nous restreignons à une équation différentielle d’ordre <span class="math notranslate nohighlight">\(1\)</span>, c’est-à-dire où seules apparaissent des dérivées premières.</p>
-<section id="principe-general">
-<h2>Principe général<a class="headerlink" href="#principe-general" title="Permalink to this headline">#</a></h2>
+<section id="equation-differentielle-d-ordre-1">
+<h2>Équation différentielle d’ordre 1<a class="headerlink" href="#equation-differentielle-d-ordre-1" title="Permalink to this headline">#</a></h2>
 <p>Considérons une équation différentielle d’ordre 1 :
 $<span class="math notranslate nohighlight">\(y'(t) = f(t, y(t))\)</span><span class="math notranslate nohighlight">\(
 \)</span><span class="math notranslate nohighlight">\(y(t_0) = y_0\)</span>$</p>
@@ -433,19 +433,23 @@ $<span class="math notranslate nohighlight">\(y'(t) = f(t, y(t))\)</span><span c
 <p>Voici des exemples d’équations différentielles classiques avec la valeur correspondante de <span class="math notranslate nohighlight">\(f(t, y)\)</span> :</p>
 <table class="colwidths-auto table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Équation différentielle</p></th>
-<th class="head"><p>Second membre <span class="math notranslate nohighlight">\(f(t, y)\)</span></p></th>
-<th class="head"><p>Solution</p></th>
+<tr class="row-odd"><th class="text-align:center head"><p>Équation différentielle</p></th>
+<th class="text-align:center head"><p>Second membre <span class="math notranslate nohighlight">\(f(t, y)\)</span></p></th>
+<th class="text-align:center head"><p>Solution</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(y'(t) = t\)</span> <span class="math notranslate nohighlight">\(y(0) = 0\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(f(t, y) = t\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(y(t) = \frac{t^2}{2}\)</span></p></td>
+<tr class="row-even"><td class="text-align:center"><p>$<span class="math notranslate nohighlight">\(y'(t) = t\)</span><span class="math notranslate nohighlight">\( \)</span><span class="math notranslate nohighlight">\(y(0) = 0\)</span>$</p></td>
+<td class="text-align:center"><p>$<span class="math notranslate nohighlight">\(f(t, y) = t\)</span>$</p></td>
+<td class="text-align:center"><p>$<span class="math notranslate nohighlight">\(y(t) = \frac{t^2}{2}\)</span>$</p></td>
 </tr>
-<tr class="row-odd"><td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
+<tr class="row-odd"><td class="text-align:center"><p>$<span class="math notranslate nohighlight">\(y'(t) = y(t)\)</span><span class="math notranslate nohighlight">\( \)</span><span class="math notranslate nohighlight">\(y(0) = 1\)</span>$</p></td>
+<td class="text-align:center"><p>$<span class="math notranslate nohighlight">\(f(t, y) = y\)</span>$</p></td>
+<td class="text-align:center"><p>$<span class="math notranslate nohighlight">\(y(t) = e^t\)</span>$</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>$<span class="math notranslate nohighlight">\(y'(t) = \ln(t)\)</span><span class="math notranslate nohighlight">\( \)</span><span class="math notranslate nohighlight">\(y(1) = 0\)</span>$</p></td>
+<td class="text-align:center"><p>$<span class="math notranslate nohighlight">\(f(t, y) = \ln(t)\)</span>$</p></td>
+<td class="text-align:center"><p>$<span class="math notranslate nohighlight">\(y(t) = t\ln(t) - t\)</span>$</p></td>
 </tr>
 </tbody>
 </table>
