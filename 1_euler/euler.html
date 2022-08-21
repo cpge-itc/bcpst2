@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Méthode d’Euler &#8212; Informatique en 2ème année de BCPST</title>
+    <title>Résolution d’équation différentielle par la méthode d’Euler &#8212; Informatique en 2ème année de BCPST</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -116,7 +116,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Méthode d’Euler
+   Résolution d’équation différentielle par la méthode d’Euler
   </a>
  </li>
 </ul>
@@ -378,6 +378,35 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#equation-differentielle-d-ordre-1">
    Équation différentielle d’ordre 1
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cadre-general">
+     Cadre général
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exemples-d-equations-differentielles">
+     Exemples d’équations différentielles
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#methode-d-euler">
+   Méthode d’Euler
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#theorie">
+     Théorie
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#programmation">
+     Programmation
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -388,7 +417,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Méthode d’Euler</h1>
+                <h1>Résolution d’équation différentielle par la méthode d’Euler</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -402,6 +431,35 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#equation-differentielle-d-ordre-1">
    Équation différentielle d’ordre 1
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cadre-general">
+     Cadre général
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exemples-d-equations-differentielles">
+     Exemples d’équations différentielles
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#methode-d-euler">
+   Méthode d’Euler
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#theorie">
+     Théorie
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#programmation">
+     Programmation
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -413,23 +471,37 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="methode-d-euler">
-<h1>Méthode d’Euler<a class="headerlink" href="#methode-d-euler" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="resolution-d-equation-differentielle-par-la-methode-d-euler">
+<h1>Résolution d’équation différentielle par la méthode d’Euler<a class="headerlink" href="#resolution-d-equation-differentielle-par-la-methode-d-euler" title="Permalink to this headline">#</a></h1>
 <blockquote>
 <div><p>La méthode d’Euler permet d’approximer une solution d’une équation différentielle.<br />
 Dans le programme, nous nous restreignons à une équation différentielle d’ordre <span class="math notranslate nohighlight">\(1\)</span>, c’est-à-dire où seules apparaissent des dérivées premières.</p>
 </div></blockquote>
 <section id="equation-differentielle-d-ordre-1">
 <h2>Équation différentielle d’ordre 1<a class="headerlink" href="#equation-differentielle-d-ordre-1" title="Permalink to this headline">#</a></h2>
-<p>Considérons une équation différentielle d’ordre 1 :
-$<span class="math notranslate nohighlight">\(y'(t) = f(t, y(t))\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(y(t_0) = y_0\)</span>$</p>
+<section id="cadre-general">
+<h3>Cadre général<a class="headerlink" href="#cadre-general" title="Permalink to this headline">#</a></h3>
+<p>Considérons une équation différentielle d’ordre 1 :</p>
+<div class="math notranslate nohighlight">
+\[
+    y'(t) = f(t, y(t))
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+    y(t_0) = y_0
+\]</div>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(y\)</span> est la <strong>fonction inconnue</strong> : on cherche à détermine la valeur de <span class="math notranslate nohighlight">\(y(t)\)</span> pour <span class="math notranslate nohighlight">\(t \in I\)</span>, où <span class="math notranslate nohighlight">\(I \subseteq \mathbb{R}\)</span> est l’intervalle de définition de <span class="math notranslate nohighlight">\(y\)</span>.</p></li>
 <li><p><span class="math notranslate nohighlight">\(f\)</span> est l’expression qui apparaît dans le <strong>second membre</strong> de l’équation différentielle, qui peut utiliser <span class="math notranslate nohighlight">\(t\)</span> et <span class="math notranslate nohighlight">\(y(t)\)</span> (d’où une fonction de <span class="math notranslate nohighlight">\(2\)</span> variables). <span class="math notranslate nohighlight">\(f\)</span> est donnée par le problème que l’on souhaite résoudre.</p></li>
 <li><p><span class="math notranslate nohighlight">\(y(t_0) = y_0\)</span> est la condition initiale, garantissant l’unicité de la solution (théorème de Cauchy).</p></li>
 </ul>
-<p>On cherche donc une fonction <span class="math notranslate nohighlight">\(y\)</span> définie sur un intervalle <span class="math notranslate nohighlight">\(I\)</span> telle que <span class="math notranslate nohighlight">\(\forall t \in I\)</span>, <span class="math notranslate nohighlight">\(y'(t) = f(t, y(t))\)</span>.</p>
+<p>On cherche donc une fonction <span class="math notranslate nohighlight">\(y\)</span> définie sur un intervalle <span class="math notranslate nohighlight">\(I\)</span> telle que :
+$<span class="math notranslate nohighlight">\(
+    \forall t \in I, \quad y'(t) = f(t, y(t))
+\)</span>$</p>
+</section>
+<section id="exemples-d-equations-differentielles">
+<h3>Exemples d’équations différentielles<a class="headerlink" href="#exemples-d-equations-differentielles" title="Permalink to this headline">#</a></h3>
 <p>Voici des exemples d’équations différentielles classiques avec la valeur correspondante de <span class="math notranslate nohighlight">\(f(t, y)\)</span> :</p>
 <table class="colwidths-auto table">
 <thead>
@@ -439,20 +511,84 @@ $<span class="math notranslate nohighlight">\(y'(t) = f(t, y(t))\)</span><span c
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-align:center"><p>$<span class="math notranslate nohighlight">\(y'(t) = t\)</span><span class="math notranslate nohighlight">\( \)</span><span class="math notranslate nohighlight">\(y(0) = 0\)</span>$</p></td>
-<td class="text-align:center"><p>$<span class="math notranslate nohighlight">\(f(t, y) = t\)</span>$</p></td>
-<td class="text-align:center"><p>$<span class="math notranslate nohighlight">\(y(t) = \frac{t^2}{2}\)</span>$</p></td>
+<tr class="row-even"><td class="text-align:center"><p><span class="math notranslate nohighlight">\(y'(t) = t\)</span> <br> <span class="math notranslate nohighlight">\(y(0) = 0\)</span></p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(f(t, y) = t\)</span></p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(y(t) = \frac{t^2}{2}\)</span></p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p>$<span class="math notranslate nohighlight">\(y'(t) = y(t)\)</span><span class="math notranslate nohighlight">\( \)</span><span class="math notranslate nohighlight">\(y(0) = 1\)</span>$</p></td>
-<td class="text-align:center"><p>$<span class="math notranslate nohighlight">\(f(t, y) = y\)</span>$</p></td>
-<td class="text-align:center"><p>$<span class="math notranslate nohighlight">\(y(t) = e^t\)</span>$</p></td>
+<tr class="row-odd"><td class="text-align:center"><p><span class="math notranslate nohighlight">\(y'(t) = y(t)\)</span> <br> <span class="math notranslate nohighlight">\(y(0) = 1\)</span></p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(f(t, y) = y\)</span></p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(y(t) = e^t\)</span></p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p>$<span class="math notranslate nohighlight">\(y'(t) = \ln(t)\)</span><span class="math notranslate nohighlight">\( \)</span><span class="math notranslate nohighlight">\(y(1) = 0\)</span>$</p></td>
-<td class="text-align:center"><p>$<span class="math notranslate nohighlight">\(f(t, y) = \ln(t)\)</span>$</p></td>
-<td class="text-align:center"><p>$<span class="math notranslate nohighlight">\(y(t) = t\ln(t) - t\)</span>$</p></td>
+<tr class="row-even"><td class="text-align:center"><p><span class="math notranslate nohighlight">\(y'(t) = \ln(t)\)</span> <br> <span class="math notranslate nohighlight">\(y(1) = 0\)</span></p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(f(t, y) = \ln(t)\)</span></p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(y(t) = t\ln(t) - t\)</span></p></td>
 </tr>
 </tbody>
 </table>
+<div class="admonition-exercice admonition">
+<p class="admonition-title">Exercice</p>
+<p>Quelle fonction <span class="math notranslate nohighlight">\(f\)</span> utiliser avec l’équation différentielle <span class="math notranslate nohighlight">\(y'(t) = t^3 - y(t)^3\)</span> ? Définir cette fonction en Python.</p>
+</div>
+</section>
+</section>
+<section id="methode-d-euler">
+<h2>Méthode d’Euler<a class="headerlink" href="#methode-d-euler" title="Permalink to this headline">#</a></h2>
+<section id="theorie">
+<h3>Théorie<a class="headerlink" href="#theorie" title="Permalink to this headline">#</a></h3>
+<p>Soit <span class="math notranslate nohighlight">\(y\)</span> la solution de :
+$<span class="math notranslate nohighlight">\(
+    y'(t) = f(t, y(t))
+\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(
+    y(t_0) = y_0
+\)</span>$</p>
+<p>La méthode d’Euler calcule des approximations de <span class="math notranslate nohighlight">\(y\)</span> de proche en proche. La valeur de <span class="math notranslate nohighlight">\(y(t_0) = y_0\)</span> est connue (condition intiale).<br />
+Soit <span class="math notranslate nohighlight">\(h\)</span> un petit réel (par exemple <span class="math notranslate nohighlight">\(0.01\)</span>) le <strong>pas d’approximation</strong> de la méthode d’Euler.</p>
+<p>Alors, par développement limité d’ordre <span class="math notranslate nohighlight">\(1\)</span> :
+$<span class="math notranslate nohighlight">\(
+    y(t_0 + h) \approx y(t_0) + h y'(t_0) = y_0 + h y'(t_0)
+\)</span>$</p>
+<p>Comme <span class="math notranslate nohighlight">\(y\)</span> vérifie l’équation différentielle  <span class="math notranslate nohighlight">\(y'(t_0) = f(t_0, y(t_0))\)</span> :
+$<span class="math notranslate nohighlight">\(
+    y(t_0 + h) \approx y_0 + hf(t_0, y(t_0))
+\)</span><span class="math notranslate nohighlight">\(
+Ainsi, on peut approximer \)</span>y(t_0 + h)<span class="math notranslate nohighlight">\( par \)</span>y_1 = y_0 + hf(t_0, y(t_0))<span class="math notranslate nohighlight">\(.  
+De même, on peut approximer \)</span>y(t_0 + 2h)<span class="math notranslate nohighlight">\( par \)</span>y_1 + hf(t_0 + h, y_1)<span class="math notranslate nohighlight">\(, et ainsi de suite... Ce qui permet de définir des approximations \)</span>y_k \approx y(t_0 + kh)<span class="math notranslate nohighlight">\( par la formule de récurrence suivante :
+\)</span><span class="math notranslate nohighlight">\(
+    \boxed{y_{k + 1} = y_k + h f(t_0 + k h, y_k)}
+\)</span>$</p>
+<p><strong>Remarque</strong> : Cette dernière formule n’est autre que l’expression bien connue en physique <span class="math notranslate nohighlight">\(y(t + \Delta t) \approx y(t) + \Delta t y'(t)\)</span>, où on a remplacé <span class="math notranslate nohighlight">\(y'(t)\)</span> par le second membre de l’équation différentielle.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="n">t</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">h</span> <span class="o">=</span> <span class="mf">0.3</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">dy</span> <span class="o">=</span> <span class="n">h</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">t</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="p">)</span>
+    <span class="n">y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">dy</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="n">h</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">head_width</span><span class="o">=</span><span class="mf">0.08</span><span class="p">,</span> <span class="n">length_includes_head</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;$y_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">$&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.025</span><span class="p">,</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.1</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/euler_5_0.png" src="../_images/euler_5_0.png" />
+</div>
+</div>
+</section>
+<section id="programmation">
+<h3>Programmation<a class="headerlink" href="#programmation" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">euler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">t0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
@@ -489,9 +625,27 @@ $<span class="math notranslate nohighlight">\(y'(t) = f(t, y(t))\)</span><span c
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/euler_5_0.png" src="../_images/euler_5_0.png" />
+<img alt="../_images/euler_9_0.png" src="../_images/euler_9_0.png" />
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">t</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="n">y</span><span class="o">**</span><span class="mi">3</span>
+
+<span class="k">for</span> <span class="n">y0</span> <span class="ow">in</span> <span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">]:</span>
+    <span class="n">t</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">euler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> 
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/euler_10_0.png" src="../_images/euler_10_0.png" />
+</div>
+</div>
+</section>
 </section>
 </section>
 
