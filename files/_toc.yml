@@ -5,6 +5,10 @@ root: intro
 options:
   numbered: True
 parts:
+  - caption: Introduction
+    chapters:
+      - file: 0_python/aide_memoire.md
+      - file: 0_python/programmer.md
   - caption: Méthodes numériques et statistiques
     chapters:
       - file: 1_euler/euler.ipynb
