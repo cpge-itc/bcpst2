@@ -411,6 +411,11 @@ title="Print to PDF"
      Programmation
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#affichage-des-approximations">
+     Affichage des approximations
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -467,6 +472,11 @@ title="Print to PDF"
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#programmation">
      Programmation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#affichage-des-approximations">
+     Affichage des approximations
     </a>
    </li>
   </ul>
@@ -534,7 +544,7 @@ Dans le programme, nous nous restreignons à une équation différentielle d’o
 <td class="text-align:center"><p><span class="math notranslate nohighlight">\(f(t, y) = y\)</span></p></td>
 <td class="text-align:center"><p><span class="math notranslate nohighlight">\(y(t) = e^t\)</span></p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p><span class="math notranslate nohighlight">\(y'(t) = \ln(t)\)</span> <br> <span class="math notranslate nohighlight">\(y(1) = 0\)</span></p></td>
+<tr class="row-even"><td class="text-align:center"><p><span class="math notranslate nohighlight">\(y'(t) = \ln(t)\)</span> <br> <span class="math notranslate nohighlight">\(y(1) = -1\)</span></p></td>
 <td class="text-align:center"><p><span class="math notranslate nohighlight">\(f(t, y) = \ln(t)\)</span></p></td>
 <td class="text-align:center"><p><span class="math notranslate nohighlight">\(y(t) = t\ln(t) - t\)</span></p></td>
 </tr>
@@ -580,9 +590,10 @@ Soit <span class="math notranslate nohighlight">\(h\)</span> un petit réel (par
 <p>De même, on peut approximer <span class="math notranslate nohighlight">\(y(t_0 + 2h)\)</span> par <span class="math notranslate nohighlight">\(y_1 + hf(t_0 + h, y_1)\)</span>, et ainsi de suite… Ce qui permet de définir des approximations <span class="math notranslate nohighlight">\(y_k \approx y(t_0 + kh)\)</span> par la formule de récurrence suivante :</p>
 <div class="math notranslate nohighlight">
 \[
-    \boxed{y_{k + 1} = y_k + h f(t_0 + k h, y_k)}
+    \boxed{y_{k + 1} = y_k + h f(t_k, y_k)}
 \]</div>
-<p><strong>Remarque</strong> : Cette dernière formule n’est autre que l’expression bien connue en physique <span class="math notranslate nohighlight">\(y(t + \Delta t) \approx y(t) + \Delta t y'(t)\)</span>, où on a remplacé <span class="math notranslate nohighlight">\(y'(t)\)</span> par le second membre de l’équation différentielle.</p>
+<p>Où <span class="math notranslate nohighlight">\(t_k = t_0 + kh\)</span>.</p>
+<p><strong>Remarque</strong> : Cette dernière formule n’est autre que l’expression bien connue en physique <span class="math notranslate nohighlight">\(y(t + \Delta t) \approx y(t) + \Delta t \times y'(t)\)</span>, où on a remplacé <span class="math notranslate nohighlight">\(y'(t)\)</span> par le second membre de l’équation différentielle.</p>
 </section>
 <section id="illustration">
 <h3>Illustration<a class="headerlink" href="#illustration" title="Permalink to this headline">#</a></h3>
@@ -600,7 +611,7 @@ Soit <span class="math notranslate nohighlight">\(h\)</span> un petit réel (par
     <span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> 
         <span class="n">xytext</span><span class="o">=</span><span class="n">p1</span><span class="p">,</span> 
         <span class="n">xy</span><span class="o">=</span><span class="n">p2</span><span class="p">,</span> 
-        <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2">,head_width=.5,head_length=2&quot;</span><span class="p">,</span> 
+        <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2">,head_width=.5,head_length=1.5&quot;</span><span class="p">,</span> 
             <span class="n">shrinkA</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">shrinkB</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
 
 <span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -637,9 +648,9 @@ Soit <span class="math notranslate nohighlight">\(h\)</span> un petit réel (par
 </section>
 <section id="programmation">
 <h3>Programmation<a class="headerlink" href="#programmation" title="Permalink to this headline">#</a></h3>
-<p>Pour trouver des approximations de <span class="math notranslate nohighlight">\(y\)</span>, il faut utiliser itérativement l’équation de récurrence <span class="math notranslate nohighlight">\(y_{k + 1} = y_k + h f(t_0 + k h, y_k)\)</span>.<br />
-Les approximations <span class="math notranslate nohighlight">\(y_k\)</span> seront stockées dans une liste <span class="math notranslate nohighlight">\(y\)</span> et les temps <span class="math notranslate nohighlight">\(t_k\)</span> dans une liste <span class="math notranslate nohighlight">\(t\)</span>.
-Nous utilisons une boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> pour calculer <span class="math notranslate nohighlight">\(n\)</span> approximations de l’équation :</p>
+<p>On calcule les approximations <span class="math notranslate nohighlight">\(y_k\)</span> de <span class="math notranslate nohighlight">\(y\)</span> en appliquant l’équation de récurrence <span class="math notranslate nohighlight">\(y_{k + 1} = y_k + h f(t_k, y_k)\)</span> dans une boucle <code class="docutils literal notranslate"><span class="pre">for</span></code>.<br />
+Les approximations <span class="math notranslate nohighlight">\(y_k\)</span> seront stockées dans une liste <span class="math notranslate nohighlight">\(y\)</span> et les temps <span class="math notranslate nohighlight">\(t_k\)</span> dans une liste <span class="math notranslate nohighlight">\(t\)</span>.</p>
+<p>Voici un exemple d’équation différentielle avec le calcul des approximations par la méthode d’Euler :</p>
 <div class="math notranslate nohighlight">
 \[
     y'(t) = y(t)
@@ -648,6 +659,79 @@ Nous utilisons une boucle <code class="docutils literal notranslate"><span class
 \[
     y(0) = 1
 \]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># on met initialement la condition initiale</span>
+<span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">h</span> <span class="o">=</span> <span class="mf">0.01</span> <span class="c1"># pas d&#39;approximation</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">200</span> <span class="c1"># nombre d&#39;approximations</span>
+
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">t</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="p">)</span>
+    <span class="n">y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="c1"># équaiion de récurrence</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>En fait, on connaît la solution exacte de l’équation différentielle : <span class="math notranslate nohighlight">\(y(t) = e^t\)</span>. On peut donc comparer l’approximation avec la valeur exacte :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span><span class="p">[</span><span class="mi">50</span><span class="p">]</span> <span class="c1"># approximation de exp(50*h) = exp(0.5)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.644631821843882
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.6487212707001282
+</pre></div>
+</div>
+</div>
+</div>
+<p>L’approximation est effectivement assez proche de la solution. Plus <span class="math notranslate nohighlight">\(h\)</span> est petit, plus l’approximation est bonne mais plus cela prend du temps pour l’ordinateur.</p>
+<div class="admonition-exercice admonition">
+<p class="admonition-title">Exercice</p>
+<p>Quelle approximation de <span class="math notranslate nohighlight">\(e^1\)</span> a été trouvée ? Comparer avec la vraie valeur.</p>
+</div>
+<p>Ici, on a <span class="math notranslate nohighlight">\(n = 200\)</span> approximations. Comme <span class="math notranslate nohighlight">\(h = 0.01\)</span>, le dernier temps d’approximation est donc <span class="math notranslate nohighlight">\(0 + n\times h = 2\)</span>.</p>
+<div class="admonition-exercice admonition">
+<p class="admonition-title">Exercice</p>
+<p>Quel <span class="math notranslate nohighlight">\(n\)</span> choisir pour approximer la solution sur <span class="math notranslate nohighlight">\([0, 10]\)</span> ?</p>
+</div>
+<div class="admonition-exercice admonition">
+<p class="admonition-title">Exercice</p>
+<p>De manière générale, donner la valeur de <span class="math notranslate nohighlight">\(n\)</span> à choisir pour approximer une solution d’une équation différentielle sur un intervalle <span class="math notranslate nohighlight">\([a, b]\)</span> avec un pas de <span class="math notranslate nohighlight">\(h\)</span>.</p>
+</div>
+</section>
+<section id="affichage-des-approximations">
+<h3>Affichage des approximations<a class="headerlink" href="#affichage-des-approximations" title="Permalink to this headline">#</a></h3>
+<p>On peut afficher l’approximation obtenue, et la comparer avec la fonction exponentielle :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Méthode d&#39;Euler&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;exp&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/euler_18_0.png" src="../_images/euler_18_0.png" />
+</div>
+</div>
+<div class="highlight-note notranslate"><div class="highlight"><pre><span></span>Si `x` et `y` sont deux listes, `plt.plot(x, y)` relie les points dont les abscisses sont dans `x` et les ordonnées dans `y`. Cela affiche donc `y` en fonction de `x`.
+</pre></div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">euler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">t0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
@@ -681,7 +765,7 @@ Nous utilisons une boucle <code class="docutils literal notranslate"><span class
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/euler_10_0.png" src="../_images/euler_10_0.png" />
+<img alt="../_images/euler_22_0.png" src="../_images/euler_22_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -698,7 +782,7 @@ Nous utilisons une boucle <code class="docutils literal notranslate"><span class
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/euler_11_0.png" src="../_images/euler_11_0.png" />
+<img alt="../_images/euler_23_0.png" src="../_images/euler_23_0.png" />
 </div>
 </div>
 </section>
