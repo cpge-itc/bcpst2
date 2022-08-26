@@ -375,6 +375,11 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installation-des-packages">
+   Installation des packages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#equation-differentielle-d-ordre-1">
    Équation différentielle d’ordre 1
   </a>
@@ -417,6 +422,33 @@ title="Print to PDF"
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#methode-d-euler-generique">
+   Méthode d’Euler générique
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#systeme-d-equations-differentielles">
+   Système d’équations différentielles
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reactions-chimiques">
+     Réactions chimiques
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#evolution-de-population-lokta-volterra">
+     Évolution de population (Lokta-Volterra)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#equation-du-second-ordre">
+   Équation du second ordre
+  </a>
  </li>
 </ul>
 
@@ -438,6 +470,11 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installation-des-packages">
+   Installation des packages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#equation-differentielle-d-ordre-1">
    Équation différentielle d’ordre 1
   </a>
@@ -480,6 +517,33 @@ title="Print to PDF"
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#methode-d-euler-generique">
+   Méthode d’Euler générique
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#systeme-d-equations-differentielles">
+   Système d’équations différentielles
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reactions-chimiques">
+     Réactions chimiques
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#evolution-de-population-lokta-volterra">
+     Évolution de population (Lokta-Volterra)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#equation-du-second-ordre">
+   Équation du second ordre
+  </a>
  </li>
 </ul>
 
@@ -503,6 +567,24 @@ title="Print to PDF"
 <div><p>La méthode d’Euler permet d’approximer une solution d’une équation différentielle.<br />
 Dans le programme, nous nous restreignons à une équation différentielle d’ordre <span class="math notranslate nohighlight">\(1\)</span>, c’est-à-dire où seules apparaissent des dérivées premières.</p>
 </div></blockquote>
+<section id="installation-des-packages">
+<h2>Installation des packages<a class="headerlink" href="#installation-des-packages" title="Permalink to this headline">#</a></h2>
+<p>Ce TP nécessite <code class="docutils literal notranslate"><span class="pre">numpy</span></code> et <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>. Si vous utilisez Pyzo, vous pouvez les obtenir avec la commande suivante, dans la console :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install numpy matplotlib
+</pre></div>
+</div>
+<p>Puis, dans l’éditeur :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Veuillez m’appeler si cela ne marche pas.</p>
+</section>
 <section id="equation-differentielle-d-ordre-1">
 <h2>Équation différentielle d’ordre 1<a class="headerlink" href="#equation-differentielle-d-ordre-1" title="Permalink to this headline">#</a></h2>
 <section id="cadre-general">
@@ -600,10 +682,7 @@ Soit <span class="math notranslate nohighlight">\(h\)</span> un petit réel (par
 <p>On obtient chaque point d’approximation en se déplaçant de <span class="math notranslate nohighlight">\(\Delta t\)</span> le long de la tangente à <span class="math notranslate nohighlight">\(y\)</span> :</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="n">t</span> <span class="o">-</span> <span class="mf">0.5</span>
 
 <span class="k">def</span> <span class="nf">arrow</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">double</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
@@ -617,7 +696,6 @@ Soit <span class="math notranslate nohighlight">\(h\)</span> un petit réel (par
 <span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span>
 <span class="n">h</span> <span class="o">=</span> <span class="mf">0.3</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">2.7</span><span class="p">])</span>
 <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
     <span class="n">t</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="p">)</span>
@@ -642,7 +720,7 @@ Soit <span class="math notranslate nohighlight">\(h\)</span> un petit réel (par
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/euler_6_0.png" src="../_images/euler_6_0.png" />
+<img alt="../_images/euler_10_0.png" src="../_images/euler_10_0.png" />
 </div>
 </div>
 </section>
@@ -726,12 +804,43 @@ Les approximations <span class="math notranslate nohighlight">\(y_k\)</span> ser
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/euler_18_0.png" src="../_images/euler_18_0.png" />
+<img alt="../_images/euler_22_0.png" src="../_images/euler_22_0.png" />
 </div>
 </div>
-<div class="highlight-note notranslate"><div class="highlight"><pre><span></span>Si `x` et `y` sont deux listes, `plt.plot(x, y)` relie les points dont les abscisses sont dans `x` et les ordonnées dans `y`, ce qui revient à afficher `y` en fonction de `x`.
-</pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Si <code class="docutils literal notranslate"><span class="pre">x</span></code> et <code class="docutils literal notranslate"><span class="pre">y</span></code> sont deux listes, <code class="docutils literal notranslate"><span class="pre">plt.plot(x,</span> <span class="pre">y)</span></code> relie les points dont les abscisses sont dans <code class="docutils literal notranslate"><span class="pre">x</span></code> et les ordonnées dans <code class="docutils literal notranslate"><span class="pre">y</span></code>, ce qui revient à afficher <code class="docutils literal notranslate"><span class="pre">y</span></code> en fonction de <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
 </div>
+<div class="admonition-exercice admonition">
+<p class="admonition-title">Exercice</p>
+<p>Afficher la courbe d’une soluton approchée de <span class="math notranslate nohighlight">\(y'(t) = y(t)\)</span> sur l’intervalle <span class="math notranslate nohighlight">\([0, 3]\)</span> (au lieu de <span class="math notranslate nohighlight">\([0, 2]\)</span> comme dans le dessin ci-dessus).</p>
+</div>
+<div class="admonition-exercice admonition">
+<p class="admonition-title">Exercice</p>
+<p>Résoudre de façon approchée l’équation différentielle ci-dessous, sur <span class="math notranslate nohighlight">\([-1, 4]\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[
+    y'(t) = t^3 - y(t)^3
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+    y(-1) = -3
+\]</div>
+<p>Vous devez obtenir le dessin ci-dessous :</p>
+<p><img alt="output" src="1_euler/output.png" /></p>
+</div>
+</section>
+</section>
+<section id="methode-d-euler-generique">
+<h2>Méthode d’Euler générique<a class="headerlink" href="#methode-d-euler-generique" title="Permalink to this headline">#</a></h2>
+<p>La fonction suivante permet d’appliquer la méthode d’Euler avec les paramètres suivants :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">f</span></code> : fonction apparaissant dans le membre droit de l’équation différentielle.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">t0</span></code> : temps initial.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y0</span></code> : valeur de la solution en <code class="docutils literal notranslate"><span class="pre">t0</span></code> (condition initiale).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">h</span></code> : pas de l’approximation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">n</span></code> : nombre d’approximations à calculer.</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">euler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">t0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
@@ -745,28 +854,29 @@ Les approximations <span class="math notranslate nohighlight">\(y_k\)</span> ser
 </div>
 </div>
 </div>
+<p><code class="docutils literal notranslate"><span class="pre">f</span></code> doit être définie comme une fonction classique en Python (avec <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">...</span></code>). On peut passer une fonction en argument à une autre fonction.</p>
+<p>Par exemple, pour approcher une solution de <span class="math notranslate nohighlight">\(y'(t) = y(t)\)</span> avec <code class="docutils literal notranslate"><span class="pre">euler</span></code> :</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">y</span>
 
 <span class="n">t</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">euler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Méthode d&#39;Euler&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;exp&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/euler_22_0.png" src="../_images/euler_22_0.png" />
+<img alt="../_images/euler_29_0.png" src="../_images/euler_29_0.png" />
 </div>
+</div>
+<div class="admonition-exercice admonition">
+<p class="admonition-title">Exercice</p>
+<p>Dessiner des approximations de l’équation <span class="math notranslate nohighlight">\(y'(t) = t^3 - y(t)^3\)</span> avec différentes conditions initiales : <span class="math notranslate nohighlight">\(y_0 = -3, y_0 = -2, y_0 = 0, y_0 = 4\)</span>.<br />
+On pourra utiliser <code class="docutils literal notranslate"><span class="pre">euler</span></code> dans une boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> avec différentes valeurs de <code class="docutils literal notranslate"><span class="pre">y_0</span></code> et utiliser <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code> une seule fois, à la fin (après le <code class="docutils literal notranslate"><span class="pre">for</span></code>).<br />
+Vous devez obtenir ce genre de dessin :<br />
+<img alt="" src="1_euler/output2.png" /></p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -775,17 +885,139 @@ Les approximations <span class="math notranslate nohighlight">\(y_k\)</span> ser
 
 <span class="k">for</span> <span class="n">y0</span> <span class="ow">in</span> <span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">]:</span>
     <span class="n">t</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">euler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> 
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;y_0 = </span><span class="si">{</span><span class="n">y0</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> 
 
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/euler_23_0.png" src="../_images/euler_23_0.png" />
+<img alt="../_images/euler_31_0.png" src="../_images/euler_31_0.png" />
 </div>
 </div>
 </section>
+<section id="systeme-d-equations-differentielles">
+<span id="system"></span><h2>Système d’équations différentielles<a class="headerlink" href="#systeme-d-equations-differentielles" title="Permalink to this headline">#</a></h2>
+<p>Il est également possible de résoudre un système d’équation différentielles.</p>
+<section id="reactions-chimiques">
+<h3>Réactions chimiques<a class="headerlink" href="#reactions-chimiques" title="Permalink to this headline">#</a></h3>
+<p>Par exemple, considérons deux réactions chimiques d’ordre 1 :
+$<span class="math notranslate nohighlight">\(A \stackrel{\alpha}{\longrightarrow} B\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(B \stackrel{\beta}{\longrightarrow} C\)</span>$</p>
+<p>Les concentrations au cours du temps vérifient :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\frac{d[A]}{dt} = -\alpha [A] \\
+\frac{d[B]}{dt} = \alpha [A] - \beta [B]\\
+\frac{d[C]}{dt} = \beta [B]
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[
+    [A]_0 = 1, [B]_0 = 0, [C]_0 = 0
+\]</div>
+<p>Dans ce cas, on applique la méthode d’Euler sur chaque équation différentielle :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">h</span> <span class="o">=</span> <span class="mf">0.05</span>
+<span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">B</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">C</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span> <span class="c1"># approximations sur [0, 5]</span>
+    <span class="n">t</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="p">)</span>
+    <span class="n">A</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="n">A</span><span class="p">[</span><span class="n">k</span><span class="p">]))</span> <span class="c1"># application de la méthode d&#39;Euler sur chaque équation</span>
+    <span class="n">B</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">B</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">-</span> <span class="n">B</span><span class="p">[</span><span class="n">k</span><span class="p">]))</span>
+    <span class="n">C</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">C</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="n">B</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;[A]&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;[B]&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;[C]&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/euler_33_0.png" src="../_images/euler_33_0.png" />
+</div>
+</div>
+<div class="admonition-exercice admonition">
+<p class="admonition-title">Exercice</p>
+<p>Interpréter le dessin ci-dessus.</p>
+</div>
+</section>
+<section id="evolution-de-population-lokta-volterra">
+<h3>Évolution de population (Lokta-Volterra)<a class="headerlink" href="#evolution-de-population-lokta-volterra" title="Permalink to this headline">#</a></h3>
+<p>Le système différentiel de Lotka-Volterra permet de modéliser l’évolution conjointe de populations de proies et de prédateurs :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    x'(t) = x(t) \, \bigl(\alpha - \beta \, y(t) \bigr) \\
+    y'(t) = y(t) \, \bigl(\delta \, x(t) - \gamma \bigr)
+\end{split}\]</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(x(t)\)</span> : la population de proies au temps <span class="math notranslate nohighlight">\(t\)</span>;</p></li>
+<li><p><span class="math notranslate nohighlight">\(y(t)\)</span> : la population de prédateurs au temps <span class="math notranslate nohighlight">\(t\)</span>;</p></li>
+<li><p><span class="math notranslate nohighlight">\(\alpha\)</span> : le taux de reproduction des proies indépendamment des prédateurs rencontrés;</p></li>
+<li><p><span class="math notranslate nohighlight">\(\beta\)</span> : le taux de mortalité des proies dues aux prédateurs rencontrés;</p></li>
+<li><p><span class="math notranslate nohighlight">\(\gamma\)</span> : le taux de mortalité des prédateurs indépendamment du nombre de proies</p></li>
+<li><p><span class="math notranslate nohighlight">\(\delta\)</span> : le taux de reproduction des prédateurs en fonction des proies mangées.</p></li>
+</ul>
+<div class="admonition-exercice admonition">
+<p class="admonition-title">Exercice</p>
+<ol class="simple">
+<li><p>Écrire les équations de récurrences vérifiées par les approximations <span class="math notranslate nohighlight">\(x_k\)</span> et <span class="math notranslate nohighlight">\(y_k\)</span> de la méthode d’Euler, appliquée au système différentiel ci-dessus.</p></li>
+<li><p>Écrire des instructions Python pour stocker dans des listes <code class="docutils literal notranslate"><span class="pre">t</span></code>, <code class="docutils literal notranslate"><span class="pre">x</span></code> et <code class="docutils literal notranslate"><span class="pre">y</span></code> ces <span class="math notranslate nohighlight">\(t_k\)</span>, <span class="math notranslate nohighlight">\(x_k\)</span> et <span class="math notranslate nohighlight">\(y_k\)</span>. On choisira l’intervalle de temps et le nombre d’approximations judicieusement et on prendra <span class="math notranslate nohighlight">\(\alpha = \beta = \gamma = \delta = 1\)</span>.</p></li>
+<li><p>Afficher <span class="math notranslate nohighlight">\(y\)</span> en fonction de <span class="math notranslate nohighlight">\(x\)</span> et interpréter.</p></li>
+<li><p>Afficher <span class="math notranslate nohighlight">\(y\)</span> en fonction de <span class="math notranslate nohighlight">\(t\)</span> et <span class="math notranslate nohighlight">\(x\)</span> en fonction de <span class="math notranslate nohighlight">\(t\)</span>, sur le même dessin et interpréter.</p></li>
+<li><p>Essayer de modifier les constantes <span class="math notranslate nohighlight">\(\alpha\)</span>, <span class="math notranslate nohighlight">\(\beta\)</span>…</p></li>
+</ol>
+</div>
+</section>
+</section>
+<section id="equation-du-second-ordre">
+<h2>Équation du second ordre<a class="headerlink" href="#equation-du-second-ordre" title="Permalink to this headline">#</a></h2>
+<p>Pour résoudre une équation différentielle d’ordre 2 du type <span class="math notranslate nohighlight">\(y'' = f(t, y, y')\)</span>, on peut poser <span class="math notranslate nohighlight">\(z(t) = y'(t)\)</span> pour se ramener à un système de 2 équations différentielles d’ordre 1 dont les inconnues sont <span class="math notranslate nohighlight">\(y\)</span> et <span class="math notranslate nohighlight">\(z\)</span>.</p>
+<p>Par exemple, calculons une solution approchée de l’équation du pendule linéarise :
+$<span class="math notranslate nohighlight">\(
+    \theta''(t) = -\theta(t)
+\)</span>$ (pendule)</p>
+<p>Cette équation est du second ordre, donc on ne peut pas appliquer directement la méthode d’Euler.<br />
+Par contre, si on pose <span class="math notranslate nohighlight">\(z(t) = \theta'(t)\)</span> alors, comme <span class="math notranslate nohighlight">\(z'(t) = \theta''(t) = -\theta(t)\)</span> (d’après <code class="xref eq docutils literal notranslate"><span class="pre">pendule</span></code>) on peut réécrire cette équation du second ordre comme deux équations du premier ordre :
+\begin{align*}
+\theta’(t) &amp;= z(t)\
+z’(t) &amp;= -\theta(t)
+\end{align*}</p>
+<p>On applique alors la méthode d’Euler sur chaque équation, comme dans la section précédente :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">h</span> <span class="o">=</span> <span class="mf">0.01</span>
+<span class="n">theta</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">z</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
+    <span class="n">t</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="p">)</span>
+    <span class="n">theta</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">theta</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="n">z</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+    <span class="n">z</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">z</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">-</span> <span class="n">h</span><span class="o">*</span><span class="n">theta</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">theta</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/euler_38_0.png" src="../_images/euler_38_0.png" />
+</div>
+</div>
+<div class="admonition-exercice admonition">
+<p class="admonition-title">Exercice</p>
+<p>Quelle est la courbe obtenue ?</p>
+</div>
+<div class="admonition-exercice admonition">
+<p class="admonition-title">Exercice</p>
+<p>Adapter la résolution ci-dessus pour l’équation du pendule non-linéarise <span class="math notranslate nohighlight">\(\theta''(t) = -\sin(\theta(t))\)</span>. Interpréter le dessin.</p>
+</div>
 </section>
 </section>
 
