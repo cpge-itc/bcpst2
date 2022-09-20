@@ -838,9 +838,7 @@ Les approximations <span class="math notranslate nohighlight">\(y_k\)</span> ser
 </div>
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
-<ul class="simple">
-<li><p>Résoudre de façon approchée l’équation différentielle ci-dessous, sur <span class="math notranslate nohighlight">\([-1, 4]\)</span>.</p></li>
-</ul>
+<p>Résoudre de façon approchée l’équation différentielle ci-dessous, sur <span class="math notranslate nohighlight">\([-1, 4]\)</span>, puis afficher la solution obtenue.</p>
 <div class="math notranslate nohighlight">
 \[
     y'(t) = t^3 - y(t)^3
@@ -849,7 +847,7 @@ Les approximations <span class="math notranslate nohighlight">\(y_k\)</span> ser
 \[
     y(-1) = -3
 \]</div>
-<p>On adaptera le code précédent :</p>
+<p>On pourra adapter le code précédent :</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="o">...</span><span class="p">]</span> <span class="c1"># on met initialement la condition initiale</span>
 <span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="o">...</span><span class="p">]</span> <span class="c1"># temps initial</span>
 <span class="n">h</span> <span class="o">=</span> <span class="mf">0.01</span> <span class="c1"># pas d&#39;approximation</span>
@@ -860,9 +858,7 @@ Les approximations <span class="math notranslate nohighlight">\(y_k\)</span> ser
     <span class="n">y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">*...</span><span class="p">)</span> <span class="c1"># équation de récurrence, où il faut remplacer ... par le membre droit de l&#39;équa diff</span>
 </pre></div>
 </div>
-<ul class="simple">
-<li><p>Afficher la solution obtenue. Vous devez obtenir un dessin ressemblant à :</p></li>
-</ul>
+<p>Vous devez obtenir un dessin ressemblant à :</p>
 <p><img alt="output" src="../_images/output.png" /></p>
 </div>
 </section>
