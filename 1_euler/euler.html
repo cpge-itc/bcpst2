@@ -657,6 +657,16 @@ Dans le programme, nous nous restreignons à une équation différentielle d’o
 </pre></div>
 </div>
 </div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">t</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="n">y</span><span class="o">**</span><span class="mi">3</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
 </section>
 </section>
 <section id="methode-d-euler">
@@ -741,7 +751,7 @@ Soit <span class="math notranslate nohighlight">\(h\)</span> un petit réel (par
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/euler_10_0.png" src="../_images/euler_10_0.png" />
+<img alt="../_images/euler_11_0.png" src="../_images/euler_11_0.png" />
 </div>
 </div>
 </section>
@@ -802,14 +812,34 @@ Les approximations <span class="math notranslate nohighlight">\(y_k\)</span> ser
 <p class="admonition-title">Exercice</p>
 <p>Quelle approximation de <span class="math notranslate nohighlight">\(e^1\)</span> a été trouvée ? Comparer avec la vraie valeur.</p>
 </div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">y</span><span class="p">[</span><span class="mi">100</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(2.704813829421526, 2.718281828459045)```
+</pre></div>
+</div>
+</div>
 <p>Ici, on a <span class="math notranslate nohighlight">\(n = 200\)</span> approximations. Comme <span class="math notranslate nohighlight">\(h = 0.01\)</span>, le dernier temps d’approximation est donc <span class="math notranslate nohighlight">\(0 + n\times h = 2\)</span>.</p>
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
 <p>Quel <span class="math notranslate nohighlight">\(n\)</span> choisir pour approximer la solution sur <span class="math notranslate nohighlight">\([0, 10]\)</span> ?</p>
 </div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>Le dernier temps d’approximation est <span class="math notranslate nohighlight">\(n \times h\)</span>. Il faut choisir <span class="math notranslate nohighlight">\(n\)</span> tel que <span class="math notranslate nohighlight">\(n \times h = 10\)</span>, c’est-à-dire <span class="math notranslate nohighlight">\(\boxed{n = 1000}\)</span>.</p>
+</div>
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
 <p>De manière générale, donner la valeur de <span class="math notranslate nohighlight">\(n\)</span> à choisir pour approximer une solution d’une équation différentielle sur un intervalle <span class="math notranslate nohighlight">\([a, b]\)</span> avec un pas de <span class="math notranslate nohighlight">\(h\)</span>.</p>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="math notranslate nohighlight">
+\[
+    \boxed{n = \frac{b - a}{h}}
+\]</div>
 </div>
 </section>
 <section id="affichage-des-approximations">
@@ -825,7 +855,7 @@ Les approximations <span class="math notranslate nohighlight">\(y_k\)</span> ser
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/euler_22_0.png" src="../_images/euler_22_0.png" />
+<img alt="../_images/euler_26_0.png" src="../_images/euler_26_0.png" />
 </div>
 </div>
 <div class="admonition note">
@@ -835,6 +865,27 @@ Les approximations <span class="math notranslate nohighlight">\(y_k\)</span> ser
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
 <p>Afficher la courbe d’une soluton approchée de <span class="math notranslate nohighlight">\(y'(t) = y(t)\)</span> sur l’intervalle <span class="math notranslate nohighlight">\([0, 3]\)</span> (au lieu de <span class="math notranslate nohighlight">\([0, 2]\)</span> comme dans le dessin ci-dessus).</p>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">h</span> <span class="o">=</span> <span class="mf">0.01</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">300</span> <span class="c1"># on choisit n pour que n*h = 3</span>
+
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">t</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="p">)</span>
+    <span class="n">y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="c1"># équation de récurrence</span>
+    
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Méthode d&#39;Euler&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;exp&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1500x800 with 1 Axes&gt;```
+</pre></div>
+</div>
 </div>
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
@@ -860,6 +911,25 @@ Les approximations <span class="math notranslate nohighlight">\(y_k\)</span> ser
 </div>
 <p>Vous devez obtenir un dessin ressemblant à :</p>
 <p><img alt="output" src="../_images/output.png" /></p>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">h</span> <span class="o">=</span> <span class="mf">0.01</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">500</span>
+
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">t</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="p">)</span>
+    <span class="n">y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">3</span><span class="p">))</span>
+    
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1500x800 with 1 Axes&gt;```
+</pre></div>
+</div>
 </div>
 </section>
 </section>
@@ -900,7 +970,7 @@ Les approximations <span class="math notranslate nohighlight">\(y_k\)</span> ser
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/euler_29_0.png" src="../_images/euler_29_0.png" />
+<img alt="../_images/euler_35_0.png" src="../_images/euler_35_0.png" />
 </div>
 </div>
 <div class="admonition-exercice admonition">
@@ -913,6 +983,22 @@ On pourra utiliser <code class="docutils literal notranslate"><span class="pre">
 </div>
 <p>Vous devez obtenir ce genre de dessin :<br />
 <img alt="" src="../_images/output2.png" /></p>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">t</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="n">y</span><span class="o">**</span><span class="mi">3</span>
+
+<span class="k">for</span> <span class="n">y0</span> <span class="ow">in</span> <span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">]:</span>
+    <span class="n">t</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">euler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1500x800 with 1 Axes&gt;```
+</pre></div>
+</div>
 </div>
 </section>
 <section id="systeme-d-equations-differentielles">
@@ -957,12 +1043,18 @@ $<span class="math notranslate nohighlight">\(A \stackrel{\alpha}{\longrightarro
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/euler_32_0.png" src="../_images/euler_32_0.png" />
+<img alt="../_images/euler_39_0.png" src="../_images/euler_39_0.png" />
 </div>
 </div>
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
 <p>Interpréter le dessin ci-dessus.</p>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>La concentration de A diminue puisque A se transforme en B.<br />
+B augmente initialement (résultant de la production à partir de A) mais diminue ensuite (car se transforme en C).<br />
+À la fin, il n’y a plus que du C.</p>
 </div>
 </section>
 <section id="evolution-de-population-lokta-volterra">
@@ -990,6 +1082,28 @@ $<span class="math notranslate nohighlight">\(A \stackrel{\alpha}{\longrightarro
 <li><p>Afficher <span class="math notranslate nohighlight">\(y\)</span> en fonction de <span class="math notranslate nohighlight">\(t\)</span> et <span class="math notranslate nohighlight">\(x\)</span> en fonction de <span class="math notranslate nohighlight">\(t\)</span>, sur le même dessin et interpréter.</p></li>
 <li><p>Essayer de modifier les constantes <span class="math notranslate nohighlight">\(\alpha\)</span>, <span class="math notranslate nohighlight">\(\beta\)</span>…</p></li>
 </ol>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">b</span> <span class="o">=</span> <span class="n">c</span> <span class="o">=</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">h</span> <span class="o">=</span> <span class="mf">0.01</span>
+
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2000</span><span class="p">):</span>
+    <span class="n">t</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="p">)</span>
+    <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="o">*</span><span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+    <span class="n">y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">c</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">d</span><span class="p">))</span>
+    
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1500x800 with 1 Axes&gt;```
+</pre></div>
+</div>
 </div>
 </section>
 </section>
@@ -1027,16 +1141,43 @@ Par contre, si on pose <span class="math notranslate nohighlight">\(z(t) = \thet
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/euler_37_0.png" src="../_images/euler_37_0.png" />
+<img alt="../_images/euler_46_0.png" src="../_images/euler_46_0.png" />
 </div>
 </div>
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
 <p>Quelle est la courbe obtenue ?</p>
 </div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>On sait résoudre l’équation différentielle : les solutions sont de la forme <span class="math notranslate nohighlight">\(\theta(t) = A \cos(t) + B \sin(t)\)</span>.<br />
+Comme <span class="math notranslate nohighlight">\(\theta(0)\)</span> = 0, <span class="math notranslate nohighlight">\(A = 0\)</span>.<br />
+Comme <span class="math notranslate nohighlight">\(\theta'(0)\)</span> = 1, <span class="math notranslate nohighlight">\(B = 1\)</span>.<br />
+Donc <span class="math notranslate nohighlight">\(\boxed{\theta(t) = \sin(t)}\)</span>.</p>
+</div>
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
 <p>Adapter la résolution ci-dessus pour l’équation du pendule non-linéarise <span class="math notranslate nohighlight">\(\theta''(t) = -\sin(\theta(t))\)</span>. Interpréter le dessin.</p>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">h</span> <span class="o">=</span> <span class="mf">0.005</span>
+<span class="n">theta</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">z</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000</span><span class="p">):</span>
+    <span class="n">t</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="p">)</span>
+    <span class="n">theta</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">theta</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="n">z</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+    <span class="n">z</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">z</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">-</span> <span class="n">h</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">[</span><span class="n">k</span><span class="p">]))</span> <span class="c1"># changement</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">theta</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1500x800 with 1 Axes&gt;```
+</pre></div>
+</div>
 </div>
 </section>
 </section>
