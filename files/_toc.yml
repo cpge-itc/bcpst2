@@ -12,3 +12,4 @@ parts:
   - caption: Méthodes numériques et statistiques
     chapters:
       - file: 1_euler/euler.ipynb
+      - file: 2_probabilites/simulation.ipynb
