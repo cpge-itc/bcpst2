@@ -511,7 +511,7 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="tp-2-simulation-de-variables-aleatoires">
 <h1>TP 2 : Simulation de variables aléatoires<a class="headerlink" href="#tp-2-simulation-de-variables-aleatoires" title="Permalink to this headline">#</a></h1>
-<p>Dans ce TP, nous allons expliquer comment simuler des lois de variables aléatoires.</p>
+<p>Dans ce TP, nous allons simuler des lois de variables aléatoires.</p>
 <p>Modules à importer :</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -572,7 +572,7 @@ title="Print to PDF"
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">test_bernouilli(n)</span></code> telle que <code class="docutils literal notranslate"><span class="pre">test_bernouilli(p,</span> <span class="pre">n)</span></code> génère <span class="math notranslate nohighlight">\(n\)</span> fois une loi de Bernouilli de paramètre <span class="math notranslate nohighlight">\(p\)</span> et renvoie une liste <code class="docutils literal notranslate"><span class="pre">L</span></code> telle que <code class="docutils literal notranslate"><span class="pre">L[0]</span></code> est le nombre de <span class="math notranslate nohighlight">\(0\)</span> obtenus et <code class="docutils literal notranslate"><span class="pre">L[1]</span></code> est le nombre de <span class="math notranslate nohighlight">\(1\)</span>.<br />
-Vérifier que vous obtenez autant de <span class="math notranslate nohighlight">\(O\)</span> que de <span class="math notranslate nohighlight">\(1\)</span> si <span class="math notranslate nohighlight">\(p = 0.5\)</span>, et deux fois plus de <span class="math notranslate nohighlight">\(0\)</span> que de <span class="math notranslate nohighlight">\(1\)</span> si <span class="math notranslate nohighlight">\(p = \frac{1}{3}\)</span>.</p>
+Vérifier que vous obtenez autant de <span class="math notranslate nohighlight">\(0\)</span> que de <span class="math notranslate nohighlight">\(1\)</span> si <span class="math notranslate nohighlight">\(p = 0.5\)</span>, et deux fois plus de <span class="math notranslate nohighlight">\(0\)</span> que de <span class="math notranslate nohighlight">\(1\)</span> si <span class="math notranslate nohighlight">\(p = \frac{1}{3}\)</span>.</p>
 </div>
 </section>
 <section id="loi-geometrique">
@@ -585,7 +585,7 @@ Vérifier que vous obtenez autant de <span class="math notranslate nohighlight">
 <p><strong>Remarque</strong> : une loi géométrique correspond au nombre de fois qu’il faut générer une loi de Bernouilli de paramètre <span class="math notranslate nohighlight">\(p\)</span> avant d’obtenir <span class="math notranslate nohighlight">\(1\)</span>.</p>
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
-<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">geometrique(p)</span></code> simulant une loi géométrique de paramètre <code class="docutils literal notranslate"><span class="pre">p</span></code>. On pourra compléter le code suivant :</p>
+<p>En utilisant la remarque précédente, écrire une fonction <code class="docutils literal notranslate"><span class="pre">geometrique(p)</span></code> simulant une loi géométrique de paramètre <code class="docutils literal notranslate"><span class="pre">p</span></code>. On pourra compléter le code suivant :</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">geometrique</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
     <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># nombre de loi de Bernouilli qu&#39;il a fallu générer</span>
     <span class="k">while</span> <span class="o">...</span><span class="p">:</span> <span class="c1"># tant que la loi de Bernouilli donne 0</span>
@@ -614,7 +614,7 @@ Vérifier que vous obtenez autant de <span class="math notranslate nohighlight">
 \[
     \mathbb{P}(X = k) = \binom{n}{k}p^k (1 - p)^{n - k}
 \]</div>
-<p>Définition équivalente : <span class="math notranslate nohighlight">\(X\)</span> est une somme de <span class="math notranslate nohighlight">\(n\)</span> variables de Bernouilli de paramètre <span class="math notranslate nohighlight">\(p\)</span>.</p>
+<p><strong>Définition équivalente</strong> : <span class="math notranslate nohighlight">\(X\)</span> est une somme de <span class="math notranslate nohighlight">\(n\)</span> variables de Bernouilli de paramètre <span class="math notranslate nohighlight">\(p\)</span>.</p>
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
 <p>En utilisant cette deuxième définition, écrire une fonction <code class="docutils literal notranslate"><span class="pre">binomial(n,</span> <span class="pre">p)</span></code> simulant une loi binomiale de paramètre <span class="math notranslate nohighlight">\(n\)</span>, <span class="math notranslate nohighlight">\(p\)</span>.</p>
