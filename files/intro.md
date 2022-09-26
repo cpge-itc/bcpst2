@@ -2,6 +2,9 @@
 
 <br>
 
+**Attention : changement de salle les lundi en semaine B : salle B018**  
+En semaine B, on reste en B304 le lundi
+
 > Le programme de deuxième année est constitué de séances de travaux pratiques qui poursuivent les objectifs suivants :
 >
 > - approfondir les connaissances acquises au deuxième semestre notamment sur les bases de données et sur les graphes ;
