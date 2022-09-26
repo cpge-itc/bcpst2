@@ -566,7 +566,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.38282447424022237
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8432888054435626
 </pre></div>
 </div>
 </div>
@@ -606,7 +606,7 @@ Vérifier que vous obtenez autant de <span class="math notranslate nohighlight">
 </div>
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
-<p>Tester en appelant la fonction <code class="docutils literal notranslate"><span class="pre">test_geometrique(p,</span> <span class="pre">n)</span></code> ci-dessous (on pourra prendre <span class="math notranslate nohighlight">\(n = 1000\)</span> et <span class="math notranslate nohighlight">\(p = 0.5\)</span>, par exemple), qui appelle <code class="docutils literal notranslate"><span class="pre">n</span></code> fois votre fonction <code class="docutils literal notranslate"><span class="pre">geometrique(p)</span></code> et dessine l’histogramme obtenu. Un histogramme obtenu avec la fonction <code class="docutils literal notranslate"><span class="pre">np.random.geometric</span></code> est aussi affichée à droite (les deux dessins doivent se ressembler fortement).</p>
+<p>Tester en appelant la fonction <code class="docutils literal notranslate"><span class="pre">test_geometrique(p,</span> <span class="pre">n)</span></code> ci-dessous (on pourra prendre <span class="math notranslate nohighlight">\(n = 1000\)</span> et <span class="math notranslate nohighlight">\(p = 0.5\)</span>, par exemple), qui appelle <code class="docutils literal notranslate"><span class="pre">n</span></code> fois votre fonction <code class="docutils literal notranslate"><span class="pre">geometrique(p)</span></code> et dessine l’histogramme obtenu. Un histogramme obtenu avec la fonction <code class="docutils literal notranslate"><span class="pre">np.random.geometric</span></code> est aussi affichée à droite (les deux dessins doivent se ressembler fortement, comme sur l’exemple ci-dessous).</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -614,6 +614,16 @@ Vérifier que vous obtenez autant de <span class="math notranslate nohighlight">
     <span class="n">test_hist</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">geometrique</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">geometric</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_geometrique</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/simulation_14_0.png" src="../_images/simulation_14_0.png" />
 </div>
 </div>
 </section>
@@ -631,7 +641,7 @@ Vérifier que vous obtenez autant de <span class="math notranslate nohighlight">
 </div>
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
-<p>Tester avec la fonction suivante (prendre par exemple <span class="math notranslate nohighlight">\(n = 100\)</span> et <span class="math notranslate nohighlight">\(p = 0.5\)</span>).</p>
+<p>Tester avec la fonction suivante (prendre par exemple <span class="math notranslate nohighlight">\(n = 100\)</span> et <span class="math notranslate nohighlight">\(p = 0.5\)</span>). Vous devez obtenir un dessin ressemblant à celui ci-dessous.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -639,6 +649,16 @@ Vérifier que vous obtenez autant de <span class="math notranslate nohighlight">
     <span class="n">test_hist</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="n">binomial</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">binomial</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_binomial</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/simulation_19_0.png" src="../_images/simulation_19_0.png" />
 </div>
 </div>
 </section>
@@ -657,17 +677,35 @@ Soit <span class="math notranslate nohighlight">\(S_n = X_1 + ... + X_n\)</span>
 </div>
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
-<p>Écrire une fonction  <code class="docutils literal notranslate"><span class="pre">central_limite(n,</span> <span class="pre">p)</span></code> renvoyant <span class="math notranslate nohighlight">\(\frac{S_n - n\mu}{\sigma\sqrt{n}}\)</span>.</p>
+<p>Écrire une fonction  <code class="docutils literal notranslate"><span class="pre">central_limite(n,</span> <span class="pre">p)</span></code> renvoyant <span class="math notranslate nohighlight">\(\frac{S_n - n\mu}{\sigma\sqrt{n}}\)</span>. On remplacera <span class="math notranslate nohighlight">\(\sigma\)</span> et <span class="math notranslate nohighlight">\(\mu\)</span> par les valeurs trouvées à la question précédente.</p>
 </div>
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
-<p>Tester avec la fonction ci-dessous, qui compare le résultat de <span class="math notranslate nohighlight">\(\frac{S_n - n\mu}{\sigma\sqrt{n}}\)</span> avec une loi normale.</p>
+<p>Tester avec la fonction ci-dessous, qui compare le résultat de <span class="math notranslate nohighlight">\(\frac{S_n - n\mu}{\sigma\sqrt{n}}\)</span> avec une loi normale centrée réduite. Vous devez obtenir un dessin similaire à celui ci-dessous.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_central</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_central</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+    <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="n">central_limite</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">)]</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+    <span class="n">count</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">ignored</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">bins</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">sigma</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">bins</span><span class="o">-</span><span class="n">mu</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">)),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Loi normale&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">.6</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_central</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/simulation_26_0.png" src="../_images/simulation_26_0.png" />
 </div>
 </div>
 </section>
@@ -722,6 +760,16 @@ Soit <span class="math notranslate nohighlight">\(S_n = X_1 + ... + X_n\)</span>
 </div>
 </div>
 </div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_exponentielle</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/simulation_35_0.png" src="../_images/simulation_35_0.png" />
+</div>
+</div>
 </section>
 <section id="loi-de-poisson">
 <h2>Loi de Poisson<a class="headerlink" href="#loi-de-poisson" title="Permalink to this headline">#</a></h2>
@@ -762,12 +810,22 @@ Alors <span class="math notranslate nohighlight">\(Y\)</span> suit une loi de Po
 </div>
 </div>
 </div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_poisson</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/simulation_41_0.png" src="../_images/simulation_41_0.png" />
+</div>
+</div>
 </section>
 <section id="approximation-a-partir-d-une-loi-binomiale">
 <h3>Approximation à partir d’une loi binomiale<a class="headerlink" href="#approximation-a-partir-d-une-loi-binomiale" title="Permalink to this headline">#</a></h3>
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
-<p>Montrer (sur papier, sans ordinateur) que si <span class="math notranslate nohighlight">\(np = a\)</span> alors :</p>
+<p>(Difficile) Montrer (sur papier, sans ordinateur) que si <span class="math notranslate nohighlight">\(np = a\)</span> alors :</p>
 <div class="math notranslate nohighlight">
 \[
     \lim_{n \longrightarrow \infty} \binom{n}{k} p^k (1 - p)^{n - k} = e^{-a} \frac{a^k}{k!}
