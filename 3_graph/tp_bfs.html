@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>TP 1 : Matrice d’adjacence &#8212; Informatique en 2ème année de BCPST</title>
+    <title>TP 4 : Parcours en largeur &#8212; Informatique en 2ème année de BCPST</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -51,13 +51,10 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="canonical" href="https://cpge-itc.github.io/bcpst2/3_graph/tp_matrice_adjacence.html" />
+    <link rel="canonical" href="https://cpge-itc.github.io/bcpst2/3_graph/tp_bfs.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="TP 2 : Algorithme PageRank de Google" href="tp_pagerank.html" />
-    <link rel="prev" title="TP 2 : Simulation de variables aléatoires" href="../2_probabilites/simulation.html" />
+    <link rel="prev" title="TP 3 : Parcours en profondeur" href="tp_dfs.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -149,8 +146,8 @@ const thebe_selector_output = ".output, .cell_output"
  </span>
 </p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="tp_matrice_adjacence.html">
    TP 1 : Matrice d’adjacence
   </a>
  </li>
@@ -164,8 +161,8 @@ const thebe_selector_output = ".output, .cell_output"
    TP 3 : Parcours en profondeur
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="tp_bfs.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    TP 4 : Parcours en largeur
   </a>
  </li>
@@ -224,7 +221,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/cpge-itc/bcpst2/main?urlpath=tree/files/3_graph/tp_matrice_adjacence.ipynb"
+        <a href="https://mybinder.org/v2/gh/cpge-itc/bcpst2/main?urlpath=tree/files/3_graph/tp_bfs.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -242,7 +239,7 @@ title="Launch on Binder"
       </li>
       
       <li>
-        <a href="https://notebook.basthon.fr//?from=https://raw.githubusercontent.com/cpge-itc/bcpst2/main/files/3_graph/tp_matrice_adjacence.ipynb"
+        <a href="https://notebook.basthon.fr//?from=https://raw.githubusercontent.com/cpge-itc/bcpst2/main/files/3_graph/tp_bfs.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -320,7 +317,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/cpge-itc/bcpst2/issues/new?title=Issue%20on%20page%20%2F3_graph/tp_matrice_adjacence.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/cpge-itc/bcpst2/issues/new?title=Issue%20on%20page%20%2F3_graph/tp_bfs.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -337,7 +334,7 @@ title="Open an issue"
       </li>
       
       <li>
-        <a href="https://github.com/cpge-itc/bcpst2/edit/main/files/3_graph/tp_matrice_adjacence.ipynb"
+        <a href="https://github.com/cpge-itc/bcpst2/edit/main/files/3_graph/tp_bfs.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -365,7 +362,7 @@ title="Edit this page"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/3_graph/tp_matrice_adjacence.ipynb"
+        <a href="../_sources/3_graph/tp_bfs.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -425,13 +422,28 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#representation-par-matrice-d-adjacence">
-   Représentation par matrice d’adjacence
+  <a class="reference internal nav-link" href="#file">
+   File
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#puissance-de-la-matrice-d-adjacence">
-   Puissance de la matrice d’adjacence
+  <a class="reference internal nav-link" href="#implementation-du-parcours-en-largeur">
+   Implémentation du parcours en largeur
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#calcul-de-distance">
+   Calcul de distance
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plus-court-chemin-dans-une-matrice-0-1">
+   Plus court chemin dans une matrice 0 - 1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#calcul-de-plus-court-chemin">
+   Calcul de plus court chemin
   </a>
  </li>
 </ul>
@@ -443,7 +455,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>TP 1 : Matrice d’adjacence</h1>
+                <h1>TP 4 : Parcours en largeur</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -454,13 +466,28 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#representation-par-matrice-d-adjacence">
-   Représentation par matrice d’adjacence
+  <a class="reference internal nav-link" href="#file">
+   File
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#puissance-de-la-matrice-d-adjacence">
-   Puissance de la matrice d’adjacence
+  <a class="reference internal nav-link" href="#implementation-du-parcours-en-largeur">
+   Implémentation du parcours en largeur
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#calcul-de-distance">
+   Calcul de distance
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plus-court-chemin-dans-une-matrice-0-1">
+   Plus court chemin dans une matrice 0 - 1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#calcul-de-plus-court-chemin">
+   Calcul de plus court chemin
   </a>
  </li>
 </ul>
@@ -473,86 +500,113 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="tp-1-matrice-d-adjacence">
-<h1>TP 1 : Matrice d’adjacence<a class="headerlink" href="#tp-1-matrice-d-adjacence" title="Permalink to this headline">#</a></h1>
-<p>Si nécessaire, <a class="reference external" href="https://cpge-itc.github.io/itc1/5_graph/1_definition/1_graph">revoir le cours sur les graphes</a> et notamment les notions de sommet, arête, voisin, degré, matrice d’adjacence…</p>
-<section id="representation-par-matrice-d-adjacence">
-<h2>Représentation par matrice d’adjacence<a class="headerlink" href="#representation-par-matrice-d-adjacence" title="Permalink to this headline">#</a></h2>
-<p>Dans cette partie, on utilise uniquement des graphes non orientés.</p>
-<div class="admonition-exercice admonition">
-<p class="admonition-title">Exercice</p>
-<p>Définir une fonction <code class="docutils literal notranslate"><span class="pre">make_matrix</span></code> telle que <code class="docutils literal notranslate"><span class="pre">make_matrix(n,</span> <span class="pre">p)</span></code> renvoie une matrice <span class="math notranslate nohighlight">\(n\times p\)</span> avec que des <span class="math notranslate nohighlight">\(0\)</span>. On rappelle qu’une matrice est définie par une liste de listes, où chaque sous-liste représente une ligne de la matrice.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="tp-4-parcours-en-largeur">
+<h1>TP 4 : Parcours en largeur<a class="headerlink" href="#tp-4-parcours-en-largeur" title="Permalink to this headline">#</a></h1>
+<section id="file">
+<h2>File<a class="headerlink" href="#file" title="Permalink to this headline">#</a></h2>
+<p>On rappelle l’utilisation d’une file en Python, avec la classe <code class="docutils literal notranslate"><span class="pre">deque</span></code> :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
+
+<span class="n">q</span> <span class="o">=</span> <span class="n">deque</span><span class="p">()</span> <span class="c1"># file vide</span>
+<span class="n">q</span><span class="o">.</span><span class="n">appendleft</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="c1"># ajoute 4 au début</span>
+<span class="n">q</span><span class="o">.</span><span class="n">appendleft</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">q</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span> <span class="c1"># supprime et renvoie le dernier élément (4)</span>
+<span class="n">q</span><span class="o">.</span><span class="n">appendleft</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">q</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span> <span class="c1"># supprime et renvoie le dernier élément (7)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7
+</pre></div>
+</div>
+</div>
 </div>
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
-<p>Ecrire une fonction <code class="docutils literal notranslate"><span class="pre">add_edge</span></code> telle que <code class="docutils literal notranslate"><span class="pre">add_edge(G,</span> <span class="pre">u,</span> <span class="pre">v)</span></code> ajoute l’arête entre les sommets <code class="docutils literal notranslate"><span class="pre">u</span></code> et <code class="docutils literal notranslate"><span class="pre">v</span></code> dans un graphe <code class="docutils literal notranslate"><span class="pre">G</span></code> non-orienté représenté par matrice d’adjacence.</p>
+<p>Deviner ce que renvoie la dernière instruction du code suivant, puis vérifier.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="n">deque</span><span class="p">()</span>
+<span class="n">q</span><span class="o">.</span><span class="n">appendleft</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">q</span><span class="o">.</span><span class="n">appendleft</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">q</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+<span class="n">q</span><span class="o">.</span><span class="n">appendleft</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">q</span><span class="o">.</span><span class="n">appendleft</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">q</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+<span class="n">q</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+<span class="n">q</span><span class="o">.</span><span class="n">appendleft</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">q</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+<span class="n">q</span><span class="o">.</span><span class="n">appendleft</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span>
+<span class="n">q</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+</pre></div>
 </div>
-<div class="admonition-exercice admonition">
-<p class="admonition-title">Exercice</p>
-<p>Définir dans une variable <code class="docutils literal notranslate"><span class="pre">G</span></code> la matrice d’adjacence du graphe suivant (on pourra éventuellement utiliser les fonctions précédentes) :</p>
-<center><img src=https://github.com/cpge-itc/itc1/raw/4be1ee8d9679ffae521c506ad54acb9e6099c614/files/5_graph/tp/tp2/g.png width=200></center>
-</div>
-<div class="admonition-exercice admonition">
-<p class="admonition-title">Exercice</p>
-<p>Définir une fonction <code class="docutils literal notranslate"><span class="pre">voisins</span></code> telle que <code class="docutils literal notranslate"><span class="pre">voisins(G,</span> <span class="pre">v)</span></code> renvoie la liste des voisins du sommet <code class="docutils literal notranslate"><span class="pre">v</span></code>.<br />
-Vérifier que les voisins du sommet <span class="math notranslate nohighlight">\(2\)</span> dans le graphe ci-dessus sont les sommets <span class="math notranslate nohighlight">\(1\)</span>, <span class="math notranslate nohighlight">\(4\)</span>, <span class="math notranslate nohighlight">\(5\)</span>.</p>
-</div>
-<div class="admonition-exercice admonition">
-<p class="admonition-title">Exercice</p>
-<p>En déduire une fonction <code class="docutils literal notranslate"><span class="pre">deg</span></code> telle que <code class="docutils literal notranslate"><span class="pre">deg(G,</span> <span class="pre">v)</span></code> renvoie le degré du sommet <code class="docutils literal notranslate"><span class="pre">v</span></code>.</p>
-</div>
-<div class="admonition-exercice admonition">
-<p class="admonition-title">Exercice</p>
-<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">n_aretes</span></code> pour calculer le nombre d’arêtes d’un graphe donné par matrice d’adjacence. Tester avec le graphe <code class="docutils literal notranslate"><span class="pre">G</span></code> précédent. On pourra soit réutiliser <code class="docutils literal notranslate"><span class="pre">deg</span></code>, soit deux boucles <code class="docutils literal notranslate"><span class="pre">for</span></code> pour parcourir les éléments de la matrice.</p>
 </div>
 </section>
-<section id="puissance-de-la-matrice-d-adjacence">
-<h2>Puissance de la matrice d’adjacence<a class="headerlink" href="#puissance-de-la-matrice-d-adjacence" title="Permalink to this headline">#</a></h2>
-<div class="admonition-exercice admonition">
-<p class="admonition-title">Exercice</p>
-<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">produit</span></code> telle que, si <code class="docutils literal notranslate"><span class="pre">A</span></code> et <code class="docutils literal notranslate"><span class="pre">B</span></code> sont deux matrices compatibles, <code class="docutils literal notranslate"><span class="pre">produit(A,</span> <span class="pre">B)</span></code> renvoie une matrice contenant le produit <code class="docutils literal notranslate"><span class="pre">AB</span></code> de <code class="docutils literal notranslate"><span class="pre">A</span></code> et <code class="docutils literal notranslate"><span class="pre">B</span></code>.<br />
-On rappelle que, si <span class="math notranslate nohighlight">\(A = (a_{i, k})\)</span> est de taille <span class="math notranslate nohighlight">\(n\times p\)</span> et <span class="math notranslate nohighlight">\(B = (b_{k, j})\)</span> de taille <span class="math notranslate nohighlight">\(p\times q\)</span> alors <span class="math notranslate nohighlight">\(AB\)</span> est de taille <span class="math notranslate nohighlight">\(n\times q\)</span> et :
-$<span class="math notranslate nohighlight">\(AB = (c_{i, k}), ~\text{ où } c_{i, k} = \sum_{j = 0}^{p - 1} a_{i, j} b_{j, k}\)</span><span class="math notranslate nohighlight">\(
-On pourra utiliser `make_matrix` pour créer la matrice du résultat et remplir ses éléments un par un.  
-Tester avec deux matrices \)</span>2\times 3<span class="math notranslate nohighlight">\( et \)</span>3\times 2$ de votre choix et vérifier en faisant aussi le produit à la main.</p>
+<section id="implementation-du-parcours-en-largeur">
+<h2>Implémentation du parcours en largeur<a class="headerlink" href="#implementation-du-parcours-en-largeur" title="Permalink to this headline">#</a></h2>
+<p>Voici un graphe <code class="docutils literal notranslate"><span class="pre">G_ex</span></code> représenté par liste d’adjacence que vous pourrez utiliser dans ce TP pour tester vos fonctions (vous pouvez réexecuter cette case pour générer un nouveau graphe aléatoire) :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+
+<span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;font_size&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s2">&quot;node_size&quot;</span><span class="p">:</span> <span class="mi">700</span><span class="p">,</span> <span class="s2">&quot;edgecolors&quot;</span><span class="p">:</span> <span class="s2">&quot;black&quot;</span><span class="p">}</span>
+<span class="n">G_ex</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">fast_gnp_random_graph</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mf">0.35</span><span class="p">)</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G_ex</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span> <span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/tp_bfs_6_0.png" src="../_images/tp_bfs_6_0.png" />
+</div>
 </div>
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
-<p>En déduire une fonction <code class="docutils literal notranslate"><span class="pre">puissance</span></code> telle que <code class="docutils literal notranslate"><span class="pre">puissance(A,</span> <span class="pre">k)</span></code> renvoie <span class="math notranslate nohighlight">\(A^k\)</span>. Vérifier sur un exemple.</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">bfs(G,</span> <span class="pre">s)</span></code> affichant les sommets du graphe <code class="docutils literal notranslate"><span class="pre">G</span></code> lors d’un parcours en largeur depuis le sommet <code class="docutils literal notranslate"><span class="pre">s</span></code>. Vérifier sur le graphe <code class="docutils literal notranslate"><span class="pre">G_ex</span></code> précédent.<br />
+<em>Indice</em> : Essayer de compléter le code ci-dessous. Ne regarder le cours que si vous ne voyez pas du tout comment faire.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
+
+<span class="k">def</span> <span class="nf">bfs</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+    <span class="c1"># définir une file q contenant s</span>
+    <span class="c1"># définir une liste visited contenant n False, où n est le nombre de sommets</span>
+    <span class="c1"># tant que q est non vide</span>
+        <span class="c1"># extraire le dernier élément de q dans une variable u</span>
+        <span class="c1"># si u n&#39;a pas été visité:</span>
+            <span class="c1"># afficher u</span>
+            <span class="c1"># mettre True dans visited[u]</span>
+            <span class="c1"># pour chaque voisin v de u</span>
+                <span class="c1"># ajouter v au début de q </span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="calcul-de-distance">
+<h2>Calcul de distance<a class="headerlink" href="#calcul-de-distance" title="Permalink to this headline">#</a></h2>
+<div class="admonition-exercice admonition">
+<p class="admonition-title">Exercice</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">distances(G,</span> <span class="pre">s)</span></code> qui renvoie une liste <code class="docutils literal notranslate"><span class="pre">dist</span></code> telle que <code class="docutils literal notranslate"><span class="pre">dist[v]</span></code> soit la distance (en nombre d’arêtes) du sommet <code class="docutils literal notranslate"><span class="pre">s</span></code> au sommet <code class="docutils literal notranslate"><span class="pre">v</span></code>. Vérifier sur le graphe <code class="docutils literal notranslate"><span class="pre">G_ex</span></code> précédent.<br />
+<em>Indice</em> : Définir une liste <code class="docutils literal notranslate"><span class="pre">dist</span></code> avec que des <code class="docutils literal notranslate"><span class="pre">-1</span></code> initialement. Stocker des couples (sommet, distance) dans la file <code class="docutils literal notranslate"><span class="pre">q</span></code>. À chaque fois qu’un couple <code class="docutils literal notranslate"><span class="pre">(u,</span> <span class="pre">d)</span></code> est retiré, mettre <code class="docutils literal notranslate"><span class="pre">d</span></code> dans <code class="docutils literal notranslate"><span class="pre">dist[u]</span></code> et ajouter <code class="docutils literal notranslate"><span class="pre">(v,</span> <span class="pre">d</span> <span class="pre">+</span> <span class="pre">1)</span></code> à la file <code class="docutils literal notranslate"><span class="pre">q</span></code>, pour tout voisin <code class="docutils literal notranslate"><span class="pre">v</span></code> de <code class="docutils literal notranslate"><span class="pre">u</span></code>.</p>
+</div>
+</section>
+<section id="plus-court-chemin-dans-une-matrice-0-1">
+<h2>Plus court chemin dans une matrice 0 - 1<a class="headerlink" href="#plus-court-chemin-dans-une-matrice-0-1" title="Permalink to this headline">#</a></h2>
+<p>Résoudre <a class="reference external" href="https://leetcode.com/problems/shortest-path-in-binary-matrix">ce problème sur LeetCode (site de programmation)</a>.<br />
+Vous devez vous inscrire, sélectionner “Python3” comme langage et écrire le code puis vérifier directement sur ce site.<br />
+Il faut afficher (<code class="docutils literal notranslate"><span class="pre">print(...)</span></code>) le résultat, c’est-à-dire la distance entre la case en haut à gauche et la case en bas à droite.</p>
+</section>
+<section id="calcul-de-plus-court-chemin">
+<h2>Calcul de plus court chemin<a class="headerlink" href="#calcul-de-plus-court-chemin" title="Permalink to this headline">#</a></h2>
+<div class="admonition-exercice admonition">
+<p class="admonition-title">Exercice</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">predecessors(G,</span> <span class="pre">s)</span></code> qui effectue un BFS sur <code class="docutils literal notranslate"><span class="pre">G</span></code> en partant de <code class="docutils literal notranslate"><span class="pre">s</span></code> et qui renvoie une liste <code class="docutils literal notranslate"><span class="pre">pred</span></code> telle que <code class="docutils literal notranslate"><span class="pre">pred[v]</span></code> soit le sommet prédécesseur de <code class="docutils literal notranslate"><span class="pre">v</span></code> dans le parcours en largeur.</p>
 </div>
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
-<p>Quelle est la complexité de <code class="docutils literal notranslate"><span class="pre">puissance(A,</span> <span class="pre">k)</span></code>, pour une matrice <code class="docutils literal notranslate"><span class="pre">A</span></code> de taille <span class="math notranslate nohighlight">\(n\times n\)</span> ?<br />
-M’appeler pour que je puisse vérifier.</p>
-</div>
-<div class="admonition-exercice admonition">
-<p class="admonition-title">Exercice</p>
-<p>Soit <span class="math notranslate nohighlight">\(A = (a_{i, j})\)</span> la matrice d’adjacence d’un graphe <span class="math notranslate nohighlight">\(G\)</span> (orienté ou non). Soit <span class="math notranslate nohighlight">\(A^k = A\times ... \times A\)</span>. On note <span class="math notranslate nohighlight">\(a^k_{i, j}\)</span> le coefficient ligne <span class="math notranslate nohighlight">\(i\)</span>, colonne <span class="math notranslate nohighlight">\(j\)</span> de <span class="math notranslate nohighlight">\(A^k\)</span>.<br />
-Montrer par récurrence sur <span class="math notranslate nohighlight">\(k\)</span> que <span class="math notranslate nohighlight">\(a^k_{i, j}\)</span> est égal au nombre de chemins de longueur <span class="math notranslate nohighlight">\(k\)</span> du graphe <span class="math notranslate nohighlight">\(G\)</span>.<br />
-On pourra commencer par donner une équation de récurrence sur <span class="math notranslate nohighlight">\(a^k_{i, j}\)</span>.<br />
-Merci de m’appeler pour que je vérifie votre raisonnement.</p>
-</div>
-<div class="admonition-exercice admonition">
-<p class="admonition-title">Exercice</p>
-<p>En utilisant la question précédente et la fonction <code class="docutils literal notranslate"><span class="pre">puissance</span></code>, trouver le nombre de chemins de longueur <span class="math notranslate nohighlight">\(100\)</span> du sommet <span class="math notranslate nohighlight">\(0\)</span> au sommet <span class="math notranslate nohighlight">\(2\)</span> dans le graphe suivant :</p>
-<center><img src=https://github.com/fortierq/itc1/raw/master/files/5_graph/tp/tp2/gdir.png width=230></center>
-</div>
-<div class="admonition-exercice admonition">
-<p class="admonition-title">Exercice</p>
-<p>Retrouver mathématiquement le résultat précédent, en utilisant seulement du dénombrement (pas de matrice d’adjacence).</p>
-</div>
-<div class="admonition-exercice admonition">
-<p class="admonition-title">Exercice</p>
-<p>Réécrire <code class="docutils literal notranslate"><span class="pre">puissance(A,</span> <span class="pre">k)</span></code> de façon à avoir une complexité O(<span class="math notranslate nohighlight">\(n^3\log(k)\)</span>), où <code class="docutils literal notranslate"><span class="pre">A</span></code> est de taille <span class="math notranslate nohighlight">\(n\times n\)</span>.<br />
-On pourra utiliser la technique de <a class="reference external" href="https://fortierq.github.io/itc1/files/2_tp_semestre1/4_dichotomie/#exponentiation-rapide">l’exponentiation rapide du TP dichotomie du 1er semestre</a>.</p>
-</div>
-<div class="admonition-exercice admonition">
-<p class="admonition-title">Exercice</p>
-<p>Pour ceux qui auraient fini le TP, voici d’autres questions plus théoriques/difficiles :</p>
-<ol class="simple">
-<li><p>Montrer que dans tout graphe avec au moins 2 sommets, il existe 2 sommets de même degré.</p></li>
-<li><p>Si <span class="math notranslate nohighlight">\(G = (V, E)\)</span> est un graphe on définit <span class="math notranslate nohighlight">\({}^c G = (V, {}^c{E})\)</span> (le graphe complémentaire, contenant les arêtes qui n’existent pas dans <span class="math notranslate nohighlight">\(G\)</span>). Montrer que <span class="math notranslate nohighlight">\(G\)</span> ou <span class="math notranslate nohighlight">\({}^c G\)</span> est connexe. Est-il possible que les deux soient connexes?</p></li>
-</ol>
+<p>En déduire une fonction <code class="docutils literal notranslate"><span class="pre">shortest_path(G,</span> <span class="pre">s,</span> <span class="pre">t)</span></code> qui renvoie une liste correspondant aux sommets d’un plus court chemin de <code class="docutils literal notranslate"><span class="pre">s</span></code> à <code class="docutils literal notranslate"><span class="pre">t</span></code> dans <code class="docutils literal notranslate"><span class="pre">G</span></code>.</p>
 </div>
 </section>
 </section>
@@ -584,19 +638,12 @@ On pourra utiliser la technique de <a class="reference external" href="https://f
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../2_probabilites/simulation.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="tp_dfs.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">TP 2 : Simulation de variables aléatoires</p>
+            <p class="prev-next-title">TP 3 : Parcours en profondeur</p>
         </div>
-    </a>
-    <a class='right-next' id="next-link" href="tp_pagerank.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">TP 2 : Algorithme PageRank de Google</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>
