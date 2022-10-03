@@ -429,11 +429,6 @@ title="Print to PDF"
    Représentation par matrice d’adjacence
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#puissance-de-la-matrice-d-adjacence">
-   Puissance de la matrice d’adjacence
-  </a>
- </li>
 </ul>
 
     </nav>
@@ -456,11 +451,6 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#representation-par-matrice-d-adjacence">
    Représentation par matrice d’adjacence
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#puissance-de-la-matrice-d-adjacence">
-   Puissance de la matrice d’adjacence
   </a>
  </li>
 </ul>
@@ -504,55 +494,6 @@ Vérifier que les voisins du sommet <span class="math notranslate nohighlight">\
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">n_aretes</span></code> pour calculer le nombre d’arêtes d’un graphe donné par matrice d’adjacence. Tester avec le graphe <code class="docutils literal notranslate"><span class="pre">G</span></code> précédent. On pourra soit réutiliser <code class="docutils literal notranslate"><span class="pre">deg</span></code>, soit deux boucles <code class="docutils literal notranslate"><span class="pre">for</span></code> pour parcourir les éléments de la matrice.</p>
-</div>
-</section>
-<section id="puissance-de-la-matrice-d-adjacence">
-<h2>Puissance de la matrice d’adjacence<a class="headerlink" href="#puissance-de-la-matrice-d-adjacence" title="Permalink to this headline">#</a></h2>
-<div class="admonition-exercice admonition">
-<p class="admonition-title">Exercice</p>
-<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">produit</span></code> telle que, si <code class="docutils literal notranslate"><span class="pre">A</span></code> et <code class="docutils literal notranslate"><span class="pre">B</span></code> sont deux matrices compatibles, <code class="docutils literal notranslate"><span class="pre">produit(A,</span> <span class="pre">B)</span></code> renvoie une matrice contenant le produit <code class="docutils literal notranslate"><span class="pre">AB</span></code> de <code class="docutils literal notranslate"><span class="pre">A</span></code> et <code class="docutils literal notranslate"><span class="pre">B</span></code>.<br />
-On rappelle que, si <span class="math notranslate nohighlight">\(A = (a_{i, k})\)</span> est de taille <span class="math notranslate nohighlight">\(n\times p\)</span> et <span class="math notranslate nohighlight">\(B = (b_{k, j})\)</span> de taille <span class="math notranslate nohighlight">\(p\times q\)</span> alors <span class="math notranslate nohighlight">\(AB\)</span> est de taille <span class="math notranslate nohighlight">\(n\times q\)</span> et :
-$<span class="math notranslate nohighlight">\(AB = (c_{i, k}), ~\text{ où } c_{i, k} = \sum_{j = 0}^{p - 1} a_{i, j} b_{j, k}\)</span><span class="math notranslate nohighlight">\(
-On pourra utiliser `make_matrix` pour créer la matrice du résultat et remplir ses éléments un par un.  
-Tester avec deux matrices \)</span>2\times 3<span class="math notranslate nohighlight">\( et \)</span>3\times 2$ de votre choix et vérifier en faisant aussi le produit à la main.</p>
-</div>
-<div class="admonition-exercice admonition">
-<p class="admonition-title">Exercice</p>
-<p>En déduire une fonction <code class="docutils literal notranslate"><span class="pre">puissance</span></code> telle que <code class="docutils literal notranslate"><span class="pre">puissance(A,</span> <span class="pre">k)</span></code> renvoie <span class="math notranslate nohighlight">\(A^k\)</span>. Vérifier sur un exemple.</p>
-</div>
-<div class="admonition-exercice admonition">
-<p class="admonition-title">Exercice</p>
-<p>Quelle est la complexité de <code class="docutils literal notranslate"><span class="pre">puissance(A,</span> <span class="pre">k)</span></code>, pour une matrice <code class="docutils literal notranslate"><span class="pre">A</span></code> de taille <span class="math notranslate nohighlight">\(n\times n\)</span> ?<br />
-M’appeler pour que je puisse vérifier.</p>
-</div>
-<div class="admonition-exercice admonition">
-<p class="admonition-title">Exercice</p>
-<p>Soit <span class="math notranslate nohighlight">\(A = (a_{i, j})\)</span> la matrice d’adjacence d’un graphe <span class="math notranslate nohighlight">\(G\)</span> (orienté ou non). Soit <span class="math notranslate nohighlight">\(A^k = A\times ... \times A\)</span>. On note <span class="math notranslate nohighlight">\(a^k_{i, j}\)</span> le coefficient ligne <span class="math notranslate nohighlight">\(i\)</span>, colonne <span class="math notranslate nohighlight">\(j\)</span> de <span class="math notranslate nohighlight">\(A^k\)</span>.<br />
-Montrer par récurrence sur <span class="math notranslate nohighlight">\(k\)</span> que <span class="math notranslate nohighlight">\(a^k_{i, j}\)</span> est égal au nombre de chemins de longueur <span class="math notranslate nohighlight">\(k\)</span> du graphe <span class="math notranslate nohighlight">\(G\)</span>.<br />
-On pourra commencer par donner une équation de récurrence sur <span class="math notranslate nohighlight">\(a^k_{i, j}\)</span>.<br />
-Merci de m’appeler pour que je vérifie votre raisonnement.</p>
-</div>
-<div class="admonition-exercice admonition">
-<p class="admonition-title">Exercice</p>
-<p>En utilisant la question précédente et la fonction <code class="docutils literal notranslate"><span class="pre">puissance</span></code>, trouver le nombre de chemins de longueur <span class="math notranslate nohighlight">\(100\)</span> du sommet <span class="math notranslate nohighlight">\(0\)</span> au sommet <span class="math notranslate nohighlight">\(2\)</span> dans le graphe suivant :</p>
-<center><img src=https://github.com/fortierq/itc1/raw/master/files/5_graph/tp/tp2/gdir.png width=230></center>
-</div>
-<div class="admonition-exercice admonition">
-<p class="admonition-title">Exercice</p>
-<p>Retrouver mathématiquement le résultat précédent, en utilisant seulement du dénombrement (pas de matrice d’adjacence).</p>
-</div>
-<div class="admonition-exercice admonition">
-<p class="admonition-title">Exercice</p>
-<p>Réécrire <code class="docutils literal notranslate"><span class="pre">puissance(A,</span> <span class="pre">k)</span></code> de façon à avoir une complexité O(<span class="math notranslate nohighlight">\(n^3\log(k)\)</span>), où <code class="docutils literal notranslate"><span class="pre">A</span></code> est de taille <span class="math notranslate nohighlight">\(n\times n\)</span>.<br />
-On pourra utiliser la technique de <a class="reference external" href="https://fortierq.github.io/itc1/files/2_tp_semestre1/4_dichotomie/#exponentiation-rapide">l’exponentiation rapide du TP dichotomie du 1er semestre</a>.</p>
-</div>
-<div class="admonition-exercice admonition">
-<p class="admonition-title">Exercice</p>
-<p>Pour ceux qui auraient fini le TP, voici d’autres questions plus théoriques/difficiles :</p>
-<ol class="simple">
-<li><p>Montrer que dans tout graphe avec au moins 2 sommets, il existe 2 sommets de même degré.</p></li>
-<li><p>Si <span class="math notranslate nohighlight">\(G = (V, E)\)</span> est un graphe on définit <span class="math notranslate nohighlight">\({}^c G = (V, {}^c{E})\)</span> (le graphe complémentaire, contenant les arêtes qui n’existent pas dans <span class="math notranslate nohighlight">\(G\)</span>). Montrer que <span class="math notranslate nohighlight">\(G\)</span> ou <span class="math notranslate nohighlight">\({}^c G\)</span> est connexe. Est-il possible que les deux soient connexes?</p></li>
-</ol>
 </div>
 </section>
 </section>
