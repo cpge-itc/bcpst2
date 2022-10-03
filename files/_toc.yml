@@ -14,6 +14,7 @@ parts:
       - file: 1_euler/euler.ipynb
       - file: 2_probabilites/simulation.ipynb
   - caption: Révisions sur les graphes
+    chapters:
       - file: 3_graph/tp_matrice_adjacence.ipynb
       - file: 3_graph/tp_pagerank.ipynb
       - file: 3_graph/tp_dfs.ipynb
