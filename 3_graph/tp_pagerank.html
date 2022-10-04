@@ -479,7 +479,7 @@ title="Print to PDF"
 <div><p>Pour savoir dans quel ordre afficher les résultats d’une recherche, Google utilise l’algorithme PageRank. Celui-ci consiste à faire une marche aléatoire sur le graphe du Web, dont les sommets sont les pages Internet et les arêtes sont les liens URL d’une page à une autre.</p>
 </div></blockquote>
 <center><img src=https://raw.githubusercontent.com/cpge-itc/itc1/main/files/5_graph/tp/tp3/pagerank.png width=70%></center>
-<p>Si nécessaire, <a class="reference external" href="https://cpge-itc.github.io/itc1/5_graph/1_definition/1_graph">revoir ce cours (degré, voisin…)</a> et <a class="reference external" href="https://cpge-itc.github.io/itc1/5_graph/2_representation/2_representation">ce cours (liste d’adjacence)</a> sur les graphes.</p>
+<p>Si nécessaire, <a class="reference external" href="https://cpge-itc.github.io/itc1/5_graph/1_definition/1_graph">revoir ce cours (degré, voisin…)</a> et <a class="reference external" href="https://cpge-itc.github.io/itc1/5_graph/2_representation/2_representation">ce cours (matrice d’adjacence)</a> sur les graphes.</p>
 <section id="graphes-aleatoires">
 <h2>Graphes aléatoires<a class="headerlink" href="#graphes-aleatoires" title="Permalink to this headline">#</a></h2>
 <p>Pour pouvoir tester notre algorithme, nous allons commencer par générer des graphes aléatoirement. Pour cela, on utilisera <code class="docutils literal notranslate"><span class="pre">random.random()</span></code> qui renvoie un réel choisi uniformément au hasard entre <span class="math notranslate nohighlight">\(0\)</span> et <span class="math notranslate nohighlight">\(1\)</span> :</p>
@@ -492,7 +492,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4763813568141384
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4086304440826104
 </pre></div>
 </div>
 </div>
@@ -504,7 +504,7 @@ Indice : On pourra commencer avec <code class="docutils literal notranslate"><sp
 </div>
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
-<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">random_graph(n,</span> <span class="pre">p)</span></code> qui renvoie un graphe orienté représenté par liste d’adjacence, avec <code class="docutils literal notranslate"><span class="pre">n</span></code> sommets et une probabilité <code class="docutils literal notranslate"><span class="pre">p</span></code> d’avoir une arête entre deux sommets.</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">random_graph(n,</span> <span class="pre">p)</span></code> qui renvoie un graphe orienté représenté par matrice d’adjacence, avec <code class="docutils literal notranslate"><span class="pre">n</span></code> sommets et une probabilité <code class="docutils literal notranslate"><span class="pre">p</span></code> d’avoir une arête entre deux sommets.</p>
 </div>
 <p>Pour afficher le graphe obtenu, on pourra utiliser la fonction suivante :</p>
 <div class="cell docutils container">
@@ -517,8 +517,9 @@ Indice : On pourra commencer avec <code class="docutils literal notranslate"><sp
     <span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
     <span class="n">G_</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">G</span><span class="p">)):</span>
-        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">G</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
-            <span class="n">G_</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">G</span><span class="p">[</span><span class="n">i</span><span class="p">])):</span>
+            <span class="k">if</span> <span class="n">G</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">G_</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
     <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx</span><span class="p">(</span><span class="n">G_</span><span class="p">,</span> <span class="n">font_color</span> <span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">arrowsize</span><span class="o">=</span><span class="mi">35</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -527,7 +528,7 @@ Indice : On pourra commencer avec <code class="docutils literal notranslate"><sp
 </div>
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
-<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">number_edges</span></code> pour calculer le nombre d’arêtes d’un graphe orienté représenté par liste d’adjacence.</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">number_edges</span></code> pour calculer le nombre d’arêtes d’un graphe orienté représenté par matrice d’adjacence.</p>
 </div>
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
@@ -540,7 +541,7 @@ Retrouver ce résultat mathématiquement.</p>
 <p>On considère un graphe où les sommets (numérotés à partir de <span class="math notranslate nohighlight">\(0\)</span>) représentent des pages Internet, et les arêtes représentent les liens URL d’une page à une autre. Pour classer les pages Web par ordre d’importance, l’algorithme PageRank effectue une marche aléatoire en se déplaçant à chaque fois vers un voisin pris au hasard. Plus la fréquence de passage sur un sommet est haute, plus la page Web correspondante se retrouvera en haut des résultats de recherche Google.</p>
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
-<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">step(G,</span> <span class="pre">u)</span></code> renvoyant un voisin de <code class="docutils literal notranslate"><span class="pre">u</span></code> choisi aléatoirement dans le graphe <code class="docutils literal notranslate"><span class="pre">G</span></code> représenté par liste d’adjacence. On pourra utiliser <code class="docutils literal notranslate"><span class="pre">random.randrange(n)</span></code> qui renvoie un entier aléatoirement entre <span class="math notranslate nohighlight">\(0\)</span> et <span class="math notranslate nohighlight">\(n - 1\)</span>.<br />
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">step(G,</span> <span class="pre">u)</span></code> renvoyant un voisin de <code class="docutils literal notranslate"><span class="pre">u</span></code> choisi aléatoirement dans le graphe <code class="docutils literal notranslate"><span class="pre">G</span></code> représenté par matrice d’adjacence. On pourra utiliser <code class="docutils literal notranslate"><span class="pre">random.randrange(n)</span></code> qui renvoie un entier aléatoirement entre <span class="math notranslate nohighlight">\(0\)</span> et <span class="math notranslate nohighlight">\(n - 1\)</span>.<br />
 <strong>Remarque</strong> : Pour tester <code class="docutils literal notranslate"><span class="pre">step</span></code>, il faut que <code class="docutils literal notranslate"><span class="pre">u</span></code> possède au moins un voisin… Essayer donc avec un <code class="docutils literal notranslate"><span class="pre">random_graph(n,</span> <span class="pre">p)</span></code> avec <code class="docutils literal notranslate"><span class="pre">p</span></code> au moins égal à <span class="math notranslate nohighlight">\(0.3\)</span>, ou essayez plusieurs fois.</p>
 </div>
 <div class="admonition-exercice admonition">
