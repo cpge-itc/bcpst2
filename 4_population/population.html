@@ -730,12 +730,6 @@ année survivront jusqu’à la troisième année.</p>
 <p class="admonition-title">Exercice</p>
 <p>(Sans programmation) Exprimer <span class="math notranslate nohighlight">\(a_{n+1}\)</span>, <span class="math notranslate nohighlight">\(b_{n+1}\)</span>, <span class="math notranslate nohighlight">\(c_{n+1}\)</span> en fonction de <span class="math notranslate nohighlight">\(a_{n}\)</span>, <span class="math notranslate nohighlight">\(b_{n}\)</span>, <span class="math notranslate nohighlight">\(c_{n}\)</span>.</p>
 </div>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{align*}
-    a_{n + 1}&amp; = 6b_{n} + 10c_n\\
-    b_{n + 1}&amp; = 0.5a_n\\
-    c_{n + 1}&amp; = 0.4b_n
-\end{align*}\]</div>
 <p>On définit maintenant le vecteur <span class="math notranslate nohighlight">\(X_n = \begin{pmatrix}
 a_n\\
 b_n\\
@@ -749,11 +743,6 @@ c_n
 <p class="admonition-title">Exercice</p>
 <p>Définir (sur papier puis en Python) une matrice <span class="math notranslate nohighlight">\(A\)</span> telle que <span class="math notranslate nohighlight">\(X_{n + 1} = AX_n\)</span>.</p>
 </div>
-<p>$$A = \begin{pmatrix}
-0 &amp; 6 &amp; 10\
-0.5 &amp; 0 &amp; 0\
-0 &amp; 0.4 &amp; 0
-\end{pmatrix}</p>
 <p><span class="math notranslate nohighlight">\(A\)</span> est appelée une <strong>matrice de Leslie</strong>.<br />
 On remarque que, par récurrence évidente : <span class="math notranslate nohighlight">\(X_n = A^n X_0\)</span>.</p>
 <div class="admonition-exercice admonition">
