@@ -9,7 +9,7 @@ parts:
     chapters:
       - file: 0_python/aide_memoire.md
       - file: 0_python/programmer.md
-  - caption: Révisions sur les graphes
+  - caption: "TP 3 : Révisions sur les graphes"
     chapters:
       - file: 3_graph/tp_matrice_adjacence.ipynb
       - file: 3_graph/tp_pagerank.ipynb
