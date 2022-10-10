@@ -781,6 +781,38 @@ On remarque que, par récurrence évidente : <span class="math notranslate nohig
 </div>
 </div>
 </div>
+<div class="admonition-exercice admonition">
+<p class="admonition-title">Exercice</p>
+<p>Utiliser la fonction suivante pour afficher le taux d’accroissement, c’est-à-dire <span class="math notranslate nohighlight">\(\frac{a_{n+1}}{a_n}\)</span>, par exemple. On pourra appeler <code class="docutils literal notranslate"><span class="pre">plot_accroissement(20)</span></code>, par exemple.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="k">def</span> <span class="nf">plot_accroissement</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+    <span class="n">x_</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">population</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">y</span><span class="p">))</span>
+    <span class="n">X_</span> <span class="o">=</span> <span class="p">[[]]</span><span class="o">*</span><span class="mi">3</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+        <span class="n">X_</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">if</span> <span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">x_</span><span class="p">]</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_</span><span class="p">,</span> <span class="n">X_</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$\frac{a_{n+1}}</span><span class="si">{a_n}</span><span class="s2">$&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_</span><span class="p">,</span> <span class="n">X_</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$\frac{b_{n+1}}</span><span class="si">{b_n}</span><span class="s2">$&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_</span><span class="p">,</span> <span class="n">X_</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$\frac{c_{n+1}}</span><span class="si">{c_n}</span><span class="s2">$&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-exercice admonition">
+<p class="admonition-title">Exercice</p>
+<p>D’après le théorème de <a class="reference external" href="https://fr.wikipedia.org/wiki/Th%C3%A9or%C3%A8me_de_Perron-Frobenius">Perron-Frobenius</a>, le taux d’accroissement est censé tendre, quand <span class="math notranslate nohighlight">\(n \longrightarrow \infty\)</span>, vers la plus grande valeur propre de <span class="math notranslate nohighlight">\(A\)</span>.</p>
+<ol class="simple">
+<li><p>Calculer les valeurs propres de <span class="math notranslate nohighlight">\(A\)</span> (si vous avez déjà vu la définition de valeur propre en mathématiques…).</p></li>
+<li><p>Vérifier avec <code class="docutils literal notranslate"><span class="pre">np.linalg.eig(A)</span></code>, qui renvoie deux tableaux, le premier contenant les valeurs propres et le deuxième les vecteurs propres.</p></li>
+</ol>
+</div>
 </section>
 </section>
 
