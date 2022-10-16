@@ -634,7 +634,7 @@ title="Print to PDF"
 <blockquote>
 <div><p>En <em>machine learning</em> (apprentissage automatique), le problème de <strong>classification</strong> consiste à associer à chaque donnée (du texte, une image…) une catégorie. Par exemple : reconnaître un objet sur une image (voiture, chaise…) ou le sentiment d’une phrase (joyeux, triste…).</p>
 </div></blockquote>
-<p>Dans ce TP, nous allons reconnaître des variétés de fleurs. Veuillez exécuter le code suivant pour charger les données :</p>
+<p>Dans ce TP, nous allons reconnaître des variétés d’iris (des fleurs). Veuillez exécuter le code suivant pour charger les données :</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
@@ -646,7 +646,7 @@ title="Print to PDF"
 </div>
 <center><img src=https://raw.githubusercontent.com/cpge-itc/bcpst2/main/files/5_iris/iris.png width=50%></center><p>Chaque spécimen d’iris contient les informations suivantes :</p>
 <ul class="simple">
-<li><p>Espèce : setosa, versicolor ou virginica</p></li>
+<li><p>Variété, qui sera donné par un entier dans la suite : setosa (0), versicolor (1) ou virginica (2)</p></li>
 <li><p>Longueur et largeur de la sépale</p></li>
 <li><p>Longueur et largeur de la pétale</p></li>
 </ul>
@@ -660,7 +660,7 @@ title="Print to PDF"
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
     <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">data</span><span class="p">[:,</span> <span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="p">],</span> <span class="n">iris</span><span class="o">.</span><span class="n">data</span><span class="p">[:,</span> <span class="mi">2</span><span class="o">*</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">iris</span><span class="o">.</span><span class="n">target</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">)</span>
     <span class="n">handles</span> <span class="o">=</span> <span class="p">[</span><span class="n">plt</span><span class="o">.</span><span class="n">Line2D</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">cmap</span><span class="p">(</span><span class="n">norm</span><span class="p">(</span><span class="n">i</span><span class="p">)),</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">target_names</span><span class="p">)]</span>
-    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="n">handles</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Species&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="n">handles</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Variété&#39;</span><span class="p">)</span>
     <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">feature_names</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="p">])</span>
     <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">feature_names</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -674,17 +674,15 @@ title="Print to PDF"
 <section id="statistiques">
 <h2>Statistiques<a class="headerlink" href="#statistiques" title="Permalink to this headline">#</a></h2>
 <p>Nous allons d’abord nous intéresser à quelques propriétés statistiques sur les iris.</p>
-<p>Pour obtenir une iris au hasard d’une variété, on utilisera la fonction <code class="docutils literal notranslate"><span class="pre">iris_aleatoire(variety)</span></code>, qui renvoie un tableau contenant la longueur de sépale, la largeur de sépale, la longueur de pétale et la largeur de pétale :</p>
+<p>Pour obtenir une iris au hasard d’une variété, on utilisera la fonction <code class="docutils literal notranslate"><span class="pre">random_iris(variety)</span></code>, qui renvoie un tableau contenant la longueur de sépale, la largeur de sépale, la longueur de pétale et la largeur de pétale :</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
 
-<span class="k">def</span> <span class="nf">iris_aleatoire</span><span class="p">(</span><span class="n">variety</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">variety</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">iris</span><span class="o">.</span><span class="n">target_names</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;La variété de l&#39;iris doit être parmi </span><span class="si">{</span><span class="n">iris</span><span class="o">.</span><span class="n">target_names</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">random_iris</span><span class="p">(</span><span class="n">variety</span><span class="p">):</span>
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
         <span class="n">i</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">data</span><span class="p">))</span>
-        <span class="k">if</span> <span class="n">iris</span><span class="o">.</span><span class="n">target_names</span><span class="p">[</span><span class="n">iris</span><span class="o">.</span><span class="n">target</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">==</span> <span class="n">variety</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">iris</span><span class="o">.</span><span class="n">target</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">variety</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">iris</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -692,7 +690,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iris_aleatoire</span><span class="p">(</span><span class="s2">&quot;setosa&quot;</span><span class="p">)</span> <span class="c1"># exemple d&#39;utilisation</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">random_iris</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># iris aléatoire de variété 0 (setosa)</span>
 <span class="c1"># le 1er élément du tableau renvoyé est la longueur de sépale</span>
 <span class="c1"># le 2ème élément est la largeur de sépale</span>
 <span class="c1"># le 2ème élément est la longueur de pétale</span>
@@ -701,7 +699,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([5.1, 3.5, 1.4, 0.2])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4.9, 3.6, 1.4, 0.1])
 </pre></div>
 </div>
 </div>
@@ -733,19 +731,19 @@ title="Print to PDF"
 <h3>Échantillon<a class="headerlink" href="#echantillon" title="Permalink to this headline">#</a></h3>
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
-<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">echantillon(variety,</span> <span class="pre">n)</span></code> renvoyant une liste composée de <code class="docutils literal notranslate"><span class="pre">n</span></code> tableaux obtenus par des appels à <code class="docutils literal notranslate"><span class="pre">iris_aleatoire(variety)</span></code>.</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">echantillon(variety,</span> <span class="pre">n)</span></code> renvoyant une liste composée de <code class="docutils literal notranslate"><span class="pre">n</span></code> tableaux obtenus par des appels à <code class="docutils literal notranslate"><span class="pre">random_iris(variety)</span></code>.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">echantillon</span><span class="p">(</span><span class="s2">&quot;setosa&quot;</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">echantillon</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[array([5.1, 3.5, 1.4, 0.2]),
- array([4.6, 3.2, 1.4, 0.2]),
- array([5. , 3.4, 1.6, 0.4]),
- array([5.2, 3.5, 1.5, 0.2])]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[array([4.9, 3.1, 1.5, 0.1]),
+ array([4.8, 3.1, 1.6, 0.2]),
+ array([4.8, 3.1, 1.6, 0.2]),
+ array([5.1, 3.8, 1.6, 0.2])]
 </pre></div>
 </div>
 </div>
@@ -762,19 +760,53 @@ title="Print to PDF"
 <p class="admonition-title">Exercice</p>
 <ol class="simple">
 <li><p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">moyenne(L)</span></code> renvoyant la moyenne des éléments de d’une liste de nombres <code class="docutils literal notranslate"><span class="pre">L</span></code>.</p></li>
-<li><p>Du fait qu’on puisse sommer des tableaux numpy, <code class="docutils literal notranslate"><span class="pre">moyenne(L)</span></code> fonctionne aussi si <code class="docutils literal notranslate"><span class="pre">L</span></code> est une liste de tableaux. Vérifier avec <code class="docutils literal notranslate"><span class="pre">moyenne(echantillon(&quot;setosa&quot;,</span> <span class="pre">1000))</span></code>, par exemple.</p></li>
+<li><p>Du fait qu’on puisse sommer des tableaux numpy, <code class="docutils literal notranslate"><span class="pre">moyenne(L)</span></code> fonctionne aussi si <code class="docutils literal notranslate"><span class="pre">L</span></code> est une liste de tableaux. Vérifier avec <code class="docutils literal notranslate"><span class="pre">moyenne(echantillon(0,</span> <span class="pre">1000))</span></code>, par exemple.</p></li>
 </ol>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">moyenne</span><span class="p">(</span><span class="n">echantillon</span><span class="p">(</span><span class="s2">&quot;setosa&quot;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">moyenne</span><span class="p">(</span><span class="n">echantillon</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([5.0078, 3.4409, 1.4754, 0.2486])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4.9954, 3.4135, 1.4516, 0.2431])
 </pre></div>
 </div>
+</div>
+</div>
+<div class="admonition-exercice admonition">
+<p class="admonition-title">Exercice</p>
+<p>Tester graphiquement avec la fonction suivante, qui affiche les moyennes de chaque variété avec un gros point.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_moyenne</span><span class="p">():</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="p">[</span><span class="n">moyenne</span><span class="p">(</span><span class="n">echantillon</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="mi">1000</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
+    <span class="n">cmap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
+    <span class="n">norm</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">Normalize</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">iris</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+        <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">data</span><span class="p">[:,</span> <span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="p">],</span> <span class="n">iris</span><span class="o">.</span><span class="n">data</span><span class="p">[:,</span> <span class="mi">2</span><span class="o">*</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">iris</span><span class="o">.</span><span class="n">target</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">)</span>
+        <span class="n">handles</span> <span class="o">=</span> <span class="p">[</span><span class="n">plt</span><span class="o">.</span><span class="n">Line2D</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">cmap</span><span class="p">(</span><span class="n">norm</span><span class="p">(</span><span class="n">i</span><span class="p">)),</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">target_names</span><span class="p">)]</span>
+        <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="n">handles</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Variété&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">feature_names</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">feature_names</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+            <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="p">],</span> <span class="n">m</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_moyenne</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/iris_19_0.png" src="../_images/iris_19_0.png" />
 </div>
 </div>
 </section>
@@ -796,12 +828,12 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">variance</span><span class="p">(</span><span class="n">echantillon</span><span class="p">(</span><span class="s2">&quot;setosa&quot;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">variance</span><span class="p">(</span><span class="n">echantillon</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.12025824, 0.142916  , 0.02934736, 0.01095399])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.11869936, 0.13802176, 0.03323199, 0.01151639])
 </pre></div>
 </div>
 </div>
@@ -816,12 +848,12 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">variance_sans_biais</span><span class="p">(</span><span class="n">echantillon</span><span class="p">(</span><span class="s2">&quot;setosa&quot;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">variance_sans_biais</span><span class="p">(</span><span class="n">echantillon</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.1243315 , 0.13379771, 0.03129683, 0.01222073])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.11630358, 0.12793744, 0.03111509, 0.01035738])
 </pre></div>
 </div>
 </div>
@@ -958,7 +990,7 @@ Soient <span class="math notranslate nohighlight">\(x = (x_0, x_1, x_2, x_3)\)</
     <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
         <span class="n">ax</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_train</span><span class="p">[:,</span> <span class="mi">2</span><span class="o">*</span><span class="n">j</span><span class="p">],</span> <span class="n">X_train</span><span class="p">[:,</span> <span class="mi">2</span><span class="o">*</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">y_train</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">)</span>
         <span class="n">handles</span> <span class="o">=</span> <span class="p">[</span><span class="n">plt</span><span class="o">.</span><span class="n">Line2D</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">cmap</span><span class="p">(</span><span class="n">norm</span><span class="p">(</span><span class="n">i</span><span class="p">)),</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">target_names</span><span class="p">)]</span>
-        <span class="n">ax</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="n">handles</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Species&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="n">handles</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Variété&#39;</span><span class="p">)</span>
         <span class="n">ax</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">feature_names</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">j</span><span class="p">])</span>
         <span class="n">ax</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">feature_names</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
         <span class="n">ax</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">j</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">predict</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">)</span>
@@ -974,7 +1006,7 @@ Soient <span class="math notranslate nohighlight">\(x = (x_0, x_1, x_2, x_3)\)</
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/iris_43_0.png" src="../_images/iris_43_0.png" />
+<img alt="../_images/iris_47_0.png" src="../_images/iris_47_0.png" />
 </div>
 </div>
 </section>
@@ -1101,7 +1133,7 @@ La variété assignée à <code class="docutils literal notranslate"><span class
     <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
         <span class="n">ax</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_train</span><span class="p">[:,</span> <span class="mi">2</span><span class="o">*</span><span class="n">j</span><span class="p">],</span> <span class="n">X_train</span><span class="p">[:,</span> <span class="mi">2</span><span class="o">*</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">y_train</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">)</span>
         <span class="n">handles</span> <span class="o">=</span> <span class="p">[</span><span class="n">plt</span><span class="o">.</span><span class="n">Line2D</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">cmap</span><span class="p">(</span><span class="n">norm</span><span class="p">(</span><span class="n">i</span><span class="p">)),</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">target_names</span><span class="p">)]</span>
-        <span class="n">ax</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="n">handles</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Species&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="n">handles</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Variété&#39;</span><span class="p">)</span>
         <span class="n">ax</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">feature_names</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">j</span><span class="p">])</span>
         <span class="n">ax</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">feature_names</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
         <span class="n">ax</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">j</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">k_predict</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">k</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">)</span>
@@ -1118,24 +1150,12 @@ La variété assignée à <code class="docutils literal notranslate"><span class
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/iris_61_0.png" src="../_images/iris_61_0.png" />
+<img alt="../_images/iris_65_0.png" src="../_images/iris_65_0.png" />
 </div>
 </div>
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">kprecision(k)</span></code> renvoyant la précision de l’algorithme des <span class="math notranslate nohighlight">\(k\)</span> plus proches voisins, pour les données de <code class="docutils literal notranslate"><span class="pre">X_test</span></code>. Qu’observe t-on pour un <span class="math notranslate nohighlight">\(k\)</span> trop grand (par exemple 50) ?</p>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kprecision</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.52
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 </section>
