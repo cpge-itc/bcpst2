@@ -20,3 +20,6 @@ parts:
       - file: 1_euler/euler.ipynb
       - file: 2_probabilites/simulation.ipynb
       - file: 4_population/population.ipynb
+  - caption: Machine learning
+    chapters:
+      - file: 5_iris/iris.ipynb
