@@ -814,7 +814,7 @@ title="Print to PDF"
 <h3>Écart-type<a class="headerlink" href="#ecart-type" title="Permalink to this headline">#</a></h3>
 <section id="estimateur-biaise">
 <h4>Estimateur biaisé<a class="headerlink" href="#estimateur-biaise" title="Permalink to this headline">#</a></h4>
-<p>Pour estimer la variance de <span class="math notranslate nohighlight">\(X\)</span>à partir d’un échantillon <span class="math notranslate nohighlight">\(x_1\)</span>, …, <span class="math notranslate nohighlight">\(x_n\)</span>, on peut utiliser :</p>
+<p>Pour estimer la variance de <span class="math notranslate nohighlight">\(X\)</span> à partir d’un échantillon <span class="math notranslate nohighlight">\(x_1\)</span>, …, <span class="math notranslate nohighlight">\(x_n\)</span>, on peut utiliser :</p>
 <div class="math notranslate nohighlight">
 \[
     \sum_{i=1}^n \frac{(x_i - \bar{x})^2}{n}
@@ -863,7 +863,7 @@ title="Print to PDF"
 </section>
 <section id="classification">
 <h2>Classification<a class="headerlink" href="#classification" title="Permalink to this headline">#</a></h2>
-<p>Un algorithme de classification demande de séparer les données que l’on souhaite en deux ensembles : les <strong>données d’entraînement</strong> que l’on utilise pour améliorer le modèle et les <strong>données de test</strong> pour juger des performances du modèle.</p>
+<p>Un algorithme de classification demande de séparer les données que l’on souhaite en deux ensembles : les <strong>données d’entraînement</strong> (<code class="docutils literal notranslate"><span class="pre">X_train</span></code> dans la suite) que l’on utilise pour améliorer le modèle et les <strong>données de test</strong> (<code class="docutils literal notranslate"><span class="pre">X_test</span></code>) pour juger des performances du modèle.</p>
 <section id="separation-donnees-d-entrainement-test">
 <h3>Séparation données d’entraînement / test<a class="headerlink" href="#separation-donnees-d-entrainement-test" title="Permalink to this headline">#</a></h3>
 <p>Le code suivant permet de séparer l’ensemble des iris du jeu de données en deux :</p>
@@ -876,8 +876,8 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">X_train</span></code> contient les caractéristiques de chaque fleur des données d’entraînement. <code class="docutils literal notranslate"><span class="pre">y_train</span></code> contient le numéro de chacune de ces fleurs (0 = setosa, 1 = versicolor, 2 = virginica).</p>
-<p>Voici par exemple les caractéristiques (longueur, largeur de sépale et de pétale) de la 1ère fleur des données d’entraînement :</p>
+<p><code class="docutils literal notranslate"><span class="pre">X_train</span></code> contient les caractéristiques de chaque fleur des données d’entraînement. <code class="docutils literal notranslate"><span class="pre">y_train</span></code> contient le numéro de chacune de ces fleurs (0 = setosa, 1 = versicolor, 2 = virginica). De même pour <code class="docutils literal notranslate"><span class="pre">X_test</span></code> et <code class="docutils literal notranslate"><span class="pre">y_test</span></code>.</p>
+<p>Voici par exemple les caractéristiques (longueur, largeur de sépale et de pétale) de la première fleur des données d’entraînement :</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
