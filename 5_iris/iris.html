@@ -733,6 +733,19 @@ title="Print to PDF"
 <p class="admonition-title">Exercice</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">echantillon(variety,</span> <span class="pre">n)</span></code> renvoyant une liste composée de <code class="docutils literal notranslate"><span class="pre">n</span></code> tableaux obtenus par des appels à <code class="docutils literal notranslate"><span class="pre">random_iris(variety)</span></code>.</p>
 </div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">echantillon</span><span class="p">(</span><span class="n">variety</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">L</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">random_iris</span><span class="p">(</span><span class="n">variety</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">L</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">echantillon</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
@@ -762,6 +775,19 @@ title="Print to PDF"
 <li><p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">moyenne(L)</span></code> renvoyant la moyenne des éléments de d’une liste de nombres <code class="docutils literal notranslate"><span class="pre">L</span></code>.</p></li>
 <li><p>Du fait qu’on puisse sommer des tableaux numpy, <code class="docutils literal notranslate"><span class="pre">moyenne(L)</span></code> fonctionne aussi si <code class="docutils literal notranslate"><span class="pre">L</span></code> est une liste de tableaux. Vérifier avec <code class="docutils literal notranslate"><span class="pre">moyenne(echantillon(0,</span> <span class="pre">1000))</span></code>, par exemple.</p></li>
 </ol>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">moyenne</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">L</span><span class="p">:</span>
+        <span class="n">m</span> <span class="o">+=</span> <span class="n">e</span>
+    <span class="k">return</span> <span class="n">m</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -806,7 +832,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/iris_19_0.png" src="../_images/iris_19_0.png" />
+<img alt="../_images/iris_21_0.png" src="../_images/iris_21_0.png" />
 </div>
 </div>
 </section>
@@ -825,6 +851,20 @@ title="Print to PDF"
 <li><p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">variance(L)</span></code> renvoyant la variance des éléments d’une liste de nombres <code class="docutils literal notranslate"><span class="pre">L</span></code>.</p></li>
 <li><p>Tester avec un échantillon d’iris, comme pour l’exercice précédent.</p></li>
 </ol>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">variance</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">moyenne</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">L</span><span class="p">:</span>
+        <span class="n">v</span> <span class="o">+=</span> <span class="p">(</span><span class="n">e</span> <span class="o">-</span> <span class="n">m</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">v</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -845,6 +885,16 @@ title="Print to PDF"
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">variance_sans_biais(L)</span></code> renvoyant l’estimation sans biais ci-dessus.</p>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">variance_sans_biais</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">variance</span><span class="p">(</span><span class="n">L</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -916,6 +966,16 @@ Soient <span class="math notranslate nohighlight">\(x = (x_0, x_1, x_2, x_3)\)</
 <p class="admonition-title">Exercice</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">d</span></code> implémentant cette distance (où <code class="docutils literal notranslate"><span class="pre">x</span></code> et <code class="docutils literal notranslate"><span class="pre">y</span></code> sont des listes).</p>
 </div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">d</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">((</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">-</span> <span class="n">y</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span><span class="p">([</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">4.3</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">],</span> <span class="p">[</span><span class="mf">4.1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">3.3</span><span class="p">,</span> <span class="mf">1.42</span><span class="p">])</span>
@@ -934,6 +994,20 @@ Soient <span class="math notranslate nohighlight">\(x = (x_0, x_1, x_2, x_3)\)</
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">nearest(x)</span></code> renvoyant un indice <code class="docutils literal notranslate"><span class="pre">j</span></code> tel que <code class="docutils literal notranslate"><span class="pre">X_train[j]</span></code> soit à distance minimum de <code class="docutils literal notranslate"><span class="pre">x</span></code>.<br />
 Il faut donc trouver l’indice <code class="docutils literal notranslate"><span class="pre">j</span></code> tel que <code class="docutils literal notranslate"><span class="pre">d(x,</span> <span class="pre">X_train[j])</span></code> soit le minimum possible (en parcourant chaque élément de <code class="docutils literal notranslate"><span class="pre">X_train</span></code> dans un <code class="docutils literal notranslate"><span class="pre">for</span></code>).</p>
 </div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">nearest</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X_train</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">d</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">X_train</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">&lt;</span> <span class="n">d</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">X_train</span><span class="p">[</span><span class="n">j</span><span class="p">]):</span>
+            <span class="n">j</span> <span class="o">=</span> <span class="n">i</span>
+    <span class="k">return</span> <span class="n">j</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nearest</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
@@ -949,6 +1023,16 @@ Il faut donc trouver l’indice <code class="docutils literal notranslate"><span
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
 <p>En déduire une fonction <code class="docutils literal notranslate"><span class="pre">predict(x)</span></code> renvoyant la variété prédite pour la fleur de caractéristiques <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">y_train</span><span class="p">[</span><span class="n">nearest</span><span class="p">(</span><span class="n">x</span><span class="p">)]</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -991,7 +1075,7 @@ Il faut donc trouver l’indice <code class="docutils literal notranslate"><span
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/iris_45_0.png" src="../_images/iris_45_0.png" />
+<img alt="../_images/iris_52_0.png" src="../_images/iris_52_0.png" />
 </div>
 </div>
 </section>
@@ -1001,6 +1085,20 @@ Il faut donc trouver l’indice <code class="docutils literal notranslate"><span
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">precision()</span></code> calculant la précision de <code class="docutils literal notranslate"><span class="pre">predict</span></code>. Il faut donc renvoyer le pourcentage de fois que <code class="docutils literal notranslate"><span class="pre">predict(X_test[i])</span></code> est égal à <code class="docutils literal notranslate"><span class="pre">y_test[i]</span></code></p>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">precision</span><span class="p">():</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X_test</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">==</span> <span class="n">y_test</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+            <span class="n">p</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">p</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1019,6 +1117,19 @@ Par exemple, si <code class="docutils literal notranslate"><span class="pre">pre
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">confusion()</span></code> renvoyant la matrice de confusion obtenue à partir des prédictions sur les données de <code class="docutils literal notranslate"><span class="pre">X_test</span></code>.</p>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">confusion</span><span class="p">():</span>
+    <span class="n">M</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X_test</span><span class="p">)):</span>
+        <span class="n">M</span><span class="p">[</span><span class="n">y_train</span><span class="p">[</span><span class="n">nearest</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="n">i</span><span class="p">])]][</span><span class="n">y_test</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">M</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1043,6 +1154,20 @@ La variété assignée à <code class="docutils literal notranslate"><span class
 <p class="admonition-title">Exercice</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">occurence(L,</span> <span class="pre">e)</span></code> renvoyant le nombre de fois que <code class="docutils literal notranslate"><span class="pre">e</span></code> apparait dans <code class="docutils literal notranslate"><span class="pre">L</span></code>.</p>
 </div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">occurence</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">e</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">e_</span> <span class="ow">in</span> <span class="n">L</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">e_</span> <span class="o">==</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">n</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">occurence</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
@@ -1058,6 +1183,23 @@ La variété assignée à <code class="docutils literal notranslate"><span class
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">maj(L)</span></code> renvoyant l’élément majoritaire parmis une liste de nombres <code class="docutils literal notranslate"><span class="pre">L</span></code>.</p>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">maj</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
+    <span class="n">e</span> <span class="o">=</span> <span class="n">L</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">occurence</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">L</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">L</span><span class="p">)):</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">occurence</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">p</span> <span class="o">&gt;</span> <span class="n">n</span><span class="p">:</span>
+            <span class="n">e</span> <span class="o">=</span> <span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="n">p</span>
+    <span class="k">return</span> <span class="n">e</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1075,6 +1217,26 @@ La variété assignée à <code class="docutils literal notranslate"><span class
 <p class="admonition-title">Exercice</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">k_nearest(x,</span> <span class="pre">k)</span></code> renvoyant une listes des indices des <code class="docutils literal notranslate"><span class="pre">k</span></code> éléments les plus proches de <code class="docutils literal notranslate"><span class="pre">x</span></code> dans <code class="docutils literal notranslate"><span class="pre">X_train</span></code>.</p>
 </div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">k_nearest</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+    <span class="n">neighbors</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">dj</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;inf&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X_train</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">neighbors</span><span class="p">:</span>
+                <span class="n">di</span> <span class="o">=</span> <span class="n">d</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">X_train</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="k">if</span> <span class="n">di</span> <span class="o">&lt;</span> <span class="n">dj</span><span class="p">:</span>
+                    <span class="n">j</span><span class="p">,</span> <span class="n">dj</span> <span class="o">=</span> <span class="n">i</span><span class="p">,</span> <span class="n">di</span>
+        <span class="n">neighbors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">neighbors</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k_nearest</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">4</span><span class="p">)</span>
@@ -1090,6 +1252,19 @@ La variété assignée à <code class="docutils literal notranslate"><span class
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">k_predict(x,</span> <span class="pre">k)</span></code> renvoyant la variété prédise pour <code class="docutils literal notranslate"><span class="pre">x</span></code> en utilisant l’algorithme des <code class="docutils literal notranslate"><span class="pre">k</span></code> plus proches voisins.</p>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">k_predict</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="n">k_nearest</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">L</span><span class="p">)):</span>
+        <span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_train</span><span class="p">[</span><span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+    <span class="k">return</span> <span class="n">maj</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1135,12 +1310,36 @@ La variété assignée à <code class="docutils literal notranslate"><span class
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/iris_63_0.png" src="../_images/iris_63_0.png" />
+<img alt="../_images/iris_76_0.png" src="../_images/iris_76_0.png" />
 </div>
 </div>
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">kprecision(k)</span></code> renvoyant la précision de l’algorithme des <span class="math notranslate nohighlight">\(k\)</span> plus proches voisins, pour les données de <code class="docutils literal notranslate"><span class="pre">X_test</span></code>. Qu’observe t-on pour un <span class="math notranslate nohighlight">\(k\)</span> trop grand (par exemple 50) ?</p>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">kprecision</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X_test</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">k_predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">k</span><span class="p">)</span> <span class="o">==</span> <span class="n">y_test</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+            <span class="n">p</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">p</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">kprecision</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">0.52</span>
+
+</pre></div>
+</div>
 </div>
 </section>
 </section>
