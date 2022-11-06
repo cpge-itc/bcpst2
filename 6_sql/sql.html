@@ -6,55 +6,54 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Cours d’informatique en BCPST2 &#8212; Informatique en 2ème année de BCPST</title>
+    <title>TP SQL &#8212; Informatique en 2ème année de BCPST</title>
     
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
   <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
   <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=532d1baf3f03eb73f2f50828f8c27430120b156d"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=532d1baf3f03eb73f2f50828f8c27430120b156d"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://cpge-itc.github.io/bcpst2/intro.html" />
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Aide-mémoire Python" href="0_python/aide_memoire.html" />
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://cpge-itc.github.io/bcpst2/6_sql/sql.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -89,19 +88,19 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="bd-sidebar noprint" id="site-navigation">
     <div class="bd-sidebar__content">
         <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="index.html">
+    <a class="navbar-brand text-wrap" href="../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
         
       
       
-      <img src="_static/cobra.webp" class="logo" alt="logo">
+      <img src="../_static/cobra.webp" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Informatique en 2ème année de BCPST</h1>
       
     </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -113,12 +112,12 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="0_python/aide_memoire.html">
+  <a class="reference internal" href="../0_python/aide_memoire.html">
    Aide-mémoire Python
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="0_python/programmer.html">
+  <a class="reference internal" href="../0_python/programmer.html">
    Programmer en Python
   </a>
  </li>
@@ -130,22 +129,22 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="3_graph/tp_matrice_adjacence.html">
+  <a class="reference internal" href="../3_graph/tp_matrice_adjacence.html">
    Matrice d’adjacence
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="3_graph/tp_pagerank.html">
+  <a class="reference internal" href="../3_graph/tp_pagerank.html">
    Algorithme PageRank de Google
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="3_graph/tp_dfs.html">
+  <a class="reference internal" href="../3_graph/tp_dfs.html">
    Parcours en profondeur
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="3_graph/tp_bfs.html">
+  <a class="reference internal" href="../3_graph/tp_bfs.html">
    Parcours en largeur
   </a>
  </li>
@@ -157,17 +156,17 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="1_euler/euler.html">
+  <a class="reference internal" href="../1_euler/euler.html">
    TP 1 : Résolution d’équation différentielle par la méthode d’Euler
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="2_probabilites/simulation.html">
+  <a class="reference internal" href="../2_probabilites/simulation.html">
    TP 2 : Simulation de variables aléatoires
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="4_population/population.html">
+  <a class="reference internal" href="../4_population/population.html">
    TP 4 : Matrice de population
   </a>
  </li>
@@ -179,7 +178,7 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="5_iris/iris.html">
+  <a class="reference internal" href="../5_iris/iris.html">
    TP 5 : Statistiques et classification de fleurs
   </a>
  </li>
@@ -269,7 +268,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/cpge-itc/bcpst2/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/cpge-itc/bcpst2/issues/new?title=Issue%20on%20page%20%2F6_sql/sql.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -286,7 +285,7 @@ title="Open an issue"
       </li>
       
       <li>
-        <a href="https://github.com/cpge-itc/bcpst2/edit/main/files/intro.md"
+        <a href="https://github.com/cpge-itc/bcpst2/edit/main/files/6_sql/sql.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -314,7 +313,7 @@ title="Edit this page"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/intro.md"
+        <a href="../_sources/6_sql/sql.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -351,23 +350,80 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#requete-sur-une-table">
+   Requête sur une table
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plusieurs-tables-join">
+   Plusieurs tables (JOIN)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#group-by">
+   GROUP BY
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Cours d’informatique en BCPST2</h1>
+                <h1>TP SQL</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#requete-sur-une-table">
+   Requête sur une table
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plusieurs-tables-join">
+   Plusieurs tables (JOIN)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#group-by">
+   GROUP BY
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -375,29 +431,33 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="cours-d-informatique-en-bcpst2">
-<h1>Cours d’informatique en BCPST2<a class="headerlink" href="#cours-d-informatique-en-bcpst2" title="Permalink to this headline">#</a></h1>
-<br>
-<blockquote>
-<div><p>Le programme de deuxième année est constitué de séances de travaux pratiques qui poursuivent les objectifs suivants :</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="tp-sql">
+<h1>TP SQL<a class="headerlink" href="#tp-sql" title="Permalink to this headline">#</a></h1>
+<section id="requete-sur-une-table">
+<h2>Requête sur une table<a class="headerlink" href="#requete-sur-une-table" title="Permalink to this headline">#</a></h2>
+<p><a class="reference external" href="https://mozilla.github.io/pdf.js/web/viewer.html?file=https://raw.githubusercontent.com/mp2i-info/mp2i-info.github.io/main/files/A_sql/1_select/sql_select.pdf#zoom=page-fit&amp;pagemode=none">Lire le cours</a> puis faire :</p>
 <ul class="simple">
-<li><p>approfondir les connaissances acquises au deuxième semestre notamment sur les bases de données et sur les graphes ;</p></li>
-<li><p>programmer des méthodes numériques vues en mathématiques ;</p></li>
-<li><p>mettre en application des notions vues en statistiques et probabilités dont les tests statistiques ;</p></li>
-<li><p>programmer de nouveaux algorithmes sur des applications en lien avec d’autres disciplines, notamment la biologie.</p></li>
+<li><p><a class="reference external" href="https://sqlzoo.net/wiki/SELECT_from_WORLD_Tutorial">World jusqu’à la question 5</a>.</p></li>
+<li><p><a class="reference external" href="https://sqlzoo.net/wiki/SELECT_from_Nobel_Tutorial">Nobel jusqu’à la question 5</a>.</p></li>
+<li><p><a class="reference external" href="https://cpge-exercices.github.io/sql">Deux premières questions sur le métro parisien</a>.</p></li>
 </ul>
-</div></blockquote>
-<p><a class="reference external" href="https://github.com/cpge-itc/bcpst2-src/raw/main/files/programme_info_bcpst.pdf">Programme officiel (en annexe : formulaire Python à connaître)</a></p>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
+</section>
+<section id="plusieurs-tables-join">
+<h2>Plusieurs tables (JOIN)<a class="headerlink" href="#plusieurs-tables-join" title="Permalink to this headline">#</a></h2>
+<p><a class="reference external" href="https://mozilla.github.io/pdf.js/web/viewer.html?file=https://raw.githubusercontent.com/mp2i-info/mp2i-info.github.io/main/files/A_sql/2_join/sql_join.pdf#zoom=page-fit&amp;pagemode=none">Lire le cours</a> puis faire :</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://sqlzoo.net/wiki/The_JOIN_operation">Euro 2012 jusqu’à la question 3</a>.</p></li>
+<li><p><a class="reference external" href="https://sqlzoo.net/wiki/More_JOIN_operations">Movie jusqu’à la question 8</a>.</p></li>
+</ul>
+</section>
+<section id="group-by">
+<h2>GROUP BY<a class="headerlink" href="#group-by" title="Permalink to this headline">#</a></h2>
+<p><a class="reference external" href="https://mozilla.github.io/pdf.js/web/viewer.html?file=https://raw.githubusercontent.com/mp2i-info/mp2i-info.github.io/main/files/A_sql/3_groupby/sql_groupby.pdf#zoom=page-fit&amp;pagemode=none">Lire le cours</a> puis faire :</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://sqlzoo.net/wiki/SUM_and_COUNT">World en entier</a>.</p></li>
+<li><p><a class="reference external" href="https://cpge-exercices.github.io/sql">Pokémon en entier</a>.</p></li>
+</ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -413,7 +473,7 @@ title="Print to PDF"
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./."
+            path: "./6_sql"
         },
         predefinedOutput: true
     }
@@ -427,13 +487,6 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='right-next' id="next-link" href="0_python/aide_memoire.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Aide-mémoire Python</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
 </div>
             </footer>
         </div>
@@ -455,7 +508,7 @@ title="Print to PDF"
     </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
 
 
   </body>
