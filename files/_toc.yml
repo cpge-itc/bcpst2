@@ -25,4 +25,4 @@ parts:
       - file: 5_iris/iris.ipynb
   - caption: SQL
     chapters:
-      - file: files/6_sql/sql.md
+      - file: 6_sql/sql.md
