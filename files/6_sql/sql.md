@@ -1,4 +1,4 @@
-# TP SQL
+# TP 6 : SQL
 
 ## Requête sur une table
 
