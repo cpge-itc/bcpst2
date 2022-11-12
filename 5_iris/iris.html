@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>4. TP 5 : Statistiques et classification de fleurs &#8212; Informatique en 2ème année de BCPST</title>
+    <title>TP 5 : Statistiques et classification de fleurs &#8212; Informatique en 2ème année de BCPST</title>
   <script>
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
@@ -61,8 +61,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="canonical" href="https://cpge-itc.github.io/bcpst2/5_iris/iris.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="5. TP 6 : SQL" href="../6_sql/sql.html" />
-    <link rel="prev" title="3. TP 4 : Matrice de population" href="../4_population/population.html" />
+    <link rel="next" title="TP 6 : SQL" href="../6_sql/sql.html" />
+    <link rel="prev" title="TP 4 : Matrice de population" href="../4_population/population.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="docsearch:language" content="None">
   </head>
@@ -125,32 +125,32 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../1_euler/euler.html">
-   1. TP 1 : Résolution d’équation différentielle par la méthode d’Euler
+   TP 1 : Résolution d’équation différentielle par la méthode d’Euler
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../2_probabilites/simulation.html">
-   2. TP 2 : Simulation de variables aléatoires
+   TP 2 : Simulation de variables aléatoires
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../4_population/population.html">
-   3. TP 4 : Matrice de population
+   TP 4 : Matrice de population
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   4. TP 5 : Statistiques et classification de fleurs
+   TP 5 : Statistiques et classification de fleurs
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../6_sql/sql.html">
-   5. TP 6 : SQL
+   TP 6 : SQL
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../7_dessin/tp7_dessin.html">
-   6. TP 7 : Dessins, récursivité et fractales
+   TP 7 : Dessins, récursivité et fractales
   </a>
  </li>
 </ul>
@@ -418,37 +418,37 @@ title="Print to PDF"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#statistiques">
-   4.1. Statistiques
+   Statistiques
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#estimateurs">
-   4.2. Estimateurs
+   Estimateurs
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#echantillon">
-     4.2.1. Échantillon
+     Échantillon
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#moyenne">
-     4.2.2. Moyenne
+     Moyenne
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#ecart-type">
-     4.2.3. Écart-type
+     Écart-type
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#estimateur-biaise">
-       4.2.3.1. Estimateur biaisé
+       Estimateur biaisé
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#estimateur-sans-biais">
-       4.2.3.2. Estimateur sans biais
+       Estimateur sans biais
       </a>
      </li>
     </ul>
@@ -457,17 +457,17 @@ title="Print to PDF"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#classification">
-   4.3. Classification
+   Classification
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#separation-donnees-d-entrainement-test">
-     4.3.1. Séparation données d’entraînement / test
+     Séparation données d’entraînement / test
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#algorithme-des-k-plus-proches-voisins-pour-k-1">
-     4.3.2. Algorithme des
+     Algorithme des
      <span class="math notranslate nohighlight">
       \(k\)
      </span>
@@ -479,12 +479,11 @@ title="Print to PDF"
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#analyse-des-resultats">
-     4.3.3. Analyse des résultats
+     Analyse des résultats
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#k-plus-proches-voisins-avec-k-quelconque">
-     4.3.4.
      <span class="math notranslate nohighlight">
       \(k\)
      </span>
@@ -507,7 +506,7 @@ title="Print to PDF"
             <article class="bd-article" role="main">
               
   <section class="tex2jax_ignore mathjax_ignore" id="tp-5-statistiques-et-classification-de-fleurs">
-<h1><span class="section-number">4. </span>TP 5 : Statistiques et classification de fleurs<a class="headerlink" href="#tp-5-statistiques-et-classification-de-fleurs" title="Permalink to this headline">#</a></h1>
+<h1>TP 5 : Statistiques et classification de fleurs<a class="headerlink" href="#tp-5-statistiques-et-classification-de-fleurs" title="Permalink to this headline">#</a></h1>
 <blockquote>
 <div><p>En <em>machine learning</em> (apprentissage automatique), le problème de <strong>classification</strong> consiste à associer à chaque donnée (du texte, une image…) une catégorie. Par exemple : reconnaître un objet sur une image (voiture, chaise…) ou le sentiment d’une phrase (joyeux, triste…).</p>
 </div></blockquote>
@@ -549,7 +548,7 @@ title="Print to PDF"
 </div>
 </div>
 <section id="statistiques">
-<h2><span class="section-number">4.1. </span>Statistiques<a class="headerlink" href="#statistiques" title="Permalink to this headline">#</a></h2>
+<h2>Statistiques<a class="headerlink" href="#statistiques" title="Permalink to this headline">#</a></h2>
 <p>Nous allons d’abord nous intéresser à quelques propriétés statistiques sur les iris.</p>
 <p>Pour obtenir une iris au hasard d’une variété, on utilisera la fonction <code class="docutils literal notranslate"><span class="pre">random_iris(variety)</span></code>, qui renvoie un tableau contenant la longueur de sépale, la largeur de sépale, la longueur de pétale et la largeur de pétale :</p>
 <div class="cell docutils container">
@@ -603,9 +602,9 @@ title="Print to PDF"
 </div>
 </section>
 <section id="estimateurs">
-<h2><span class="section-number">4.2. </span>Estimateurs<a class="headerlink" href="#estimateurs" title="Permalink to this headline">#</a></h2>
+<h2>Estimateurs<a class="headerlink" href="#estimateurs" title="Permalink to this headline">#</a></h2>
 <section id="echantillon">
-<h3><span class="section-number">4.2.1. </span>Échantillon<a class="headerlink" href="#echantillon" title="Permalink to this headline">#</a></h3>
+<h3>Échantillon<a class="headerlink" href="#echantillon" title="Permalink to this headline">#</a></h3>
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">echantillon(variety,</span> <span class="pre">n)</span></code> renvoyant une liste composée de <code class="docutils literal notranslate"><span class="pre">n</span></code> tableaux obtenus par des appels à <code class="docutils literal notranslate"><span class="pre">random_iris(variety)</span></code>.</p>
@@ -640,7 +639,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="moyenne">
-<h3><span class="section-number">4.2.2. </span>Moyenne<a class="headerlink" href="#moyenne" title="Permalink to this headline">#</a></h3>
+<h3>Moyenne<a class="headerlink" href="#moyenne" title="Permalink to this headline">#</a></h3>
 <p>Si <span class="math notranslate nohighlight">\(x_1\)</span>, …, <span class="math notranslate nohighlight">\(x_n\)</span> est un échantillon d’une variable aléatoire <span class="math notranslate nohighlight">\(X\)</span>, on peut estimer l’espérance de <span class="math notranslate nohighlight">\(X\)</span> par :</p>
 <div class="math notranslate nohighlight">
 \[
@@ -714,9 +713,9 @@ title="Print to PDF"
 </div>
 </section>
 <section id="ecart-type">
-<h3><span class="section-number">4.2.3. </span>Écart-type<a class="headerlink" href="#ecart-type" title="Permalink to this headline">#</a></h3>
+<h3>Écart-type<a class="headerlink" href="#ecart-type" title="Permalink to this headline">#</a></h3>
 <section id="estimateur-biaise">
-<h4><span class="section-number">4.2.3.1. </span>Estimateur biaisé<a class="headerlink" href="#estimateur-biaise" title="Permalink to this headline">#</a></h4>
+<h4>Estimateur biaisé<a class="headerlink" href="#estimateur-biaise" title="Permalink to this headline">#</a></h4>
 <p>Pour estimer la variance de <span class="math notranslate nohighlight">\(X\)</span> à partir d’un échantillon <span class="math notranslate nohighlight">\(x_1\)</span>, …, <span class="math notranslate nohighlight">\(x_n\)</span>, on peut utiliser :</p>
 <div class="math notranslate nohighlight">
 \[
@@ -757,7 +756,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="estimateur-sans-biais">
-<h4><span class="section-number">4.2.3.2. </span>Estimateur sans biais<a class="headerlink" href="#estimateur-sans-biais" title="Permalink to this headline">#</a></h4>
+<h4>Estimateur sans biais<a class="headerlink" href="#estimateur-sans-biais" title="Permalink to this headline">#</a></h4>
 <p>On peut montrer que <span class="math notranslate nohighlight">\(v = \sum_{i=1}^n \frac{(x_i - \bar{x})^2}{n}\)</span> est un estimateur biaisé de la variance, c’est-à-dire que son espérance est différente de la variance. Par contre, <span class="math notranslate nohighlight">\(\frac{n - 1}{n}v\)</span> est un estimateur sans biais de la variance.</p>
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
@@ -789,10 +788,10 @@ title="Print to PDF"
 </section>
 </section>
 <section id="classification">
-<h2><span class="section-number">4.3. </span>Classification<a class="headerlink" href="#classification" title="Permalink to this headline">#</a></h2>
+<h2>Classification<a class="headerlink" href="#classification" title="Permalink to this headline">#</a></h2>
 <p>Un algorithme de classification demande de séparer les données que l’on souhaite en deux ensembles : les <strong>données d’entraînement</strong> (<code class="docutils literal notranslate"><span class="pre">X_train</span></code> dans la suite) que l’on utilise pour améliorer le modèle et les <strong>données de test</strong> (<code class="docutils literal notranslate"><span class="pre">X_test</span></code>) pour juger des performances du modèle.</p>
 <section id="separation-donnees-d-entrainement-test">
-<h3><span class="section-number">4.3.1. </span>Séparation données d’entraînement / test<a class="headerlink" href="#separation-donnees-d-entrainement-test" title="Permalink to this headline">#</a></h3>
+<h3>Séparation données d’entraînement / test<a class="headerlink" href="#separation-donnees-d-entrainement-test" title="Permalink to this headline">#</a></h3>
 <p>Le code suivant permet de séparer l’ensemble des iris du jeu de données en deux :</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -832,7 +831,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="algorithme-des-k-plus-proches-voisins-pour-k-1">
-<h3><span class="section-number">4.3.2. </span>Algorithme des <span class="math notranslate nohighlight">\(k\)</span> plus proches voisins pour <span class="math notranslate nohighlight">\(k = 1\)</span><a class="headerlink" href="#algorithme-des-k-plus-proches-voisins-pour-k-1" title="Permalink to this headline">#</a></h3>
+<h3>Algorithme des <span class="math notranslate nohighlight">\(k\)</span> plus proches voisins pour <span class="math notranslate nohighlight">\(k = 1\)</span><a class="headerlink" href="#algorithme-des-k-plus-proches-voisins-pour-k-1" title="Permalink to this headline">#</a></h3>
 <p>Nous allons utiliser l’algorithme des <span class="math notranslate nohighlight">\(k\)</span> plus proches voisins pour la classification des iris, sous une version simplifiée (<span class="math notranslate nohighlight">\(k = 1\)</span>).<br />
 Soient <span class="math notranslate nohighlight">\(x = (x_0, x_1, x_2, x_3)\)</span> et <span class="math notranslate nohighlight">\(y = (y_0, y_1, y_2, y_3)\)</span> deux caractéristiques de fleurs (longueur et largeur de la sépale et de la pétale). On définit la distance <span class="math notranslate nohighlight">\(d\)</span> entre ces fleurs par :</p>
 <div class="math notranslate nohighlight">
@@ -957,7 +956,7 @@ Il faut donc trouver l’indice <code class="docutils literal notranslate"><span
 </div>
 </section>
 <section id="analyse-des-resultats">
-<h3><span class="section-number">4.3.3. </span>Analyse des résultats<a class="headerlink" href="#analyse-des-resultats" title="Permalink to this headline">#</a></h3>
+<h3>Analyse des résultats<a class="headerlink" href="#analyse-des-resultats" title="Permalink to this headline">#</a></h3>
 <p>La <strong>précision</strong> d’un modèle est son pourcentage de bonnes réponses.</p>
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
@@ -1024,7 +1023,7 @@ Par exemple, si <code class="docutils literal notranslate"><span class="pre">pre
 </div>
 </section>
 <section id="k-plus-proches-voisins-avec-k-quelconque">
-<h3><span class="section-number">4.3.4. </span><span class="math notranslate nohighlight">\(k\)</span> plus proches voisins avec <span class="math notranslate nohighlight">\(k\)</span> quelconque<a class="headerlink" href="#k-plus-proches-voisins-avec-k-quelconque" title="Permalink to this headline">#</a></h3>
+<h3><span class="math notranslate nohighlight">\(k\)</span> plus proches voisins avec <span class="math notranslate nohighlight">\(k\)</span> quelconque<a class="headerlink" href="#k-plus-proches-voisins-avec-k-quelconque" title="Permalink to this headline">#</a></h3>
 <p>Dans l’algorithme général des <span class="math notranslate nohighlight">\(k\)</span> plus proches voisins, on cherche les <span class="math notranslate nohighlight">\(k\)</span> données de <code class="docutils literal notranslate"><span class="pre">X_train</span></code> les plus proches de <code class="docutils literal notranslate"><span class="pre">X_test[i]</span></code>, et non pas seulement la plus proche.<br />
 La variété assignée à <code class="docutils literal notranslate"><span class="pre">X_test[i]</span></code> est alors celle qui est majoritaire parmis les <span class="math notranslate nohighlight">\(k\)</span> voisins.</p>
 <div class="admonition-exercice admonition">
@@ -1254,13 +1253,13 @@ La variété assignée à <code class="docutils literal notranslate"><span class
       <i class="fas fa-angle-left"></i>
       <div class="prev-next-info">
           <p class="prev-next-subtitle">previous</p>
-          <p class="prev-next-title"><span class="section-number">3. </span>TP 4 : Matrice de population</p>
+          <p class="prev-next-title">TP 4 : Matrice de population</p>
       </div>
   </a>
   <a class='right-next' id="next-link" href="../6_sql/sql.html" title="next page">
   <div class="prev-next-info">
       <p class="prev-next-subtitle">next</p>
-      <p class="prev-next-title"><span class="section-number">5. </span>TP 6 : SQL</p>
+      <p class="prev-next-title">TP 6 : SQL</p>
   </div>
   <i class="fas fa-angle-right"></i>
   </a>
@@ -1283,37 +1282,37 @@ La variété assignée à <code class="docutils literal notranslate"><span class
             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#statistiques">
-   4.1. Statistiques
+   Statistiques
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#estimateurs">
-   4.2. Estimateurs
+   Estimateurs
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#echantillon">
-     4.2.1. Échantillon
+     Échantillon
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#moyenne">
-     4.2.2. Moyenne
+     Moyenne
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#ecart-type">
-     4.2.3. Écart-type
+     Écart-type
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#estimateur-biaise">
-       4.2.3.1. Estimateur biaisé
+       Estimateur biaisé
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#estimateur-sans-biais">
-       4.2.3.2. Estimateur sans biais
+       Estimateur sans biais
       </a>
      </li>
     </ul>
@@ -1322,17 +1321,17 @@ La variété assignée à <code class="docutils literal notranslate"><span class
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#classification">
-   4.3. Classification
+   Classification
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#separation-donnees-d-entrainement-test">
-     4.3.1. Séparation données d’entraînement / test
+     Séparation données d’entraînement / test
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#algorithme-des-k-plus-proches-voisins-pour-k-1">
-     4.3.2. Algorithme des
+     Algorithme des
      <span class="math notranslate nohighlight">
       \(k\)
      </span>
@@ -1344,12 +1343,11 @@ La variété assignée à <code class="docutils literal notranslate"><span class
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#analyse-des-resultats">
-     4.3.3. Analyse des résultats
+     Analyse des résultats
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#k-plus-proches-voisins-avec-k-quelconque">
-     4.3.4.
      <span class="math notranslate nohighlight">
       \(k\)
      </span>

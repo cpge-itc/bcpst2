@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>1. TP 1 : Résolution d’équation différentielle par la méthode d’Euler &#8212; Informatique en 2ème année de BCPST</title>
+    <title>TP 1 : Résolution d’équation différentielle par la méthode d’Euler &#8212; Informatique en 2ème année de BCPST</title>
   <script>
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
@@ -61,7 +61,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="canonical" href="https://cpge-itc.github.io/bcpst2/1_euler/euler.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2. TP 2 : Simulation de variables aléatoires" href="../2_probabilites/simulation.html" />
+    <link rel="next" title="TP 2 : Simulation de variables aléatoires" href="../2_probabilites/simulation.html" />
     <link rel="prev" title="Cours d’informatique en BCPST2" href="../intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="docsearch:language" content="None">
@@ -125,32 +125,32 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   1. TP 1 : Résolution d’équation différentielle par la méthode d’Euler
+   TP 1 : Résolution d’équation différentielle par la méthode d’Euler
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../2_probabilites/simulation.html">
-   2. TP 2 : Simulation de variables aléatoires
+   TP 2 : Simulation de variables aléatoires
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../4_population/population.html">
-   3. TP 4 : Matrice de population
+   TP 4 : Matrice de population
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../5_iris/iris.html">
-   4. TP 5 : Statistiques et classification de fleurs
+   TP 5 : Statistiques et classification de fleurs
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../6_sql/sql.html">
-   5. TP 6 : SQL
+   TP 6 : SQL
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../7_dessin/tp7_dessin.html">
-   6. TP 7 : Dessins, récursivité et fractales
+   TP 7 : Dessins, récursivité et fractales
   </a>
  </li>
 </ul>
@@ -418,78 +418,78 @@ title="Print to PDF"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#installation-des-packages">
-   1.1. Installation des packages
+   Installation des packages
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#equation-differentielle-d-ordre-1">
-   1.2. Équation différentielle d’ordre 1
+   Équation différentielle d’ordre 1
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#cadre-general">
-     1.2.1. Cadre général
+     Cadre général
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#exemples-d-equations-differentielles">
-     1.2.2. Exemples d’équations différentielles
+     Exemples d’équations différentielles
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#methode-d-euler">
-   1.3. Méthode d’Euler
+   Méthode d’Euler
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#theorie">
-     1.3.1. Théorie
+     Théorie
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#illustration">
-     1.3.2. Illustration
+     Illustration
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#programmation">
-     1.3.3. Programmation
+     Programmation
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#affichage-des-approximations">
-     1.3.4. Affichage des approximations
+     Affichage des approximations
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#methode-d-euler-generique">
-   1.4. Méthode d’Euler générique
+   Méthode d’Euler générique
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#systeme-d-equations-differentielles">
-   1.5. Système d’équations différentielles
+   Système d’équations différentielles
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#reactions-chimiques">
-     1.5.1. Réactions chimiques
+     Réactions chimiques
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#evolution-de-population-lokta-volterra">
-     1.5.2. Évolution de population (Lokta-Volterra)
+     Évolution de population (Lokta-Volterra)
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#equation-du-second-ordre">
-   1.6. Équation du second ordre
+   Équation du second ordre
   </a>
  </li>
 </ul>
@@ -508,13 +508,13 @@ title="Print to PDF"
 </center>
 </aside>
 <section class="tex2jax_ignore mathjax_ignore" id="tp-1-resolution-d-equation-differentielle-par-la-methode-d-euler">
-<h1><span class="section-number">1. </span>TP 1 : Résolution d’équation différentielle par la méthode d’Euler<a class="headerlink" href="#tp-1-resolution-d-equation-differentielle-par-la-methode-d-euler" title="Permalink to this headline">#</a></h1>
+<h1>TP 1 : Résolution d’équation différentielle par la méthode d’Euler<a class="headerlink" href="#tp-1-resolution-d-equation-differentielle-par-la-methode-d-euler" title="Permalink to this headline">#</a></h1>
 <blockquote>
 <div><p>La méthode d’Euler permet d’approximer une solution d’une équation différentielle.<br />
 Dans le programme, nous nous restreignons à une équation différentielle d’ordre <span class="math notranslate nohighlight">\(1\)</span>, c’est-à-dire où seules apparaissent des dérivées premières.</p>
 </div></blockquote>
 <section id="installation-des-packages">
-<h2><span class="section-number">1.1. </span>Installation des packages<a class="headerlink" href="#installation-des-packages" title="Permalink to this headline">#</a></h2>
+<h2>Installation des packages<a class="headerlink" href="#installation-des-packages" title="Permalink to this headline">#</a></h2>
 <p>Ce TP nécessite <code class="docutils literal notranslate"><span class="pre">numpy</span></code> et <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>. Si vous utilisez Pyzo, vous pouvez les obtenir avec la commande suivante, dans la console :</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install numpy matplotlib
 </pre></div>
@@ -532,9 +532,9 @@ Dans le programme, nous nous restreignons à une équation différentielle d’o
 <p>Veuillez m’appeler si cela ne marche pas.</p>
 </section>
 <section id="equation-differentielle-d-ordre-1">
-<h2><span class="section-number">1.2. </span>Équation différentielle d’ordre 1<a class="headerlink" href="#equation-differentielle-d-ordre-1" title="Permalink to this headline">#</a></h2>
+<h2>Équation différentielle d’ordre 1<a class="headerlink" href="#equation-differentielle-d-ordre-1" title="Permalink to this headline">#</a></h2>
 <section id="cadre-general">
-<h3><span class="section-number">1.2.1. </span>Cadre général<a class="headerlink" href="#cadre-general" title="Permalink to this headline">#</a></h3>
+<h3>Cadre général<a class="headerlink" href="#cadre-general" title="Permalink to this headline">#</a></h3>
 <p>Considérons une équation différentielle d’ordre 1 :</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
@@ -553,7 +553,7 @@ Dans le programme, nous nous restreignons à une équation différentielle d’o
 \]</div>
 </section>
 <section id="exemples-d-equations-differentielles">
-<h3><span class="section-number">1.2.2. </span>Exemples d’équations différentielles<a class="headerlink" href="#exemples-d-equations-differentielles" title="Permalink to this headline">#</a></h3>
+<h3>Exemples d’équations différentielles<a class="headerlink" href="#exemples-d-equations-differentielles" title="Permalink to this headline">#</a></h3>
 <p>Voici des exemples d’équations différentielles classiques avec la valeur correspondante de <span class="math notranslate nohighlight">\(f(t, y)\)</span> :</p>
 <table class="colwidths-auto table">
 <thead>
@@ -598,9 +598,9 @@ Dans le programme, nous nous restreignons à une équation différentielle d’o
 </section>
 </section>
 <section id="methode-d-euler">
-<h2><span class="section-number">1.3. </span>Méthode d’Euler<a class="headerlink" href="#methode-d-euler" title="Permalink to this headline">#</a></h2>
+<h2>Méthode d’Euler<a class="headerlink" href="#methode-d-euler" title="Permalink to this headline">#</a></h2>
 <section id="theorie">
-<h3><span class="section-number">1.3.1. </span>Théorie<a class="headerlink" href="#theorie" title="Permalink to this headline">#</a></h3>
+<h3>Théorie<a class="headerlink" href="#theorie" title="Permalink to this headline">#</a></h3>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition-rappel admonition">
@@ -637,7 +637,7 @@ Soit <span class="math notranslate nohighlight">\(h\)</span> un petit réel (par
 <p><strong>Remarque</strong> : Cette dernière formule n’est autre que l’expression bien connue en physique <span class="math notranslate nohighlight">\(y(t + \Delta t) \approx y(t) + \Delta t \times y'(t)\)</span>, où on a remplacé <span class="math notranslate nohighlight">\(y'(t)\)</span> par le second membre de l’équation différentielle.</p>
 </section>
 <section id="illustration">
-<h3><span class="section-number">1.3.2. </span>Illustration<a class="headerlink" href="#illustration" title="Permalink to this headline">#</a></h3>
+<h3>Illustration<a class="headerlink" href="#illustration" title="Permalink to this headline">#</a></h3>
 <p>On obtient chaque point d’approximation en se déplaçant de <span class="math notranslate nohighlight">\(\Delta t\)</span> le long de la tangente à <span class="math notranslate nohighlight">\(y\)</span> :</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -684,7 +684,7 @@ Soit <span class="math notranslate nohighlight">\(h\)</span> un petit réel (par
 </div>
 </section>
 <section id="programmation">
-<h3><span class="section-number">1.3.3. </span>Programmation<a class="headerlink" href="#programmation" title="Permalink to this headline">#</a></h3>
+<h3>Programmation<a class="headerlink" href="#programmation" title="Permalink to this headline">#</a></h3>
 <p>On calcule les approximations <span class="math notranslate nohighlight">\(y_k\)</span> de <span class="math notranslate nohighlight">\(y\)</span> en appliquant l’équation de récurrence <span class="math notranslate nohighlight">\(y_{k + 1} = y_k + h f(t_k, y_k)\)</span> dans une boucle <code class="docutils literal notranslate"><span class="pre">for</span></code>.<br />
 Les approximations <span class="math notranslate nohighlight">\(y_k\)</span> seront stockées dans une liste <span class="math notranslate nohighlight">\(y\)</span> et les temps <span class="math notranslate nohighlight">\(t_k\)</span> dans une liste <span class="math notranslate nohighlight">\(t\)</span>.</p>
 <p>Voici un exemple d’équation différentielle avec le calcul des approximations par la méthode d’Euler :</p>
@@ -769,7 +769,7 @@ Les approximations <span class="math notranslate nohighlight">\(y_k\)</span> ser
 </div>
 </section>
 <section id="affichage-des-approximations">
-<h3><span class="section-number">1.3.4. </span>Affichage des approximations<a class="headerlink" href="#affichage-des-approximations" title="Permalink to this headline">#</a></h3>
+<h3>Affichage des approximations<a class="headerlink" href="#affichage-des-approximations" title="Permalink to this headline">#</a></h3>
 <p>On peut afficher l’approximation obtenue, et la comparer avec la fonction exponentielle :</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -859,7 +859,7 @@ Les approximations <span class="math notranslate nohighlight">\(y_k\)</span> ser
 </section>
 </section>
 <section id="methode-d-euler-generique">
-<h2><span class="section-number">1.4. </span>Méthode d’Euler générique<a class="headerlink" href="#methode-d-euler-generique" title="Permalink to this headline">#</a></h2>
+<h2>Méthode d’Euler générique<a class="headerlink" href="#methode-d-euler-generique" title="Permalink to this headline">#</a></h2>
 <p>La fonction suivante permet d’appliquer la méthode d’Euler avec les paramètres suivants :</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">f</span></code> : fonction apparaissant dans le membre droit de l’équation différentielle.</p></li>
@@ -928,10 +928,10 @@ On pourra utiliser <code class="docutils literal notranslate"><span class="pre">
 </div>
 </section>
 <section id="systeme-d-equations-differentielles">
-<h2><span class="section-number">1.5. </span>Système d’équations différentielles<a class="headerlink" href="#systeme-d-equations-differentielles" title="Permalink to this headline">#</a></h2>
+<h2>Système d’équations différentielles<a class="headerlink" href="#systeme-d-equations-differentielles" title="Permalink to this headline">#</a></h2>
 <p>Il est également possible de résoudre un système d’équation différentielles.</p>
 <section id="reactions-chimiques">
-<h3><span class="section-number">1.5.1. </span>Réactions chimiques<a class="headerlink" href="#reactions-chimiques" title="Permalink to this headline">#</a></h3>
+<h3>Réactions chimiques<a class="headerlink" href="#reactions-chimiques" title="Permalink to this headline">#</a></h3>
 <p>Par exemple, considérons deux réactions chimiques d’ordre 1 :
 $<span class="math notranslate nohighlight">\(A \stackrel{\alpha}{\longrightarrow} B\)</span><span class="math notranslate nohighlight">\(
 \)</span><span class="math notranslate nohighlight">\(B \stackrel{\beta}{\longrightarrow} C\)</span>$</p>
@@ -984,7 +984,7 @@ B augmente initialement (résultant de la production à partir de A) mais diminu
 </div>
 </section>
 <section id="evolution-de-population-lokta-volterra">
-<h3><span class="section-number">1.5.2. </span>Évolution de population (Lokta-Volterra)<a class="headerlink" href="#evolution-de-population-lokta-volterra" title="Permalink to this headline">#</a></h3>
+<h3>Évolution de population (Lokta-Volterra)<a class="headerlink" href="#evolution-de-population-lokta-volterra" title="Permalink to this headline">#</a></h3>
 <p>Le système différentiel de Lotka-Volterra permet de modéliser l’évolution conjointe de populations de proies et de prédateurs :</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
@@ -1035,7 +1035,7 @@ B augmente initialement (résultant de la production à partir de A) mais diminu
 </section>
 </section>
 <section id="equation-du-second-ordre">
-<h2><span class="section-number">1.6. </span>Équation du second ordre<a class="headerlink" href="#equation-du-second-ordre" title="Permalink to this headline">#</a></h2>
+<h2>Équation du second ordre<a class="headerlink" href="#equation-du-second-ordre" title="Permalink to this headline">#</a></h2>
 <p>Pour résoudre une équation différentielle d’ordre 2 du type <span class="math notranslate nohighlight">\(y'' = f(t, y, y')\)</span>, on peut poser <span class="math notranslate nohighlight">\(z(t) = y'(t)\)</span> pour se ramener à un système de 2 équations différentielles d’ordre 1 dont les inconnues sont <span class="math notranslate nohighlight">\(y\)</span> et <span class="math notranslate nohighlight">\(z\)</span>.</p>
 <p>Par exemple, calculons une solution approchée de l’équation du pendule linéarise :</p>
 <div class="math notranslate nohighlight">
@@ -1148,7 +1148,7 @@ Donc <span class="math notranslate nohighlight">\(\boxed{\theta(t) = \sin(t)}\)<
   <a class='right-next' id="next-link" href="../2_probabilites/simulation.html" title="next page">
   <div class="prev-next-info">
       <p class="prev-next-subtitle">next</p>
-      <p class="prev-next-title"><span class="section-number">2. </span>TP 2 : Simulation de variables aléatoires</p>
+      <p class="prev-next-title">TP 2 : Simulation de variables aléatoires</p>
   </div>
   <i class="fas fa-angle-right"></i>
   </a>
@@ -1171,78 +1171,78 @@ Donc <span class="math notranslate nohighlight">\(\boxed{\theta(t) = \sin(t)}\)<
             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#installation-des-packages">
-   1.1. Installation des packages
+   Installation des packages
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#equation-differentielle-d-ordre-1">
-   1.2. Équation différentielle d’ordre 1
+   Équation différentielle d’ordre 1
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#cadre-general">
-     1.2.1. Cadre général
+     Cadre général
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#exemples-d-equations-differentielles">
-     1.2.2. Exemples d’équations différentielles
+     Exemples d’équations différentielles
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#methode-d-euler">
-   1.3. Méthode d’Euler
+   Méthode d’Euler
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#theorie">
-     1.3.1. Théorie
+     Théorie
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#illustration">
-     1.3.2. Illustration
+     Illustration
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#programmation">
-     1.3.3. Programmation
+     Programmation
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#affichage-des-approximations">
-     1.3.4. Affichage des approximations
+     Affichage des approximations
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#methode-d-euler-generique">
-   1.4. Méthode d’Euler générique
+   Méthode d’Euler générique
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#systeme-d-equations-differentielles">
-   1.5. Système d’équations différentielles
+   Système d’équations différentielles
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#reactions-chimiques">
-     1.5.1. Réactions chimiques
+     Réactions chimiques
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#evolution-de-population-lokta-volterra">
-     1.5.2. Évolution de population (Lokta-Volterra)
+     Évolution de population (Lokta-Volterra)
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#equation-du-second-ordre">
-   1.6. Équation du second ordre
+   Équation du second ordre
   </a>
  </li>
 </ul>

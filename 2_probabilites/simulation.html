@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>2. TP 2 : Simulation de variables aléatoires &#8212; Informatique en 2ème année de BCPST</title>
+    <title>TP 2 : Simulation de variables aléatoires &#8212; Informatique en 2ème année de BCPST</title>
   <script>
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
@@ -61,8 +61,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="canonical" href="https://cpge-itc.github.io/bcpst2/2_probabilites/simulation.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3. TP 4 : Matrice de population" href="../4_population/population.html" />
-    <link rel="prev" title="1. TP 1 : Résolution d’équation différentielle par la méthode d’Euler" href="../1_euler/euler.html" />
+    <link rel="next" title="TP 4 : Matrice de population" href="../4_population/population.html" />
+    <link rel="prev" title="TP 1 : Résolution d’équation différentielle par la méthode d’Euler" href="../1_euler/euler.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="docsearch:language" content="None">
   </head>
@@ -125,32 +125,32 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../1_euler/euler.html">
-   1. TP 1 : Résolution d’équation différentielle par la méthode d’Euler
+   TP 1 : Résolution d’équation différentielle par la méthode d’Euler
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   2. TP 2 : Simulation de variables aléatoires
+   TP 2 : Simulation de variables aléatoires
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../4_population/population.html">
-   3. TP 4 : Matrice de population
+   TP 4 : Matrice de population
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../5_iris/iris.html">
-   4. TP 5 : Statistiques et classification de fleurs
+   TP 5 : Statistiques et classification de fleurs
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../6_sql/sql.html">
-   5. TP 6 : SQL
+   TP 6 : SQL
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../7_dessin/tp7_dessin.html">
-   6. TP 7 : Dessins, récursivité et fractales
+   TP 7 : Dessins, récursivité et fractales
   </a>
  </li>
 </ul>
@@ -418,47 +418,47 @@ title="Print to PDF"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#loi-de-bernouilli">
-   2.1. Loi de Bernouilli
+   Loi de Bernouilli
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#loi-geometrique">
-   2.2. Loi géométrique
+   Loi géométrique
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#loi-binomiale">
-   2.3. Loi binomiale
+   Loi binomiale
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#simulation-d-une-loi-normale-a-partir-d-une-loi-binomiale">
-   2.4. Simulation d’une loi normale à partir d’une loi Binomiale
+   Simulation d’une loi normale à partir d’une loi Binomiale
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#methode-de-la-transformee-inverse">
-   2.5. Méthode de la transformée inverse
+   Méthode de la transformée inverse
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#loi-exponentielle">
-   2.6. Loi exponentielle
+   Loi exponentielle
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#loi-de-poisson">
-   2.7. Loi de Poisson
+   Loi de Poisson
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#simulation-a-partir-de-lois-exponentielles">
-     2.7.1. Simulation à partir de lois exponentielles
+     Simulation à partir de lois exponentielles
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#approximation-a-partir-d-une-loi-binomiale">
-     2.7.2. Approximation à partir d’une loi binomiale
+     Approximation à partir d’une loi binomiale
     </a>
    </li>
   </ul>
@@ -473,7 +473,7 @@ title="Print to PDF"
             <article class="bd-article" role="main">
               
   <section class="tex2jax_ignore mathjax_ignore" id="tp-2-simulation-de-variables-aleatoires">
-<h1><span class="section-number">2. </span>TP 2 : Simulation de variables aléatoires<a class="headerlink" href="#tp-2-simulation-de-variables-aleatoires" title="Permalink to this headline">#</a></h1>
+<h1>TP 2 : Simulation de variables aléatoires<a class="headerlink" href="#tp-2-simulation-de-variables-aleatoires" title="Permalink to this headline">#</a></h1>
 <p>Dans ce TP, nous allons simuler des lois de variables aléatoires à partir de <code class="docutils literal notranslate"><span class="pre">random.random()</span></code> qui permet d’avoir un flottant entre <span class="math notranslate nohighlight">\(0\)</span> et <span class="math notranslate nohighlight">\(1\)</span> (c’est-à-dire simulant une variable uniforme sur <span class="math notranslate nohighlight">\([0, 1]\)</span>).</p>
 <p>Modules à importer :</p>
 <div class="cell docutils container">
@@ -504,7 +504,7 @@ title="Print to PDF"
 </div>
 </div>
 <section id="loi-de-bernouilli">
-<h2><span class="section-number">2.1. </span>Loi de Bernouilli<a class="headerlink" href="#loi-de-bernouilli" title="Permalink to this headline">#</a></h2>
+<h2>Loi de Bernouilli<a class="headerlink" href="#loi-de-bernouilli" title="Permalink to this headline">#</a></h2>
 <p>On rappelle que <span class="math notranslate nohighlight">\(X\)</span> suit une <strong>loi de Bernouilli</strong> de paramètre <span class="math notranslate nohighlight">\(p\)</span> si :</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
@@ -579,7 +579,7 @@ Vérifier que vous obtenez autant de <span class="math notranslate nohighlight">
 </div>
 </section>
 <section id="loi-geometrique">
-<h2><span class="section-number">2.2. </span>Loi géométrique<a class="headerlink" href="#loi-geometrique" title="Permalink to this headline">#</a></h2>
+<h2>Loi géométrique<a class="headerlink" href="#loi-geometrique" title="Permalink to this headline">#</a></h2>
 <p>On rappelle que <span class="math notranslate nohighlight">\(X\)</span> suit une <strong>loi géométrique</strong> de paramètre [p] si :</p>
 <div class="math notranslate nohighlight">
 \[
@@ -629,7 +629,7 @@ Vérifier que vous obtenez autant de <span class="math notranslate nohighlight">
 </div>
 </section>
 <section id="loi-binomiale">
-<h2><span class="section-number">2.3. </span>Loi binomiale<a class="headerlink" href="#loi-binomiale" title="Permalink to this headline">#</a></h2>
+<h2>Loi binomiale<a class="headerlink" href="#loi-binomiale" title="Permalink to this headline">#</a></h2>
 <p><span class="math notranslate nohighlight">\(X\)</span> suit une loi binomiale de paramètres <span class="math notranslate nohighlight">\(n\)</span> et <span class="math notranslate nohighlight">\(p\)</span> si, pour <span class="math notranslate nohighlight">\(k = 0, 1, ..., n\)</span> :</p>
 <div class="math notranslate nohighlight">
 \[
@@ -672,7 +672,7 @@ Vérifier que vous obtenez autant de <span class="math notranslate nohighlight">
 </div>
 </section>
 <section id="simulation-d-une-loi-normale-a-partir-d-une-loi-binomiale">
-<h2><span class="section-number">2.4. </span>Simulation d’une loi normale à partir d’une loi Binomiale<a class="headerlink" href="#simulation-d-une-loi-normale-a-partir-d-une-loi-binomiale" title="Permalink to this headline">#</a></h2>
+<h2>Simulation d’une loi normale à partir d’une loi Binomiale<a class="headerlink" href="#simulation-d-une-loi-normale-a-partir-d-une-loi-binomiale" title="Permalink to this headline">#</a></h2>
 <p>On rappelle que le <strong>théorème central limite</strong> :</p>
 <blockquote>
 <div><p>Soient <span class="math notranslate nohighlight">\(X_1\)</span>, …, <span class="math notranslate nohighlight">\(X_n\)</span> des variables indépendantes et de même loi, d’espérance <span class="math notranslate nohighlight">\(\mu\)</span> et d’écart-type <span class="math notranslate nohighlight">\(\sigma\)</span>.<br />
@@ -735,7 +735,7 @@ Soit <span class="math notranslate nohighlight">\(S_n = X_1 + ... + X_n\)</span>
 </div>
 </section>
 <section id="methode-de-la-transformee-inverse">
-<h2><span class="section-number">2.5. </span>Méthode de la transformée inverse<a class="headerlink" href="#methode-de-la-transformee-inverse" title="Permalink to this headline">#</a></h2>
+<h2>Méthode de la transformée inverse<a class="headerlink" href="#methode-de-la-transformee-inverse" title="Permalink to this headline">#</a></h2>
 <p><strong>Définition</strong> : Soit <span class="math notranslate nohighlight">\(X\)</span> une variable aléatoire. Sa fonction de répartition <span class="math notranslate nohighlight">\(F\)</span> est définie par :</p>
 <div class="math notranslate nohighlight">
 \[
@@ -746,7 +746,7 @@ Soit <span class="math notranslate nohighlight">\(S_n = X_1 + ... + X_n\)</span>
 <p>Comme nous savons comment simuler <span class="math notranslate nohighlight">\(\mathcal{U}\)</span> (avec <code class="docutils literal notranslate"><span class="pre">random.random()</span></code>), nous pouvons simuler n’importe quelle loi de probabilité, à condition de savoir inverser sa fonction de répartition.</p>
 </section>
 <section id="loi-exponentielle">
-<h2><span class="section-number">2.6. </span>Loi exponentielle<a class="headerlink" href="#loi-exponentielle" title="Permalink to this headline">#</a></h2>
+<h2>Loi exponentielle<a class="headerlink" href="#loi-exponentielle" title="Permalink to this headline">#</a></h2>
 <p>Une variable aléatoire <span class="math notranslate nohighlight">\(X\)</span> est de <strong>loi exponentielle</strong> de paramètre <span class="math notranslate nohighlight">\(a\)</span> si sa fonction de répartition est, pour <span class="math notranslate nohighlight">\(x\in \mathbb{R}^+\)</span> :</p>
 <div class="math notranslate nohighlight">
 \[
@@ -820,7 +820,7 @@ Soit <span class="math notranslate nohighlight">\(S_n = X_1 + ... + X_n\)</span>
 </div>
 </section>
 <section id="loi-de-poisson">
-<h2><span class="section-number">2.7. </span>Loi de Poisson<a class="headerlink" href="#loi-de-poisson" title="Permalink to this headline">#</a></h2>
+<h2>Loi de Poisson<a class="headerlink" href="#loi-de-poisson" title="Permalink to this headline">#</a></h2>
 <p>Une variable aléatoire discrète <span class="math notranslate nohighlight">\(X\)</span> suit une <strong>loi de Poisson</strong> de paramètre <span class="math notranslate nohighlight">\(a\)</span> si :</p>
 <div class="math notranslate nohighlight">
 \[
@@ -830,7 +830,7 @@ Soit <span class="math notranslate nohighlight">\(S_n = X_1 + ... + X_n\)</span>
 <div><p>La loi de Poisson est une loi de probabilité discrète qui décrit le comportement du nombre d’événements se produisant dans un intervalle de temps fixé, si ces événements se produisent avec une fréquence moyenne ou espérance connue, et indépendamment du temps écoulé depuis l’événement précédent.</p>
 </div></blockquote>
 <section id="simulation-a-partir-de-lois-exponentielles">
-<h3><span class="section-number">2.7.1. </span>Simulation à partir de lois exponentielles<a class="headerlink" href="#simulation-a-partir-de-lois-exponentielles" title="Permalink to this headline">#</a></h3>
+<h3>Simulation à partir de lois exponentielles<a class="headerlink" href="#simulation-a-partir-de-lois-exponentielles" title="Permalink to this headline">#</a></h3>
 <p>On admet le théorème suivant permettant de simuler une loi de Poisson à partir d’une loi exponentielle :</p>
 <p><strong>Théorème</strong> : Soit <span class="math notranslate nohighlight">\(X_1\)</span>, …, <span class="math notranslate nohighlight">\(X_n\)</span>, … des variables exponentielles de paramètre <span class="math notranslate nohighlight">\(a\)</span>. Soit <span class="math notranslate nohighlight">\(S_n = X_1 + ... + X_n\)</span>. Soit <span class="math notranslate nohighlight">\(Y\)</span> la plus grande valeur de <span class="math notranslate nohighlight">\(n\)</span> pour laquelle <span class="math notranslate nohighlight">\(S_{n} \leq 1\)</span>.<br />
 Alors <span class="math notranslate nohighlight">\(Y\)</span> suit une loi de Poisson de paramètre <span class="math notranslate nohighlight">\(a\)</span>.</p>
@@ -880,7 +880,7 @@ Alors <span class="math notranslate nohighlight">\(Y\)</span> suit une loi de Po
 </div>
 </section>
 <section id="approximation-a-partir-d-une-loi-binomiale">
-<h3><span class="section-number">2.7.2. </span>Approximation à partir d’une loi binomiale<a class="headerlink" href="#approximation-a-partir-d-une-loi-binomiale" title="Permalink to this headline">#</a></h3>
+<h3>Approximation à partir d’une loi binomiale<a class="headerlink" href="#approximation-a-partir-d-une-loi-binomiale" title="Permalink to this headline">#</a></h3>
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
 <p>(Difficile) Montrer (sur papier, sans ordinateur) que si <span class="math notranslate nohighlight">\(np = a\)</span> alors :</p>
@@ -931,13 +931,13 @@ Alors <span class="math notranslate nohighlight">\(Y\)</span> suit une loi de Po
       <i class="fas fa-angle-left"></i>
       <div class="prev-next-info">
           <p class="prev-next-subtitle">previous</p>
-          <p class="prev-next-title"><span class="section-number">1. </span>TP 1 : Résolution d’équation différentielle par la méthode d’Euler</p>
+          <p class="prev-next-title">TP 1 : Résolution d’équation différentielle par la méthode d’Euler</p>
       </div>
   </a>
   <a class='right-next' id="next-link" href="../4_population/population.html" title="next page">
   <div class="prev-next-info">
       <p class="prev-next-subtitle">next</p>
-      <p class="prev-next-title"><span class="section-number">3. </span>TP 4 : Matrice de population</p>
+      <p class="prev-next-title">TP 4 : Matrice de population</p>
   </div>
   <i class="fas fa-angle-right"></i>
   </a>
@@ -960,47 +960,47 @@ Alors <span class="math notranslate nohighlight">\(Y\)</span> suit une loi de Po
             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#loi-de-bernouilli">
-   2.1. Loi de Bernouilli
+   Loi de Bernouilli
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#loi-geometrique">
-   2.2. Loi géométrique
+   Loi géométrique
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#loi-binomiale">
-   2.3. Loi binomiale
+   Loi binomiale
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#simulation-d-une-loi-normale-a-partir-d-une-loi-binomiale">
-   2.4. Simulation d’une loi normale à partir d’une loi Binomiale
+   Simulation d’une loi normale à partir d’une loi Binomiale
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#methode-de-la-transformee-inverse">
-   2.5. Méthode de la transformée inverse
+   Méthode de la transformée inverse
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#loi-exponentielle">
-   2.6. Loi exponentielle
+   Loi exponentielle
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#loi-de-poisson">
-   2.7. Loi de Poisson
+   Loi de Poisson
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#simulation-a-partir-de-lois-exponentielles">
-     2.7.1. Simulation à partir de lois exponentielles
+     Simulation à partir de lois exponentielles
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#approximation-a-partir-d-une-loi-binomiale">
-     2.7.2. Approximation à partir d’une loi binomiale
+     Approximation à partir d’une loi binomiale
     </a>
    </li>
   </ul>

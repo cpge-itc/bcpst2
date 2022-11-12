@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>3. TP 4 : Matrice de population &#8212; Informatique en 2ème année de BCPST</title>
+    <title>TP 4 : Matrice de population &#8212; Informatique en 2ème année de BCPST</title>
   <script>
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
@@ -61,8 +61,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="canonical" href="https://cpge-itc.github.io/bcpst2/4_population/population.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="4. TP 5 : Statistiques et classification de fleurs" href="../5_iris/iris.html" />
-    <link rel="prev" title="2. TP 2 : Simulation de variables aléatoires" href="../2_probabilites/simulation.html" />
+    <link rel="next" title="TP 5 : Statistiques et classification de fleurs" href="../5_iris/iris.html" />
+    <link rel="prev" title="TP 2 : Simulation de variables aléatoires" href="../2_probabilites/simulation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="docsearch:language" content="None">
   </head>
@@ -125,32 +125,32 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../1_euler/euler.html">
-   1. TP 1 : Résolution d’équation différentielle par la méthode d’Euler
+   TP 1 : Résolution d’équation différentielle par la méthode d’Euler
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../2_probabilites/simulation.html">
-   2. TP 2 : Simulation de variables aléatoires
+   TP 2 : Simulation de variables aléatoires
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   3. TP 4 : Matrice de population
+   TP 4 : Matrice de population
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../5_iris/iris.html">
-   4. TP 5 : Statistiques et classification de fleurs
+   TP 5 : Statistiques et classification de fleurs
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../6_sql/sql.html">
-   5. TP 6 : SQL
+   TP 6 : SQL
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../7_dessin/tp7_dessin.html">
-   6. TP 7 : Dessins, récursivité et fractales
+   TP 7 : Dessins, récursivité et fractales
   </a>
  </li>
 </ul>
@@ -418,27 +418,27 @@ title="Print to PDF"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#rappels-sur-les-matrices">
-   3.1. Rappels sur les matrices
+   Rappels sur les matrices
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#definition">
-     3.1.1. Définition
+     Définition
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#acceder-et-modifier-un-element">
-     3.1.2. Accéder et modifier un élément
+     Accéder et modifier un élément
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#taille-d-une-matrice">
-     3.1.3. Taille d’une matrice
+     Taille d’une matrice
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#creation-d-une-matrice-de-taille-n-times-p">
-     3.1.4. Création d’une matrice de taille
+     Création d’une matrice de taille
      <span class="math notranslate nohighlight">
       \(n \times p\)
      </span>
@@ -446,19 +446,19 @@ title="Print to PDF"
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#parcourir-une-matrice">
-     3.1.5. Parcourir une matrice
+     Parcourir une matrice
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#exercices-sur-les-matrices">
-     3.1.6. Exercices sur les matrices
+     Exercices sur les matrices
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#matrice-de-population">
-   3.2. Matrice de population
+   Matrice de population
   </a>
  </li>
 </ul>
@@ -471,11 +471,11 @@ title="Print to PDF"
             <article class="bd-article" role="main">
               
   <section class="tex2jax_ignore mathjax_ignore" id="tp-4-matrice-de-population">
-<h1><span class="section-number">3. </span>TP 4 : Matrice de population<a class="headerlink" href="#tp-4-matrice-de-population" title="Permalink to this headline">#</a></h1>
+<h1>TP 4 : Matrice de population<a class="headerlink" href="#tp-4-matrice-de-population" title="Permalink to this headline">#</a></h1>
 <section id="rappels-sur-les-matrices">
-<h2><span class="section-number">3.1. </span>Rappels sur les matrices<a class="headerlink" href="#rappels-sur-les-matrices" title="Permalink to this headline">#</a></h2>
+<h2>Rappels sur les matrices<a class="headerlink" href="#rappels-sur-les-matrices" title="Permalink to this headline">#</a></h2>
 <section id="definition">
-<h3><span class="section-number">3.1.1. </span>Définition<a class="headerlink" href="#definition" title="Permalink to this headline">#</a></h3>
+<h3>Définition<a class="headerlink" href="#definition" title="Permalink to this headline">#</a></h3>
 <p>Une matrice est représentée en Python par une liste de listes (ou : un tableau de tableaux), chaque sous-liste correspondant à une ligne de la matrice.</p>
 <p>Par exemple, la matrice</p>
 <div class="math notranslate nohighlight">
@@ -496,7 +496,7 @@ M = \begin{pmatrix}
 <p>Ainsi, la première sous-liste <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">0,</span> <span class="pre">3]</span></code> correspond à la première ligne de la matrice et <code class="docutils literal notranslate"><span class="pre">[2,</span> <span class="pre">2,</span> <span class="pre">1]</span></code> correspond à la deuxième ligne.</p>
 </section>
 <section id="acceder-et-modifier-un-element">
-<h3><span class="section-number">3.1.2. </span>Accéder et modifier un élément<a class="headerlink" href="#acceder-et-modifier-un-element" title="Permalink to this headline">#</a></h3>
+<h3>Accéder et modifier un élément<a class="headerlink" href="#acceder-et-modifier-un-element" title="Permalink to this headline">#</a></h3>
 <p>On accède à l’élément sur la ligne <code class="docutils literal notranslate"><span class="pre">i</span></code>, colonne <code class="docutils literal notranslate"><span class="pre">j</span></code> de la matrice avec <code class="docutils literal notranslate"><span class="pre">M[i][j]</span></code>. Par exemple :</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -527,7 +527,7 @@ M = \begin{pmatrix}
 </div>
 </section>
 <section id="taille-d-une-matrice">
-<h3><span class="section-number">3.1.3. </span>Taille d’une matrice<a class="headerlink" href="#taille-d-une-matrice" title="Permalink to this headline">#</a></h3>
+<h3>Taille d’une matrice<a class="headerlink" href="#taille-d-une-matrice" title="Permalink to this headline">#</a></h3>
 <p>Le nombre de lignes de la matrice est le nombre de sous-listes, qui peut être obtenue avec <code class="docutils literal notranslate"><span class="pre">len(M)</span></code> :</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -556,7 +556,7 @@ M = \begin{pmatrix}
 </div>
 </section>
 <section id="creation-d-une-matrice-de-taille-n-times-p">
-<h3><span class="section-number">3.1.4. </span>Création d’une matrice de taille <span class="math notranslate nohighlight">\(n \times p\)</span><a class="headerlink" href="#creation-d-une-matrice-de-taille-n-times-p" title="Permalink to this headline">#</a></h3>
+<h3>Création d’une matrice de taille <span class="math notranslate nohighlight">\(n \times p\)</span><a class="headerlink" href="#creation-d-une-matrice-de-taille-n-times-p" title="Permalink to this headline">#</a></h3>
 <p>Pour créer une matrice de taille <span class="math notranslate nohighlight">\(n \times p\)</span> remplie de <span class="math notranslate nohighlight">\(0\)</span>, on a deux possibilités :</p>
 <ul class="simple">
 <li><p>Utiliser <code class="docutils literal notranslate"><span class="pre">np.zeros((n,</span> <span class="pre">p))</span></code> du module <code class="docutils literal notranslate"><span class="pre">numpy</span></code> (<code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy</span> <span class="pre">as</span> <span class="pre">np</span></code>). Ceci donne un tableau (<code class="docutils literal notranslate"><span class="pre">np.darray</span></code>), qui ressemble beaucoup aux listes avec quelques petites différences (pas de <code class="docutils literal notranslate"><span class="pre">append</span></code>, opérations terme à terme…).</p></li>
@@ -582,7 +582,7 @@ M = \begin{pmatrix}
 </div>
 </section>
 <section id="parcourir-une-matrice">
-<h3><span class="section-number">3.1.5. </span>Parcourir une matrice<a class="headerlink" href="#parcourir-une-matrice" title="Permalink to this headline">#</a></h3>
+<h3>Parcourir une matrice<a class="headerlink" href="#parcourir-une-matrice" title="Permalink to this headline">#</a></h3>
 <p>Pour parcourir une matrice, on utilise deux indices (un pour la ligne, un pour la colonne), dans deux boucles <code class="docutils literal notranslate"><span class="pre">for</span></code>. Par exemple, mettons des <span class="math notranslate nohighlight">\(2\)</span> partout dans <span class="math notranslate nohighlight">\(M\)</span> :</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -601,7 +601,7 @@ M = \begin{pmatrix}
 </div>
 </section>
 <section id="exercices-sur-les-matrices">
-<h3><span class="section-number">3.1.6. </span>Exercices sur les matrices<a class="headerlink" href="#exercices-sur-les-matrices" title="Permalink to this headline">#</a></h3>
+<h3>Exercices sur les matrices<a class="headerlink" href="#exercices-sur-les-matrices" title="Permalink to this headline">#</a></h3>
 <p>Pensez à tester vos fonctions avec des petites matrices.</p>
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
@@ -725,7 +725,7 @@ On pourra compléter le code suivant :</p>
 </section>
 </section>
 <section id="matrice-de-population">
-<h2><span class="section-number">3.2. </span>Matrice de population<a class="headerlink" href="#matrice-de-population" title="Permalink to this headline">#</a></h2>
+<h2>Matrice de population<a class="headerlink" href="#matrice-de-population" title="Permalink to this headline">#</a></h2>
 <p>On souhaite étudier l’évolution d’une population de rongeurs à des stades d’âges différents. On ne s’intéresse qu’à la population d’individus femelles. On suppose qu’aucun rongeur vit au plus <span class="math notranslate nohighlight">\(3\)</span> ans et on note <span class="math notranslate nohighlight">\(a_n\)</span>, <span class="math notranslate nohighlight">\(b_n\)</span>, <span class="math notranslate nohighlight">\(c_n\)</span> le nombre de femelles âgées de <span class="math notranslate nohighlight">\(0\)</span>, <span class="math notranslate nohighlight">\(1\)</span>, <span class="math notranslate nohighlight">\(2\)</span> ans à l’année <span class="math notranslate nohighlight">\(n\)</span> (initialement <span class="math notranslate nohighlight">\(n = 0\)</span>).<br />
 Chaque femelle donne en moyenne naissance à <span class="math notranslate nohighlight">\(6\)</span> femelles lors de sa 2ème année et <span class="math notranslate nohighlight">\(10\)</span> femelles lors de sa <span class="math notranslate nohighlight">\(3\)</span>ème année.<br />
 Cependant, seul un rongeur sur deux survit au dela de sa première année et seul 40% de ceux qui survivent la deuxième
@@ -957,13 +957,13 @@ On remarque que, par récurrence évidente : <span class="math notranslate nohig
       <i class="fas fa-angle-left"></i>
       <div class="prev-next-info">
           <p class="prev-next-subtitle">previous</p>
-          <p class="prev-next-title"><span class="section-number">2. </span>TP 2 : Simulation de variables aléatoires</p>
+          <p class="prev-next-title">TP 2 : Simulation de variables aléatoires</p>
       </div>
   </a>
   <a class='right-next' id="next-link" href="../5_iris/iris.html" title="next page">
   <div class="prev-next-info">
       <p class="prev-next-subtitle">next</p>
-      <p class="prev-next-title"><span class="section-number">4. </span>TP 5 : Statistiques et classification de fleurs</p>
+      <p class="prev-next-title">TP 5 : Statistiques et classification de fleurs</p>
   </div>
   <i class="fas fa-angle-right"></i>
   </a>
@@ -986,27 +986,27 @@ On remarque que, par récurrence évidente : <span class="math notranslate nohig
             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#rappels-sur-les-matrices">
-   3.1. Rappels sur les matrices
+   Rappels sur les matrices
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#definition">
-     3.1.1. Définition
+     Définition
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#acceder-et-modifier-un-element">
-     3.1.2. Accéder et modifier un élément
+     Accéder et modifier un élément
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#taille-d-une-matrice">
-     3.1.3. Taille d’une matrice
+     Taille d’une matrice
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#creation-d-une-matrice-de-taille-n-times-p">
-     3.1.4. Création d’une matrice de taille
+     Création d’une matrice de taille
      <span class="math notranslate nohighlight">
       \(n \times p\)
      </span>
@@ -1014,19 +1014,19 @@ On remarque que, par récurrence évidente : <span class="math notranslate nohig
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#parcourir-une-matrice">
-     3.1.5. Parcourir une matrice
+     Parcourir une matrice
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#exercices-sur-les-matrices">
-     3.1.6. Exercices sur les matrices
+     Exercices sur les matrices
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#matrice-de-population">
-   3.2. Matrice de population
+   Matrice de population
   </a>
  </li>
 </ul>

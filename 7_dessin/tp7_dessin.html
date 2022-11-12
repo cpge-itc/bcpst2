@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>6. TP 7 : Dessins, récursivité et fractales &#8212; Informatique en 2ème année de BCPST</title>
+    <title>TP 7 : Dessins, récursivité et fractales &#8212; Informatique en 2ème année de BCPST</title>
   <script>
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
@@ -61,7 +61,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="canonical" href="https://cpge-itc.github.io/bcpst2/7_dessin/tp7_dessin.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="5. TP 6 : SQL" href="../6_sql/sql.html" />
+    <link rel="prev" title="TP 6 : SQL" href="../6_sql/sql.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="docsearch:language" content="None">
   </head>
@@ -124,32 +124,32 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../1_euler/euler.html">
-   1. TP 1 : Résolution d’équation différentielle par la méthode d’Euler
+   TP 1 : Résolution d’équation différentielle par la méthode d’Euler
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../2_probabilites/simulation.html">
-   2. TP 2 : Simulation de variables aléatoires
+   TP 2 : Simulation de variables aléatoires
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../4_population/population.html">
-   3. TP 4 : Matrice de population
+   TP 4 : Matrice de population
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../5_iris/iris.html">
-   4. TP 5 : Statistiques et classification de fleurs
+   TP 5 : Statistiques et classification de fleurs
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../6_sql/sql.html">
-   5. TP 6 : SQL
+   TP 6 : SQL
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   6. TP 7 : Dessins, récursivité et fractales
+   TP 7 : Dessins, récursivité et fractales
   </a>
  </li>
 </ul>
@@ -417,17 +417,17 @@ title="Print to PDF"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#turtle">
-   6.1. Turtle
+   Turtle
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#recursivite">
-   6.2. Récursivité
+   Récursivité
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#flocon-de-von-koch">
-   6.3. Flocon de Von Koch
+   Flocon de Von Koch
   </a>
  </li>
 </ul>
@@ -440,9 +440,9 @@ title="Print to PDF"
             <article class="bd-article" role="main">
               
   <section class="tex2jax_ignore mathjax_ignore" id="tp-7-dessins-recursivite-et-fractales">
-<h1><span class="section-number">6. </span>TP 7 : Dessins, récursivité et fractales<a class="headerlink" href="#tp-7-dessins-recursivite-et-fractales" title="Permalink to this headline">#</a></h1>
+<h1>TP 7 : Dessins, récursivité et fractales<a class="headerlink" href="#tp-7-dessins-recursivite-et-fractales" title="Permalink to this headline">#</a></h1>
 <section id="turtle">
-<h2><span class="section-number">6.1. </span>Turtle<a class="headerlink" href="#turtle" title="Permalink to this headline">#</a></h2>
+<h2>Turtle<a class="headerlink" href="#turtle" title="Permalink to this headline">#</a></h2>
 <p>Le module <code class="docutils literal notranslate"><span class="pre">turtle</span></code> de Python permet de tracer des figures, comme on le ferait avec un stylo.<br>
 La “tortue” (pointe du stylo) est initialement placée à l’origine d’un repère, la “tête” orientée à droite, et se déplace sur le graphique en fonction des instructions qu’on lui donne.</p>
 <p>Les principales instructions sont les suivantes :</p>
@@ -564,7 +564,7 @@ La “tortue” (pointe du stylo) est initialement placée à l’origine d’un
 </div>
 </section>
 <section id="recursivite">
-<h2><span class="section-number">6.2. </span>Récursivité<a class="headerlink" href="#recursivite" title="Permalink to this headline">#</a></h2>
+<h2>Récursivité<a class="headerlink" href="#recursivite" title="Permalink to this headline">#</a></h2>
 <p>On dit qu’une fonction est <strong>récursive</strong> si elle s’appelle elle-même. Par exemple, considérons la fonction suivante :</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -596,7 +596,7 @@ Remarque : <code class="docutils literal notranslate"><span class="pre">fact(n)<
 </div>
 </section>
 <section id="flocon-de-von-koch">
-<h2><span class="section-number">6.3. </span>Flocon de Von Koch<a class="headerlink" href="#flocon-de-von-koch" title="Permalink to this headline">#</a></h2>
+<h2>Flocon de Von Koch<a class="headerlink" href="#flocon-de-von-koch" title="Permalink to this headline">#</a></h2>
 <p>Un flocon de Von Koch s’obtient en partant d’un triangle équilatéral, puis en modifiant successivement chaque arête de la façon suivante :</p>
 <ul class="simple">
 <li><p>On divise l’arête en 3</p></li>
@@ -689,7 +689,7 @@ Cette fonction doit être <strong>récursive</strong>. En effet, pour construire
       <i class="fas fa-angle-left"></i>
       <div class="prev-next-info">
           <p class="prev-next-subtitle">previous</p>
-          <p class="prev-next-title"><span class="section-number">5. </span>TP 6 : SQL</p>
+          <p class="prev-next-title">TP 6 : SQL</p>
       </div>
   </a>
 </div>
@@ -711,17 +711,17 @@ Cette fonction doit être <strong>récursive</strong>. En effet, pour construire
             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#turtle">
-   6.1. Turtle
+   Turtle
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#recursivite">
-   6.2. Récursivité
+   Récursivité
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#flocon-de-von-koch">
-   6.3. Flocon de Von Koch
+   Flocon de Von Koch
   </a>
  </li>
 </ul>
