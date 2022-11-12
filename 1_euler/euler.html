@@ -6,31 +6,35 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>TP 1 : Résolution d’équation différentielle par la méthode d’Euler &#8212; Informatique en 2ème année de BCPST</title>
-    
+    <title>1. TP 1 : Résolution d’équation différentielle par la méthode d’Euler &#8212; Informatique en 2ème année de BCPST</title>
+  <script>
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../_static/styles/theme.css?digest=9b1a4fa89bdd0e95b23b" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=9b1a4fa89bdd0e95b23b" rel="stylesheet">
 
-    
+  
   <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+    href="../_static/vendor/fontawesome/6.1.2/css/all.min.css">
   <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+    href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2">
   <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=6aa211a80e8e0ad13c9f98b61f85fb78546ea56f" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -38,7 +42,7 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=532d1baf3f03eb73f2f50828f8c27430120b156d"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=4f5a1d078b6c00e5ef435388cc61494d2f099c28"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -53,45 +57,52 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '1_euler/euler';</script>
     <link rel="canonical" href="https://cpge-itc.github.io/bcpst2/1_euler/euler.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="TP 2 : Simulation de variables aléatoires" href="../2_probabilites/simulation.html" />
-    <link rel="prev" title="Parcours en largeur" href="../3_graph/tp_bfs.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+    <link rel="next" title="2. TP 2 : Simulation de variables aléatoires" href="../2_probabilites/simulation.html" />
+    <link rel="prev" title="Cours d’informatique en BCPST2" href="../intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="docsearch:language" content="None">
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="light">
 
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  <input type="checkbox" class="sidebar-toggle" name="__primary" id="__primary">
+  <label class="overlay overlay-primary" for="__primary"></label>
 
-    
+  
+  <input type="checkbox" class="sidebar-toggle" name="__secondary" id="__secondary">
+  <label class="overlay overlay-secondary" for="__secondary"></label>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+      
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+  </div>
+
+  
+
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+
     <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+        <div class="sidebar-start-items"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -104,131 +115,76 @@ const thebe_selector_output = ".output, .cell_output"
       <h1 class="site-logo" id="site-title">Informatique en 2ème année de BCPST</h1>
       
     </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+</div>
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Introduction
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../0_python/aide_memoire.html">
-   Aide-mémoire Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../0_python/programmer.html">
-   Programmer en Python
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  TP 3 : Révisions sur les graphes
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../3_graph/tp_matrice_adjacence.html">
-   Matrice d’adjacence
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../3_graph/tp_pagerank.html">
-   Algorithme PageRank de Google
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../3_graph/tp_dfs.html">
-   Parcours en profondeur
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../3_graph/tp_bfs.html">
-   Parcours en largeur
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Méthodes numériques et statistiques
- </span>
-</p>
-<ul class="current nav bd-sidenav">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   TP 1 : Résolution d’équation différentielle par la méthode d’Euler
+   1. TP 1 : Résolution d’équation différentielle par la méthode d’Euler
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../2_probabilites/simulation.html">
-   TP 2 : Simulation de variables aléatoires
+   2. TP 2 : Simulation de variables aléatoires
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../4_population/population.html">
-   TP 4 : Matrice de population
+   3. TP 4 : Matrice de population
   </a>
  </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Machine learning
- </span>
-</p>
-<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../5_iris/iris.html">
-   TP 5 : Statistiques et classification de fleurs
+   4. TP 5 : Statistiques et classification de fleurs
   </a>
  </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  SQL
- </span>
-</p>
-<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../6_sql/sql.html">
-   TP 6 : SQL
+   5. TP 6 : SQL
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../7_dessin/tp7_dessin.html">
+   6. TP 7 : Dessins, récursivité et fractales
   </a>
  </li>
 </ul>
 
     </div>
-</nav></div>
-        <div class="bd-sidebar__bottom">
+</nav>
+        </div>
+        <div class="sidebar-end-items">
              <!-- To handle the deprecated key -->
             
         </div>
     </div>
     <div id="rtd-footer-container"></div>
-</div>
 
 
-          
-
-
-          
+      </div>
+      <main class="bd-main">
+        
+        
 <!-- A tiny helper pixel to detect if we've scrolled -->
 <div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
+
+        <div class="bd-content">
+          <div class="bd-article-container">
+            
+            <div class="bd-header-article">
+                
 
 
 
 <div class="col py-1 d-flex header-article-main">
     <div class="header-article__left">
         
-        <label for="__navigation"
+        <label for="__primary"
   class="headerbtn"
   data-toggle="tooltip"
 data-placement="right"
@@ -253,7 +209,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/cpge-itc/bcpst2/main?urlpath=tree/files/1_euler/euler.ipynb"
+        <a href="https://mybinder.org/v2/gh/cpge-itc/bcpst2/main?urlpath=tree/files/1_euler/euler.ipynb" target="_blank"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -271,7 +227,7 @@ title="Launch on Binder"
       </li>
       
       <li>
-        <a href="https://notebook.basthon.fr//?from=https://raw.githubusercontent.com/cpge-itc/bcpst2/main/files/1_euler/euler.ipynb"
+        <a href="https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/cpge-itc/bcpst2/main/files/1_euler/euler.ipynb" target="_blank"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -332,7 +288,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/cpge-itc/bcpst2"
+        <a href="https://github.com/cpge-itc/bcpst2" target="_blank"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -349,7 +305,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/cpge-itc/bcpst2/issues/new?title=Issue%20on%20page%20%2F1_euler/euler.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/cpge-itc/bcpst2/issues/new?title=Issue%20on%20page%20%2F1_euler/euler.html&body=Your%20issue%20content%20here." target="_blank"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -366,7 +322,7 @@ title="Open an issue"
       </li>
       
       <li>
-        <a href="https://github.com/cpge-itc/bcpst2/edit/main/files/1_euler/euler.ipynb"
+        <a href="https://github.com/cpge-itc/bcpst2/edit/main/files/1_euler/euler.ipynb" target="_blank"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -394,7 +350,7 @@ title="Edit this page"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/1_euler/euler.ipynb"
+        <a href="../_sources/1_euler/euler.ipynb" target="_blank"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -431,8 +387,8 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
+<label for="__secondary"
+  class="headerbtn headerbtn-secondary"
   
 >
   
@@ -445,195 +401,106 @@ title="Print to PDF"
 
     </div>
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#installation-des-packages">
-   Installation des packages
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#equation-differentielle-d-ordre-1">
-   Équation différentielle d’ordre 1
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#cadre-general">
-     Cadre général
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exemples-d-equations-differentielles">
-     Exemples d’équations différentielles
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#methode-d-euler">
-   Méthode d’Euler
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#theorie">
-     Théorie
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#illustration">
-     Illustration
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#programmation">
-     Programmation
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#affichage-des-approximations">
-     Affichage des approximations
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#methode-d-euler-generique">
-   Méthode d’Euler générique
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#systeme-d-equations-differentielles">
-   Système d’équations différentielles
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#reactions-chimiques">
-     Réactions chimiques
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#evolution-de-population-lokta-volterra">
-     Évolution de population (Lokta-Volterra)
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#equation-du-second-ordre">
-   Équation du second ordre
-  </a>
- </li>
-</ul>
-
-    </nav>
-</div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>TP 1 : Résolution d’équation différentielle par la méthode d’Euler</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#installation-des-packages">
-   Installation des packages
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#equation-differentielle-d-ordre-1">
-   Équation différentielle d’ordre 1
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#cadre-general">
-     Cadre général
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exemples-d-equations-differentielles">
-     Exemples d’équations différentielles
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#methode-d-euler">
-   Méthode d’Euler
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#theorie">
-     Théorie
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#illustration">
-     Illustration
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#programmation">
-     Programmation
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#affichage-des-approximations">
-     Affichage des approximations
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#methode-d-euler-generique">
-   Méthode d’Euler générique
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#systeme-d-equations-differentielles">
-   Système d’équations différentielles
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#reactions-chimiques">
-     Réactions chimiques
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#evolution-de-population-lokta-volterra">
-     Évolution de population (Lokta-Volterra)
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#equation-du-second-ordre">
-   Équation du second ordre
-  </a>
- </li>
-</ul>
-
-                        </nav>
-                    </div>
-                </div>
             </div>
-            <main id="main-content" role="main">
-                
-              <div>
-                
+            
+            
+<!-- Table of contents that is only displayed when printing the page -->
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>TP 1 : Résolution d’équation différentielle par la méthode d’Euler</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installation-des-packages">
+   1.1. Installation des packages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#equation-differentielle-d-ordre-1">
+   1.2. Équation différentielle d’ordre 1
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cadre-general">
+     1.2.1. Cadre général
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exemples-d-equations-differentielles">
+     1.2.2. Exemples d’équations différentielles
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#methode-d-euler">
+   1.3. Méthode d’Euler
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#theorie">
+     1.3.1. Théorie
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#illustration">
+     1.3.2. Illustration
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#programmation">
+     1.3.3. Programmation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#affichage-des-approximations">
+     1.3.4. Affichage des approximations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#methode-d-euler-generique">
+   1.4. Méthode d’Euler générique
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#systeme-d-equations-differentielles">
+   1.5. Système d’équations différentielles
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reactions-chimiques">
+     1.5.1. Réactions chimiques
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#evolution-de-population-lokta-volterra">
+     1.5.2. Évolution de population (Lokta-Volterra)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#equation-du-second-ordre">
+   1.6. Équation du second ordre
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+            <article class="bd-article" role="main">
+              
   <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <center><img src=https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Leonhard_Euler_-_edit1.jpg/800px-Leonhard_Euler_-_edit1.jpg width=100>
@@ -641,13 +508,13 @@ title="Print to PDF"
 </center>
 </aside>
 <section class="tex2jax_ignore mathjax_ignore" id="tp-1-resolution-d-equation-differentielle-par-la-methode-d-euler">
-<h1>TP 1 : Résolution d’équation différentielle par la méthode d’Euler<a class="headerlink" href="#tp-1-resolution-d-equation-differentielle-par-la-methode-d-euler" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">1. </span>TP 1 : Résolution d’équation différentielle par la méthode d’Euler<a class="headerlink" href="#tp-1-resolution-d-equation-differentielle-par-la-methode-d-euler" title="Permalink to this headline">#</a></h1>
 <blockquote>
 <div><p>La méthode d’Euler permet d’approximer une solution d’une équation différentielle.<br />
 Dans le programme, nous nous restreignons à une équation différentielle d’ordre <span class="math notranslate nohighlight">\(1\)</span>, c’est-à-dire où seules apparaissent des dérivées premières.</p>
 </div></blockquote>
 <section id="installation-des-packages">
-<h2>Installation des packages<a class="headerlink" href="#installation-des-packages" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">1.1. </span>Installation des packages<a class="headerlink" href="#installation-des-packages" title="Permalink to this headline">#</a></h2>
 <p>Ce TP nécessite <code class="docutils literal notranslate"><span class="pre">numpy</span></code> et <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>. Si vous utilisez Pyzo, vous pouvez les obtenir avec la commande suivante, dans la console :</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install numpy matplotlib
 </pre></div>
@@ -665,9 +532,9 @@ Dans le programme, nous nous restreignons à une équation différentielle d’o
 <p>Veuillez m’appeler si cela ne marche pas.</p>
 </section>
 <section id="equation-differentielle-d-ordre-1">
-<h2>Équation différentielle d’ordre 1<a class="headerlink" href="#equation-differentielle-d-ordre-1" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">1.2. </span>Équation différentielle d’ordre 1<a class="headerlink" href="#equation-differentielle-d-ordre-1" title="Permalink to this headline">#</a></h2>
 <section id="cadre-general">
-<h3>Cadre général<a class="headerlink" href="#cadre-general" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">1.2.1. </span>Cadre général<a class="headerlink" href="#cadre-general" title="Permalink to this headline">#</a></h3>
 <p>Considérons une équation différentielle d’ordre 1 :</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
@@ -686,7 +553,7 @@ Dans le programme, nous nous restreignons à une équation différentielle d’o
 \]</div>
 </section>
 <section id="exemples-d-equations-differentielles">
-<h3>Exemples d’équations différentielles<a class="headerlink" href="#exemples-d-equations-differentielles" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">1.2.2. </span>Exemples d’équations différentielles<a class="headerlink" href="#exemples-d-equations-differentielles" title="Permalink to this headline">#</a></h3>
 <p>Voici des exemples d’équations différentielles classiques avec la valeur correspondante de <span class="math notranslate nohighlight">\(f(t, y)\)</span> :</p>
 <table class="colwidths-auto table">
 <thead>
@@ -731,9 +598,9 @@ Dans le programme, nous nous restreignons à une équation différentielle d’o
 </section>
 </section>
 <section id="methode-d-euler">
-<h2>Méthode d’Euler<a class="headerlink" href="#methode-d-euler" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">1.3. </span>Méthode d’Euler<a class="headerlink" href="#methode-d-euler" title="Permalink to this headline">#</a></h2>
 <section id="theorie">
-<h3>Théorie<a class="headerlink" href="#theorie" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">1.3.1. </span>Théorie<a class="headerlink" href="#theorie" title="Permalink to this headline">#</a></h3>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition-rappel admonition">
@@ -770,7 +637,7 @@ Soit <span class="math notranslate nohighlight">\(h\)</span> un petit réel (par
 <p><strong>Remarque</strong> : Cette dernière formule n’est autre que l’expression bien connue en physique <span class="math notranslate nohighlight">\(y(t + \Delta t) \approx y(t) + \Delta t \times y'(t)\)</span>, où on a remplacé <span class="math notranslate nohighlight">\(y'(t)\)</span> par le second membre de l’équation différentielle.</p>
 </section>
 <section id="illustration">
-<h3>Illustration<a class="headerlink" href="#illustration" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">1.3.2. </span>Illustration<a class="headerlink" href="#illustration" title="Permalink to this headline">#</a></h3>
 <p>On obtient chaque point d’approximation en se déplaçant de <span class="math notranslate nohighlight">\(\Delta t\)</span> le long de la tangente à <span class="math notranslate nohighlight">\(y\)</span> :</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -817,7 +684,7 @@ Soit <span class="math notranslate nohighlight">\(h\)</span> un petit réel (par
 </div>
 </section>
 <section id="programmation">
-<h3>Programmation<a class="headerlink" href="#programmation" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">1.3.3. </span>Programmation<a class="headerlink" href="#programmation" title="Permalink to this headline">#</a></h3>
 <p>On calcule les approximations <span class="math notranslate nohighlight">\(y_k\)</span> de <span class="math notranslate nohighlight">\(y\)</span> en appliquant l’équation de récurrence <span class="math notranslate nohighlight">\(y_{k + 1} = y_k + h f(t_k, y_k)\)</span> dans une boucle <code class="docutils literal notranslate"><span class="pre">for</span></code>.<br />
 Les approximations <span class="math notranslate nohighlight">\(y_k\)</span> seront stockées dans une liste <span class="math notranslate nohighlight">\(y\)</span> et les temps <span class="math notranslate nohighlight">\(t_k\)</span> dans une liste <span class="math notranslate nohighlight">\(t\)</span>.</p>
 <p>Voici un exemple d’équation différentielle avec le calcul des approximations par la méthode d’Euler :</p>
@@ -902,7 +769,7 @@ Les approximations <span class="math notranslate nohighlight">\(y_k\)</span> ser
 </div>
 </section>
 <section id="affichage-des-approximations">
-<h3>Affichage des approximations<a class="headerlink" href="#affichage-des-approximations" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">1.3.4. </span>Affichage des approximations<a class="headerlink" href="#affichage-des-approximations" title="Permalink to this headline">#</a></h3>
 <p>On peut afficher l’approximation obtenue, et la comparer avec la fonction exponentielle :</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -992,7 +859,7 @@ Les approximations <span class="math notranslate nohighlight">\(y_k\)</span> ser
 </section>
 </section>
 <section id="methode-d-euler-generique">
-<h2>Méthode d’Euler générique<a class="headerlink" href="#methode-d-euler-generique" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">1.4. </span>Méthode d’Euler générique<a class="headerlink" href="#methode-d-euler-generique" title="Permalink to this headline">#</a></h2>
 <p>La fonction suivante permet d’appliquer la méthode d’Euler avec les paramètres suivants :</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">f</span></code> : fonction apparaissant dans le membre droit de l’équation différentielle.</p></li>
@@ -1061,10 +928,10 @@ On pourra utiliser <code class="docutils literal notranslate"><span class="pre">
 </div>
 </section>
 <section id="systeme-d-equations-differentielles">
-<h2>Système d’équations différentielles<a class="headerlink" href="#systeme-d-equations-differentielles" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">1.5. </span>Système d’équations différentielles<a class="headerlink" href="#systeme-d-equations-differentielles" title="Permalink to this headline">#</a></h2>
 <p>Il est également possible de résoudre un système d’équation différentielles.</p>
 <section id="reactions-chimiques">
-<h3>Réactions chimiques<a class="headerlink" href="#reactions-chimiques" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">1.5.1. </span>Réactions chimiques<a class="headerlink" href="#reactions-chimiques" title="Permalink to this headline">#</a></h3>
 <p>Par exemple, considérons deux réactions chimiques d’ordre 1 :
 $<span class="math notranslate nohighlight">\(A \stackrel{\alpha}{\longrightarrow} B\)</span><span class="math notranslate nohighlight">\(
 \)</span><span class="math notranslate nohighlight">\(B \stackrel{\beta}{\longrightarrow} C\)</span>$</p>
@@ -1117,7 +984,7 @@ B augmente initialement (résultant de la production à partir de A) mais diminu
 </div>
 </section>
 <section id="evolution-de-population-lokta-volterra">
-<h3>Évolution de population (Lokta-Volterra)<a class="headerlink" href="#evolution-de-population-lokta-volterra" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">1.5.2. </span>Évolution de population (Lokta-Volterra)<a class="headerlink" href="#evolution-de-population-lokta-volterra" title="Permalink to this headline">#</a></h3>
 <p>Le système différentiel de Lotka-Volterra permet de modéliser l’évolution conjointe de populations de proies et de prédateurs :</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
@@ -1168,7 +1035,7 @@ B augmente initialement (résultant de la production à partir de A) mais diminu
 </section>
 </section>
 <section id="equation-du-second-ordre">
-<h2>Équation du second ordre<a class="headerlink" href="#equation-du-second-ordre" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">1.6. </span>Équation du second ordre<a class="headerlink" href="#equation-du-second-ordre" title="Permalink to this headline">#</a></h2>
 <p>Pour résoudre une équation différentielle d’ordre 2 du type <span class="math notranslate nohighlight">\(y'' = f(t, y, y')\)</span>, on peut poser <span class="math notranslate nohighlight">\(z(t) = y'(t)\)</span> pour se ramener à un système de 2 équations différentielles d’ordre 1 dont les inconnues sont <span class="math notranslate nohighlight">\(y\)</span> et <span class="math notranslate nohighlight">\(z\)</span>.</p>
 <p>Par exemple, calculons une solution approchée de l’équation du pendule linéarise :</p>
 <div class="math notranslate nohighlight">
@@ -1263,50 +1130,150 @@ Donc <span class="math notranslate nohighlight">\(\boxed{\theta(t) = \sin(t)}\)<
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
-              
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
+            </article>
+            
+
+            
+            
+            <footer class="bd-footer-article">
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../3_graph/tp_bfs.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Parcours en largeur</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="../2_probabilites/simulation.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">TP 2 : Simulation de variables aléatoires</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
+  <a class='left-prev' id="prev-link" href="../intro.html" title="previous page">
+      <i class="fas fa-angle-left"></i>
+      <div class="prev-next-info">
+          <p class="prev-next-subtitle">previous</p>
+          <p class="prev-next-title">Cours d’informatique en BCPST2</p>
+      </div>
+  </a>
+  <a class='right-next' id="next-link" href="../2_probabilites/simulation.html" title="next page">
+  <div class="prev-next-info">
+      <p class="prev-next-subtitle">next</p>
+      <p class="prev-next-title"><span class="section-number">2. </span>TP 2 : Simulation de variables aléatoires</p>
+  </div>
+  <i class="fas fa-angle-right"></i>
+  </a>
 </div>
             </footer>
+            
+          </div>
+          
+          
+
+    <!-- Table of contents -->
+
+
+<div class="bd-sidebar-secondary bd-toc show noprint">
+    <div class="toc-item">
+        <div class="tocsection onthispage">
+            <i class="fas fa-list"></i> Contents
         </div>
+        <nav id="bd-toc-nav" aria-label="Page">
+            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installation-des-packages">
+   1.1. Installation des packages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#equation-differentielle-d-ordre-1">
+   1.2. Équation différentielle d’ordre 1
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cadre-general">
+     1.2.1. Cadre général
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exemples-d-equations-differentielles">
+     1.2.2. Exemples d’équations différentielles
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#methode-d-euler">
+   1.3. Méthode d’Euler
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#theorie">
+     1.3.1. Théorie
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#illustration">
+     1.3.2. Illustration
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#programmation">
+     1.3.3. Programmation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#affichage-des-approximations">
+     1.3.4. Affichage des approximations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#methode-d-euler-generique">
+   1.4. Méthode d’Euler générique
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#systeme-d-equations-differentielles">
+   1.5. Système d’équations différentielles
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reactions-chimiques">
+     1.5.1. Réactions chimiques
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#evolution-de-population-lokta-volterra">
+     1.5.2. Évolution de population (Lokta-Volterra)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#equation-du-second-ordre">
+   1.6. Équation du second ordre
+  </a>
+ </li>
+</ul>
+
+        </nav>
     </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+</div>
+
+
+
+        </div>
+        <footer class="bd-footer-content">
+          <div class="bd-footer-content__inner">
+            <p>
   
     By Quentin Fortier<br/>
   
       &copy; Copyright 2022.<br/>
 </p>
+          </div>
         </footer>
-    </div>
-    
-</div>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
+
   
+    
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b"></script>
 
   </body>
 </html>
