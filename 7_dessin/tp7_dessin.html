@@ -493,11 +493,12 @@ La “tortue” (pointe du stylo) est initialement placée à l’origine d’un
 </div>
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
-<p>Tester avec le code suivant, qui avance la tortue de <span class="math notranslate nohighlight">\(100\)</span> pixels, puis tourne de <span class="math notranslate nohighlight">\(40\)</span> degrés à gauche, puis avance de <span class="math notranslate nohighlight">\(200\)</span> pixels.</p>
+<p>Tester avec le code suivant, qui avance la tortue de <span class="math notranslate nohighlight">\(100\)</span> pixels, puis tourne de <span class="math notranslate nohighlight">\(40\)</span> degrés à gauche, puis avance de <span class="math notranslate nohighlight">\(200\)</span> pixels.<br />
+Remarque : si vous avez une erreur <code class="docutils literal notranslate"><span class="pre">Terminator</span> <span class="pre">...</span></code>, essayez de relancer le code.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">reset</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reset</span><span class="p">()</span>
 <span class="n">fd</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 <span class="n">left</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
 <span class="n">fd</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
@@ -512,7 +513,7 @@ La “tortue” (pointe du stylo) est initialement placée à l’origine d’un
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">carre</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">carre</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -523,7 +524,7 @@ La “tortue” (pointe du stylo) est initialement placée à l’origine d’un
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">triangle</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">triangle</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -534,7 +535,7 @@ La “tortue” (pointe du stylo) est initialement placée à l’origine d’un
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">polygone</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">polygone</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -550,7 +551,7 @@ La “tortue” (pointe du stylo) est initialement placée à l’origine d’un
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">carres_couleurs</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">carres_couleurs</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -561,7 +562,7 @@ La “tortue” (pointe du stylo) est initialement placée à l’origine d’un
 <p>On dit qu’une fonction est <strong>récursive</strong> si elle s’appelle elle-même. Par exemple, considérons la fonction suivante :</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">0</span>
     <span class="k">return</span> <span class="n">n</span> <span class="o">+</span> <span class="n">f</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
@@ -607,7 +608,7 @@ Cette fonction doit être <strong>récursive</strong>. En effet, pour construire
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">branche</span><span class="p">(</span><span class="n">largeur</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">branche</span><span class="p">(</span><span class="n">largeur</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="c1"># cas de base : on dessine juste un trait </span>
         <span class="o">...</span>
     <span class="k">else</span><span class="p">:</span>
@@ -624,7 +625,7 @@ Cette fonction doit être <strong>récursive</strong>. En effet, pour construire
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">reset</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reset</span><span class="p">()</span>
 <span class="n">branche</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 <span class="n">done</span><span class="p">()</span>
 </pre></div>
@@ -637,7 +638,7 @@ Cette fonction doit être <strong>récursive</strong>. En effet, pour construire
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">flocon</span><span class="p">(</span><span class="mi">260</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flocon</span><span class="p">(</span><span class="mi">260</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
