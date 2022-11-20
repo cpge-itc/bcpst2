@@ -21,3 +21,4 @@ chapters:
   - file: 5_iris/iris.ipynb
   - file: 6_sql/sql.md
   - file: 7_dessin/tp7_dessin.ipynb
+  - file: 8_wordle/wordle.ipynb
