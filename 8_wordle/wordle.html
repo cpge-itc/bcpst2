@@ -1,0 +1,842 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>TP 8 : Wordle &#8212; Informatique en 2ème année de BCPST</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=532d1baf3f03eb73f2f50828f8c27430120b156d"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="canonical" href="https://cpge-itc.github.io/bcpst2/8_wordle/wordle.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/cobra.webp" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Informatique en 2ème année de BCPST</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_euler/euler.html">
+   TP 1 : Résolution d’équation différentielle par la méthode d’Euler
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_probabilites/simulation.html">
+   TP 2 : Simulation de variables aléatoires
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4_population/population.html">
+   TP 4 : Matrice de population
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../5_iris/iris.html">
+   TP 5 : Statistiques et classification de fleurs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../6_sql/sql.html">
+   TP 6 : SQL
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../7_dessin/tp7_dessin.html">
+   TP 7 : Dessins, récursivité et fractales
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/cpge-itc/bcpst2/main?urlpath=tree/files/8_wordle/wordle.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/cpge-itc/bcpst2/main/files/8_wordle/wordle.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Basthon"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_basthon.svg">
+  </span>
+<span class="headerbtn__text-container">Basthon</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/cpge-itc/bcpst2"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/cpge-itc/bcpst2/issues/new?title=Issue%20on%20page%20%2F8_wordle/wordle.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/cpge-itc/bcpst2/edit/main/files/8_wordle/wordle.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/8_wordle/wordle.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rappels-sur-les-chaines-de-caracteres">
+   Rappels sur les chaînes de caractères
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#telechargement-des-mots">
+   Téléchargement des mots
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simulation">
+   Simulation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#resolution-par-l-ordinateur">
+   Résolution par l’ordinateur
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#amelioration-avec-une-heuristique">
+   Amélioration avec une heuristique
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>TP 8 : Wordle</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rappels-sur-les-chaines-de-caracteres">
+   Rappels sur les chaînes de caractères
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#telechargement-des-mots">
+   Téléchargement des mots
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simulation">
+   Simulation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#resolution-par-l-ordinateur">
+   Résolution par l’ordinateur
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#amelioration-avec-une-heuristique">
+   Amélioration avec une heuristique
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="tp-8-wordle">
+<h1>TP 8 : Wordle<a class="headerlink" href="#tp-8-wordle" title="Permalink to this headline">#</a></h1>
+<blockquote>
+<div><p>Wordle est un jeu de lettres en ligne gratuit. Ce jeu est une adaptation directe du jeu télévisé américain Lingo (Motus en France) qui propose de faire deviner un mot par plusieurs tentatives, en indiquant pour chacune d’entre-elles la position des lettres bien placées et mal placées. L’objectif est de trouver le mot en un nombre minimum de coups.</p>
+</div></blockquote>
+<center><img src=https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Wordle_196_example.svg/langfr-1920px-Wordle_196_example.svg.png width=300></center><section id="rappels-sur-les-chaines-de-caracteres">
+<h2>Rappels sur les chaînes de caractères<a class="headerlink" href="#rappels-sur-les-chaines-de-caracteres" title="Permalink to this headline">#</a></h2>
+<p>Une chaîne de caractères est une suite de caractères. En Python, une chaîne de caractères est délimitée par des guillemets simples ou doubles. Les opérations sur les chaînes de caractères ressemblent beaucoup à celles sur les listes :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;abc&quot;</span> <span class="c1"># exemple de chaîne de caractères</span>
+<span class="n">s</span> <span class="c1"># affiche la chaîne de caractères</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;abc&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="c1"># affiche la longueur de la chaîne de caractères</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># affiche le premier caractère de la chaîne</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;a&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span> <span class="c1"># parcourt chaque caractère de la chaîne</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> 
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)):</span> <span class="c1"># autre façon de parcourir chaque caractère de la chaîne</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a
+b
+c
+a
+b
+c
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;bon&quot;</span> <span class="o">+</span> <span class="s2">&quot;jour&quot;</span> <span class="c1"># concaténation de chaînes de caractères</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;bonjour&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Il n’y a pas de <code class="docutils literal notranslate"><span class="pre">append</span></code> sur les chaînes de caractères, mais on peut utiliser <code class="docutils literal notranslate"><span class="pre">+=</span></code> pour ajouter un caractère à la fin :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;def&quot;</span> <span class="c1"># ajoute &quot;def&quot; à la fin de la chaîne s</span>
+<span class="n">s</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;abcdef&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">appartient(c,</span> <span class="pre">s)</span></code> qui renvoie <code class="docutils literal notranslate"><span class="pre">True</span></code> si le caractère <code class="docutils literal notranslate"><span class="pre">c</span></code> appartient à la chaîne de caractères <code class="docutils literal notranslate"><span class="pre">s</span></code> et <code class="docutils literal notranslate"><span class="pre">False</span></code> sinon.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">appartient</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;abc&quot;</span><span class="p">)</span> <span class="c1"># True</span>
+<span class="n">appartient</span><span class="p">(</span><span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="s2">&quot;abc&quot;</span><span class="p">)</span> <span class="c1"># False</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="telechargement-des-mots">
+<h2>Téléchargement des mots<a class="headerlink" href="#telechargement-des-mots" title="Permalink to this headline">#</a></h2>
+<p>La fonction suivante télécharge et renvoie une liste des mots du dictionnaire :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">telecharger_mots</span><span class="p">():</span>
+    <span class="kn">import</span> <span class="nn">urllib.request</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s2">&quot;https://raw.githubusercontent.com/cpge-itc/bcpst2/main/files/8_wordle/mots.txt&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">),</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Récupérer la liste des mots dans une variable <code class="docutils literal notranslate"><span class="pre">mots</span></code>. Combien y a t-il de mots ?</p>
+</div>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Dans le jeu de Wordle, les mots doivent être de taille <span class="math notranslate nohighlight">\(5\)</span>. Définir une liste <code class="docutils literal notranslate"><span class="pre">mots5</span></code> contenant les mots de taille <span class="math notranslate nohighlight">\(5\)</span>. Combien y a t-il de mots de taille <span class="math notranslate nohighlight">\(5\)</span> ?</p>
+</div>
+</section>
+<section id="simulation">
+<h2>Simulation<a class="headerlink" href="#simulation" title="Permalink to this headline">#</a></h2>
+<p>Dans un premier temps, l’objectif est de deviner un mot que l’ordinateur aura choisi au hasard.</p>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">mot_aleatoire</span></code> qui renvoie un mot choisi au hasard dans la liste <code class="docutils literal notranslate"><span class="pre">mots5</span></code>. On pourra utiliser <code class="docutils literal notranslate"><span class="pre">random.randrange(n)</span></code> pour générer un entier aléatoire entre <span class="math notranslate nohighlight">\(0\)</span> et <span class="math notranslate nohighlight">\(n-1\)</span>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mot_aleatoire</span><span class="p">(</span><span class="n">mots5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;bases&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">valide(mot)</span></code> qui renvoie <code class="docutils literal notranslate"><span class="pre">True</span></code> si le mot <code class="docutils literal notranslate"><span class="pre">mot</span></code> est dans la liste <code class="docutils literal notranslate"><span class="pre">mots5</span></code>. Sinon, elle renvoie <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">valide</span><span class="p">(</span><span class="s2">&quot;bonjour&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">valide</span><span class="p">(</span><span class="s2">&quot;arbre&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">reponse(mot,</span> <span class="pre">proposition)</span></code> qui renvoie une chaîne de caractères correspondant aux lettres correctes de la proposition par rapport au mot à deviner. On mettra <code class="docutils literal notranslate"><span class="pre">_</span></code> si la lettre de <code class="docutils literal notranslate"><span class="pre">proposition</span></code> n’est pas dans <code class="docutils literal notranslate"><span class="pre">mot</span></code> et <code class="docutils literal notranslate"><span class="pre">*</span></code> si elle y est mais mal placée.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reponse</span><span class="p">(</span><span class="s2">&quot;arbre&quot;</span><span class="p">,</span> <span class="s2">&quot;heure&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;_*_re&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pour la question suivante, on utilisera la fonction <code class="docutils literal notranslate"><span class="pre">input</span></code> qui permet de demander à l’utilisateur de saisir une chaîne de caractères. Par exemple, <code class="docutils literal notranslate"><span class="pre">input(&quot;Entrez</span> <span class="pre">un</span> <span class="pre">mot</span> <span class="pre">:</span> <span class="pre">&quot;)</span></code> affiche le message “Entrez un mot : ” et renvoie la chaîne de caractères saisie par l’utilisateur.</p>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">jeu()</span></code> qui permet de jouer au jeu de Wordle de la façon suivante :</p>
+<ul class="simple">
+<li><p>Choisir le mot à chercher, au hasard dans la liste <code class="docutils literal notranslate"><span class="pre">mots5</span></code>.</p></li>
+<li><p>Tant que l’utilisateur n’a pas trouvé le mot à chercher, demander à l’utilisateur de proposer un mot et afficher la réponse (avec <code class="docutils literal notranslate"><span class="pre">print</span></code>). Le mot proposé par l’utilisateur doit être valide (dans <code class="docutils literal notranslate"><span class="pre">mots5</span></code>).</p></li>
+</ul>
+</div>
+</section>
+<section id="resolution-par-l-ordinateur">
+<h2>Résolution par l’ordinateur<a class="headerlink" href="#resolution-par-l-ordinateur" title="Permalink to this headline">#</a></h2>
+<p>Nous souhaitons maintenant choisir un mot secret que l’ordinateur devra trouver.</p>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">possibles(L,</span> <span class="pre">proposition,</span> <span class="pre">rep)</span></code> qui conserve uniquement les mots <code class="docutils literal notranslate"><span class="pre">m</span></code> de la liste <code class="docutils literal notranslate"><span class="pre">L</span></code> qui donnent la même réponse que <code class="docutils literal notranslate"><span class="pre">proposition</span></code> si on les compare à <code class="docutils literal notranslate"><span class="pre">rep</span></code>, c’est-à-dire tels que <code class="docutils literal notranslate"><span class="pre">reponse(m,</span> <span class="pre">proposition)</span> <span class="pre">==</span> <span class="pre">rep</span></code>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">possibles</span><span class="p">(</span><span class="n">mots5</span><span class="p">,</span> <span class="s2">&quot;heure&quot;</span><span class="p">,</span> <span class="s2">&quot;_*_re&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;acere&#39;, &#39;adore&#39;, &#39;adore&#39;, &#39;aigre&#39;, &#39;amere&#39;, &#39;ancre&#39;, &#39;arbre&#39;, &#39;astre&#39;, &#39;avare&#39;, &#39;avere&#39;, &#39;barre&#39;, &#39;biere&#39;, &#39;boire&#39;, &#39;cadre&#39;, &#39;carre&#39;, &#39;clore&#39;, &#39;elire&#39;, &#39;encre&#39;, &#39;entre&#39;, &#39;entre&#39;, &#39;fibre&#39;, &#39;fiere&#39;, &#39;flore&#39;, &#39;foire&#39;, &#39;frere&#39;, &#39;frire&#39;, &#39;givre&#39;, &#39;libre&#39;, &#39;litre&#39;, &#39;livre&#39;, &#39;livre&#39;, &#39;loire&#39;, &#39;madre&#39;, &#39;maire&#39;, &#39;marre&#39;, &#39;mitre&#39;, &#39;moore&#39;, &#39;noire&#39;, &#39;notre&#39;, &#39;notre&#39;, &#39;offre&#39;, &#39;ombre&#39;, &#39;opere&#39;, &#39;opere&#39;, &#39;ordre&#39;, &#39;paire&#39;, &#39;patre&#39;, &#39;pitre&#39;, &#39;poire&#39;, &#39;sabre&#39;, &#39;sacre&#39;, &#39;score&#39;, &#39;sobre&#39;, &#39;spore&#39;, &#39;taire&#39;, &#39;tiare&#39;, &#39;tigre&#39;, &#39;tigre&#39;, &#39;titre&#39;, &#39;vitre&#39;, &#39;vivre&#39;, &#39;voire&#39;, &#39;votre&#39;, &#39;votre&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">resolution()</span></code> qui permet à l’ordinateur de résoudre le jeu de Wordle. Pour cela :</p>
+<ul class="simple">
+<li><p>On stocke dans une liste <code class="docutils literal notranslate"><span class="pre">L</span></code> les mots encore possibles étant donnés les réponses précédentes.</p></li>
+<li><p>On choisit une proposition au hasard dans <code class="docutils literal notranslate"><span class="pre">L</span></code> et on demande à l’utilisateur de donner la réponse (avec <code class="docutils literal notranslate"><span class="pre">input()</span></code>).</p></li>
+<li><p>On met à jour <code class="docutils literal notranslate"><span class="pre">L</span></code> en conservant uniquement les mots qui donnent la même réponse que le mot choisi.<br />
+On renverra le nombre de coups nécessaires pour trouver le mot.</p></li>
+</ul>
+</div>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Plutôt que de donner la réponse à la main, on peut faire jouer l’ordinateur contre lui-même. Écrire une fonction <code class="docutils literal notranslate"><span class="pre">resolution2(mot)</span></code> en utilisant <code class="docutils literal notranslate"><span class="pre">reponse(mot,</span> <span class="pre">proposition)</span></code> à chaque proposition de l’ordinateur (au lieu de <code class="docutils literal notranslate"><span class="pre">input</span></code>).</p>
+</div>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">nombre_coups(n)</span></code> qui appelle <code class="docutils literal notranslate"><span class="pre">resolution2</span></code> <span class="math notranslate nohighlight">\(n\)</span> fois (sur des mots choisis aléatoirement) et renvoie le nombre moyen de coups nécessaires pour trouver le mot.</p>
+</div>
+</section>
+<section id="amelioration-avec-une-heuristique">
+<h2>Amélioration avec une heuristique<a class="headerlink" href="#amelioration-avec-une-heuristique" title="Permalink to this headline">#</a></h2>
+<p>Dans la suite, on essaie d’améliorer <code class="docutils literal notranslate"><span class="pre">resolution2</span></code> (pour trouver la solution en moins d’essais) en choisissant une proposition autrement qu’au hasard.<br />
+Pour cela, nous allons utiliser une heuristique (c’est-à-dire une méthode qui n’est pas toujours optimale mais qui donne de bons résultats en pratique) qui consiste à choisir la proposition dont les lettres sont les plus fréquentes parmi les possibilités restantes.</p>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">numero_lettre(lettre)</span></code> qui renvoie le numéro de la lettre dans l’alphabet (de <span class="math notranslate nohighlight">\(0\)</span> à <span class="math notranslate nohighlight">\(25\)</span>). Par exemple, <code class="docutils literal notranslate"><span class="pre">numero_lettre(&quot;a&quot;)</span></code> renvoie <span class="math notranslate nohighlight">\(0\)</span> et <code class="docutils literal notranslate"><span class="pre">numero_lettre(&quot;z&quot;)</span></code> renvoie <span class="math notranslate nohighlight">\(25\)</span>.<br />
+On utilisera <code class="docutils literal notranslate"><span class="pre">ord(c)</span></code> qui renvoie le code ASCII d’une lettre <code class="docutils literal notranslate"><span class="pre">c</span></code> (par exemple, <code class="docutils literal notranslate"><span class="pre">ord(&quot;a&quot;)</span></code> renvoie <span class="math notranslate nohighlight">\(97\)</span>).</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numero_lettre</span><span class="p">(</span><span class="s1">&#39;e&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">compter</span></code> telle que, si <code class="docutils literal notranslate"><span class="pre">L</span></code> est une liste de mots, <code class="docutils literal notranslate"><span class="pre">compter(L)</span></code> renvoie une matrice <code class="docutils literal notranslate"><span class="pre">C</span></code> de taille <span class="math notranslate nohighlight">\(26 \times 5\)</span> telle que <code class="docutils literal notranslate"><span class="pre">C[i][j]</span></code> est le nombre de mots de <code class="docutils literal notranslate"><span class="pre">L</span></code> qui contiennent la lettre numéro <span class="math notranslate nohighlight">\(i\)</span> à la position <span class="math notranslate nohighlight">\(j\)</span>.<br />
+Par exemple, <code class="docutils literal notranslate"><span class="pre">C[1][3]</span></code> doit être le nombre de mots de <code class="docutils literal notranslate"><span class="pre">L</span></code> qui ont la lettre numéro <code class="docutils literal notranslate"><span class="pre">1</span></code> (c’est-à-dire <span class="math notranslate nohighlight">\(b\)</span>) en position <code class="docutils literal notranslate"><span class="pre">3</span></code>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">compter</span><span class="p">(</span><span class="n">mots5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[135., 367., 137.,  78.,  36.],
+       [120.,  13.,  53.,  25.,   1.],
+       [163.,  27.,  85.,  47.,  14.],
+       [ 85.,  12.,  35.,  60.,  14.],
+       [ 79., 327., 132., 354., 801.],
+       [116.,   3.,  18.,  11.,   9.],
+       [ 76.,   9.,  69.,  55.,   5.],
+       [ 40.,  37.,   6.,  37.,   5.],
+       [ 22., 207., 165., 206.,  51.],
+       [ 43.,   1.,   6.,   1.,   0.],
+       [ 10.,   1.,   2.,   3.,   5.],
+       [ 90.,  79., 122., 104.,  52.],
+       [114.,  23.,  66.,  59.,   5.],
+       [ 51.,  34., 162., 145.,  99.],
+       [ 39., 313.,  89.,  85.,  36.],
+       [178.,  18.,  42.,  37.,   5.],
+       [  9.,   0.,   8.,   0.,   0.],
+       [118., 129., 207., 146., 177.],
+       [144.,  16.,  87.,  82., 310.],
+       [108.,  32., 130., 149., 131.],
+       [ 12., 146., 133., 119.,  49.],
+       [ 89.,  22.,  51.,  34.,   1.],
+       [  1.,   1.,   1.,   1.,   0.],
+       [  0.,  10.,  11.,   0.,  22.],
+       [  1.,  16.,  23.,   4.,   9.],
+       [  2.,   2.,   5.,   3.,   8.]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">heuristique(C,</span> <span class="pre">mot)</span></code> qui renvoie la somme de <code class="docutils literal notranslate"><span class="pre">C[c][i]</span></code> pour chaque lettre <code class="docutils literal notranslate"><span class="pre">c</span></code> à la position <code class="docutils literal notranslate"><span class="pre">i</span></code> de <code class="docutils literal notranslate"><span class="pre">mot</span></code>, où <code class="docutils literal notranslate"><span class="pre">C</span></code> est la matrice renvoyée par <code class="docutils literal notranslate"><span class="pre">compter</span></code>.</p>
+</div>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">meilleure_proposition(L)</span></code> qui renvoie la proposition qui a la plus grande valeur de <code class="docutils literal notranslate"><span class="pre">heuristique(C,</span> <span class="pre">mot)</span></code> pour chaque mot <code class="docutils literal notranslate"><span class="pre">mot</span></code> de <code class="docutils literal notranslate"><span class="pre">L</span></code>, où <code class="docutils literal notranslate"><span class="pre">C</span></code> est la matrice renvoyée par <code class="docutils literal notranslate"><span class="pre">compter(L)</span></code>.</p>
+</div>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">resolution3(mot)</span></code> qui utilise <code class="docutils literal notranslate"><span class="pre">meilleure_proposition</span></code> pour proposer une solution.</p>
+</div>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">nombre_coups3(n)</span></code> qui appelle <code class="docutils literal notranslate"><span class="pre">resolution3</span></code> <span class="math notranslate nohighlight">\(n\)</span> fois (sur des mots choisis aléatoirement) et renvoie le nombre moyen de coups nécessaires pour trouver le mot. Comparer avec <code class="docutils literal notranslate"><span class="pre">resolution2</span></code>.</p>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "cpge-itc/bcpst2",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./8_wordle"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Quentin Fortier<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
