@@ -145,6 +145,11 @@ const thebe_selector_output = ".output, .cell_output"
    TP 8 : Wordle
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../9_automate_cellulaire/automate_cellulaire.html">
+   TP 9 : Automates cellulaires
+  </a>
+ </li>
 </ul>
 
     </div>
@@ -587,9 +592,6 @@ title="Print to PDF"
     <span class="k">return</span> <span class="mi">0</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 </div>
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
@@ -601,9 +603,6 @@ title="Print to PDF"
     <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">p</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">1</span>
     <span class="k">return</span> <span class="mi">0</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
@@ -622,9 +621,6 @@ Vérifier que vous obtenez autant de <span class="math notranslate nohighlight">
 
 <span class="nb">print</span><span class="p">(</span><span class="n">test_bernouilli</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">1000</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">test_bernouilli</span><span class="p">(</span><span class="mf">0.33</span><span class="p">,</span> <span class="mi">1000</span><span class="p">))</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
@@ -655,9 +651,6 @@ Vérifier que vous obtenez autant de <span class="math notranslate nohighlight">
     <span class="k">while</span> <span class="n">bernouilli</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="c1"># tant que la loi de Bernouilli donne 0</span>
         <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c1"># augmenter n de 1</span>
     <span class="k">return</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
@@ -698,9 +691,6 @@ Vérifier que vous obtenez autant de <span class="math notranslate nohighlight">
     <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
         <span class="n">X</span> <span class="o">+=</span> <span class="n">bernouilli</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">X</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
@@ -754,9 +744,6 @@ Soit <span class="math notranslate nohighlight">\(S_n = X_1 + ... + X_n\)</span>
 <p class="admonition-title">Solution</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">central_limite</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">binomial</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span> <span class="o">-</span> <span class="n">n</span><span class="o">*</span><span class="n">p</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">p</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p</span><span class="p">)</span><span class="o">*</span><span class="n">n</span><span class="p">)</span><span class="o">**</span><span class="mf">.5</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
@@ -838,9 +825,6 @@ Soit <span class="math notranslate nohighlight">\(S_n = X_1 + ... + X_n\)</span>
     <span class="k">return</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">())</span><span class="o">/</span><span class="n">a</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 </div>
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
@@ -906,9 +890,6 @@ Alors <span class="math notranslate nohighlight">\(Y\)</span> suit une loi de Po
         <span class="n">s</span> <span class="o">+=</span> <span class="n">exponentielle</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
         <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="k">return</span> <span class="n">n</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>

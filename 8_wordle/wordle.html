@@ -56,6 +56,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="canonical" href="https://cpge-itc.github.io/bcpst2/8_wordle/wordle.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="TP 9 : Automates cellulaires" href="../9_automate_cellulaire/automate_cellulaire.html" />
     <link rel="prev" title="TP 7 : Dessins, récursivité et fractales" href="../7_dessin/tp7_dessin.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -142,6 +143,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    TP 8 : Wordle
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../9_automate_cellulaire/automate_cellulaire.html">
+   TP 9 : Automates cellulaires
   </a>
  </li>
 </ul>
@@ -583,9 +589,6 @@ c
     <span class="k">return</span> <span class="kc">False</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -662,9 +665,6 @@ c
     <span class="k">return</span> <span class="n">L</span><span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mots5</span><span class="p">))]</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -686,9 +686,6 @@ c
 <p class="admonition-title">Solution</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">valide</span><span class="p">(</span><span class="n">mot</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">mot</span> <span class="ow">in</span> <span class="n">mots5</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
@@ -722,9 +719,6 @@ True
         <span class="k">else</span><span class="p">:</span>
             <span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;_&quot;</span>
     <span class="k">return</span> <span class="n">s</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
@@ -765,9 +759,6 @@ True
 <span class="n">jeu</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 </div>
 </section>
 <section id="resolution-par-l-ordinateur">
@@ -785,9 +776,6 @@ True
         <span class="k">if</span> <span class="n">reponse</span><span class="p">(</span><span class="n">mot</span><span class="p">,</span> <span class="n">proposition</span><span class="p">)</span> <span class="o">==</span> <span class="n">rep</span><span class="p">:</span>
             <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mot</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">res</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
@@ -828,9 +816,6 @@ Pour tester, on pourra utiliser https://wordle.louan.me.</p>
     <span class="k">return</span> <span class="n">n</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 </div>
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
@@ -850,9 +835,6 @@ Pour tester, on pourra utiliser https://wordle.louan.me.</p>
     <span class="k">return</span> <span class="n">n</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 </div>
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
@@ -870,9 +852,6 @@ Pour tester, on pourra utiliser https://wordle.louan.me.</p>
 <span class="n">nombre_coups</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 </div>
 </section>
 <section id="amelioration-avec-une-heuristique">
@@ -888,9 +867,6 @@ On utilisera <code class="docutils literal notranslate"><span class="pre">ord(c)
 <p class="admonition-title">Solution</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">numero_lettre</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
     <span class="k">return</span> <span class="nb">ord</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">-</span> <span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
@@ -921,9 +897,6 @@ Par exemple, <code class="docutils literal notranslate"><span class="pre">C[1][3
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mot</span><span class="p">)):</span>
             <span class="n">C</span><span class="p">[</span><span class="n">numero_lettre</span><span class="p">(</span><span class="n">mot</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="k">return</span> <span class="n">C</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
@@ -977,9 +950,6 @@ Par exemple, <code class="docutils literal notranslate"><span class="pre">C[1][3
     <span class="k">return</span> <span class="n">res</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 </div>
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
@@ -996,9 +966,6 @@ Par exemple, <code class="docutils literal notranslate"><span class="pre">C[1][3
             <span class="n">maxi</span> <span class="o">=</span> <span class="n">h</span>
             <span class="n">proposition</span> <span class="o">=</span> <span class="n">mot</span>
     <span class="k">return</span> <span class="n">proposition</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
@@ -1019,9 +986,6 @@ Par exemple, <code class="docutils literal notranslate"><span class="pre">C[1][3
     <span class="k">return</span> <span class="n">n</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 </div>
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
@@ -1037,9 +1001,6 @@ Par exemple, <code class="docutils literal notranslate"><span class="pre">C[1][3
     <span class="k">return</span> <span class="n">coups</span> <span class="o">/</span> <span class="n">n</span>
 
 <span class="n">nombre_coups</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
@@ -1079,6 +1040,13 @@ Par exemple, <code class="docutils literal notranslate"><span class="pre">C[1][3
             <p class="prev-next-subtitle">previous</p>
             <p class="prev-next-title">TP 7 : Dessins, récursivité et fractales</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="../9_automate_cellulaire/automate_cellulaire.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">TP 9 : Automates cellulaires</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>
