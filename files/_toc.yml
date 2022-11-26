@@ -22,3 +22,4 @@ chapters:
   - file: 6_sql/sql.md
   - file: 7_dessin/tp7_dessin.ipynb
   - file: 8_wordle/wordle.ipynb
+  - file: 9_automate_cellulaire/automate_cellulaire.ipynb
