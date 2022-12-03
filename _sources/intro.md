@@ -2,6 +2,8 @@
 
 <br>
 
+**Le planning est le même que celui des colles : ainsi, il n'y a pas TP les semaines du 12/12 et 30/01.**
+
 > Le programme de deuxième année est constitué de séances de travaux pratiques qui poursuivent les objectifs suivants :
 >
 > - approfondir les connaissances acquises au deuxième semestre notamment sur les bases de données et sur les graphes ;
