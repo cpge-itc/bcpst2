@@ -23,3 +23,4 @@ chapters:
   - file: 7_dessin/tp7_dessin.ipynb
   - file: 8_wordle/wordle.ipynb
   - file: 9_automate_cellulaire/automate_cellulaire.ipynb
+  - file: 10_applications_math/applications_math.ipynb
