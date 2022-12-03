@@ -615,6 +615,18 @@ On pourra calculer à la main <span class="math notranslate nohighlight">\(\frac
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">produit_scalaire(v1,</span> <span class="pre">v2)</span></code> qui renvoie le produit scalaire des vecteurs <code class="docutils literal notranslate"><span class="pre">v1</span></code> et <code class="docutils literal notranslate"><span class="pre">v2</span></code>.</p>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">produit_scalaire</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>32
+</pre></div>
+</div>
+</div>
+</div>
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">orthogonaux(v1,</span> <span class="pre">v2)</span></code> qui renvoie <code class="docutils literal notranslate"><span class="pre">True</span></code> si les vecteurs <code class="docutils literal notranslate"><span class="pre">v1</span></code> et <code class="docutils literal notranslate"><span class="pre">v2</span></code> sont orthogonaux et <code class="docutils literal notranslate"><span class="pre">False</span></code> sinon.<br />
@@ -707,7 +719,7 @@ Par exemple, <span class="math notranslate nohighlight">\(-2 + 7X^2 + X^3\)</spa
 </div>
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
-<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">produit(P,</span> <span class="pre">Q)</span></code> qui renvoie le produit <code class="docutils literal notranslate"><span class="pre">R</span></code> de deux polynômes <code class="docutils literal notranslate"><span class="pre">P</span></code> et <code class="docutils literal notranslate"><span class="pre">Q</span></code>. On rappelle que, si <span class="math notranslate nohighlight">\(P(X) = \sum a_k X^k\)</span> et <span class="math notranslate nohighlight">\(Q(X) = \sum b_k X^k\)</span>, alors <span class="math notranslate nohighlight">\(R(X) = \sum c_k X^k\)</span> où <span class="math notranslate nohighlight">\(c_k = \sum_{i+j=k} a_i b_j\)</span>.
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">produit(P,</span> <span class="pre">Q)</span></code> qui renvoie le produit <code class="docutils literal notranslate"><span class="pre">R</span></code> de deux polynômes <code class="docutils literal notranslate"><span class="pre">P</span></code> et <code class="docutils literal notranslate"><span class="pre">Q</span></code>. On rappelle que, si <span class="math notranslate nohighlight">\(P(X) = \sum a_k X^k\)</span> et <span class="math notranslate nohighlight">\(Q(X) = \sum b_k X^k\)</span>, alors <span class="math notranslate nohighlight">\(R(X) = \sum c_k X^k\)</span> où <span class="math notranslate nohighlight">\(c_k = \sum_{i+j=k} a_i b_j\)</span>.<br />
 On pourra commencer par créer une liste <code class="docutils literal notranslate"><span class="pre">R</span></code> contenant <span class="math notranslate nohighlight">\(\deg(P) + \deg(Q) + 1\)</span> zéros et, pour chaque coefficient <span class="math notranslate nohighlight">\(a_i\)</span> de <span class="math notranslate nohighlight">\(P\)</span> et <span class="math notranslate nohighlight">\(b_j\)</span> de <span class="math notranslate nohighlight">\(Q\)</span>, ajouter <span class="math notranslate nohighlight">\(a_i b_j\)</span> à <span class="math notranslate nohighlight">\(R[i+j]\)</span>.</p>
 </div>
 <div class="cell docutils container">
@@ -753,9 +765,14 @@ a_{1,1} \; x_1 +\cdots +a_{1,n} \; x_n=b_1 \\
 a_{n,1} \; x_1 +\cdots +a_{n,n} \; x_n=b_n
 \end{array}
 \right.\)</span>$</p>
-<p>On commence par réécrire ces équations sous forme matricielle :
-$<span class="math notranslate nohighlight">\((S)\Leftrightarrow AX=B\)</span><span class="math notranslate nohighlight">\( 
-\)</span><span class="math notranslate nohighlight">\(\text{avec} \quad A=\begin{pmatrix}
+<p>On commence par réécrire ces équations sous forme matricielle :</p>
+<div class="math notranslate nohighlight">
+\[
+(S)\Leftrightarrow AX=B
+\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\text{avec} \quad A=\begin{pmatrix}
 a_{1,1} &amp; a_{1,2} &amp; \cdots &amp; a_{1,n} \\ 
 a_{2,1} &amp; a_{2,2} &amp; \cdots &amp; a_{2,n} \\
 \cdots &amp; \cdots &amp; \cdots &amp; \cdots \\ 
@@ -763,14 +780,17 @@ a_{n,1} &amp; a_{n,2} &amp; \cdots &amp; a_{n,n}
 \end{pmatrix}  
 \text{,} \quad X=\begin{pmatrix} x_1 \\ x_2 \\ \cdots \\ x_n \end{pmatrix} 
 \quad\text{et} \quad B=\begin{pmatrix} b_1 \\ b_2 \\ \cdots \\ b_n \end{pmatrix} 
-\)</span>$</p>
-<p>Il est pratique de considérer la matrice augmentée du système :
-$<span class="math notranslate nohighlight">\(M = (A\vert B)=\begin{pmatrix}
+\end{split}\]</div>
+<p>Il est pratique de considérer la matrice augmentée du système :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+M = (A\vert B)=\begin{pmatrix}
 a_{1,1} &amp; a_{1,2} &amp; \cdots &amp; a_{1,n} &amp; b_1 \\ 
 a_{2,1} &amp; a_{2,2} &amp; \cdots &amp; a_{2,n} &amp; b_2 \\
 \cdots &amp; \cdots &amp; \cdots &amp; \cdots &amp; \cdots \\ 
 a_{n,1} &amp; a_{n,2} &amp; \cdots &amp; a_{n,n} &amp; b_n 
-\end{pmatrix} \)</span>$</p>
+\end{pmatrix} 
+\end{split}\]</div>
 <p>Dans la suite, on pourra tester avec la matrice suivante :</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
