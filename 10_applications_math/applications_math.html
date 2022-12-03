@@ -892,9 +892,39 @@ Il faut donc, pour chaque colonne <span class="math notranslate nohighlight">\(j
 <li><p>Pour toute ligne <span class="math notranslate nohighlight">\(i &gt; j\)</span>, effectuer une transvection de façon à mettre un 0 sur la ligne <span class="math notranslate nohighlight">\(i\)</span>, colonne <span class="math notranslate nohighlight">\(j\)</span> de <code class="docutils literal notranslate"><span class="pre">M</span></code>.</p></li>
 </ul>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">descente</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+<span class="n">M</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ -4. ,   8. ,   2. , -36. ],
+       [  0. ,  18. ,   3. , -66. ],
+       [  0. ,   0. ,   2.5,  20. ]])
+</pre></div>
+</div>
+</div>
+</div>
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
 <p>De façon similaire, écrire une fonction <code class="docutils literal notranslate"><span class="pre">remontee(M)</span></code> parcourant les colonnes de <code class="docutils literal notranslate"><span class="pre">M</span></code> de droite à gauche (sauf la dernière) en mettant des 0 au dessus de la diagonale. On supposera dans cette fonction que tous les coefficients diagonaux sont non nuls: il n’y a donc pas besoin d’appeller <code class="docutils literal notranslate"><span class="pre">pivot</span></code>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">remontee</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+<span class="n">M</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ -4. ,   0. ,   0. , -12. ],
+       [  0. ,  18. ,   0. , -90. ],
+       [  0. ,   0. ,   2.5,  20. ]])
+</pre></div>
+</div>
+</div>
 </div>
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
