@@ -651,7 +651,7 @@ Remarque :</p>
 </section>
 <section id="polynomes">
 <h2>Polynômes<a class="headerlink" href="#polynomes" title="Permalink to this headline">#</a></h2>
-<p>Dans cet exercice, tous les polynômes sont représentés par une liste de coefficients : un polynôme <span class="math notranslate nohighlight">\(P = a_0 + a_1 X + ... + a_n X^n\)</span> est représenté par la liste <span class="math notranslate nohighlight">\([a_0, a_1, \ldots, a_n]\)</span> où <span class="math notranslate nohighlight">\(a_i\)</span> est le coefficient de <span class="math notranslate nohighlight">\(x^i\)</span>.<br />
+<p>Dans cet exercice, tous les polynômes sont représentés par une liste de coefficients : un polynôme <span class="math notranslate nohighlight">\(P = a_0 + a_1 X + ... + a_n X^n\)</span> est représenté par la liste <span class="math notranslate nohighlight">\([a_0, a_1, \ldots, a_n]\)</span> où <span class="math notranslate nohighlight">\(a_i\)</span> est le coefficient de <span class="math notranslate nohighlight">\(X^i\)</span>.<br />
 Par exemple, <span class="math notranslate nohighlight">\(-2 + 7X^2 + X^3\)</span> est représenté par la liste <code class="docutils literal notranslate"><span class="pre">[-2,</span> <span class="pre">0,</span> <span class="pre">7,</span> <span class="pre">1]</span></code>.</p>
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
@@ -737,15 +737,18 @@ On pourra commencer par créer une liste <code class="docutils literal notransla
 </section>
 <section id="integrale">
 <h2>Intégrale<a class="headerlink" href="#integrale" title="Permalink to this headline">#</a></h2>
-<p>La méthode des rectangles est une façon d’approximer une intégrale <span class="math notranslate nohighlight">\(\int_a^b f(x) \, dx\)</span> par la somme des aires de <span class="math notranslate nohighlight">\(n\)</span> rectangles de largeur <span class="math notranslate nohighlight">\(h = \frac{b-a}{n}\)</span> :<br />
-$<span class="math notranslate nohighlight">\(\int_a^b f(x) \, dx \approx \sum_{i=0}^{n-1} \underbrace{f(a + ih) \, h}_{\text{aire d'un rectangle}}\)</span>$</p>
-<center><img src=https://raw.githubusercontent.com/fortierq/tikz/master/math/integral/rectangle/rectangle.png width=40%></center><div class="admonition-question admonition">
+<p>La méthode des rectangles est une façon d’approximer une intégrale <span class="math notranslate nohighlight">\(\int_a^b f(x) \, dx\)</span> par la somme des aires de <span class="math notranslate nohighlight">\(n\)</span> rectangles de largeur <span class="math notranslate nohighlight">\(h = \frac{b-a}{n}\)</span> :</p>
+<div class="math notranslate nohighlight">
+\[
+\int_a^b f(x) \, dx \approx \sum_{i=0}^{n-1} \underbrace{f(a + ih) \, h}_{\text{aire d'un rectangle}}
+\]</div>
+<center><img src=https://raw.githubusercontent.com/fortierq/tikz/master/math/integral/rectangle/rectangle.png width=50%></center><div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">methode_rectangle(f,</span> <span class="pre">a,</span> <span class="pre">b,</span> <span class="pre">n)</span></code> qui renvoie l’approximation de l’intégrale <span class="math notranslate nohighlight">\(\int_a^b f(x) \, dx\)</span> en utilisant la formule ci-dessus. Tester avec une fonction <code class="docutils literal notranslate"><span class="pre">carre</span></code> (à définir) et vérifier à la main.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">methode_rectangle</span><span class="p">(</span><span class="n">carré</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">methode_rectangle</span><span class="p">(</span><span class="n">carre</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -758,13 +761,16 @@ $<span class="math notranslate nohighlight">\(\int_a^b f(x) \, dx \approx \sum_{
 </section>
 <section id="methode-du-pivot-de-gauss">
 <h2>Méthode du pivot de Gauss<a class="headerlink" href="#methode-du-pivot-de-gauss" title="Permalink to this headline">#</a></h2>
-<p>On veut résoudre un système linéaire de <span class="math notranslate nohighlight">\(n\)</span> équations à <span class="math notranslate nohighlight">\(n\)</span> inconnues de la forme :
-$<span class="math notranslate nohighlight">\(\text{(S): }\left\lbrace\begin{array}{c}
+<p>On veut résoudre un système linéaire de <span class="math notranslate nohighlight">\(n\)</span> équations à <span class="math notranslate nohighlight">\(n\)</span> inconnues de la forme :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\text{(S): }\left\lbrace\begin{array}{c}
 a_{1,1} \; x_1 +\cdots +a_{1,n} \; x_n=b_1 \\ 
 \cdots \\ 
 a_{n,1} \; x_1 +\cdots +a_{n,n} \; x_n=b_n
 \end{array}
-\right.\)</span>$</p>
+\right.
+\end{split}\]</div>
 <p>On commence par réécrire ces équations sous forme matricielle :</p>
 <div class="math notranslate nohighlight">
 \[
@@ -809,7 +815,7 @@ a_{n,1} &amp; a_{n,2} &amp; \cdots &amp; a_{n,n} &amp; b_n
 </div>
 </div>
 </div>
-<p>La méthode du pivot de Gauss utiliser des opérations élémentaires sur matrice : dilatation, échange, transvection.</p>
+<p>La méthode du pivot de Gauss utilise des opérations élémentaires sur matrice : dilatation, échange, transvection.</p>
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">dilatation</span></code> telle que <code class="docutils literal notranslate"><span class="pre">dilatation(M,</span> <span class="pre">i,</span> <span class="pre">a)</span></code> multiplie la ligne <code class="docutils literal notranslate"><span class="pre">i</span></code> de la matrice <code class="docutils literal notranslate"><span class="pre">M</span></code> par <code class="docutils literal notranslate"><span class="pre">a</span></code>, c’est à dire l’opération <span class="math notranslate nohighlight">\(L_i \leftarrow a L_i\)</span>.</p>
@@ -928,7 +934,13 @@ Il faut donc, pour chaque colonne <span class="math notranslate nohighlight">\(j
 </div>
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
-<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">gauss(M)</span></code> prenant en argument une matrice augmentée <code class="docutils literal notranslate"><span class="pre">M</span></code> d’un système <span class="math notranslate nohighlight">\(AX = B\)</span> (c’est à dire <code class="docutils literal notranslate"><span class="pre">M</span></code> = (<span class="math notranslate nohighlight">\(A \vert B\)</span>)) et appliquant la méthode du pivot de Gauss sur <code class="docutils literal notranslate"><span class="pre">M</span></code>.</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">gauss(M)</span></code> prenant en argument une matrice augmentée <code class="docutils literal notranslate"><span class="pre">M</span></code> d’un système <span class="math notranslate nohighlight">\(AX = B\)</span> (c’est à dire <code class="docutils literal notranslate"><span class="pre">M</span></code> = (<span class="math notranslate nohighlight">\(A \vert B\)</span>)) et appliquant la méthode du pivot de Gauss sur <code class="docutils literal notranslate"><span class="pre">M</span></code>. Pour cela, il faut :</p>
+<ul class="simple">
+<li><p>Appliquer la fonction <code class="docutils literal notranslate"><span class="pre">descente(M)</span></code> sur <code class="docutils literal notranslate"><span class="pre">M</span></code>.</p></li>
+<li><p>Appliquer la fonction <code class="docutils literal notranslate"><span class="pre">remontee(M)</span></code> sur <code class="docutils literal notranslate"><span class="pre">M</span></code>.</p></li>
+<li><p>Mettre des <span class="math notranslate nohighlight">\(1\)</span> sur la diagonale de <code class="docutils literal notranslate"><span class="pre">M</span></code> avec des dilatations.</p></li>
+<li><p>La solution du système <span class="math notranslate nohighlight">\(AX = B\)</span> est alors donnée par la dernière colonne de <code class="docutils literal notranslate"><span class="pre">M</span></code>.</p></li>
+</ul>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
