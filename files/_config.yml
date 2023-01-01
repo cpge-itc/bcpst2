@@ -24,7 +24,6 @@ repository:
 
 launch_buttons:
   basthon_url: "https://notebook.basthon.fr"
-  thebe: true
 
 sphinx:
   config:
