@@ -1,0 +1,886 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Bioinformatique : étude de l’ADN du choléra &#8212; Informatique en 2ème année de BCPST</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=532d1baf3f03eb73f2f50828f8c27430120b156d"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="canonical" href="https://cpge-itc.github.io/bcpst2/11_adn/bioinformatique.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="TP 10 : Application aux mathématiques" href="../10_applications_math/applications_math.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/cobra.webp" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Informatique en 2ème année de BCPST</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_euler/euler.html">
+   TP 1 : Résolution d’équation différentielle par la méthode d’Euler
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_probabilites/simulation.html">
+   TP 2 : Simulation de variables aléatoires
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4_population/population.html">
+   TP 4 : Matrice de population
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../5_iris/iris.html">
+   TP 5 : Statistiques et classification de fleurs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../6_sql/sql.html">
+   TP 6 : SQL
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../7_dessin/tp7_dessin.html">
+   TP 7 : Dessins, récursivité et fractales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../8_wordle/wordle.html">
+   TP 8 : Wordle
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../9_automate_cellulaire/automate_cellulaire.html">
+   TP 9 : Automates cellulaires
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10_applications_math/applications_math.html">
+   TP 10 : Application aux mathématiques
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Bioinformatique : étude de l’ADN du choléra
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/cpge-itc/bcpst2/main?urlpath=tree/files/11_adn/bioinformatique.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/cpge-itc/bcpst2/main/files/11_adn/bioinformatique.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Basthon"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_basthon.svg">
+  </span>
+<span class="headerbtn__text-container">Basthon</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/cpge-itc/bcpst2"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/cpge-itc/bcpst2/issues/new?title=Issue%20on%20page%20%2F11_adn/bioinformatique.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/cpge-itc/bcpst2/edit/main/files/11_adn/bioinformatique.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/11_adn/bioinformatique.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nombre-d-occurences-d-un-motif">
+   Nombre d’occurences d’un motif
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#k-mer-le-plus-frequent">
+   k-mer le plus fréquent
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#version-naive">
+     Version naïve
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#version-avec-un-dictionnaire">
+     Version avec un dictionnaire
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nucleotide-complementaire">
+   Nucléotide complémentaire
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recherche-de-phase-ouverte-de-lecture-open-reading-frame">
+   Recherche de phase ouverte de lecture (
+   <em>
+    open reading frame
+   </em>
+   )
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Bioinformatique : étude de l’ADN du choléra</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nombre-d-occurences-d-un-motif">
+   Nombre d’occurences d’un motif
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#k-mer-le-plus-frequent">
+   k-mer le plus fréquent
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#version-naive">
+     Version naïve
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#version-avec-un-dictionnaire">
+     Version avec un dictionnaire
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nucleotide-complementaire">
+   Nucléotide complémentaire
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recherche-de-phase-ouverte-de-lecture-open-reading-frame">
+   Recherche de phase ouverte de lecture (
+   <em>
+    open reading frame
+   </em>
+   )
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="bioinformatique-etude-de-l-adn-du-cholera">
+<h1>Bioinformatique : étude de l’ADN du choléra<a class="headerlink" href="#bioinformatique-etude-de-l-adn-du-cholera" title="Permalink to this headline">#</a></h1>
+<center><img src=https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/DNA_replication_split.svg/297px-DNA_replication_split.svg.png width=150></center>
+<blockquote>
+<div><p>Lors de la réplication de l’ADN, deux chaînes de l’ADN se séparent pour produire deux copies identiques. La réplication commence en une séquence particulière de l’ADN appelée origine de réplication (<strong>ori</strong>).<br />
+Un problème important est de localiser l’ori d’un génome. On sait par la biologie que l’ori contient de nombreuses de la même séquence de nucléotides, qui est appelé <strong>dnaA</strong> et permet de localiser le début de l’ori.</p>
+</div></blockquote>
+<div class="admonition-exercice admonition">
+<p class="admonition-title">Exercice</p>
+<ol class="simple">
+<li><p><a class="reference external" href="http://bioinformaticsalgorithms.com/data/realdatasets/Replication/Vibrio_cholerae.txt">Télécharger l’ADN de <em>Vibrio cholerae</em> (bactérie du choléra)</a> et le sauvegarder dans le même dossier que votre fichier Python.</p></li>
+<li><p>Exécuter le code ci-dessous pour charger l’ADN dans une variable <code class="docutils literal notranslate"><span class="pre">cholerae</span></code> (sous forme de chaîne de caractères, chaque caractère étant un nucléotide).</p></li>
+<li><p>Combien de nucléotides contient l’ADN de <em>Vibrio cholerae</em> ?</p></li>
+</ol>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;Vibrio_cholerae.txt&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">cholerae</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Considérons aussi l’ori de l’ADN de <em>Vibrio cholerae</em>, sous forme de chaîne de caractères (chaque caractère étant un nucléotide) :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cholerae_ori</span> <span class="o">=</span> <span class="s2">&quot;ATCAATGATCAACGTAAGCTTCTAAGCATGATCAAGGTGCTCACACAGTTTATCCACAACCTGAGTGGATGACATCAAGATAGGTCGTTGTATCTCCTTCCTCTCGTACTCTCATGACCACGGAAAGATGATCAAGAGAGGATGATTTCTTGGCCATATCGCAATGAATACTTGTGACTTGTGCTTCCAATTGACATCTTCAGCGCCATATTGCGCTGGCCAAGGTGACGGAGCGGGATTACGAAAGCATGATCATGGCTGTTGTTCTGTTTATCTTGTTTTGACTGAGACTTGTTAGGATAGACGGTTTTTCATCACTGACTAGCCAAAGCCTTACTCTGCCTGACATCGACCGTAAATTGATAATGAATTTACATGCTTCCGCGACGATTTACCTCTTGATCATCGATCCGATTGAAGATCTTCAATTGTTAATTCTCTTGCCTCGACTCATAGCCATGATGAGCTCTTGATCATGTTTCCTTAACCCTCTATTTTTTACGGAAGAATGATCAAGCTGCTGCTCTTGATCATCGTTTC&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Quel est le nombre de nucléotides de l’ori de <em>Vibrio cholerae</em> ?</p>
+</div>
+<p>On rappelle qu’on peut accéder au <span class="math notranslate nohighlight">\(i\)</span>ème caractère d’une chaîne <code class="docutils literal notranslate"><span class="pre">s</span></code> avec <code class="docutils literal notranslate"><span class="pre">s[i]</span></code> :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cholerae</span><span class="p">[</span><span class="mi">42</span><span class="p">]</span> <span class="c1"># 43ème nucléotide</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;A&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>La <a class="reference external" href="https://fr.wikipedia.org/wiki/R%C3%A8gles_de_Chargaff">règle de Chargaff</a> dit que la proportion de nucléotides <span class="math notranslate nohighlight">\(A\)</span> est environ égale à celle de nucléotides <span class="math notranslate nohighlight">\(T\)</span> et que la proportion de nucléotides <span class="math notranslate nohighlight">\(C\)</span> est environ égale à celle de nucléotides <span class="math notranslate nohighlight">\(G\)</span>. Vérifiez que cette règle est respectée pour <em>Vibrio cholerae</em>.</p>
+</div>
+<p>De plus, comme pour les listes, <code class="docutils literal notranslate"><span class="pre">s[i:j]</span></code> extrait une sous-chaîne de <code class="docutils literal notranslate"><span class="pre">s</span></code> allant du caractère d’indice <code class="docutils literal notranslate"><span class="pre">i</span></code> (inclus) au caractère d’indice <code class="docutils literal notranslate"><span class="pre">j</span></code> (exclus) :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cholerae_ori</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="c1"># 3 premiers nucléotides</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;ATC&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>On peut comparer deux chaînes de caractères avec l’opérateur <code class="docutils literal notranslate"><span class="pre">==</span></code> :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cholerae_ori</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;ATC&quot;</span> <span class="c1"># est-ce que les 3 premiers nucléotides sont égaux à &quot;ATC&quot; ?</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<section id="nombre-d-occurences-d-un-motif">
+<h2>Nombre d’occurences d’un motif<a class="headerlink" href="#nombre-d-occurences-d-un-motif" title="Permalink to this headline">#</a></h2>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">compter(adn,</span> <span class="pre">motif)</span></code> qui compte le nombre d’apparitions de <code class="docutils literal notranslate"><span class="pre">motif</span></code> dans <code class="docutils literal notranslate"><span class="pre">adn</span></code>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">compter</span><span class="p">(</span><span class="n">cholerae_ori</span><span class="p">,</span> <span class="s2">&quot;ATG&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="k-mer-le-plus-frequent">
+<h2>k-mer le plus fréquent<a class="headerlink" href="#k-mer-le-plus-frequent" title="Permalink to this headline">#</a></h2>
+<p>Un <strong>k-mer</strong> est une séquence de <span class="math notranslate nohighlight">\(k\)</span> nucléotides. Par exemple, ATG est un 3-mer.</p>
+<section id="version-naive">
+<h3>Version naïve<a class="headerlink" href="#version-naive" title="Permalink to this headline">#</a></h3>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">kmer_plus_frequent(adn,</span> <span class="pre">k)</span></code> qui renvoie le <code class="docutils literal notranslate"><span class="pre">k</span></code>-mer qui apparaît le plus souvent dans <code class="docutils literal notranslate"><span class="pre">adn</span></code> (s’il y a plusieurs <code class="docutils literal notranslate"><span class="pre">k</span></code>-mers de fréquence maximum, on en renverra un quelconque).<br />
+Pour cela, on parcourt tous les <code class="docutils literal notranslate"><span class="pre">k</span></code>-mers de <code class="docutils literal notranslate"><span class="pre">adn</span></code> et on compte le nombre d’occurences de chacun d’eux, avec la fonction <code class="docutils literal notranslate"><span class="pre">compter</span></code> écrite précédemment.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kmer_plus_frequent</span><span class="p">(</span><span class="n">cholerae_ori</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;TGA&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Si <code class="docutils literal notranslate"><span class="pre">adn</span></code> est de longueur <span class="math notranslate nohighlight">\(n\)</span>, <code class="docutils literal notranslate"><span class="pre">kmer_plus_frequent(adn,</span> <span class="pre">k)</span></code> appelle environ <span class="math notranslate nohighlight">\(n\)</span> fois <code class="docutils literal notranslate"><span class="pre">compter</span></code>, qui effectue elle-même environ <span class="math notranslate nohighlight">\(n\)</span> opérations. Donc <code class="docutils literal notranslate"><span class="pre">kmer_plus_frequent(adn,</span> <span class="pre">k)</span></code> effectue de l’ordre de <span class="math notranslate nohighlight">\(n^2\)</span> opérations, ce qui demanderait trop de temps pour le génome complet de <em>Vibrio cholerae</em>.</p>
+</section>
+<section id="version-avec-un-dictionnaire">
+<h3>Version avec un dictionnaire<a class="headerlink" href="#version-avec-un-dictionnaire" title="Permalink to this headline">#</a></h3>
+<p>Pour avoir une fonction plus efficace, on va utiliser un <strong>dictionnaire</strong>.<br />
+Un dictonnaire est une structure de données qui associe à chaque clé une valeur. Par exemple, on peut créer un dictonnaire qui à chaque utilisateur associe son âge :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;michel&quot;</span> <span class="p">:</span> <span class="mi">42</span><span class="p">,</span> <span class="s2">&quot;pierre&quot;</span> <span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="s2">&quot;marie&quot;</span> <span class="p">:</span> <span class="mi">32</span><span class="p">}</span> <span class="c1"># définition d&#39;un dictionnaire, sous forme d&#39;association clé-valeur</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>On peut accéder à la valeur associée à une clé dans un dictionnaire <code class="docutils literal notranslate"><span class="pre">d</span></code> avec <code class="docutils literal notranslate"><span class="pre">d[cle]</span></code> :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">age</span><span class="p">[</span><span class="s2">&quot;marie&quot;</span><span class="p">]</span> <span class="c1"># donne la valeur associée à la clé &quot;marie&quot;, c&#39;est-à-dire 32</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>32
+</pre></div>
+</div>
+</div>
+</div>
+<p>On peut ajouter une nouvelle paire clé-valeur avec <code class="docutils literal notranslate"><span class="pre">d[cle]</span> <span class="pre">=</span> <span class="pre">valeur</span></code> :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">age</span><span class="p">[</span><span class="s2">&quot;jean&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">22</span> <span class="c1"># ajoute une nouvelle association clé-valeur</span>
+<span class="n">age</span> <span class="c1"># age a été modifié</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;michel&#39;: 42, &#39;pierre&#39;: 12, &#39;marie&#39;: 32, &#39;jean&#39;: 22}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Créer un dictionnaire <code class="docutils literal notranslate"><span class="pre">complement</span></code> qui associe à chaque nucléotide son complément. Ainsi, <code class="docutils literal notranslate"><span class="pre">complement['A']</span></code> doit valoir <code class="docutils literal notranslate"><span class="pre">'T'</span></code>, <code class="docutils literal notranslate"><span class="pre">complement['T']</span></code> doit valoir <code class="docutils literal notranslate"><span class="pre">'A'</span></code>, <code class="docutils literal notranslate"><span class="pre">complement['C']</span></code> doit valoir <code class="docutils literal notranslate"><span class="pre">G</span></code> et <code class="docutils literal notranslate"><span class="pre">complement['G']</span></code> doit valoir <code class="docutils literal notranslate"><span class="pre">'C'</span></code>.</p>
+</div>
+<p>On peut parcourir les clés d’un dictionnaire avec une boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">age</span><span class="p">:</span> <span class="c1"># parcours des clés du dictionnaire</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">age</span><span class="p">[</span><span class="n">k</span><span class="p">])</span> <span class="c1"># affiche la clé et la valeur associée</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>michel 42
+pierre 12
+marie 32
+jean 22
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">cle_max(d)</span></code> qui renvoie la clé associée à la plus grande valeur dans le dictionnaire <code class="docutils literal notranslate"><span class="pre">d</span></code>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cle_max</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;michel&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pour obtenir plus efficacement le k-mer le plus fréquent, on va calculer un dictionnaire qui à chaque k-mer associe le nombre de fois qu’il apparaît. Puis on utilise la fonction <code class="docutils literal notranslate"><span class="pre">cle_max</span></code> pour obtenir le k-mer le plus fréquent de ce dictionnaire.</p>
+<center><img src=https://miro.medium.com/max/2129/1*Mr6KrtsUqhQ732SwYIljfg.jpeg width=60%></center><div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Réécrire une fonction <code class="docutils literal notranslate"><span class="pre">kmer_plus_frequent(adn,</span> <span class="pre">k)</span></code> qui renvoie le <code class="docutils literal notranslate"><span class="pre">k</span></code>-mer qui apparaît le plus souvent dans <code class="docutils literal notranslate"><span class="pre">adn</span></code>, en utilisant un dictionnaire.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kmer_plus_frequent</span><span class="p">(</span><span class="n">cholerae_ori</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;TGA&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Quel est le 9-mer le plus fréquent dans l’ADN de <em>Vibrio cholerae</em> ?</p>
+<p><strong>Remarques</strong> :</p>
+<ul class="simple">
+<li><p>Le DnaA est souvent de taille 9 pour une bactérie.</p></li>
+<li><p>Avec notre première version de <code class="docutils literal notranslate"><span class="pre">kmer_plus_frequent</span></code>, il n’aurait pas été possible d’obtenir la réponse à cette dernière question en temps raisonnable.</p></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="nucleotide-complementaire">
+<h2>Nucléotide complémentaire<a class="headerlink" href="#nucleotide-complementaire" title="Permalink to this headline">#</a></h2>
+<p>L’ori est composé de deux brins d’ADN complémentaires et dans des sens opposés. Pour que la cellule sache où se trouve l’ori, il faut donc que le dnaA soit présent sur les deux brins, dans des sens opposés.</p>
+<center><img src=http://bioinformaticsalgorithms.com/images/Replication/reverse_complement.png width=60%></center><p>Ainsi, dans l’ori de <em>Vibrio cholerae</em>, le DnaA ATGATCAAG est présent ainsi que son complémentaire inversé CTTGATCAT.</p>
+<center><img src=complement.png width=70%></center><p>Pour la question suivante, on pourra utiliser <code class="docutils literal notranslate"><span class="pre">+</span></code> sur des chaînes de caractères pour les concaténer :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1"># s est une chaîne de caractères vide</span>
+<span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;Bonne &quot;</span> <span class="c1"># on ajoute &quot;Bonne &quot; à s</span>
+<span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;année&quot;</span> <span class="c1"># on ajoute &quot;année&quot; à s</span>
+<span class="n">s</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Bonne année&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>On pourra aussi utiliser la fonction <code class="docutils literal notranslate"><span class="pre">s[::-1]</span></code> pour inverser une chaîne de caractères :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># on inverse la chaîne de caractères</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;eénna ennoB&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">complementaire_inverse(adn)</span></code> qui renvoie le complémentaire inversé de <code class="docutils literal notranslate"><span class="pre">adn</span></code>. Ainsi, si <code class="docutils literal notranslate"><span class="pre">adn</span></code> vaut <span class="math notranslate nohighlight">\(n_1n_2\ldots n_k\)</span>, <code class="docutils literal notranslate"><span class="pre">complementaire_inverse(adn)</span></code> doit renvoyer <span class="math notranslate nohighlight">\(n_k^*n_{k-1}^*\ldots n_1^*\)</span>, où <span class="math notranslate nohighlight">\(n_i^*\)</span> est le complémentaire de <span class="math notranslate nohighlight">\(n_i\)</span> (A &lt;-&gt; T, C -&gt; G).</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">complementaire_inverse</span><span class="p">(</span><span class="s2">&quot;ATGATCAAG&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;CTTGATCAT&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">plus_frequent_inverse(adn,</span> <span class="pre">k)</span></code> qui renvoie le <code class="docutils literal notranslate"><span class="pre">k</span></code>-mer <code class="docutils literal notranslate"><span class="pre">s</span></code> le plus fréquent dans <code class="docutils literal notranslate"><span class="pre">adn</span></code>, en comptant aussi les occurrences de <code class="docutils literal notranslate"><span class="pre">complementaire_inverse(s)</span></code>. On pourra s’inspirer de la fonction <code class="docutils literal notranslate"><span class="pre">kmer_plus_frequent</span></code> écrite précédemment.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plus_frequent_inverse</span><span class="p">(</span><span class="n">cholerae_ori</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;ATGATCAAG&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="recherche-de-phase-ouverte-de-lecture-open-reading-frame">
+<h2>Recherche de phase ouverte de lecture (<em>open reading frame</em>)<a class="headerlink" href="#recherche-de-phase-ouverte-de-lecture-open-reading-frame" title="Permalink to this headline">#</a></h2>
+<p>Un codon est une séquence de trois nucléotides (par exemple ATT).<br />
+Une “phase ouverte de lecture” (ORF) est une séquence d’ADN commençant par un codon d’initiation ATG, se terminant par un codon STOP
+(TAA, TAG, TGA), et ne contenant aucun codon STOP en son sein.</p>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">orf(adn)</span></code> qui renvoie la liste des ORFs de <code class="docutils literal notranslate"><span class="pre">adn</span></code>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">orf</span><span class="p">(</span><span class="n">cholerae_ori</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;ATGATCAACGTAAGCTTCTAA&#39;,
+ &#39;ATGATCAAGGTGCTCACACAGTTTATCCACAACCTGAGTGGATGA&#39;,
+ &#39;ATGACATCAAGATAG&#39;,
+ &#39;ATGACCACGGAAAGATGA&#39;,
+ &#39;ATGATCAAGAGAGGATGA&#39;,
+ &#39;ATGATTTCTTGGCCATATCGCAATGAATACTTGTGA&#39;,
+ &#39;ATGAATACTTGTGACTTGTGCTTCCAATTGACATCTTCAGCGCCATATTGCGCTGGCCAAGGTGACGGAGCGGGATTACGAAAGCATGATCATGGCTGTTGTTCTGTTTATCTTGTTTTGACTGAGACTTGTTAG&#39;,
+ &#39;ATGATCATGGCTGTTGTTCTGTTTATCTTGTTTTGA&#39;,
+ &#39;ATGGCTGTTGTTCTGTTTATCTTGTTTTGA&#39;,
+ &#39;ATGAATTTACATGCTTCCGCGACGATTTACCTCTTGATCATCGATCCGATTGAAGATCTTCAATTGTTAATTCTCTTGCCTCGACTCATAGCCATGATGAGCTCTTGA&#39;,
+ &#39;ATGCTTCCGCGACGATTTACCTCTTGA&#39;,
+ &#39;ATGATGAGCTCTTGA&#39;,
+ &#39;ATGAGCTCTTGA&#39;,
+ &#39;ATGTTTCCTTAA&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./11_adn"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../10_applications_math/applications_math.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">TP 10 : Application aux mathématiques</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Quentin Fortier<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
