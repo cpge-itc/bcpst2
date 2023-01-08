@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Bioinformatique : étude de l’ADN du choléra &#8212; Informatique en 2ème année de BCPST</title>
+    <title>TP 11 : étude de l’ADN du choléra &#8212; Informatique en 2ème année de BCPST</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -156,7 +156,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Bioinformatique : étude de l’ADN du choléra
+   TP 11 : étude de l’ADN du choléra
   </a>
  </li>
 </ul>
@@ -441,7 +441,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Bioinformatique : étude de l’ADN du choléra</h1>
+                <h1>TP 11 : étude de l’ADN du choléra</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -497,12 +497,12 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="bioinformatique-etude-de-l-adn-du-cholera">
-<h1>Bioinformatique : étude de l’ADN du choléra<a class="headerlink" href="#bioinformatique-etude-de-l-adn-du-cholera" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="tp-11-etude-de-l-adn-du-cholera">
+<h1>TP 11 : étude de l’ADN du choléra<a class="headerlink" href="#tp-11-etude-de-l-adn-du-cholera" title="Permalink to this headline">#</a></h1>
 <center><img src=https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/DNA_replication_split.svg/297px-DNA_replication_split.svg.png width=150></center>
 <blockquote>
 <div><p>Lors de la réplication de l’ADN, deux chaînes de l’ADN se séparent pour produire deux copies identiques. La réplication commence en une séquence particulière de l’ADN appelée origine de réplication (<strong>ori</strong>).<br />
-Un problème important est de localiser l’ori d’un génome. On sait par la biologie que l’ori contient de nombreuses de la même séquence de nucléotides, qui est appelé <strong>dnaA</strong> et permet de localiser le début de l’ori.</p>
+Un problème important est de localiser l’ori d’un génome. On sait par la biologie que l’ori contient de nombreuses de la même séquence de nucléotides, qui est appelée <strong>dnaA</strong> et permet de localiser le début de l’ori.</p>
 </div></blockquote>
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
@@ -531,19 +531,6 @@ Un problème important est de localiser l’ori d’un génome. On sait par la b
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
 <p>Quel est le nombre de nucléotides de l’ori de <em>Vibrio cholerae</em> ?</p>
-</div>
-<p>On rappelle qu’on peut accéder au <span class="math notranslate nohighlight">\(i\)</span>ème caractère d’une chaîne <code class="docutils literal notranslate"><span class="pre">s</span></code> avec <code class="docutils literal notranslate"><span class="pre">s[i]</span></code> :</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cholerae</span><span class="p">[</span><span class="mi">42</span><span class="p">]</span> <span class="c1"># 43ème nucléotide</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;A&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
@@ -725,7 +712,7 @@ jean 22
 <h2>Nucléotide complémentaire<a class="headerlink" href="#nucleotide-complementaire" title="Permalink to this headline">#</a></h2>
 <p>L’ori est composé de deux brins d’ADN complémentaires et dans des sens opposés. Pour que la cellule sache où se trouve l’ori, il faut donc que le dnaA soit présent sur les deux brins, dans des sens opposés.</p>
 <center><img src=http://bioinformaticsalgorithms.com/images/Replication/reverse_complement.png width=60%></center><p>Ainsi, dans l’ori de <em>Vibrio cholerae</em>, le DnaA ATGATCAAG est présent ainsi que son complémentaire inversé CTTGATCAT.</p>
-<center><img src=complement.png width=70%></center><p>Pour la question suivante, on pourra utiliser <code class="docutils literal notranslate"><span class="pre">+</span></code> sur des chaînes de caractères pour les concaténer :</p>
+<center><img src=https://raw.githubusercontent.com/cpge-itc/bcpst2/main/files/11_adn/complement.png width=70%></center><p>Pour la question suivante, on pourra utiliser <code class="docutils literal notranslate"><span class="pre">+</span></code> sur des chaînes de caractères pour les concaténer :</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1"># s est une chaîne de caractères vide</span>
