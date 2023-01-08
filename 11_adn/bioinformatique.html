@@ -397,8 +397,8 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#nombre-d-occurences-d-un-motif">
-   Nombre d’occurences d’un motif
+  <a class="reference internal nav-link" href="#motif-dans-un-adn">
+   Motif dans un ADN
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -452,8 +452,8 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#nombre-d-occurences-d-un-motif">
-   Nombre d’occurences d’un motif
+  <a class="reference internal nav-link" href="#motif-dans-un-adn">
+   Motif dans un ADN
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -536,7 +536,9 @@ Un problème important est de localiser l’ori d’un génome. On sait par la b
 <p class="admonition-title">Question</p>
 <p>La <a class="reference external" href="https://fr.wikipedia.org/wiki/R%C3%A8gles_de_Chargaff">règle de Chargaff</a> dit que la proportion de nucléotides <span class="math notranslate nohighlight">\(A\)</span> est environ égale à celle de nucléotides <span class="math notranslate nohighlight">\(T\)</span> et que la proportion de nucléotides <span class="math notranslate nohighlight">\(C\)</span> est environ égale à celle de nucléotides <span class="math notranslate nohighlight">\(G\)</span>. Vérifiez que cette règle est respectée pour <em>Vibrio cholerae</em>.</p>
 </div>
-<p>De plus, comme pour les listes, <code class="docutils literal notranslate"><span class="pre">s[i:j]</span></code> extrait une sous-chaîne de <code class="docutils literal notranslate"><span class="pre">s</span></code> allant du caractère d’indice <code class="docutils literal notranslate"><span class="pre">i</span></code> (inclus) au caractère d’indice <code class="docutils literal notranslate"><span class="pre">j</span></code> (exclus) :</p>
+<section id="motif-dans-un-adn">
+<h2>Motif dans un ADN<a class="headerlink" href="#motif-dans-un-adn" title="Permalink to this headline">#</a></h2>
+<p>On rappelle que, Comme pour les listes, <code class="docutils literal notranslate"><span class="pre">s[i:j]</span></code> extrait une sous-chaîne de <code class="docutils literal notranslate"><span class="pre">s</span></code> allant du caractère d’indice <code class="docutils literal notranslate"><span class="pre">i</span></code> (inclus) au caractère d’indice <code class="docutils literal notranslate"><span class="pre">j</span></code> (exclus) :</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cholerae_ori</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="c1"># 3 premiers nucléotides</span>
@@ -564,10 +566,8 @@ Un problème important est de localiser l’ori d’un génome. On sait par la b
 </div>
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
-<p>À quel indice l’ori de <em>Vibrio cholerae</em> commence t-il dans l’ADN de <em>Vibrio cholerae</em> ?</p>
+<p>À quel indice l’ori de <em>Vibrio cholerae</em> commence t-il dans le génome de <em>Vibrio cholerae</em> ?</p>
 </div>
-<section id="nombre-d-occurences-d-un-motif">
-<h2>Nombre d’occurences d’un motif<a class="headerlink" href="#nombre-d-occurences-d-un-motif" title="Permalink to this headline">#</a></h2>
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">compter(adn,</span> <span class="pre">motif)</span></code> qui compte le nombre d’apparitions de <code class="docutils literal notranslate"><span class="pre">motif</span></code> dans <code class="docutils literal notranslate"><span class="pre">adn</span></code>.</p>
@@ -674,7 +674,7 @@ jean 22
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cle_max</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cle_max</span><span class="p">(</span><span class="n">age</span><span class="p">)</span> <span class="c1"># michel est la personne dont l&#39;âge est le plus élevé</span>
 </pre></div>
 </div>
 </div>
