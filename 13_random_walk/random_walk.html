@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Marche aléatoire et chaîne de Markov &#8212; Informatique en 2ème année de BCPST</title>
+    <title>TP 13 : Marche aléatoire et chaîne de Markov &#8212; Informatique en 2ème année de BCPST</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -166,7 +166,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Marche aléatoire et chaîne de Markov
+   TP 13 : Marche aléatoire et chaîne de Markov
   </a>
  </li>
 </ul>
@@ -442,7 +442,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Marche aléatoire et chaîne de Markov</h1>
+                <h1>TP 13 : Marche aléatoire et chaîne de Markov</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -489,8 +489,8 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="marche-aleatoire-et-chaine-de-markov">
-<h1>Marche aléatoire et chaîne de Markov<a class="headerlink" href="#marche-aleatoire-et-chaine-de-markov" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="tp-13-marche-aleatoire-et-chaine-de-markov">
+<h1>TP 13 : Marche aléatoire et chaîne de Markov<a class="headerlink" href="#tp-13-marche-aleatoire-et-chaine-de-markov" title="Permalink to this headline">#</a></h1>
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
 <p>Exécuter le code suivant pour importer les modules nécessaires</p>
@@ -541,7 +541,7 @@ title="Print to PDF"
 <p>On définit ensuite la variable aléatoire <span class="math notranslate nohighlight">\(S_n = X_1 + X_2 + \cdots + X_n\)</span>.</p>
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
-<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">S(n)</span></code> qui renvoie la somme des <code class="docutils literal notranslate"><span class="pre">n</span></code> premiers termes de la marche aléatoire.</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">S(n)</span></code> qui renvoie <span class="math notranslate nohighlight">\(S_n\)</span>.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -599,7 +599,7 @@ title="Print to PDF"
 </section>
 <section id="theoreme-de-la-limite-centrale">
 <h3>Théorème de la limite centrale<a class="headerlink" href="#theoreme-de-la-limite-centrale" title="Permalink to this headline">#</a></h3>
-<p>En notant <span class="math notranslate nohighlight">\(\mu\)</span> et <span class="math notranslate nohighlight">\(\sigma\)</span> la moyenne et l’écart-type de chaque variable <span class="math notranslate nohighlight">\(X_k\)</span>, le théorème de la limite centrale affirme que :</p>
+<p>En notant <span class="math notranslate nohighlight">\(\mu\)</span> et <span class="math notranslate nohighlight">\(\sigma\)</span> la moyenne et l’écart-type de chaque variable <span class="math notranslate nohighlight">\(X_k\)</span>, le <strong>théorème de la limite centrale</strong> affirme que :</p>
 <div class="math notranslate nohighlight">
 \[\frac{S_n - n\mu}{\sigma\sqrt{n}} \sim \mathcal{N}(0, 1)\]</div>
 <p>où <span class="math notranslate nohighlight">\(\mathcal{N}(0, 1)\)</span> est la loi normale centrée réduite, dont la densité de probabilité est :</p>
@@ -652,8 +652,8 @@ On pourra définir <code class="docutils literal notranslate"><span class="pre">
 </div>
 </div>
 </div>
-<div class="admonition-question admonition">
-<p class="admonition-title">Question</p>
+<div class="admonition-exercice admonition">
+<p class="admonition-title">Exercice</p>
 <ol class="simple">
 <li><p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">P_liste(n)</span></code> qui renvoie la liste des points <span class="math notranslate nohighlight">\(P_0\)</span>, <span class="math notranslate nohighlight">\(P_1\)</span>, … <span class="math notranslate nohighlight">\(P_n\)</span>. Il s’agit donc de la même fonction que précédemment, mais qui renvoie une liste.</p></li>
 <li><p>Exécuter le code ci-dessous pour afficher la marche aléatoire.</p></li>
@@ -684,7 +684,7 @@ On pourra définir <code class="docutils literal notranslate"><span class="pre">
 <section id="chaine-de-markov">
 <h2>Chaîne de Markov<a class="headerlink" href="#chaine-de-markov" title="Permalink to this headline">#</a></h2>
 <p>On considère un chat qui peut être dans <span class="math notranslate nohighlight">\(3\)</span> états possibles : manger (0), jouer (1) ou dormir (2). À chaque étape, le chat peut changer d’état avec une certaine probabilité donnée par le graphe suivant :</p>
-<center><img src=https://raw.githubusercontent.com/fortierq/tikz/master/graph/markov/chat/chat.png width=600></center><p>Par exemple, si le chat est en train de manger à l’étape <span class="math notranslate nohighlight">\(n\)</span>, il continuera de manger à l’étape <span class="math notranslate nohighlight">\(n + 1\)</span> avec probabilité <span class="math notranslate nohighlight">\(0.2\)</span>, il sera en train de dormir avec probabilité <span class="math notranslate nohighlight">\(0.5\)</span> et jouer avec probabilité <span class="math notranslate nohighlight">\(0.3\)</span>.</p>
+<center><img src=https://raw.githubusercontent.com/fortierq/tikz/master/graph/markov/chat/chat.png width=600></center><p>Par exemple, si le chat est en train de manger à l’étape <span class="math notranslate nohighlight">\(n\)</span>, il continuera de manger à l’étape <span class="math notranslate nohighlight">\(n + 1\)</span> avec probabilité <span class="math notranslate nohighlight">\(0.2\)</span>, il se mettra à dormir avec probabilité <span class="math notranslate nohighlight">\(0.5\)</span> et jouer avec probabilité <span class="math notranslate nohighlight">\(0.3\)</span>.</p>
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">chat(n)</span></code> qui commence dans l’état <span class="math notranslate nohighlight">\(0\)</span> et effectue <span class="math notranslate nohighlight">\(n\)</span> étapes du chat et renvoie une liste <code class="docutils literal notranslate"><span class="pre">L</span></code> telle que <code class="docutils literal notranslate"><span class="pre">L[i]</span></code> la proportion du nombre de fois que le chat a été dans l’état <code class="docutils literal notranslate"><span class="pre">i</span></code>.</p>
