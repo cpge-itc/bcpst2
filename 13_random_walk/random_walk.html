@@ -56,7 +56,6 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="canonical" href="https://cpge-itc.github.io/bcpst2/13_random_walk/random_walk.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="TP : Basketball" href="../bcpst/basket.html" />
     <link rel="prev" title="TP 12 : Manipulation d’images" href="../12_image/image.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -168,11 +167,6 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    TP 13 : Marche aléatoire et chaîne de Markov
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bcpst/basket.html">
-   TP : Basketball
   </a>
  </li>
 </ul>
@@ -532,6 +526,16 @@ title="Print to PDF"
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">X()</span></code> qui renvoie 1 ou -1 avec une probabilité de 1/2 chacune.</p>
 </div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">X</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="p">()</span>
@@ -548,6 +552,16 @@ title="Print to PDF"
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">S(n)</span></code> qui renvoie <span class="math notranslate nohighlight">\(S_n\)</span>.</p>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">S</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">s</span> <span class="o">+=</span> <span class="n">X</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">s</span>
+</pre></div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -567,6 +581,16 @@ title="Print to PDF"
 <li><p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">S_liste(n)</span></code> qui renvoie la liste des sommes partielles <span class="math notranslate nohighlight">\(S_1\)</span>, <span class="math notranslate nohighlight">\(S_2\)</span>, … <span class="math notranslate nohighlight">\(S_n\)</span>. Il s’agit donc de la même fonction que précédemment, mais qui renvoie une liste.</p></li>
 <li><p>Exécuter le code suivant pour afficher la marche aléatoire.</p></li>
 </ol>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">S_liste</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">L</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">L</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">X</span><span class="p">())</span>
+    <span class="k">return</span> <span class="n">L</span>
+</pre></div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -590,6 +614,16 @@ title="Print to PDF"
 <li><p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">distance_origine(n,</span> <span class="pre">p)</span></code> qui calcule <code class="docutils literal notranslate"><span class="pre">p</span></code> fois <code class="docutils literal notranslate"><span class="pre">abs(S(n))</span></code> et renvoie la moyenne de ces valeurs.</p></li>
 <li><p>Comparer graphiquement avec <span class="math notranslate nohighlight">\(\sqrt{\frac{2n}{\pi}}\)</span> en exécutant le code ci-dessous.</p></li>
 </ol>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">distance_origine</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+        <span class="n">m</span> <span class="o">+=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">S</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">m</span><span class="o">/</span><span class="n">p</span>
+</pre></div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -620,6 +654,18 @@ title="Print to PDF"
 <li><p>Vérifier en exécutant le code ci-dessous.</p></li>
 </ol>
 </div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># on trouve mu = 0 et sigma = 1</span>
+
+<span class="k">def</span> <span class="nf">limite_centrale</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">S</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">/</span><span class="n">n</span><span class="o">**</span><span class="mf">.5</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="o">**</span><span class="mf">.5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">1000</span>
@@ -646,6 +692,24 @@ title="Print to PDF"
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">P(n)</span></code> qui renvoie le point <span class="math notranslate nohighlight">\(P_n\)</span>.<br />
 On pourra définir <code class="docutils literal notranslate"><span class="pre">r</span> <span class="pre">=</span> <span class="pre">random.random()</span></code> et distinguer <span class="math notranslate nohighlight">\(4\)</span> cas : <span class="math notranslate nohighlight">\(0 \leq r &lt; 1/4\)</span>, <span class="math notranslate nohighlight">\(1/4 \leq r &lt; 2/4\)</span>, <span class="math notranslate nohighlight">\(2/4 \leq r &lt; 3/4\)</span> et <span class="math notranslate nohighlight">\(3/4 \leq r &lt; 1\)</span>.</p>
 </div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">P</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">Pk</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="p">:</span>
+            <span class="n">Pk</span> <span class="o">=</span> <span class="p">(</span><span class="n">Pk</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">Pk</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">elif</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">:</span>
+            <span class="n">Pk</span> <span class="o">=</span> <span class="p">(</span><span class="n">Pk</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">Pk</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">elif</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="o">/</span><span class="mi">4</span><span class="p">:</span>
+            <span class="n">Pk</span> <span class="o">=</span> <span class="p">(</span><span class="n">Pk</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">Pk</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">Pk</span> <span class="o">=</span> <span class="p">(</span><span class="n">Pk</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">Pk</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Pk</span>
+</pre></div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">P</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
@@ -665,6 +729,26 @@ On pourra définir <code class="docutils literal notranslate"><span class="pre">
 <li><p>Exécuter le code ci-dessous pour afficher la marche aléatoire.</p></li>
 </ol>
 </div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">P_liste</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">Pk</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="p">:</span>
+            <span class="n">Pk</span> <span class="o">=</span> <span class="p">(</span><span class="n">Pk</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">Pk</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">elif</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">:</span>
+            <span class="n">Pk</span> <span class="o">=</span> <span class="p">(</span><span class="n">Pk</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">Pk</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">elif</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="o">/</span><span class="mi">4</span><span class="p">:</span>
+            <span class="n">Pk</span> <span class="o">=</span> <span class="p">(</span><span class="n">Pk</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">Pk</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">Pk</span> <span class="o">=</span> <span class="p">(</span><span class="n">Pk</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">Pk</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">L</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Pk</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">L</span>
+</pre></div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">P_liste</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
@@ -678,6 +762,18 @@ On pourra définir <code class="docutils literal notranslate"><span class="pre">
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">retour_origine(n)</span></code> qui renvoie une liste <code class="docutils literal notranslate"><span class="pre">L</span></code> telle que <code class="docutils literal notranslate"><span class="pre">L[i]</span></code> est le nombre de fois où la marche aléatoire revient au point d’origine après <code class="docutils literal notranslate"><span class="pre">i</span></code> étapes.</p>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">retour_origine</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">P_liste</span><span class="p">(</span><span class="n">n</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]:</span>
+        <span class="n">L</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">L</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">p</span> <span class="o">==</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="n">L</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">L</span>
+</pre></div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -695,6 +791,33 @@ On pourra définir <code class="docutils literal notranslate"><span class="pre">
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">chat(n)</span></code> qui commence dans l’état <span class="math notranslate nohighlight">\(0\)</span> et effectue <span class="math notranslate nohighlight">\(n\)</span> étapes du chat et renvoie une liste <code class="docutils literal notranslate"><span class="pre">L</span></code> telle que <code class="docutils literal notranslate"><span class="pre">L[i]</span></code> la proportion du nombre de fois que le chat a été dans l’état <code class="docutils literal notranslate"><span class="pre">i</span></code>.</p>
 </div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">chat</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="n">etat</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">etat</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="mf">.3</span><span class="p">:</span>
+                <span class="n">etat</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="k">elif</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="mf">.8</span><span class="p">:</span>
+                <span class="n">etat</span> <span class="o">=</span> <span class="mi">2</span>
+        <span class="k">elif</span> <span class="n">etat</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="mf">.3</span><span class="p">:</span>
+                <span class="n">etat</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">elif</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="mf">.8</span><span class="p">:</span>
+                <span class="n">etat</span> <span class="o">=</span> <span class="mi">2</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="mf">.4</span><span class="p">:</span>
+                <span class="n">etat</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">elif</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="mf">.6</span><span class="p">:</span>
+                <span class="n">etat</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">L</span><span class="p">[</span><span class="n">etat</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span><span class="o">/</span><span class="n">n</span>
+    <span class="k">return</span> <span class="n">L</span>
+</pre></div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chat</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
@@ -710,6 +833,16 @@ On pourra définir <code class="docutils literal notranslate"><span class="pre">
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
 <p>Définir la matrice de transition <span class="math notranslate nohighlight">\(M\)</span> de ce problème, de taille <span class="math notranslate nohighlight">\(3\times 3\)</span> et telle que <span class="math notranslate nohighlight">\(m_{i, j}\)</span> est la probabilité de passer de l’état <span class="math notranslate nohighlight">\(i\)</span> à l’état <span class="math notranslate nohighlight">\(j\)</span>.</p>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="mf">.2</span><span class="p">,</span> <span class="mf">.3</span><span class="p">,</span> <span class="mf">.5</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">.3</span><span class="p">,</span> <span class="mf">.2</span><span class="p">,</span> <span class="mf">.5</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">.4</span><span class="p">,</span> <span class="mf">.2</span><span class="p">,</span> <span class="mf">.4</span><span class="p">]</span>
+<span class="p">]</span>
+</pre></div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -733,6 +866,18 @@ On rappelle que les coefficients de <span class="math notranslate nohighlight">\
 \[c_{i, j} = \sum_{k = 1}^n a_{i, k}b_{k, j}\]</div>
 <p>On pourra utiliser <code class="docutils literal notranslate"><span class="pre">np.zeros</span></code> pour créer une matrice <code class="docutils literal notranslate"><span class="pre">C</span></code> de <span class="math notranslate nohighlight">\(0\)</span> qu’on remplira avec la formule ci-dessus.</p>
 </div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">produit</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">):</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">B</span><span class="p">[</span><span class="mi">0</span><span class="p">])))</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">B</span><span class="p">[</span><span class="mi">0</span><span class="p">])):</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">B</span><span class="p">)):</span>
+                <span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span><span class="o">*</span><span class="n">B</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">C</span>
+</pre></div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">produit</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">M</span><span class="p">)</span>
@@ -753,6 +898,23 @@ On rappelle que les coefficients de <span class="math notranslate nohighlight">\
 <li><p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">puissance(M,</span> <span class="pre">n)</span></code> qui renvoie <span class="math notranslate nohighlight">\(M^n\)</span>.</p></li>
 <li><p>Calculer <code class="docutils literal notranslate"><span class="pre">puissance(M,</span> <span class="pre">10)</span></code> et vérifier qu’on obtient un résultat proche de <code class="docutils literal notranslate"><span class="pre">chat(10000)</span></code>.</p></li>
 </ol>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">puissance</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">M</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">A</span> <span class="o">=</span> <span class="n">produit</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">M</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">A</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">puissance</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">chat</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mf">0.3133999999999818</span><span class="p">,</span> <span class="mf">0.23119999999999086</span><span class="p">,</span> <span class="mf">0.45539999999996617</span><span class="p">]</span>
+
+</pre></div>
+</div>
 </div>
 </section>
 </section>
@@ -790,13 +952,6 @@ On rappelle que les coefficients de <span class="math notranslate nohighlight">\
             <p class="prev-next-subtitle">previous</p>
             <p class="prev-next-title">TP 12 : Manipulation d’images</p>
         </div>
-    </a>
-    <a class='right-next' id="next-link" href="../bcpst/basket.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">TP : Basketball</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>
