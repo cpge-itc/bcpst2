@@ -15,7 +15,7 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: "Download notebooks"
-      run: curl -O https://raw.githubusercontent.com/fortierq/scripts/main/cours/dl_nb.py; python3 dl_nb.py ${{secrets.TOKEN}}
+      run: curl -O https://raw.githubusercontent.com/fortierq/scripts/main/cours/dl_nb.py; python3 dl_nb.py ${{secrets.API_TOKEN_GITHUB}}
 
     - name: Add notes
       run: python /addnote.py $(pwd)/files
