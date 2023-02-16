@@ -27,3 +27,4 @@ chapters:
   - file: 11_adn/bioinformatique.ipynb
   - file: 12_image/image.ipynb
   - file: 13_random_walk/random_walk.ipynb
+  - tp: bcpst/basket.ipynb
