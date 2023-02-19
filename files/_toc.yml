@@ -2,19 +2,7 @@
 
 format: jb-book
 root: intro
-# options:
-#   numbered: True
 chapters:
-  # - caption: Introduction
-  #   chapters:
-  #     - file: 0_python/aide_memoire.md
-  #     - file: 0_python/programmer.md
-  # - caption: "TP 3 : Révisions sur les graphes"
-  #   chapters:
-  #     - file: 3_graph/tp_matrice_adjacence.ipynb
-  #     - file: 3_graph/tp_pagerank.ipynb
-  #     - file: 3_graph/tp_dfs.ipynb
-  #     - file: 3_graph/tp_bfs.ipynb
   - file: 1_euler/euler.ipynb
   - file: 2_probabilites/simulation.ipynb
   - file: 4_population/population.ipynb
