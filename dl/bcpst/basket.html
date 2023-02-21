@@ -577,6 +577,7 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">afficher_trajectoire</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s2">&quot;k--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;ballon&quot;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mf">.5</span><span class="p">,</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mf">.5</span><span class="p">],</span> <span class="p">[</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;p&quot;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mf">.5</span><span class="p">]</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
@@ -657,7 +658,7 @@ Une première approche consiste à tester beaucoup de valeurs en espérant tombe
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">afficher</span><span class="p">(</span><span class="n">brute</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">p</span><span class="p">),</span> <span class="n">a</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">afficher</span><span class="p">(</span><span class="n">brute</span><span class="p">(</span><span class="n">a0</span><span class="p">,</span> <span class="n">p</span><span class="p">),</span> <span class="n">a0</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -673,9 +674,13 @@ Une première approche consiste à tester beaucoup de valeurs en espérant tombe
 <ol class="simple">
 <li><p>On calcule <span class="math notranslate nohighlight">\(v_0 = \frac{a + b}{2}\)</span>.</p></li>
 <li><p>Si <span class="math notranslate nohighlight">\(v_0\)</span> permet de marquer, on le renvoie.</p></li>
-<li><p>Si <span class="math notranslate nohighlight">\(v_0\)</span> était trop fort, on remplace <span class="math notranslate nohighlight">\(a\)</span> par <span class="math notranslate nohighlight">\(v_0\)</span> et on revient en 1.</p></li>
-<li><p>Si <span class="math notranslate nohighlight">\(v_0\)</span> n’était pas assez fort, on remplace <span class="math notranslate nohighlight">\(b\)</span> par <span class="math notranslate nohighlight">\(v_0\)</span> et on revient en 1.</p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(v_0\)</span> était trop fort, on remplace <span class="math notranslate nohighlight">\(b\)</span> par <span class="math notranslate nohighlight">\(v_0\)</span> et on revient en 1.</p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(v_0\)</span> n’était pas assez fort, on remplace <span class="math notranslate nohighlight">\(a\)</span> par <span class="math notranslate nohighlight">\(v_0\)</span> et on revient en 1.</p></li>
 </ol>
+<div class="admonition-exercice admonition">
+<p class="admonition-title">Exercice</p>
+<p>Ecrire une fonction <code class="docutils literal notranslate"><span class="pre">dichotomie(a0,</span> <span class="pre">p)</span></code> implémentant cet algorithme.</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">afficher</span><span class="p">(</span><span class="n">dichotomie</span><span class="p">(</span><span class="n">a0</span><span class="p">,</span> <span class="n">p</span><span class="p">),</span> <span class="n">a0</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
@@ -683,7 +688,7 @@ Une première approche consiste à tester beaucoup de valeurs en espérant tombe
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/basket_20_0.png" src="../../_images/basket_20_0.png" />
+<img alt="../../_images/basket_21_0.png" src="../../_images/basket_21_0.png" />
 </div>
 </div>
 </section>
@@ -710,7 +715,7 @@ Une première approche consiste à tester beaucoup de valeurs en espérant tombe
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/basket_24_0.png" src="../../_images/basket_24_0.png" />
+<img alt="../../_images/basket_25_0.png" src="../../_images/basket_25_0.png" />
 </div>
 </div>
 </section>
@@ -758,7 +763,7 @@ On calcule alors <span class="math notranslate nohighlight">\(x(t + \Delta t)\)<
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/basket_28_0.png" src="../../_images/basket_28_0.png" />
+<img alt="../../_images/basket_29_0.png" src="../../_images/basket_29_0.png" />
 </div>
 </div>
 </section>
