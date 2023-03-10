@@ -17,4 +17,5 @@ chapters:
   - file: 13_random_walk/random_walk.ipynb
   - cor: bcpst/basket.ipynb
   - file: 15_tb/exercices_concours.ipynb
-  - tp: bcpst/simulation_physique/collision.ipynb
+  - cor: bcpst/simulation_physique/collision.ipynb
+  - tp: bcpst/revisions/revisions.ipynb
