@@ -1,0 +1,861 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>TP : révisions &#8212; Informatique en 2ème année de BCPST</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=532d1baf3f03eb73f2f50828f8c27430120b156d"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="canonical" href="https://cpge-itc.github.io/bcpst2/dl/bcpst/revisions/revisions.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="prev" title="TP : Simulation de collision" href="../simulation_physique/collision.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/cobra.webp" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Informatique en 2ème année de BCPST</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../1_euler/euler.html">
+   TP 1 : Résolution d’équation différentielle par la méthode d’Euler
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../2_probabilites/simulation.html">
+   TP 2 : Simulation de variables aléatoires
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../4_population/population.html">
+   TP 4 : Matrice de population
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../5_iris/iris.html">
+   TP 5 : Statistiques et classification de fleurs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../6_sql/sql.html">
+   TP 6 : SQL
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../7_dessin/tp7_dessin.html">
+   TP 7 : Dessins, récursivité et fractales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../8_wordle/wordle.html">
+   TP 8 : Wordle
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../9_automate_cellulaire/automate_cellulaire.html">
+   TP 9 : Automates cellulaires
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../10_applications_math/applications_math.html">
+   TP 10 : Application aux mathématiques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../11_adn/bioinformatique.html">
+   TP 11 : Bioinformatique appliqué à l’ADN du choléra
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../12_image/image.html">
+   TP 12 : Manipulation d’images
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../13_random_walk/random_walk.html">
+   TP 13 : Marche aléatoire et chaîne de Markov
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basket.html">
+   TP : Basketball
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../15_tb/exercices_concours.html">
+   TP : Concours Agro Veto
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../simulation_physique/collision.html">
+   TP : Simulation de collision
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   TP : révisions
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/cpge-itc/bcpst2/main?urlpath=tree/files/dl/bcpst/revisions/revisions.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/cpge-itc/bcpst2/main/files/dl/bcpst/revisions/revisions.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Basthon"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_basthon.svg">
+  </span>
+<span class="headerbtn__text-container">Basthon</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/cpge-itc/bcpst2"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/cpge-itc/bcpst2/issues/new?title=Issue%20on%20page%20%2Fdl/bcpst/revisions/revisions.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/cpge-itc/bcpst2/edit/main/files/dl/bcpst/revisions/revisions.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/dl/bcpst/revisions/revisions.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#calcul">
+   Calcul
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tuples">
+   Tuples
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#listes">
+   Listes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#matrices">
+   Matrices
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>TP : révisions</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#calcul">
+   Calcul
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tuples">
+   Tuples
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#listes">
+   Listes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#matrices">
+   Matrices
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="tp-revisions">
+<h1>TP : révisions<a class="headerlink" href="#tp-revisions" title="Permalink to this headline">#</a></h1>
+<section id="calcul">
+<h2>Calcul<a class="headerlink" href="#calcul" title="Permalink to this headline">#</a></h2>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">somme(n)</span></code> renvoyant <span class="math notranslate nohighlight">\(\sum_{i=1}^n \sqrt{i}\)</span>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">somme</span><span class="p">(</span><span class="mi">100000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>21081692.74615191
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">fact(n)</span></code> renvoyant <span class="math notranslate nohighlight">\(n!\)</span>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fact</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>120
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">borne(p)</span></code> renvoyant le plus petit entier <span class="math notranslate nohighlight">\(n\)</span> tel que <span class="math notranslate nohighlight">\(2^n &gt; p\)</span>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">borne</span><span class="p">(</span><span class="mi">100000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>17
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">nombre(n)</span></code> renvoyant le nombre d’entiers entre <span class="math notranslate nohighlight">\(0\)</span> et <span class="math notranslate nohighlight">\(n\)</span> qui sont multiples de <span class="math notranslate nohighlight">\(3\)</span> ou de <span class="math notranslate nohighlight">\(5\)</span>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nombre</span><span class="p">(</span><span class="mi">100000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46667
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="tuples">
+<h2>Tuples<a class="headerlink" href="#tuples" title="Permalink to this headline">#</a></h2>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">distance(p1,</span> <span class="pre">p2)</span></code> renvoyant la distance euclidienne entre les points <code class="docutils literal notranslate"><span class="pre">p1</span></code> et <code class="docutils literal notranslate"><span class="pre">p2</span></code>, où <code class="docutils literal notranslate"><span class="pre">p1</span></code> et <code class="docutils literal notranslate"><span class="pre">p2</span></code> sont des couples.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">distance</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="listes">
+<h2>Listes<a class="headerlink" href="#listes" title="Permalink to this headline">#</a></h2>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">suite(a,</span> <span class="pre">k)</span></code> renvoyant la liste des <code class="docutils literal notranslate"><span class="pre">k</span></code> premiers termes de la suite de Syracuse définie par :<br />
+$<span class="math notranslate nohighlight">\(u_0 = a\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(u_{n+1} = \begin{cases} \frac{u_n}{2} &amp; \text{si } u_n \text{ est pair} \\ 3u_n + 1 &amp; \text{si } u_n \text{ est impair} \end{cases}\)</span>$</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">suite</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="c1"># [3, 10, 5, 16, 8, 4, 2, 1, 4, 2]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[3, 10, 5, 16, 8, 4, 2, 1, 4, 2]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">moyenne(L)</span></code> qui renvoie la moyenne des éléments de la liste <code class="docutils literal notranslate"><span class="pre">L</span></code>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">moyenne</span><span class="p">([</span><span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span> <span class="c1"># 5.6</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.6
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">variance(L)</span></code> qui renvoie la variance des éléments de la liste <code class="docutils literal notranslate"><span class="pre">L</span></code>.<br />
+On évitera de calculer plusieurs fois la moyenne.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">variance</span><span class="p">([</span><span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span> <span class="c1"># 6.64</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.640000000000001
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">inverse(L)</span></code> qui renvoie la liste des éléments de <code class="docutils literal notranslate"><span class="pre">L</span></code> dans l’ordre inverse.</p>
+</div>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">positifs(L)</span></code> qui renvoie la liste des éléments de <code class="docutils literal notranslate"><span class="pre">L</span></code> strictement positifs.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">positifs</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 3, 5, 7, 9]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">tous_pairs(L)</span></code> qui renvoie <code class="docutils literal notranslate"><span class="pre">True</span></code> si tous les éléments de <code class="docutils literal notranslate"><span class="pre">L</span></code> sont pairs, <code class="docutils literal notranslate"><span class="pre">False</span></code> sinon.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">tous_pairs</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">]))</span> <span class="c1"># True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tous_pairs</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">]))</span> <span class="c1"># False</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">croissante(L)</span></code> qui renvoie <code class="docutils literal notranslate"><span class="pre">True</span></code> si les éléments de <code class="docutils literal notranslate"><span class="pre">L</span></code> sont dans l’ordre croissant, <code class="docutils literal notranslate"><span class="pre">False</span></code> sinon.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">croissante</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]))</span> <span class="c1"># True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">croissante</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">]))</span> <span class="c1"># False</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">concatene(L1,</span> <span class="pre">L2)</span></code> renvoyant une liste composée des éléments de <code class="docutils literal notranslate"><span class="pre">L1</span></code> suivis des éléments de <code class="docutils literal notranslate"><span class="pre">L2</span></code>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">concatene</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 3, 4, 5, 6]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">separe(L)</span></code> qui renvoie un couple de deux listes, la première contenant les éléments d’indices pairs de <code class="docutils literal notranslate"><span class="pre">L</span></code> et la seconde les éléments d’indices impairs.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">separe</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([2, 4, 6, 8, 10], [1, 3, 5, 7, 9])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">produit_scalaire(u,</span> <span class="pre">v)</span></code> renvoyant le produit scalaire de <code class="docutils literal notranslate"><span class="pre">u</span></code> et <code class="docutils literal notranslate"><span class="pre">v</span></code>, où <code class="docutils literal notranslate"><span class="pre">u</span></code> et <code class="docutils literal notranslate"><span class="pre">v</span></code> sont des listes de même longueur.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">produit_scalaire</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span> <span class="c1"># 32</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>32
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="matrices">
+<h2>Matrices<a class="headerlink" href="#matrices" title="Permalink to this headline">#</a></h2>
+<p>Dans les questions suivantes, il est interdit d’utiliser <code class="docutils literal notranslate"><span class="pre">numpy</span></code>.</p>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">creer_matrice(n,</span> <span class="pre">p,</span> <span class="pre">x)</span></code> qui renvoie une matrice de taille à <span class="math notranslate nohighlight">\(n\)</span> lignes, <span class="math notranslate nohighlight">\(p\)</span> colonnes dont tous les éléments sont égaux à <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">creer_matrice</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[2, 2, 2, 2], [2, 2, 2, 2], [2, 2, 2, 2]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">matrice_identite(n)</span></code> qui renvoie la matrice identité de taille <span class="math notranslate nohighlight">\(n\)</span>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">matrice_identite</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">transposee(M)</span></code> qui renvoie la transposée de la matrice <code class="docutils literal notranslate"><span class="pre">M</span></code>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">transposee</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1, 4, 7], [2, 5, 8], [3, 6, 9]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">egal(M1,</span> <span class="pre">M2)</span></code> qui renvoie <code class="docutils literal notranslate"><span class="pre">True</span></code> si les matrices <code class="docutils literal notranslate"><span class="pre">M1</span></code> et <code class="docutils literal notranslate"><span class="pre">M2</span></code> sont égales, <code class="docutils literal notranslate"><span class="pre">False</span></code> sinon.</p>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./dl/bcpst/revisions"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../simulation_physique/collision.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">TP : Simulation de collision</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Quentin Fortier<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
