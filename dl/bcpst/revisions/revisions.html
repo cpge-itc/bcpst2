@@ -603,7 +603,7 @@ title="Print to PDF"
 <h2>Listes<a class="headerlink" href="#listes" title="Permalink to this headline">#</a></h2>
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
-<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">suite(a,</span> <span class="pre">k)</span></code> renvoyant la liste des <code class="docutils literal notranslate"><span class="pre">k</span></code> premiers termes de la suite de Syracuse définie par :</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">syracuse(a)</span></code> renvoyant la liste des <span class="math notranslate nohighlight">\(u_k\)</span> définies par la suite suivante, où on arrêtera de calculer les termes de la suite dès que l’on obtient <span class="math notranslate nohighlight">\(1\)</span> :</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
     u_0 &amp;= a \\
@@ -612,12 +612,35 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">suite</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="c1"># [3, 10, 5, 16, 8, 4, 2, 1, 4, 2]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">suite</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># [3, 10, 5, 16, 8, 4, 2, 1, 4, 2]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[3, 10, 5, 16, 8, 4, 2, 1, 4, 2]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[3, 10, 5, 16, 8, 4, 2, 1]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">suite2(n)</span></code> renvoyant le couple <span class="math notranslate nohighlight">\((u_n, v_n)\)</span> où :</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    u_0 &amp;= 3 \\
+    u_{n+1} &amp;= 2u_n + 4v_n\\
+    v_0 &amp;= 2 \\
+    v_{n+1} &amp;= u_n - v_n
+\end{align*}\]</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">suite2</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(308, 97)
 </pre></div>
 </div>
 </div>
