@@ -584,7 +584,8 @@ title="Print to PDF"
 <h2>Tuples<a class="headerlink" href="#tuples" title="Permalink to this headline">#</a></h2>
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
-<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">distance(p1,</span> <span class="pre">p2)</span></code> renvoyant la distance euclidienne entre les points <code class="docutils literal notranslate"><span class="pre">p1</span></code> et <code class="docutils literal notranslate"><span class="pre">p2</span></code>, où <code class="docutils literal notranslate"><span class="pre">p1</span></code> et <code class="docutils literal notranslate"><span class="pre">p2</span></code> sont des couples.</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">distance(p1,</span> <span class="pre">p2)</span></code> renvoyant la distance euclidienne entre les points <code class="docutils literal notranslate"><span class="pre">p1</span></code> et <code class="docutils literal notranslate"><span class="pre">p2</span></code>, où <code class="docutils literal notranslate"><span class="pre">p1</span></code> et <code class="docutils literal notranslate"><span class="pre">p2</span></code> sont des couples.<br />
+On rappelle qu’on peut accéder aux éléments d’un tuple comme pour une liste (<code class="docutils literal notranslate"><span class="pre">p[0]</span></code> pour le 1er élément, par exemple).</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -612,7 +613,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">suite</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># [3, 10, 5, 16, 8, 4, 2, 1, 4, 2]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">syracuse</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># [3, 10, 5, 16, 8, 4, 2, 1, 4, 2]</span>
 </pre></div>
 </div>
 </div>
@@ -663,7 +664,7 @@ title="Print to PDF"
 </div>
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
-<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">variance(L)</span></code> qui renvoie la variance des éléments de la liste <code class="docutils literal notranslate"><span class="pre">L</span></code>.<br />
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">variance(L)</span></code> qui renvoie la <a class="reference external" href="https://fr.wikipedia.org/wiki/Variance_(math%C3%A9matiques)">variance</a> des éléments de la liste <code class="docutils literal notranslate"><span class="pre">L</span></code>, donnée par <span class="math notranslate nohighlight">\(\frac{1}{n}\sum_i (L[i] - m)^2\)</span> où <span class="math notranslate nohighlight">\(m\)</span> est la moyenne de <code class="docutils literal notranslate"><span class="pre">L</span></code>.<br />
 On évitera de calculer plusieurs fois la moyenne.</p>
 </div>
 <div class="cell docutils container">
@@ -681,6 +682,18 @@ On évitera de calculer plusieurs fois la moyenne.</p>
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">inverse(L)</span></code> qui renvoie la liste des éléments de <code class="docutils literal notranslate"><span class="pre">L</span></code> dans l’ordre inverse.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">inverse</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span> <span class="c1"># [5, 4, 3, 2, 1]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[5, 4, 3, 2, 1]
+</pre></div>
+</div>
+</div>
 </div>
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
