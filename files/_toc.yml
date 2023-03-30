@@ -15,8 +15,8 @@ chapters:
   - file: 11_adn/bioinformatique.ipynb
   - file: 12_image/image.ipynb
   - file: 13_random_walk/random_walk.ipynb
-  - cor: bcpst/basket.ipynb
+  - tp: bcpst/basket.ipynb
   - file: 15_tb/exercices_concours.ipynb
-  - cor: bcpst/simulation_physique/collision.ipynb
-  - cor: bcpst/revisions/revisions.ipynb
+  - tp: bcpst/simulation_physique/collision.ipynb
+  - tp: bcpst/revisions/revisions.ipynb
   - tp : bcpst/revisions/revisions2.ipynb
