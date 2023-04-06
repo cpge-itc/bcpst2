@@ -18,5 +18,5 @@ chapters:
   - cor: bcpst/basket.ipynb
   - file: 15_tb/exercices_concours.ipynb
   - cor: bcpst/simulation_physique/collision.ipynb
-  - cor: bcpst/revisions/revisions.ipynb
+  - tp: bcpst/revisions/revisions.ipynb
   - tp : bcpst/revisions/revisions2.ipynb
