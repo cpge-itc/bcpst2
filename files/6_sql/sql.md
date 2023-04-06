@@ -1,5 +1,7 @@
 # TP 6 : SQL
 
+Faire [https://cours-sql.github.io](https://cours-sql.github.io)
+
 ## Requête sur une table
 
 [Lire le cours](https://mozilla.github.io/pdf.js/web/viewer.html?file=https://raw.githubusercontent.com/mp2i-info/mp2i-info.github.io/main/files/A_sql/1_select/sql_select.pdf#zoom=page-fit&pagemode=none) puis faire :  
