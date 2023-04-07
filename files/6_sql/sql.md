@@ -1,6 +1,6 @@
 # TP 6 : SQL
 
-Faire [https://cours-sql.github.io](https://sql-exercices.github.io)
+Faire [https://sql-exercices.github.io](https://sql-exercices.github.io)
 
 ## Requête sur une table
 
