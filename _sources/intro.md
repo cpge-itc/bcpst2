@@ -9,4 +9,4 @@
 > - mettre en application des notions vues en statistiques et probabilités dont les tests statistiques ;
 > - programmer de nouveaux algorithmes sur des applications en lien avec d’autres disciplines, notamment la biologie.
 
-[Programme officiel (en annexe : formulaire Python à connaître)](https://github.com/cpge-itc/bcpst2-src/raw/main/files/programme_info_bcpst.pdf)
+[Programme officiel (en annexe : formulaire Python à connaître)](https://github.com/cpge-itc/bcpst2/raw/main/files/programme_info_bcpst.pdf)
