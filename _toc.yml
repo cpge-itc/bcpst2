@@ -2,7 +2,8 @@ format: jb-book
 root: intro
 chapters:
   - file: 0_python/aide_memoire.ipynb
-  - tp: bcpst/revisions/revisions.ipynb
+  - cor: bcpst/revisions/revisions.ipynb
+  - tp: bcpst/1_probabilites/simulation.ipynb
   # - file: 1_euler/euler.ipynb
   # - file: 2_probabilites/simulation.ipynb
   # - file: 4_population/population.ipynb
