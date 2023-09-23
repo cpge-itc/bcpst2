@@ -1,0 +1,843 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>TP 2 : Simulation de variables aléatoires &#8212; Informatique en 2ème année de BCPST</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=532d1baf3f03eb73f2f50828f8c27430120b156d"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="canonical" href="https://cpge-itc.github.io/bcpst2/dl/bcpst/1_probabilites/simulation.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="prev" title="TP 1 : Révisions Python" href="../revisions/revisions.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/cobra.webp" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Informatique en 2ème année de BCPST</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../0_python/aide_memoire.html">
+   Formulaire Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../revisions/revisions.html">
+   TP 1 : Révisions Python
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   TP 2 : Simulation de variables aléatoires
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/cpge-itc/bcpst2/main?urlpath=tree/files/dl/bcpst/1_probabilites/simulation.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/cpge-itc/bcpst2/main/files/dl/bcpst/1_probabilites/simulation.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Basthon"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_basthon.svg">
+  </span>
+<span class="headerbtn__text-container">Basthon</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/cpge-itc/bcpst2"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/cpge-itc/bcpst2/issues/new?title=Issue%20on%20page%20%2Fdl/bcpst/1_probabilites/simulation.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/cpge-itc/bcpst2/edit/main/files/dl/bcpst/1_probabilites/simulation.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/dl/bcpst/1_probabilites/simulation.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loi-de-bernouilli">
+   Loi de Bernouilli
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loi-geometrique">
+   Loi géométrique
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loi-binomiale">
+   Loi binomiale
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simulation-d-une-loi-normale-a-partir-d-une-loi-binomiale">
+   Simulation d’une loi normale à partir d’une loi Binomiale
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#methode-de-la-transformee-inverse">
+   Méthode de la transformée inverse
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loi-exponentielle">
+   Loi exponentielle
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loi-de-poisson">
+   Loi de Poisson
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#simulation-a-partir-de-lois-exponentielles">
+     Simulation à partir de lois exponentielles
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#approximation-a-partir-d-une-loi-binomiale">
+     Approximation à partir d’une loi binomiale
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>TP 2 : Simulation de variables aléatoires</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loi-de-bernouilli">
+   Loi de Bernouilli
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loi-geometrique">
+   Loi géométrique
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loi-binomiale">
+   Loi binomiale
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simulation-d-une-loi-normale-a-partir-d-une-loi-binomiale">
+   Simulation d’une loi normale à partir d’une loi Binomiale
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#methode-de-la-transformee-inverse">
+   Méthode de la transformée inverse
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loi-exponentielle">
+   Loi exponentielle
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loi-de-poisson">
+   Loi de Poisson
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#simulation-a-partir-de-lois-exponentielles">
+     Simulation à partir de lois exponentielles
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#approximation-a-partir-d-une-loi-binomiale">
+     Approximation à partir d’une loi binomiale
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="tp-2-simulation-de-variables-aleatoires">
+<h1>TP 2 : Simulation de variables aléatoires<a class="headerlink" href="#tp-2-simulation-de-variables-aleatoires" title="Permalink to this headline">#</a></h1>
+<p>Dans ce TP, nous allons simuler des lois de variables aléatoires à partir d’une variable uniforme sur <span class="math notranslate nohighlight">\([0, 1]\)</span>.</p>
+<p>Modules à importer :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>La fonction suivante permettra de comparer l’histogramme obtenu avec la loi correspondante dans <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, pour vérifier votre code :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_hist</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">var_validation</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">f</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="n">var</span><span class="p">,</span> <span class="n">var_validation</span><span class="p">]):</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">([</span><span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)])</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+        <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="p">[</span><span class="n">v</span><span class="o">/</span><span class="n">s</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">values</span><span class="p">()])</span>
+        <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;valeur de X = </span><span class="si">{</span><span class="n">f</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">(p)&quot;</span><span class="p">)</span>
+        <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;fréquence d&#39;apparition de X&quot;</span><span class="p">)</span>
+        <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Histogramme de </span><span class="si">{</span><span class="s1">&#39;np.random.&#39;</span> <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span><span class="si">}{</span><span class="n">f</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">(p)&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="loi-de-bernouilli">
+<h2>Loi de Bernouilli<a class="headerlink" href="#loi-de-bernouilli" title="Permalink to this headline">#</a></h2>
+<p>On rappelle que <span class="math notranslate nohighlight">\(X\)</span> suit une <strong>loi de Bernouilli</strong> de paramètre <span class="math notranslate nohighlight">\(p\)</span> si :</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    \mathbb{P}(X = 1)&amp; = p\\
+    \mathbb{P}(X = 0)&amp; = 1 - p
+\end{align*}\]</div>
+<p>On utilisera la fonction <code class="docutils literal notranslate"><span class="pre">random.random</span></code> qui génère un flottant aléatoire entre <span class="math notranslate nohighlight">\(0\)</span> et <span class="math notranslate nohighlight">\(1\)</span> (c’est-à-dire une variable aléatoire uniforme <span class="math notranslate nohighlight">\(\mathcal{U}\)</span> sur <span class="math notranslate nohighlight">\([0, 1]\)</span>) :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8432888054435626
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-exercice admonition">
+<p class="admonition-title">Exercice</p>
+<p>En utilisant <code class="docutils literal notranslate"><span class="pre">random.random()</span></code>, écrire une fonction <code class="docutils literal notranslate"><span class="pre">flip()</span></code> simulant une loi de Bernouilli de paramètre <span class="math notranslate nohighlight">\(p = 0.5\)</span> (<code class="docutils literal notranslate"><span class="pre">flip()</span></code> doit renvoyer <span class="math notranslate nohighlight">\(0\)</span> ou <span class="math notranslate nohighlight">\(1\)</span>, avec probabilité <span class="math notranslate nohighlight">\(0.5\)</span>).</p>
+</div>
+<div class="admonition-exercice admonition">
+<p class="admonition-title">Exercice</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">bernouilli(p)</span></code> simulant une loi de Bernouilli de paramètre <code class="docutils literal notranslate"><span class="pre">p</span></code>. On pourra adapter la fonction précédente.</p>
+</div>
+<div class="admonition-exercice admonition">
+<p class="admonition-title">Exercice</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">test_bernouilli(p,</span> <span class="pre">n)</span></code> telle que <code class="docutils literal notranslate"><span class="pre">test_bernouilli(p,</span> <span class="pre">n)</span></code> génère <span class="math notranslate nohighlight">\(n\)</span> fois une loi de Bernouilli de paramètre <span class="math notranslate nohighlight">\(p\)</span> et renvoie une liste <code class="docutils literal notranslate"><span class="pre">L</span></code> telle que <code class="docutils literal notranslate"><span class="pre">L[0]</span></code> est le nombre de <span class="math notranslate nohighlight">\(0\)</span> obtenus et <code class="docutils literal notranslate"><span class="pre">L[1]</span></code> est le nombre de <span class="math notranslate nohighlight">\(1\)</span>.<br />
+Vérifier que vous obtenez autant de <span class="math notranslate nohighlight">\(0\)</span> que de <span class="math notranslate nohighlight">\(1\)</span> si <span class="math notranslate nohighlight">\(p = 0.5\)</span>, et deux fois plus de <span class="math notranslate nohighlight">\(0\)</span> que de <span class="math notranslate nohighlight">\(1\)</span> si <span class="math notranslate nohighlight">\(p = \frac{1}{3}\)</span>.</p>
+</div>
+</section>
+<section id="loi-geometrique">
+<h2>Loi géométrique<a class="headerlink" href="#loi-geometrique" title="Permalink to this headline">#</a></h2>
+<p>On rappelle que <span class="math notranslate nohighlight">\(X\)</span> suit une <strong>loi géométrique</strong> de paramètre [p] si :</p>
+<div class="math notranslate nohighlight">
+\[
+    \mathbb{P}(X = k) = (1 - p)^{k - 1}p
+\]</div>
+<p><strong>Remarque</strong> : une loi géométrique correspond au nombre de fois qu’il faut générer une loi de Bernouilli de paramètre <span class="math notranslate nohighlight">\(p\)</span> avant d’obtenir <span class="math notranslate nohighlight">\(1\)</span>.</p>
+<div class="admonition-exercice admonition">
+<p class="admonition-title">Exercice</p>
+<p>En utilisant la remarque précédente, écrire une fonction <code class="docutils literal notranslate"><span class="pre">geometrique(p)</span></code> simulant une loi géométrique de paramètre <code class="docutils literal notranslate"><span class="pre">p</span></code>. On pourra compléter le code suivant :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">geometrique</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># nombre de loi de Bernouilli qu&#39;il a fallu générer</span>
+    <span class="k">while</span> <span class="o">...</span><span class="p">:</span> <span class="c1"># tant que la loi de Bernouilli donne 0</span>
+        <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c1"># augmenter n de 1</span>
+    <span class="k">return</span> <span class="o">...</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition-exercice admonition">
+<p class="admonition-title">Exercice</p>
+<p>Tester en appelant la fonction <code class="docutils literal notranslate"><span class="pre">test_geometrique(p,</span> <span class="pre">n)</span></code> ci-dessous (on pourra prendre <span class="math notranslate nohighlight">\(n = 1000\)</span> et <span class="math notranslate nohighlight">\(p = 0.5\)</span>, par exemple), qui appelle <code class="docutils literal notranslate"><span class="pre">n</span></code> fois votre fonction <code class="docutils literal notranslate"><span class="pre">geometrique(p)</span></code> et dessine l’histogramme obtenu. Un histogramme obtenu avec la fonction <code class="docutils literal notranslate"><span class="pre">np.random.geometric</span></code> est aussi affichée à droite (les deux dessins doivent se ressembler fortement, comme sur l’exemple ci-dessous).</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_geometrique</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="n">test_hist</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">geometrique</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">geometric</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../../_images/simulation_14_0.png" src="../../../_images/simulation_14_0.png" />
+</div>
+</div>
+</section>
+<section id="loi-binomiale">
+<h2>Loi binomiale<a class="headerlink" href="#loi-binomiale" title="Permalink to this headline">#</a></h2>
+<p><span class="math notranslate nohighlight">\(X\)</span> suit une loi binomiale de paramètres <span class="math notranslate nohighlight">\(n\)</span> et <span class="math notranslate nohighlight">\(p\)</span> si, pour <span class="math notranslate nohighlight">\(k = 0, 1, ..., n\)</span> :</p>
+<div class="math notranslate nohighlight">
+\[
+    \mathbb{P}(X = k) = \binom{n}{k}p^k (1 - p)^{n - k}
+\]</div>
+<p><strong>Définition équivalente</strong> : <span class="math notranslate nohighlight">\(X\)</span> est une somme de <span class="math notranslate nohighlight">\(n\)</span> variables de Bernouilli de paramètre <span class="math notranslate nohighlight">\(p\)</span>.</p>
+<div class="admonition-exercice admonition">
+<p class="admonition-title">Exercice</p>
+<p>En utilisant cette deuxième définition, écrire une fonction <code class="docutils literal notranslate"><span class="pre">binomial(n,</span> <span class="pre">p)</span></code> simulant une loi binomiale de paramètre <span class="math notranslate nohighlight">\(n\)</span>, <span class="math notranslate nohighlight">\(p\)</span>.</p>
+</div>
+<div class="admonition-exercice admonition">
+<p class="admonition-title">Exercice</p>
+<p>Tester avec la fonction suivante (prendre par exemple <span class="math notranslate nohighlight">\(n = 100\)</span> et <span class="math notranslate nohighlight">\(p = 0.5\)</span>). Vous devez obtenir un dessin ressemblant à celui ci-dessous.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_binomial</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+    <span class="n">test_hist</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="n">binomial</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">binomial</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../../_images/simulation_19_0.png" src="../../../_images/simulation_19_0.png" />
+</div>
+</div>
+</section>
+<section id="simulation-d-une-loi-normale-a-partir-d-une-loi-binomiale">
+<h2>Simulation d’une loi normale à partir d’une loi Binomiale<a class="headerlink" href="#simulation-d-une-loi-normale-a-partir-d-une-loi-binomiale" title="Permalink to this headline">#</a></h2>
+<p>On rappelle que le <strong>théorème central limite</strong> :</p>
+<blockquote>
+<div><p>Soient <span class="math notranslate nohighlight">\(X_1\)</span>, …, <span class="math notranslate nohighlight">\(X_n\)</span> des variables indépendantes et de même loi, d’espérance <span class="math notranslate nohighlight">\(\mu\)</span> et d’écart-type <span class="math notranslate nohighlight">\(\sigma\)</span>.<br />
+Soit <span class="math notranslate nohighlight">\(S_n = X_1 + ... + X_n\)</span>. Alors <span class="math notranslate nohighlight">\(\frac{S_n - n\mu}{\sigma\sqrt{n}}\)</span> converge vers une loi normale centrée réduite.</p>
+</div></blockquote>
+<p><strong>Remarque</strong> : une loi normale est aussi appelée loi gaussienne.</p>
+<p>Dans la suite, <span class="math notranslate nohighlight">\(X_1\)</span>, …, <span class="math notranslate nohighlight">\(X_n\)</span> sont des variables de Bernouilli de paramètre <span class="math notranslate nohighlight">\(p\)</span> et <span class="math notranslate nohighlight">\(S_n\)</span> est une variable binomiale de paramètre <span class="math notranslate nohighlight">\(n\)</span>, <span class="math notranslate nohighlight">\(p\)</span> (obtenue avec la fonction <code class="docutils literal notranslate"><span class="pre">binomial</span></code> ci-dessus).</p>
+<div class="admonition-exercice admonition">
+<p class="admonition-title">Exercice</p>
+<p>Calculer <span class="math notranslate nohighlight">\(\mu\)</span> et <span class="math notranslate nohighlight">\(\sigma\)</span> (sur papier, sans utiliser l’ordinateur).</p>
+</div>
+<div class="admonition-exercice admonition">
+<p class="admonition-title">Exercice</p>
+<p>Écrire une fonction  <code class="docutils literal notranslate"><span class="pre">central_limite(n,</span> <span class="pre">p)</span></code> renvoyant <span class="math notranslate nohighlight">\(\frac{S_n - n\mu}{\sigma\sqrt{n}}\)</span>. On remplacera <span class="math notranslate nohighlight">\(\sigma\)</span> et <span class="math notranslate nohighlight">\(\mu\)</span> par les valeurs trouvées à la question précédente.</p>
+</div>
+<div class="admonition-exercice admonition">
+<p class="admonition-title">Exercice</p>
+<p>Tester avec la fonction ci-dessous, qui compare le résultat de <span class="math notranslate nohighlight">\(\frac{S_n - n\mu}{\sigma\sqrt{n}}\)</span> avec une loi normale centrée réduite. Vous devez obtenir un dessin similaire à celui ci-dessous.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_central</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+    <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="n">central_limite</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">)]</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+    <span class="n">count</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">ignored</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">bins</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">sigma</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">bins</span><span class="o">-</span><span class="n">mu</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">)),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Loi normale&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">.6</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../../_images/simulation_26_0.png" src="../../../_images/simulation_26_0.png" />
+</div>
+</div>
+</section>
+<section id="methode-de-la-transformee-inverse">
+<h2>Méthode de la transformée inverse<a class="headerlink" href="#methode-de-la-transformee-inverse" title="Permalink to this headline">#</a></h2>
+<p><strong>Définition</strong> : Soit <span class="math notranslate nohighlight">\(X\)</span> une variable aléatoire. Sa fonction de répartition <span class="math notranslate nohighlight">\(F\)</span> est définie par :</p>
+<div class="math notranslate nohighlight">
+\[
+    F(x) = \mathbb{P}(X \leq x)
+\]</div>
+<p><strong>Théorème (admis)</strong> : Soit <span class="math notranslate nohighlight">\(X\)</span> une variable aléatoire de fonction de répartition <span class="math notranslate nohighlight">\(F\)</span> (supposée ici inversible) et <span class="math notranslate nohighlight">\(\mathcal{U}\)</span> une variable aléatoire uniforme sur <span class="math notranslate nohighlight">\([0, 1]\)</span>. Alors <span class="math notranslate nohighlight">\(F^{-1}(\mathcal{U})\)</span> est une variable aléatoire de loi <span class="math notranslate nohighlight">\(X\)</span>.</p>
+<p><strong>Remarque</strong> : Si <span class="math notranslate nohighlight">\(F\)</span> n’est pas inversible alors le théorème reste vrai en remplaçant <span class="math notranslate nohighlight">\(F^{-1}\)</span> par <span class="math notranslate nohighlight">\(Q(u) = \inf\{x : F(x) \geq u\}\)</span>.</p>
+<p>Comme nous savons comment simuler <span class="math notranslate nohighlight">\(\mathcal{U}\)</span> (avec <code class="docutils literal notranslate"><span class="pre">random.random()</span></code>), nous pouvons simuler n’importe quelle loi de probabilité, à condition de savoir inverser sa fonction de répartition.</p>
+</section>
+<section id="loi-exponentielle">
+<h2>Loi exponentielle<a class="headerlink" href="#loi-exponentielle" title="Permalink to this headline">#</a></h2>
+<p>Une variable aléatoire <span class="math notranslate nohighlight">\(X\)</span> est de <strong>loi exponentielle</strong> de paramètre <span class="math notranslate nohighlight">\(a\)</span> si sa fonction de répartition est, pour <span class="math notranslate nohighlight">\(x\in \mathbb{R}^+\)</span> :</p>
+<div class="math notranslate nohighlight">
+\[
+    F(x) = 1 - e^{-a x}
+\]</div>
+<blockquote>
+<div><p>Une loi exponentielle modélise la durée de vie d’un phénomène sans mémoire, ou sans vieillissement, ou sans usure : la probabilité que le phénomène dure au moins s + t heures (ou n’importe quelle autre unité de temps) sachant qu’il a déjà duré t heures sera la même que la probabilité de durer s heures à partir de sa mise en fonction initiale. En d’autres termes, le fait que le phénomène ait duré pendant t heures ne change rien à son espérance de vie à partir du temps t.</p>
+</div></blockquote>
+<div class="admonition-exercice admonition">
+<p class="admonition-title">Exercice</p>
+<p>Montrer que <span class="math notranslate nohighlight">\(F^{-1}(y) = -\frac{\ln(1 - y)}{a}\)</span> (sur papier, sans utiliser l’ordinateur).</p>
+</div>
+<div class="admonition-exercice admonition">
+<p class="admonition-title">Exercice</p>
+<p>En déduire une fonction <code class="docutils literal notranslate"><span class="pre">exponentielle(a)</span></code> simulant une loi exponentielle de paramètre <code class="docutils literal notranslate"><span class="pre">a</span></code>.</p>
+</div>
+<div class="admonition-exercice admonition">
+<p class="admonition-title">Exercice</p>
+<p>Tester avec la fonction suivante (prendre par exemple <span class="math notranslate nohighlight">\(a = 2\)</span> et <span class="math notranslate nohighlight">\(n = 1000\)</span>).</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_exponentielle</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">f</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="n">exponentielle</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">exponential</span><span class="p">]):</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">a</span> <span class="o">/=</span> <span class="mi">1</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)])</span>
+        <span class="n">values</span><span class="p">,</span> <span class="n">base</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+        <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">base</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">values</span><span class="p">)</span><span class="o">/</span><span class="nb">sum</span><span class="p">(</span><span class="n">values</span><span class="p">))</span>
+        <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;valeur de X = </span><span class="si">{</span><span class="n">f</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">(p)&quot;</span><span class="p">)</span>
+        <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;fréquence d&#39;apparition de X&quot;</span><span class="p">)</span>
+        <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Histogramme de </span><span class="si">{</span><span class="s1">&#39;np.random.&#39;</span> <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span><span class="si">}{</span><span class="n">f</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">(p)&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../../_images/simulation_35_0.png" src="../../../_images/simulation_35_0.png" />
+</div>
+</div>
+</section>
+<section id="loi-de-poisson">
+<h2>Loi de Poisson<a class="headerlink" href="#loi-de-poisson" title="Permalink to this headline">#</a></h2>
+<p>Une variable aléatoire discrète <span class="math notranslate nohighlight">\(X\)</span> suit une <strong>loi de Poisson</strong> de paramètre <span class="math notranslate nohighlight">\(a\)</span> si :</p>
+<div class="math notranslate nohighlight">
+\[
+    \forall k \in \mathbb{N}, \mathbb{P}(X = k) = \frac{e^{-a}a^k}{k!}
+\]</div>
+<blockquote>
+<div><p>La loi de Poisson est une loi de probabilité discrète qui décrit le comportement du nombre d’événements se produisant dans un intervalle de temps fixé, si ces événements se produisent avec une fréquence moyenne ou espérance connue, et indépendamment du temps écoulé depuis l’événement précédent.</p>
+</div></blockquote>
+<section id="simulation-a-partir-de-lois-exponentielles">
+<h3>Simulation à partir de lois exponentielles<a class="headerlink" href="#simulation-a-partir-de-lois-exponentielles" title="Permalink to this headline">#</a></h3>
+<p>On admet le théorème suivant permettant de simuler une loi de Poisson à partir d’une loi exponentielle :</p>
+<p><strong>Théorème</strong> : Soit <span class="math notranslate nohighlight">\(X_1\)</span>, …, <span class="math notranslate nohighlight">\(X_n\)</span>, … des variables exponentielles de paramètre <span class="math notranslate nohighlight">\(a\)</span>. Soit <span class="math notranslate nohighlight">\(S_n = X_1 + ... + X_n\)</span>. Soit <span class="math notranslate nohighlight">\(Y\)</span> la plus grande valeur de <span class="math notranslate nohighlight">\(n\)</span> pour laquelle <span class="math notranslate nohighlight">\(S_{n} \leq 1\)</span>.<br />
+Alors <span class="math notranslate nohighlight">\(Y\)</span> suit une loi de Poisson de paramètre <span class="math notranslate nohighlight">\(a\)</span>.</p>
+<div class="admonition-exercice admonition">
+<p class="admonition-title">Exercice</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">poisson(a)</span></code> simulant une loi de Poisson de paramètre <code class="docutils literal notranslate"><span class="pre">a</span></code>, en utilisant le théorème précédent. On pourra compléter le code suivant :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">poisson</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># valeur de Sn</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="o">...</span><span class="p">:</span>
+        <span class="o">...</span>
+    <span class="k">return</span> <span class="n">n</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition-exercice admonition">
+<p class="admonition-title">Exercice</p>
+<p>Tester avec la fonction suivante (prendre par exemple <span class="math notranslate nohighlight">\(a = 3\)</span> et <span class="math notranslate nohighlight">\(n = 1000\)</span>).</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_poisson</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="n">test_hist</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">poisson</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">poisson</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../../_images/simulation_41_0.png" src="../../../_images/simulation_41_0.png" />
+</div>
+</div>
+</section>
+<section id="approximation-a-partir-d-une-loi-binomiale">
+<h3>Approximation à partir d’une loi binomiale<a class="headerlink" href="#approximation-a-partir-d-une-loi-binomiale" title="Permalink to this headline">#</a></h3>
+<div class="admonition-exercice admonition">
+<p class="admonition-title">Exercice</p>
+<p>(Difficile) Montrer (sur papier, sans ordinateur) que si <span class="math notranslate nohighlight">\(np = a\)</span> alors :</p>
+<div class="math notranslate nohighlight">
+\[
+    \lim_{n \longrightarrow \infty} \binom{n}{k} p^k (1 - p)^{n - k} = e^{-a} \frac{a^k}{k!}
+\]</div>
+</div>
+<p>D’après l’exercice précédent, une loi binomiale de paramètres <span class="math notranslate nohighlight">\(n\)</span>, <span class="math notranslate nohighlight">\(p\)</span> avec <span class="math notranslate nohighlight">\(np = a\)</span> converge vers une loi de Poisson de paramètre <span class="math notranslate nohighlight">\(a\)</span>.</p>
+<div class="admonition-exercice admonition">
+<p class="admonition-title">Exercice</p>
+<p>En déduire une fonction <code class="docutils literal notranslate"><span class="pre">poisson_approx(a)</span></code> approximant une loi de Poisson en renvoyant une loi binomiale de paramètre <span class="math notranslate nohighlight">\(n\)</span>, <span class="math notranslate nohighlight">\(p\)</span> avec <span class="math notranslate nohighlight">\(np = a\)</span>. On prendra <span class="math notranslate nohighlight">\(n\)</span> assez grand, par exemple <span class="math notranslate nohighlight">\(100\)</span>. Tester en comparant avec <code class="docutils literal notranslate"><span class="pre">poisson(a)</span></code>.</p>
+</div>
+<p>Si vous avez terminé le TP, vous pouvez vous entraîner avec <a class="reference external" href="https://cpge-itc.github.io/itc1/2_tp_semestre1/1_dictionnaire">ces exercices</a>.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./dl/bcpst/1_probabilites"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../revisions/revisions.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">TP 1 : Révisions Python</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Quentin Fortier<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
