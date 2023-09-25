@@ -552,7 +552,7 @@ Vérifier que vous obtenez autant de <span class="math notranslate nohighlight">
 </section>
 <section id="loi-geometrique">
 <h2>Loi géométrique<a class="headerlink" href="#loi-geometrique" title="Permalink to this headline">#</a></h2>
-<p>On rappelle que <span class="math notranslate nohighlight">\(X\)</span> suit une <strong>loi géométrique</strong> de paramètre [p] si :</p>
+<p>On rappelle que <span class="math notranslate nohighlight">\(X\)</span> suit une <strong>loi géométrique</strong> de paramètre <span class="math notranslate nohighlight">\(p\)</span> si :</p>
 <div class="math notranslate nohighlight">
 \[
     \mathbb{P}(X = k) = (1 - p)^{k - 1}p
@@ -560,14 +560,7 @@ Vérifier que vous obtenez autant de <span class="math notranslate nohighlight">
 <p><strong>Remarque</strong> : une loi géométrique correspond au nombre de fois qu’il faut générer une loi de Bernouilli de paramètre <span class="math notranslate nohighlight">\(p\)</span> avant d’obtenir <span class="math notranslate nohighlight">\(1\)</span>.</p>
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
-<p>En utilisant la remarque précédente, écrire une fonction <code class="docutils literal notranslate"><span class="pre">geometrique(p)</span></code> simulant une loi géométrique de paramètre <code class="docutils literal notranslate"><span class="pre">p</span></code>. On pourra compléter le code suivant :</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">geometrique</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># nombre de loi de Bernouilli qu&#39;il a fallu générer</span>
-    <span class="k">while</span> <span class="o">...</span><span class="p">:</span> <span class="c1"># tant que la loi de Bernouilli donne 0</span>
-        <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c1"># augmenter n de 1</span>
-    <span class="k">return</span> <span class="o">...</span>
-</pre></div>
-</div>
+<p>En utilisant la remarque précédente, écrire une fonction <code class="docutils literal notranslate"><span class="pre">geometrique(p)</span></code> simulant une loi géométrique de paramètre <code class="docutils literal notranslate"><span class="pre">p</span></code>.</p>
 </div>
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
