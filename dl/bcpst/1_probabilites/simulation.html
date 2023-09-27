@@ -362,8 +362,8 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#loi-de-bernouilli">
-   Loi de Bernouilli
+  <a class="reference internal nav-link" href="#loi-de-bernoulli">
+   Loi de Bernoulli
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -428,8 +428,8 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#loi-de-bernouilli">
-   Loi de Bernouilli
+  <a class="reference internal nav-link" href="#loi-de-bernoulli">
+   Loi de Bernoulli
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -515,9 +515,9 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<section id="loi-de-bernouilli">
-<h2>Loi de Bernouilli<a class="headerlink" href="#loi-de-bernouilli" title="Permalink to this headline">#</a></h2>
-<p>On rappelle que <span class="math notranslate nohighlight">\(X\)</span> suit une <strong>loi de Bernouilli</strong> de paramètre <span class="math notranslate nohighlight">\(p\)</span> si :</p>
+<section id="loi-de-bernoulli">
+<h2>Loi de Bernoulli<a class="headerlink" href="#loi-de-bernoulli" title="Permalink to this headline">#</a></h2>
+<p>On rappelle que <span class="math notranslate nohighlight">\(X\)</span> suit une <strong>loi de Bernoulli</strong> de paramètre <span class="math notranslate nohighlight">\(p\)</span> si :</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
     \mathbb{P}(X = 1)&amp; = p\\
@@ -538,15 +538,15 @@ title="Print to PDF"
 </div>
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
-<p>En utilisant <code class="docutils literal notranslate"><span class="pre">random.random()</span></code>, écrire une fonction <code class="docutils literal notranslate"><span class="pre">flip()</span></code> simulant une loi de Bernouilli de paramètre <span class="math notranslate nohighlight">\(p = 0.5\)</span> (<code class="docutils literal notranslate"><span class="pre">flip()</span></code> doit renvoyer <span class="math notranslate nohighlight">\(0\)</span> ou <span class="math notranslate nohighlight">\(1\)</span>, avec probabilité <span class="math notranslate nohighlight">\(0.5\)</span>).</p>
+<p>En utilisant <code class="docutils literal notranslate"><span class="pre">random.random()</span></code>, écrire une fonction <code class="docutils literal notranslate"><span class="pre">flip()</span></code> simulant une loi de Bernoulli de paramètre <span class="math notranslate nohighlight">\(p = 0.5\)</span> (<code class="docutils literal notranslate"><span class="pre">flip()</span></code> doit renvoyer <span class="math notranslate nohighlight">\(0\)</span> ou <span class="math notranslate nohighlight">\(1\)</span>, avec probabilité <span class="math notranslate nohighlight">\(0.5\)</span>).</p>
 </div>
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
-<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">bernouilli(p)</span></code> simulant une loi de Bernouilli de paramètre <code class="docutils literal notranslate"><span class="pre">p</span></code>. On pourra adapter la fonction précédente.</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">bernoulli(p)</span></code> simulant une loi de Bernoulli de paramètre <code class="docutils literal notranslate"><span class="pre">p</span></code>. On pourra adapter la fonction précédente.</p>
 </div>
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
-<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">test_bernouilli(p,</span> <span class="pre">n)</span></code> telle que <code class="docutils literal notranslate"><span class="pre">test_bernouilli(p,</span> <span class="pre">n)</span></code> génère <span class="math notranslate nohighlight">\(n\)</span> fois une loi de Bernouilli de paramètre <span class="math notranslate nohighlight">\(p\)</span> et renvoie une liste <code class="docutils literal notranslate"><span class="pre">L</span></code> telle que <code class="docutils literal notranslate"><span class="pre">L[0]</span></code> est le nombre de <span class="math notranslate nohighlight">\(0\)</span> obtenus et <code class="docutils literal notranslate"><span class="pre">L[1]</span></code> est le nombre de <span class="math notranslate nohighlight">\(1\)</span>.<br />
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">test_bernoulli(p,</span> <span class="pre">n)</span></code> telle que <code class="docutils literal notranslate"><span class="pre">test_bernoulli(p,</span> <span class="pre">n)</span></code> génère <span class="math notranslate nohighlight">\(n\)</span> fois une loi de Bernoulli de paramètre <span class="math notranslate nohighlight">\(p\)</span> et renvoie une liste <code class="docutils literal notranslate"><span class="pre">L</span></code> telle que <code class="docutils literal notranslate"><span class="pre">L[0]</span></code> est le nombre de <span class="math notranslate nohighlight">\(0\)</span> obtenus et <code class="docutils literal notranslate"><span class="pre">L[1]</span></code> est le nombre de <span class="math notranslate nohighlight">\(1\)</span>.<br />
 Vérifier que vous obtenez autant de <span class="math notranslate nohighlight">\(0\)</span> que de <span class="math notranslate nohighlight">\(1\)</span> si <span class="math notranslate nohighlight">\(p = 0.5\)</span>, et deux fois plus de <span class="math notranslate nohighlight">\(0\)</span> que de <span class="math notranslate nohighlight">\(1\)</span> si <span class="math notranslate nohighlight">\(p = \frac{1}{3}\)</span>.</p>
 </div>
 </section>
@@ -557,7 +557,7 @@ Vérifier que vous obtenez autant de <span class="math notranslate nohighlight">
 \[
     \mathbb{P}(X = k) = (1 - p)^{k - 1}p
 \]</div>
-<p><strong>Remarque</strong> : une loi géométrique correspond au nombre de fois qu’il faut générer une loi de Bernouilli de paramètre <span class="math notranslate nohighlight">\(p\)</span> avant d’obtenir <span class="math notranslate nohighlight">\(1\)</span>.</p>
+<p><strong>Remarque</strong> : une loi géométrique correspond au nombre de fois qu’il faut générer une loi de Bernoulli de paramètre <span class="math notranslate nohighlight">\(p\)</span> avant d’obtenir <span class="math notranslate nohighlight">\(1\)</span>.</p>
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
 <p>En utilisant la remarque précédente, écrire une fonction <code class="docutils literal notranslate"><span class="pre">geometrique(p)</span></code> simulant une loi géométrique de paramètre <code class="docutils literal notranslate"><span class="pre">p</span></code>.</p>
@@ -587,7 +587,7 @@ Vérifier que vous obtenez autant de <span class="math notranslate nohighlight">
 \[
     \mathbb{P}(X = k) = \binom{n}{k}p^k (1 - p)^{n - k}
 \]</div>
-<p><strong>Définition équivalente</strong> : <span class="math notranslate nohighlight">\(X\)</span> est une somme de <span class="math notranslate nohighlight">\(n\)</span> variables de Bernouilli de paramètre <span class="math notranslate nohighlight">\(p\)</span>.</p>
+<p><strong>Définition équivalente</strong> : <span class="math notranslate nohighlight">\(X\)</span> est une somme de <span class="math notranslate nohighlight">\(n\)</span> variables de Bernoulli de paramètre <span class="math notranslate nohighlight">\(p\)</span>.</p>
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
 <p>En utilisant cette deuxième définition, écrire une fonction <code class="docutils literal notranslate"><span class="pre">binomial(n,</span> <span class="pre">p)</span></code> simulant une loi binomiale de paramètre <span class="math notranslate nohighlight">\(n\)</span>, <span class="math notranslate nohighlight">\(p\)</span>.</p>
@@ -618,7 +618,7 @@ Vérifier que vous obtenez autant de <span class="math notranslate nohighlight">
 Soit <span class="math notranslate nohighlight">\(S_n = X_1 + ... + X_n\)</span>. Alors <span class="math notranslate nohighlight">\(\frac{S_n - n\mu}{\sigma\sqrt{n}}\)</span> converge vers une loi normale centrée réduite.</p>
 </div></blockquote>
 <p><strong>Remarque</strong> : une loi normale est aussi appelée loi gaussienne.</p>
-<p>Dans la suite, <span class="math notranslate nohighlight">\(X_1\)</span>, …, <span class="math notranslate nohighlight">\(X_n\)</span> sont des variables de Bernouilli de paramètre <span class="math notranslate nohighlight">\(p\)</span> et <span class="math notranslate nohighlight">\(S_n\)</span> est une variable binomiale de paramètre <span class="math notranslate nohighlight">\(n\)</span>, <span class="math notranslate nohighlight">\(p\)</span> (obtenue avec la fonction <code class="docutils literal notranslate"><span class="pre">binomial</span></code> ci-dessus).</p>
+<p>Dans la suite, <span class="math notranslate nohighlight">\(X_1\)</span>, …, <span class="math notranslate nohighlight">\(X_n\)</span> sont des variables de Bernoulli de paramètre <span class="math notranslate nohighlight">\(p\)</span> et <span class="math notranslate nohighlight">\(S_n\)</span> est une variable binomiale de paramètre <span class="math notranslate nohighlight">\(n\)</span>, <span class="math notranslate nohighlight">\(p\)</span> (obtenue avec la fonction <code class="docutils literal notranslate"><span class="pre">binomial</span></code> ci-dessus).</p>
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
 <p>Calculer <span class="math notranslate nohighlight">\(\mu\)</span> et <span class="math notranslate nohighlight">\(\sigma\)</span> (sur papier, sans utiliser l’ordinateur).</p>
