@@ -4,8 +4,8 @@ chapters:
   - file: 0_python/aide_memoire.ipynb
   - cor: bcpst/revisions/revisions.ipynb
   - cor: bcpst/1_probabilites/simulation.ipynb
-  - tp: bcpst/3_population/population.ipynb
-  # - file: 1_euler/euler.ipynb
+  - cor: bcpst/3_population/population.ipynb
+  - file: 4_euler/euler.ipynb
   # - file: 2_probabilites/simulation.ipynb
   # - file: 4_population/population.ipynb
   # - file: 5_iris/iris.ipynb
