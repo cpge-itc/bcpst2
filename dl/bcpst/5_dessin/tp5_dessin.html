@@ -1,0 +1,691 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>TP 5 : Dessins, récursivité et fractales &#8212; Informatique en 2ème année de BCPST</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=532d1baf3f03eb73f2f50828f8c27430120b156d"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="canonical" href="https://cpge-itc.github.io/bcpst2/dl/bcpst/5_dessin/tp5_dessin.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="prev" title="TP 4 : Résolution d’équation différentielle par la méthode d’Euler" href="../4_euler/euler.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/cobra.webp" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Informatique en 2ème année de BCPST</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../0_python/aide_memoire.html">
+   Formulaire Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../revisions/revisions.html">
+   TP 1 : Révisions Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_probabilites/simulation.html">
+   TP 2 : Simulation de variables aléatoires
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../3_population/population.html">
+   TP 3 : Matrice de population
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4_euler/euler.html">
+   TP 4 : Résolution d’équation différentielle par la méthode d’Euler
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   TP 5 : Dessins, récursivité et fractales
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/cpge-itc/bcpst2/main?urlpath=tree/files/dl/bcpst/5_dessin/tp5_dessin.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/cpge-itc/bcpst2/main/files/dl/bcpst/5_dessin/tp5_dessin.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Basthon"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_basthon.svg">
+  </span>
+<span class="headerbtn__text-container">Basthon</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/cpge-itc/bcpst2"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/cpge-itc/bcpst2/issues/new?title=Issue%20on%20page%20%2Fdl/bcpst/5_dessin/tp5_dessin.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/cpge-itc/bcpst2/edit/main/files/dl/bcpst/5_dessin/tp5_dessin.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/dl/bcpst/5_dessin/tp5_dessin.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#turtle">
+   Turtle
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recursivite">
+   Récursivité
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#flocon-de-von-koch">
+   Flocon de Von Koch
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>TP 5 : Dessins, récursivité et fractales</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#turtle">
+   Turtle
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recursivite">
+   Récursivité
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#flocon-de-von-koch">
+   Flocon de Von Koch
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="tp-5-dessins-recursivite-et-fractales">
+<h1>TP 5 : Dessins, récursivité et fractales<a class="headerlink" href="#tp-5-dessins-recursivite-et-fractales" title="Permalink to this headline">#</a></h1>
+<section id="turtle">
+<h2>Turtle<a class="headerlink" href="#turtle" title="Permalink to this headline">#</a></h2>
+<p>Le module <code class="docutils literal notranslate"><span class="pre">turtle</span></code> de Python permet de tracer des figures, comme on le ferait avec un stylo.<br>
+La “tortue” (pointe du stylo) est initialement placée à l’origine d’un repère, la “tête” orientée à droite, et se déplace sur le graphique en fonction des instructions qu’on lui donne.</p>
+<p>Les principales instructions sont les suivantes :</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p>Instruction</p></th>
+<th class="text-align:center head"><p>Effet</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">forward(n)</span></code> ou <code class="docutils literal notranslate"><span class="pre">fd(n)</span></code></p></td>
+<td class="text-align:center"><p>avance de <code class="docutils literal notranslate"><span class="pre">n</span></code> pixels</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">left(n)</span></code> ou <code class="docutils literal notranslate"><span class="pre">lt(n)</span></code></p></td>
+<td class="text-align:center"><p>effectue une rotation à gauche de <code class="docutils literal notranslate"><span class="pre">n</span></code> degrés</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">right(n)</span></code> ou <code class="docutils literal notranslate"><span class="pre">rt(n)</span></code></p></td>
+<td class="text-align:center"><p>effectue une rotation à droite de <code class="docutils literal notranslate"><span class="pre">n</span></code> degrés</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">reset()</span></code></p></td>
+<td class="text-align:center"><p>efface l’écran</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">done()</span></code></p></td>
+<td class="text-align:center"><p>affiche le dessin (à faire à la fin)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">color(c)</span></code></p></td>
+<td class="text-align:center"><p>utilise la couleur <code class="docutils literal notranslate"><span class="pre">c</span></code> pour dessiner (exemple : <code class="docutils literal notranslate"><span class="pre">color(&quot;red&quot;)</span></code>)</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Importer le module <code class="docutils literal notranslate"><span class="pre">turtle</span></code> avec l’instruction <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">turtle</span> <span class="pre">import</span> <span class="pre">*</span></code>.</p>
+</div>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Tester avec le code suivant, qui avance la tortue de <span class="math notranslate nohighlight">\(100\)</span> pixels, puis tourne de <span class="math notranslate nohighlight">\(40\)</span> degrés à gauche, puis avance de <span class="math notranslate nohighlight">\(200\)</span> pixels.<br />
+Remarque : si vous avez une erreur <code class="docutils literal notranslate"><span class="pre">Terminator</span> <span class="pre">...</span></code>, essayez de relancer le code.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reset</span><span class="p">()</span>
+<span class="n">fd</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">left</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
+<span class="n">fd</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">done</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">carre(n)</span></code> qui trace un carré de côté <code class="docutils literal notranslate"><span class="pre">n</span></code> pixels.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">carre</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">triangle(n)</span></code> qui trace un triangle équilatéral de côté <code class="docutils literal notranslate"><span class="pre">n</span></code> pixels.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">triangle</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">polygone(k,</span> <span class="pre">n)</span></code> affichant un polygone régulier à <code class="docutils literal notranslate"><span class="pre">k</span></code> côtés, chaque côté étant de longueur <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">polygone</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">carres</span></code> affichant des carrés évoluant en spirale, comme ci-dessous. On pourra utiliser <code class="docutils literal notranslate"><span class="pre">speed(10)</span></code> pour dessiner rapidement.</p>
+<p><img alt="" src="https://raw.githubusercontent.com/cpge-itc/bcpst2/main/files/7_dessin/carres.png" /></p>
+</div>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Reprendre la fonction précédente pour que le tracé se fasse en bleu pour la partie supérieure droite et en rouge pour la partie inférieure gauche.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">carres_couleurs</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="recursivite">
+<h2>Récursivité<a class="headerlink" href="#recursivite" title="Permalink to this headline">#</a></h2>
+<p>On dit qu’une fonction est <strong>récursive</strong> si elle s’appelle elle-même. Par exemple, considérons la fonction suivante :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">return</span> <span class="n">n</span> <span class="o">+</span> <span class="n">f</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>On voit que <code class="docutils literal notranslate"><span class="pre">f(n)</span></code> appelle <code class="docutils literal notranslate"><span class="pre">f(n</span> <span class="pre">-</span> <span class="pre">1)</span></code> si <code class="docutils literal notranslate"><span class="pre">n</span></code> est différent de <code class="docutils literal notranslate"><span class="pre">0</span></code>. L’exécution de <code class="docutils literal notranslate"><span class="pre">f(n)</span></code> se met alors en pause et <code class="docutils literal notranslate"><span class="pre">f(n</span> <span class="pre">-</span> <span class="pre">1)</span></code> s’exécute. Une fois que <code class="docutils literal notranslate"><span class="pre">f(n</span> <span class="pre">-</span> <span class="pre">1)</span></code> reprend, <code class="docutils literal notranslate"><span class="pre">f(n)</span></code> continue son exécution.</p>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Sans exécuter <code class="docutils literal notranslate"><span class="pre">f(n)</span></code>, essayer de deviner ce que va renvoyer <code class="docutils literal notranslate"><span class="pre">f(1)</span></code>, <code class="docutils literal notranslate"><span class="pre">f(2)</span></code>, <code class="docutils literal notranslate"><span class="pre">f(3)</span></code>, <code class="docutils literal notranslate"><span class="pre">f(5)</span></code>.</p>
+</div>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Vérifier votre réponse à la question précédente en exécutant <code class="docutils literal notranslate"><span class="pre">f(n)</span></code>.</p>
+</div>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Conjecturer la valeur de retour de <code class="docutils literal notranslate"><span class="pre">f(n)</span></code> en fonction de <code class="docutils literal notranslate"><span class="pre">n</span></code>. Par quel type de méthode mathématiques pourrait-on prouver ce résultat ?</p>
+</div>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Exprimer <span class="math notranslate nohighlight">\(n!\)</span> en fonction de <span class="math notranslate nohighlight">\((n - 1)!\)</span> et en déduire une fonction récursive <code class="docutils literal notranslate"><span class="pre">fact(n)</span></code> renvoyant <span class="math notranslate nohighlight">\(n!\)</span>.<br />
+Remarque : <code class="docutils literal notranslate"><span class="pre">fact(n)</span></code> ressemble beaucoup à <code class="docutils literal notranslate"><span class="pre">f(n)</span></code>…</p>
+</div>
+</section>
+<section id="flocon-de-von-koch">
+<h2>Flocon de Von Koch<a class="headerlink" href="#flocon-de-von-koch" title="Permalink to this headline">#</a></h2>
+<p>Un flocon de Von Koch s’obtient en partant d’un triangle équilatéral, puis en modifiant successivement chaque arête de la façon suivante :</p>
+<ul class="simple">
+<li><p>On divise l’arête en 3</p></li>
+<li><p>On construit un triangle équilatéral ayant pour base le segment du milieu</p></li>
+<li><p>On ôte le segment du milieu</p></li>
+<li><p>On effectue de nouveau ces étapes sur chacune des arêtes obtenues</p></li>
+</ul>
+<p><img alt="" src="https://raw.githubusercontent.com/cpge-itc/bcpst2/main/files/7_dessin/koch1.png" /></p>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">branche</span></code> telle que <code class="docutils literal notranslate"><span class="pre">branche(largeur,</span> <span class="pre">n)</span></code> construit l’un des trois côtés d’un flocon jusqu’à l’étape <code class="docutils literal notranslate"><span class="pre">n</span></code>, de la largeur souhaitée.
+Cette fonction doit être <strong>récursive</strong>. En effet, pour construire une branche jusqu’à l’étape n, il faut construire 4 motifs jusqu’à l’étape n-1 :</p>
+<p><img alt="" src="https://raw.githubusercontent.com/cpge-itc/bcpst2/main/files/7_dessin/koch2.png" /></p>
+<p>Vous pourrez compléter le code de <code class="docutils literal notranslate"><span class="pre">branche</span></code> ci-dessous (sans mettre de <code class="docutils literal notranslate"><span class="pre">reset()</span></code> ni <code class="docutils literal notranslate"><span class="pre">done()</span></code> à l’intérieur) :</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">branche</span><span class="p">(</span><span class="n">largeur</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="c1"># cas de base : on dessine juste un trait </span>
+        <span class="o">...</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="o">...</span> <span class="c1"># appel récursif pour construire le motif 1</span>
+        <span class="o">...</span> <span class="c1"># changer l&#39;orientation de la tortue</span>
+        <span class="o">...</span> <span class="c1"># appel récursif pour construire le motif 2</span>
+        <span class="o">...</span> <span class="c1"># changer l&#39;orientation de la tortue</span>
+        <span class="o">...</span> <span class="c1"># appel récursif pour construire le motif 3</span>
+        <span class="o">...</span> <span class="c1"># changer l&#39;orientation de la tortue</span>
+        <span class="o">...</span> <span class="c1"># appel récursif pour construire le motif 4</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reset</span><span class="p">()</span>
+<span class="n">branche</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">done</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">flocon</span></code> telle que <code class="docutils literal notranslate"><span class="pre">flocon(largeur,</span> <span class="pre">n)</span></code> construit un flocon jusqu’à l’étape <code class="docutils literal notranslate"><span class="pre">n</span></code>, avec une largeur de base <code class="docutils literal notranslate"><span class="pre">largeur</span></code>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flocon</span><span class="p">(</span><span class="mi">260</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><a class="reference external" href="https://cpge-itc.github.io/itc1/2_tp_semestre1/6_fractales/">Si vous avez terminé, faites ce TP qui est sur le même thème (fractales).</a></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./dl/bcpst/5_dessin"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../4_euler/euler.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">TP 4 : Résolution d’équation différentielle par la méthode d’Euler</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Quentin Fortier<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
