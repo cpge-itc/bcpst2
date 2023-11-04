@@ -5,7 +5,8 @@ chapters:
   - cor: bcpst/revisions/revisions.ipynb
   - cor: bcpst/1_probabilites/simulation.ipynb
   - cor: bcpst/3_population/population.ipynb
-  - tp: bcpst/4_euler/euler.ipynb
+  - cor: bcpst/4_euler/euler.ipynb
+  - tp: bcpst/5_dessin/tp5_dessin.ipynb
   # - file: 2_probabilites/simulation.ipynb
   # - file: 4_population/population.ipynb
   # - file: 5_iris/iris.ipynb
