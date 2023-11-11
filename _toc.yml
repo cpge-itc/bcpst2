@@ -6,7 +6,8 @@ chapters:
   - cor: bcpst/1_probabilites/simulation.ipynb
   - cor: bcpst/3_population/population.ipynb
   - cor: bcpst/4_euler/euler.ipynb
-  - tp: bcpst/5_dessin/tp5_dessin.ipynb
+  - cor: bcpst/5_dessin/tp5_dessin.ipynb
+  - tp: bcpst/6_applications_math/applications_math.ipynb
   # - file: 2_probabilites/simulation.ipynb
   # - file: 4_population/population.ipynb
   # - file: 5_iris/iris.ipynb
@@ -14,7 +15,6 @@ chapters:
   # - file: 7_dessin/tp7_dessin.ipynb
   # - file: 8_wordle/wordle.ipynb
   # - file: 9_automate_cellulaire/automate_cellulaire.ipynb
-  # - file: 10_applications_math/applications_math.ipynb
   # - file: 11_adn/bioinformatique.ipynb
   # - file: 12_image/image.ipynb
   # - file: 13_random_walk/random_walk.ipynb
