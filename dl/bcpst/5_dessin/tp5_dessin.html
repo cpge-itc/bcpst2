@@ -479,13 +479,6 @@ La “tortue” (pointe du stylo) est initialement placée à l’origine d’un
 <p class="admonition-title">Question</p>
 <p>Importer le module <code class="docutils literal notranslate"><span class="pre">turtle</span></code> avec l’instruction <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">turtle</span> <span class="pre">import</span> <span class="pre">*</span></code>.</p>
 </div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#1</span>
-<span class="kn">from</span> <span class="nn">turtle</span> <span class="kn">import</span> <span class="o">*</span>
-</pre></div>
-</div>
-</div>
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
 <p>Tester avec le code suivant, qui avance la tortue de <span class="math notranslate nohighlight">\(100\)</span> pixels, puis tourne de <span class="math notranslate nohighlight">\(40\)</span> degrés à gauche, puis avance de <span class="math notranslate nohighlight">\(200\)</span> pixels.<br />
@@ -506,21 +499,6 @@ Remarque : si vous avez une erreur <code class="docutils literal notranslate"><s
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">carre(n)</span></code> qui trace un carré de côté <code class="docutils literal notranslate"><span class="pre">n</span></code> pixels.</p>
 </div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">carre</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="n">reset</span><span class="p">()</span>
-    <span class="n">fd</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-    <span class="n">left</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
-    <span class="n">fd</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-    <span class="n">left</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
-    <span class="n">fd</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-    <span class="n">left</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
-    <span class="n">fd</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-    <span class="n">done</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">carre</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
@@ -532,19 +510,6 @@ Remarque : si vous avez une erreur <code class="docutils literal notranslate"><s
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">triangle(n)</span></code> qui trace un triangle équilatéral de côté <code class="docutils literal notranslate"><span class="pre">n</span></code> pixels.</p>
 </div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">triangle</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="n">reset</span><span class="p">()</span>
-    <span class="n">fd</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-    <span class="n">left</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span>
-    <span class="n">fd</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-    <span class="n">left</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span>
-    <span class="n">fd</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-    <span class="n">done</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">triangle</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
@@ -555,17 +520,6 @@ Remarque : si vous avez une erreur <code class="docutils literal notranslate"><s
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">polygone(k,</span> <span class="pre">n)</span></code> affichant un polygone régulier à <code class="docutils literal notranslate"><span class="pre">k</span></code> côtés, chaque côté étant de longueur <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p>
-</div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">polygone</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-    <span class="n">reset</span><span class="p">()</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
-        <span class="n">fd</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-        <span class="n">left</span><span class="p">(</span><span class="mi">360</span><span class="o">/</span><span class="n">k</span><span class="p">)</span>
-    <span class="n">done</span><span class="p">()</span>
-</pre></div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -579,42 +533,9 @@ Remarque : si vous avez une erreur <code class="docutils literal notranslate"><s
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">carres</span></code> affichant des carrés évoluant en spirale, comme ci-dessous. On pourra utiliser <code class="docutils literal notranslate"><span class="pre">speed(10)</span></code> pour dessiner rapidement.</p>
 <p><img alt="" src="https://raw.githubusercontent.com/cpge-itc/bcpst2/main/files/7_dessin/carres.png" /></p>
 </div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">carres</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">larg</span><span class="p">):</span>
-    <span class="n">reset</span><span class="p">()</span>
-    <span class="n">speed</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
-        <span class="n">largeur</span> <span class="o">=</span> <span class="n">larg</span> <span class="o">*</span> <span class="n">i</span>
-        <span class="n">left</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
-        <span class="n">fd</span><span class="p">(</span><span class="n">largeur</span><span class="p">)</span>
-        <span class="n">left</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
-        <span class="n">fd</span><span class="p">(</span><span class="n">largeur</span><span class="p">)</span>
-    <span class="n">done</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
 <p>Reprendre la fonction précédente pour que le tracé se fasse en bleu pour la partie supérieure droite et en rouge pour la partie inférieure gauche.</p>
-</div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#3</span>
-<span class="k">def</span> <span class="nf">carres_couleurs</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">larg</span><span class="p">):</span>
-    <span class="n">reset</span><span class="p">()</span>
-    <span class="n">speed</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>        <span class="c1"># vitesse 8 sur une échelle de 1 à 10</span>
-    <span class="n">couleurs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">]</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
-        <span class="n">largeur</span> <span class="o">=</span> <span class="n">larg</span> <span class="o">*</span> <span class="n">i</span>
-        <span class="n">color</span><span class="p">(</span><span class="n">couleurs</span><span class="p">[</span><span class="n">i</span> <span class="o">%</span> <span class="mi">2</span><span class="p">])</span>        <span class="c1"># tracé en rouge lorsque i est pair, en violet sinon</span>
-        <span class="n">left</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
-        <span class="n">fd</span><span class="p">(</span><span class="n">largeur</span><span class="p">)</span>
-        <span class="n">left</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
-        <span class="n">fd</span><span class="p">(</span><span class="n">largeur</span><span class="p">)</span>
-    <span class="n">done</span><span class="p">()</span>
-</pre></div>
-</div>
 </div>
 </section>
 <section id="recursivite">
@@ -683,23 +604,6 @@ Cette fonction doit être <strong>récursive</strong>. En effet, pour construire
 </div>
 </div>
 </div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#1</span>
-<span class="k">def</span> <span class="nf">branche</span><span class="p">(</span><span class="n">largeur</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">fd</span><span class="p">(</span><span class="n">largeur</span><span class="p">)</span>    <span class="c1"># à l&#39;étape 0 on trace un simple trait</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">branche</span><span class="p">(</span><span class="n">largeur</span> <span class="o">/</span> <span class="mi">3</span><span class="p">,</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>    <span class="c1"># construction du motif 1</span>
-        <span class="n">right</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
-        <span class="n">branche</span><span class="p">(</span><span class="n">largeur</span> <span class="o">/</span> <span class="mi">3</span><span class="p">,</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>    <span class="c1"># construction du motif 2</span>
-        <span class="n">left</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span>
-        <span class="n">branche</span><span class="p">(</span><span class="n">largeur</span> <span class="o">/</span> <span class="mi">3</span><span class="p">,</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>    <span class="c1"># construction du motif 3</span>
-        <span class="n">right</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
-        <span class="n">branche</span><span class="p">(</span><span class="n">largeur</span> <span class="o">/</span> <span class="mi">3</span><span class="p">,</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>    <span class="c1"># construction du motif 4</span>
-</pre></div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reset</span><span class="p">()</span>
@@ -713,23 +617,6 @@ Cette fonction doit être <strong>récursive</strong>. En effet, pour construire
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">flocon</span></code> telle que <code class="docutils literal notranslate"><span class="pre">flocon(largeur,</span> <span class="pre">n)</span></code> construit un flocon jusqu’à l’étape <code class="docutils literal notranslate"><span class="pre">n</span></code>, avec une largeur de base <code class="docutils literal notranslate"><span class="pre">largeur</span></code>.</p>
 </div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#2</span>
-<span class="k">def</span> <span class="nf">flocon</span><span class="p">(</span><span class="n">largeur</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-    <span class="n">reset</span><span class="p">()</span>
-    <span class="n">pensize</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>        <span class="c1"># fixe l&#39;épaisseur du trait</span>
-    <span class="n">speed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>        <span class="c1"># accélère le tracé</span>
-    <span class="n">branche</span><span class="p">(</span><span class="n">largeur</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>        <span class="c1"># côté 1</span>
-    <span class="n">left</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span>
-    <span class="n">branche</span><span class="p">(</span><span class="n">largeur</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>        <span class="c1"># côté 2</span>
-    <span class="n">left</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span>
-    <span class="n">branche</span><span class="p">(</span><span class="n">largeur</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>        <span class="c1"># côté 3</span>
-    <span class="n">hideturtle</span><span class="p">()</span>        <span class="c1"># fait disparaître la tortue</span>
-    <span class="n">done</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flocon</span><span class="p">(</span><span class="mi">260</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
@@ -738,24 +625,6 @@ Cette fonction doit être <strong>récursive</strong>. En effet, pour construire
 </div>
 </div>
 <p><a class="reference external" href="https://cpge-itc.github.io/itc1/2_tp_semestre1/6_fractales/">Si vous avez terminé, faites ce TP qui est sur le même thème (fractales).</a></p>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">tree</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">n</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">fd</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
-        <span class="n">right</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
-        <span class="n">tree</span><span class="p">(</span><span class="n">l</span> <span class="o">*</span> <span class="mf">0.8</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
-        <span class="n">left</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
-        <span class="n">tree</span><span class="p">(</span><span class="n">l</span> <span class="o">*</span> <span class="mf">0.8</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
-        <span class="n">right</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
-        <span class="n">bk</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
-<span class="n">reset</span><span class="p">()</span>
-<span class="n">speed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">tree</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-<span class="n">done</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
 </section>
 </section>
 
