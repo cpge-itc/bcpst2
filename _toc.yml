@@ -8,12 +8,12 @@ chapters:
   - tp: bcpst/4_euler/euler.ipynb
   - tp: bcpst/5_dessin/tp5_dessin.ipynb
   - tp: bcpst/6_applications_math/applications_math.ipynb
+  - tp: bcpst/7_wordle/wordle.ipynb
   # - file: 2_probabilites/simulation.ipynb
   # - file: 4_population/population.ipynb
   # - file: 5_iris/iris.ipynb
   # - file: 6_sql/sql.md
   # - file: 7_dessin/tp7_dessin.ipynb
-  # - file: 8_wordle/wordle.ipynb
   # - file: 9_automate_cellulaire/automate_cellulaire.ipynb
   # - file: 11_adn/bioinformatique.ipynb
   # - file: 12_image/image.ipynb
