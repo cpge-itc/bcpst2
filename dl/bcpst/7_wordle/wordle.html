@@ -222,7 +222,7 @@ title="Launch on Binder"
       </li>
       
       <li>
-        <a href="https://notebook.basthon.fr/?kernel=ocaml&from=https://raw.githubusercontent.com/cpge-itc/bcpst2/main/files/dl/bcpst/7_wordle/wordle.ipynb"
+        <a href="https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/cpge-itc/bcpst2/main/files/dl/bcpst/7_wordle/wordle.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -475,8 +475,8 @@ title="Print to PDF"
 <p>Une chaîne de caractères est une suite de caractères. En Python, une chaîne de caractères est délimitée par des guillemets simples ou doubles. Les opérations sur les chaînes de caractères ressemblent beaucoup à celles sur les listes :</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-OCaml notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;abc&quot;</span> <span class="o">#</span> <span class="n">exemple</span> <span class="n">de</span> <span class="n">chaîne</span> <span class="n">de</span> <span class="n">caractères</span>
-<span class="n">s</span> <span class="o">#</span> <span class="n">affiche</span> <span class="n">la</span> <span class="n">chaîne</span> <span class="n">de</span> <span class="n">caractères</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;abc&quot;</span> <span class="c1"># exemple de chaîne de caractères</span>
+<span class="n">s</span> <span class="c1"># affiche la chaîne de caractères</span>
 </pre></div>
 </div>
 </div>
@@ -488,7 +488,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-OCaml notranslate"><div class="highlight"><pre><span></span><span class="n">len</span><span class="o">(</span><span class="n">s</span><span class="o">)</span> <span class="o">#</span> <span class="n">affiche</span> <span class="n">la</span> <span class="n">longueur</span> <span class="n">de</span> <span class="n">la</span> <span class="n">chaîne</span> <span class="n">de</span> <span class="n">caractères</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="c1"># affiche la longueur de la chaîne de caractères</span>
 </pre></div>
 </div>
 </div>
@@ -500,7 +500,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-OCaml notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">#</span> <span class="n">affiche</span> <span class="n">le</span> <span class="n">premier</span> <span class="n">caractère</span> <span class="n">de</span> <span class="n">la</span> <span class="n">chaîne</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># affiche le premier caractère de la chaîne</span>
 </pre></div>
 </div>
 </div>
@@ -512,11 +512,11 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-OCaml notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">c</span> <span class="k">in</span> <span class="n">s</span><span class="o">:</span> <span class="o">#</span> <span class="n">parcourt</span> <span class="n">chaque</span> <span class="n">caractère</span> <span class="n">de</span> <span class="n">la</span> <span class="n">chaîne</span>
-    <span class="n">print</span><span class="o">(</span><span class="n">c</span><span class="o">)</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span> <span class="c1"># parcourt chaque caractère de la chaîne</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> 
 
-<span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="n">range</span><span class="o">(</span><span class="n">len</span><span class="o">(</span><span class="n">s</span><span class="o">)):</span> <span class="o">#</span> <span class="n">autre</span> <span class="n">façon</span> <span class="n">de</span> <span class="n">parcourir</span> <span class="n">chaque</span> <span class="n">caractère</span> <span class="n">de</span> <span class="n">la</span> <span class="n">chaîne</span>
-    <span class="n">print</span><span class="o">(</span><span class="n">s</span><span class="o">[</span><span class="n">i</span><span class="o">])</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)):</span> <span class="c1"># autre façon de parcourir chaque caractère de la chaîne</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -533,7 +533,7 @@ c
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-OCaml notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;bon&quot;</span> <span class="o">+</span> <span class="s2">&quot;jour&quot;</span> <span class="o">#</span> <span class="n">concaténation</span> <span class="n">de</span> <span class="n">chaînes</span> <span class="n">de</span> <span class="n">caractères</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;bon&quot;</span> <span class="o">+</span> <span class="s2">&quot;jour&quot;</span> <span class="c1"># concaténation de chaînes de caractères</span>
 </pre></div>
 </div>
 </div>
@@ -546,7 +546,7 @@ c
 <p>Il n’y a pas de <code class="docutils literal notranslate"><span class="pre">append</span></code> sur les chaînes de caractères, mais on peut utiliser <code class="docutils literal notranslate"><span class="pre">+=</span></code> pour ajouter un caractère à la fin :</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-OCaml notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;def&quot;</span> <span class="o">#</span> <span class="n">ajoute</span> <span class="s2">&quot;def&quot;</span> <span class="n">à</span> <span class="n">la</span> <span class="n">fin</span> <span class="n">de</span> <span class="n">la</span> <span class="n">chaîne</span> <span class="n">s</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;def&quot;</span> <span class="c1"># ajoute &quot;def&quot; à la fin de la chaîne s</span>
 <span class="n">s</span>
 </pre></div>
 </div>
@@ -563,8 +563,8 @@ c
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-OCaml notranslate"><div class="highlight"><pre><span></span><span class="n">appartient</span><span class="o">(</span><span class="s2">&quot;a&quot;</span><span class="o">,</span> <span class="s2">&quot;abc&quot;</span><span class="o">)</span> <span class="o">#</span> <span class="nc">True</span>
-<span class="n">appartient</span><span class="o">(</span><span class="s2">&quot;d&quot;</span><span class="o">,</span> <span class="s2">&quot;abc&quot;</span><span class="o">)</span> <span class="o">#</span> <span class="nc">False</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">appartient</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;abc&quot;</span><span class="p">)</span> <span class="c1"># True</span>
+<span class="n">appartient</span><span class="p">(</span><span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="s2">&quot;abc&quot;</span><span class="p">)</span> <span class="c1"># False</span>
 </pre></div>
 </div>
 </div>
@@ -580,18 +580,10 @@ c
 <p>La fonction suivante télécharge et renvoie une liste des mots du dictionnaire (sans accent) :</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-OCaml notranslate"><div class="highlight"><pre><span></span><span class="n">def</span> <span class="n">telecharger_mots</span><span class="bp">()</span><span class="o">:</span>
-    <span class="n">import</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span>
-    <span class="n">f</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="o">(</span><span class="s2">&quot;https://raw.githubusercontent.com/cpge-itc/bcpst2/main/files/7_wordle/mots.txt&quot;</span><span class="o">)</span>
-    <span class="n">return</span> <span class="kt">list</span><span class="o">(</span><span class="n">map</span><span class="o">(</span><span class="n">lambda</span> <span class="n">x</span><span class="o">:</span> <span class="n">x</span><span class="o">.</span><span class="n">decode</span><span class="o">(</span><span class="k">&#39;</span><span class="n">utf</span><span class="o">-</span><span class="mi">8</span><span class="k">&#39;</span><span class="o">).</span><span class="n">replace</span><span class="o">(</span><span class="sc">&#39;\n&#39;</span><span class="o">,</span> <span class="k">&#39;&#39;</span><span class="o">),</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="bp">()</span><span class="o">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="n">File</span> <span class="s2">&quot;[1]&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="n">characters</span> <span class="mi">22</span><span class="o">-</span><span class="mi">23</span><span class="p">:</span>
-<span class="mi">1</span> <span class="o">|</span> <span class="k">def</span> <span class="nf">telecharger_mots</span><span class="p">():</span>
-                          <span class="o">^</span>
-<span class="ne">Error</span>: Syntax error
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">telecharger_mots</span><span class="p">():</span>
+    <span class="kn">import</span> <span class="nn">urllib.request</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s2">&quot;https://raw.githubusercontent.com/cpge-itc/bcpst2/main/files/8_wordle/mots.txt&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">),</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()))</span>
 </pre></div>
 </div>
 </div>
@@ -614,12 +606,12 @@ c
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-OCaml notranslate"><div class="highlight"><pre><span></span><span class="n">mot_aleatoire</span><span class="o">(</span><span class="n">mots5</span><span class="o">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mot_aleatoire</span><span class="p">(</span><span class="n">mots5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;bases&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;tarte&#39;
 </pre></div>
 </div>
 </div>
@@ -630,8 +622,8 @@ c
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-OCaml notranslate"><div class="highlight"><pre><span></span><span class="n">print</span><span class="o">(</span><span class="n">valide</span><span class="o">(</span><span class="s2">&quot;bonjour&quot;</span><span class="o">))</span>
-<span class="n">print</span><span class="o">(</span><span class="n">valide</span><span class="o">(</span><span class="s2">&quot;arbre&quot;</span><span class="o">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">valide</span><span class="p">(</span><span class="s2">&quot;bonjour&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">valide</span><span class="p">(</span><span class="s2">&quot;arbre&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -648,7 +640,7 @@ True
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-OCaml notranslate"><div class="highlight"><pre><span></span><span class="n">reponse</span><span class="o">(</span><span class="s2">&quot;arbre&quot;</span><span class="o">,</span> <span class="s2">&quot;heure&quot;</span><span class="o">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reponse</span><span class="p">(</span><span class="s2">&quot;arbre&quot;</span><span class="p">,</span> <span class="s2">&quot;heure&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -677,7 +669,7 @@ True
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-OCaml notranslate"><div class="highlight"><pre><span></span><span class="n">print</span><span class="o">(</span><span class="n">possibles</span><span class="o">(</span><span class="n">mots5</span><span class="o">,</span> <span class="s2">&quot;heure&quot;</span><span class="o">,</span> <span class="s2">&quot;_*_re&quot;</span><span class="o">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">possibles</span><span class="p">(</span><span class="n">mots5</span><span class="p">,</span> <span class="s2">&quot;heure&quot;</span><span class="p">,</span> <span class="s2">&quot;_*_re&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -718,7 +710,7 @@ On utilisera <code class="docutils literal notranslate"><span class="pre">ord(c)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-OCaml notranslate"><div class="highlight"><pre><span></span><span class="n">numero_lettre</span><span class="o">(</span><span class="sc">&#39;e&#39;</span><span class="o">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numero_lettre</span><span class="p">(</span><span class="s1">&#39;e&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -735,7 +727,7 @@ Par exemple, <code class="docutils literal notranslate"><span class="pre">C[1][3
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-OCaml notranslate"><div class="highlight"><pre><span></span><span class="n">compter</span><span class="o">(</span><span class="n">mots5</span><span class="o">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">compter</span><span class="p">(</span><span class="n">mots5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -798,16 +790,16 @@ Par exemple, <code class="docutils literal notranslate"><span class="pre">C[1][3
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "ocaml-jupyter"
+            mode: "python"
         },
         kernelOptions: {
-            kernelName: "ocaml-jupyter",
+            kernelName: "python3",
             path: "./dl/bcpst/7_wordle"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'ocaml-jupyter'</script>
+    <script>kernelName = 'python3'</script>
 
               </div>
               
