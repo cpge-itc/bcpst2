@@ -9,6 +9,7 @@ chapters:
   - cor: bcpst/5_dessin/tp5_dessin.ipynb
   - cor: bcpst/6_applications_math/applications_math.ipynb
   - cor: bcpst/7_wordle/wordle.ipynb
+  - tp: bcpst/8_adn/bioinformatique.ipynb
   # - file: 2_probabilites/simulation.ipynb
   # - file: 4_population/population.ipynb
   # - file: 5_iris/iris.ipynb
