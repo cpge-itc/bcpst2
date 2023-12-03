@@ -1,0 +1,996 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>TP 9 : Manipulation d’images &#8212; Informatique en 2ème année de BCPST</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=532d1baf3f03eb73f2f50828f8c27430120b156d"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="canonical" href="https://cpge-itc.github.io/bcpst2/dl/bcpst/9_image/9_image.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="prev" title="TP 8 : Bioinformatique appliqué à l’ADN du choléra" href="../8_adn/bioinformatique.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/cobra.webp" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Informatique en 2ème année de BCPST</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../0_python/aide_memoire.html">
+   Formulaire Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../revisions/revisions.html">
+   TP 1 : Révisions Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_probabilites/simulation.html">
+   TP 2 : Simulation de variables aléatoires
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../3_population/population.html">
+   TP 3 : Matrice de population
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4_euler/euler.html">
+   TP 4 : Résolution d’équation différentielle par la méthode d’Euler
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../5_dessin/tp5_dessin.html">
+   TP 5 : Dessins, récursivité et fractales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../6_applications_math/applications_math.html">
+   TP 6 : Application aux mathématiques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../7_wordle/wordle.html">
+   TP 7 : Wordle
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../8_adn/bioinformatique.html">
+   TP 8 : Bioinformatique appliqué à l’ADN du choléra
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   TP 9 : Manipulation d’images
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/cpge-itc/bcpst2/main?urlpath=tree/files/dl/bcpst/9_image/9_image.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/cpge-itc/bcpst2/main/files/dl/bcpst/9_image/9_image.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Basthon"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_basthon.svg">
+  </span>
+<span class="headerbtn__text-container">Basthon</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/cpge-itc/bcpst2"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/cpge-itc/bcpst2/issues/new?title=Issue%20on%20page%20%2Fdl/bcpst/9_image/9_image.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/cpge-itc/bcpst2/edit/main/files/dl/bcpst/9_image/9_image.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/dl/bcpst/9_image/9_image.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rappels-sur-numpy">
+   Rappels sur numpy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#images">
+   Images
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inversion-des-couleurs">
+   Inversion des couleurs
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rotation">
+   Rotation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#niveaux-de-gris">
+   Niveaux de gris
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#redimensionnement">
+   Redimensionnement
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#convolution">
+   Convolution
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#flou">
+     Flou
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#detection-de-contours">
+     Détection de contours
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>TP 9 : Manipulation d’images</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rappels-sur-numpy">
+   Rappels sur numpy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#images">
+   Images
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inversion-des-couleurs">
+   Inversion des couleurs
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rotation">
+   Rotation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#niveaux-de-gris">
+   Niveaux de gris
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#redimensionnement">
+   Redimensionnement
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#convolution">
+   Convolution
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#flou">
+     Flou
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#detection-de-contours">
+     Détection de contours
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="tp-9-manipulation-d-images">
+<h1>TP 9 : Manipulation d’images<a class="headerlink" href="#tp-9-manipulation-d-images" title="Permalink to this headline">#</a></h1>
+<center><img src=https://raw.githubusercontent.com/cpge-itc/bcpst2/main/files/12_image/intro.png width=80%></center>
+<section id="rappels-sur-numpy">
+<h2>Rappels sur numpy<a class="headerlink" href="#rappels-sur-numpy" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span> <span class="c1"># modifie la taille des figures</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>On peut créer une matrice de taille <span class="math notranslate nohighlight">\(n\times p\)</span> remplie de <span class="math notranslate nohighlight">\(0\)</span> avec <code class="docutils literal notranslate"><span class="pre">np.zeros((n,p))</span></code> :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0., 0., 0., 0.],
+       [0., 0., 0., 0.]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>On peut accéder et modifier l’élément sur la ligne <span class="math notranslate nohighlight">\(i\)</span>, colonne <span class="math notranslate nohighlight">\(j\)</span> avec <code class="docutils literal notranslate"><span class="pre">m[i][j]</span></code> :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># modifie l&#39;élément ligne 0, colonne 0 (en haut à gauche)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1., 0., 0., 0.],
+       [0., 0., 0., 0.]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-exercice admonition">
+<p class="admonition-title">Exercice</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">identite</span></code> telle que <code class="docutils literal notranslate"><span class="pre">identite(n)</span></code> renvoie une matrice identité de taille <span class="math notranslate nohighlight">\(n\times n\)</span>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">identite</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1., 0., 0., 0., 0.],
+       [0., 1., 0., 0., 0.],
+       [0., 0., 1., 0., 0.],
+       [0., 0., 0., 1., 0.],
+       [0., 0., 0., 0., 1.]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Si <code class="docutils literal notranslate"><span class="pre">m</span></code> est une matrice, <code class="docutils literal notranslate"><span class="pre">len(m)</span></code> est son nombre de lignes et <code class="docutils literal notranslate"><span class="pre">len(m[0])</span></code> est son nombre de colonnes :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">))</span> <span class="c1"># nombre de lignes</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span> <span class="c1"># nombre de colonnes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+4
+</pre></div>
+</div>
+</div>
+</div>
+<p>On peut aussi utiliser <code class="docutils literal notranslate"><span class="pre">m.shape</span></code> pour obtenir les dimensions de la matrice (sous forme de tuple) :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">shape</span> <span class="c1"># m est de dimension 2x4</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2, 4)
+</pre></div>
+</div>
+</div>
+</div>
+<p>On peut parcourir une matrice avec deux boucles <code class="docutils literal notranslate"><span class="pre">for</span></code> (une boucle pour chaque indice) :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">)):</span> <span class="c1"># parcourt les lignes</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">])):</span> <span class="c1"># parcourt les colonnes</span>
+        <span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="n">j</span> <span class="c1"># modifie la matrice</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0., 1., 2., 3.],
+       [1., 2., 3., 4.]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-exercice admonition">
+<p class="admonition-title">Exercice</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">trace</span></code> pour calculer la trace d’une matrice, c’est-à-dire la somme des éléments sur la diagonale.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trace</span><span class="p">(</span><span class="n">identite</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Il est possible d’effectuer une opération (<code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>…) directement sur deux matrices (ou une matrice et un scalaire) :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span> <span class="c1"># définition d&#39;une matrice</span>
+<span class="n">m2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">]])</span> <span class="c1"># définition d&#39;une autre matrice</span>
+
+<span class="n">m1</span> <span class="o">+</span> <span class="n">m2</span> <span class="c1"># addition de deux matrices</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[14,  2,  6],
+       [ 7, 16, 18]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dans l’exemple ci-dessus, on a effectué l’opération :
+<span class="math notranslate nohighlight">\(\begin{pmatrix} 7&amp; 2&amp; 5 \\ 1 &amp; 5 &amp; 6 \end{pmatrix} + \begin{pmatrix} 7 &amp; 0 &amp; 1 \\ 6 &amp; 11 &amp; 12 \end{pmatrix} = \begin{pmatrix} 14 &amp; 2 &amp;6 \\ 7 &amp; 16 &amp; 18 \end{pmatrix}\)</span></p>
+</section>
+<section id="images">
+<h2>Images<a class="headerlink" href="#images" title="Permalink to this headline">#</a></h2>
+<p>Une image est constituée d’un rectangle de pixels, chaque pixel ayant une couleur uniforme représentée par un nombre entier.<br />
+En Python, on utilise généralement un tableau <code class="docutils literal notranslate"><span class="pre">numpy</span></code> à <span class="math notranslate nohighlight">\(3\)</span> dimensions pour stocker une image.</p>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p><a class="reference external" href="https://github.com/cpge-itc/bcpst2/blob/main/files/12_image/lyon.jpg?raw=true">Télécharger l’image que nous allons utiliser pour cet exercice et la placer dans le même dossier que votre fichier Python (clic droit -&gt; enregistrer sous)</a>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">&quot;lyon.jpg&quot;</span><span class="p">)</span> <span class="c1"># m est un tableau numpy contenant les pixels de l&#39;image</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="c1"># afficher une image</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/9_image_21_0.png" src="../../../_images/9_image_21_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">shape</span> <span class="c1"># taille de l&#39;image</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(353, 550, 3)
+</pre></div>
+</div>
+</div>
+</div>
+<p>La ligne précédente montre que <code class="docutils literal notranslate"><span class="pre">m</span></code> est de taille <span class="math notranslate nohighlight">\(353 \times 550 \times 3\)</span>, ce qui signifie que l’image fait <span class="math notranslate nohighlight">\(353\)</span> pixels de hauteur, <span class="math notranslate nohighlight">\(550\)</span> pixels de largeur et que chaque pixel possède 3 niveaux de couleurs (rouge, vert et bleu, ou RGB), un niveau de couleur étant un nombre entier compris entre 0 (absence de couleur) et 255 (couleur complètement présente).<br />
+Par exemple, un pixel avec des niveaux RGB de <span class="math notranslate nohighlight">\((255, 0, 0)\)</span> est complètement rouge. Un pixel avec des niveaux RGB de <span class="math notranslate nohighlight">\((255, 255, 0)\)</span> est un mélange de rouge et de vert, c’est-à-dire du jaune.<br />
+On accède à un pixel avec <code class="docutils literal notranslate"><span class="pre">m[i][j]</span></code> :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="p">[</span><span class="mi">12</span><span class="p">][</span><span class="mi">263</span><span class="p">]</span> <span class="c1"># pixel sur la ligne 12, colonne 263</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([103, 149, 172])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ainsi, le pixel sur la ligne <span class="math notranslate nohighlight">\(12\)</span>, colonne <span class="math notranslate nohighlight">\(263\)</span>, possède des valeurs RGB égales à <span class="math notranslate nohighlight">\((103, 149, 172)\)</span>. Le pixel de coordonnées <span class="math notranslate nohighlight">\((0, 0)\)</span> est celui en haut à gauche. Mettons du rouge sur un carré <span class="math notranslate nohighlight">\(100\times 100\)</span> en haut à gauche :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m_red</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+        <span class="n">m_red</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="c1"># on met tous les pixels en rouge</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">m_red</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/9_image_26_0.png" src="../../../_images/9_image_26_0.png" />
+</div>
+</div>
+<div class="admonition-exercice admonition">
+<p class="admonition-title">Exercice</p>
+<p>Modifier le code précédent de façon à cacher la tour Part-Dieu (“tour crayon”), en mettant un rectangle bleu dessus.</p>
+</div>
+</section>
+<section id="inversion-des-couleurs">
+<h2>Inversion des couleurs<a class="headerlink" href="#inversion-des-couleurs" title="Permalink to this headline">#</a></h2>
+<p>On peut inverser les couleurs d’une images en remplaçant chaque <code class="docutils literal notranslate"><span class="pre">m[i][j]</span></code> par <code class="docutils literal notranslate"><span class="pre">255</span> <span class="pre">-</span> <span class="pre">m[i][j]</span></code>.</p>
+<div class="admonition-exercice admonition">
+<p class="admonition-title">Exercice</p>
+<p>Inverser les couleurs d’une image pour obtenir l’image ci-dessous. On pourra compléter le code suivant (dont on pourra aussi s’inspirer pour toutes les questions suivantes).</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">inverse</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="c1"># pour éviter de modifier la matrice en dehors de la fonction</span>
+    <span class="o">...</span> <span class="c1"># parcourir m[i][j] en remplacant par 255 - m[i][j]</span>
+    <span class="k">return</span> <span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">inverse</span><span class="p">(</span><span class="n">m</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/9_image_31_0.png" src="../../../_images/9_image_31_0.png" />
+</div>
+</div>
+</section>
+<section id="rotation">
+<h2>Rotation<a class="headerlink" href="#rotation" title="Permalink to this headline">#</a></h2>
+<p>Faire une rotation sur l’image revient à prendre la matrice transposée : il faut inverser ligne et colonne. Si <code class="docutils literal notranslate"><span class="pre">m</span></code> est de taille <span class="math notranslate nohighlight">\(n\times p \times 3\)</span>, il faut donc créer une matrice <code class="docutils literal notranslate"><span class="pre">m2</span></code> de taille <span class="math notranslate nohighlight">\(p\times n\times 3\)</span> telle que <code class="docutils literal notranslate"><span class="pre">m2[i][j]</span> <span class="pre">=</span> <span class="pre">m[j][i]</span></code>.</p>
+<div class="admonition-exercice admonition">
+<p class="admonition-title">Exercice</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">rotation(m)</span></code> renvoie une matrice correspondant à la rotation de <code class="docutils literal notranslate"><span class="pre">m</span></code>. Il faut commencer par créer une nouvelle matrice avec <code class="docutils literal notranslate"><span class="pre">np.zeros((...,</span> <span class="pre">...,</span> <span class="pre">3),</span> <span class="pre">dtype=int)</span></code> avec les bonnes dimensions.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">rotation</span><span class="p">(</span><span class="n">m</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/9_image_34_0.png" src="../../../_images/9_image_34_0.png" />
+</div>
+</div>
+</section>
+<section id="niveaux-de-gris">
+<h2>Niveaux de gris<a class="headerlink" href="#niveaux-de-gris" title="Permalink to this headline">#</a></h2>
+<p>On peut transformer une image couleur en une image en niveaux de gris en remplaçant chaque pixel par la moyenne de ses trois couleurs.</p>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">niveau_gris(m)</span></code> qui renvoie une matrice correspondant à l’image en niveaux de gris de <code class="docutils literal notranslate"><span class="pre">m</span></code>. On pourra compléter le code ci-dessous.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">niveau_gris</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+    <span class="n">m2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">])),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span> <span class="c1"># matrice de même taille que m, mais avec qu&#39;un seul niveau de couleur</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">)):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">])):</span>
+            <span class="o">...</span> <span class="c1"># remplacer m2[i][j] par la moyenne des trois niveaux de couleur de m[i][j]</span>
+    <span class="k">return</span> <span class="n">m2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">niveau_gris</span><span class="p">(</span><span class="n">m</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/9_image_38_0.png" src="../../../_images/9_image_38_0.png" />
+</div>
+</div>
+</section>
+<section id="redimensionnement">
+<h2>Redimensionnement<a class="headerlink" href="#redimensionnement" title="Permalink to this headline">#</a></h2>
+<p>On peut réduire la taille d’une image en divisant sa largeur et sa hauteur par un facteur <span class="math notranslate nohighlight">\(k\)</span>. Il faut donc définir une matrice <code class="docutils literal notranslate"><span class="pre">m2</span></code> de taille <span class="math notranslate nohighlight">\((n/k)\times (p/k)\times 3\)</span> telle que <code class="docutils literal notranslate"><span class="pre">m2[i][j]</span> <span class="pre">=</span> <span class="pre">m[i*k][j*k]</span></code>.</p>
+<div class="admonition-exercice admonition">
+<p class="admonition-title">Exercice</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">reduction(m,</span> <span class="pre">k)</span></code> renvoie une matrice correspondant au réduction de <code class="docutils literal notranslate"><span class="pre">m</span></code> par un facteur <code class="docutils literal notranslate"><span class="pre">k</span></code>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">reduction</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/9_image_41_0.png" src="../../../_images/9_image_41_0.png" />
+</div>
+</div>
+<div class="admonition-exercice admonition">
+<p class="admonition-title">Exercice</p>
+<p>Faire de même pour augmenter la résolution de l’image. Il faut inverser <code class="docutils literal notranslate"><span class="pre">//</span></code> et <code class="docutils literal notranslate"><span class="pre">*</span></code> par rapport à la fonction précédente.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">augmentation</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/9_image_43_0.png" src="../../../_images/9_image_43_0.png" />
+</div>
+</div>
+</section>
+<section id="convolution">
+<h2>Convolution<a class="headerlink" href="#convolution" title="Permalink to this headline">#</a></h2>
+<section id="flou">
+<h3>Flou<a class="headerlink" href="#flou" title="Permalink to this headline">#</a></h3>
+<p>En modifiant chaque pixel par la moyenne des (au plus) 9 pixels adjacents, on peut faire un effet de flou. <strong>Il faut cependant faire attention à ne pas dépasser les bords de l’image</strong>.</p>
+<div class="admonition-exercice admonition">
+<p class="admonition-title">Exercice</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">moyenne</span></code> telle que, si <code class="docutils literal notranslate"><span class="pre">m</span></code> est une matrice, <code class="docutils literal notranslate"><span class="pre">moyenne(m,</span> <span class="pre">i,</span> <span class="pre">j)</span></code> renvoie la moyenne des <span class="math notranslate nohighlight">\(9\)</span> pixels adjacents autour de <code class="docutils literal notranslate"><span class="pre">m[i][j]</span></code> (c’est-à-dire de <code class="docutils literal notranslate"><span class="pre">m[i+1][j]</span></code>, <code class="docutils literal notranslate"><span class="pre">m[i-1][j]</span></code>…), sans prendre en compte les pixels sortants de l’image.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">moyenne</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([242.25, 251.25, 254.75])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-exercice admonition">
+<p class="admonition-title">Exercice</p>
+<p>En déduire une fonction <code class="docutils literal notranslate"><span class="pre">flou</span></code> telle que <code class="docutils literal notranslate"><span class="pre">flou(m)</span></code> renvoie une image obtenue en prenant la moyenne de chaque pixel dans <code class="docutils literal notranslate"><span class="pre">m</span></code>. Essayer d’appliquer plusieurs fois <code class="docutils literal notranslate"><span class="pre">flou</span></code>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">flou</span><span class="p">(</span><span class="n">m</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/9_image_48_0.png" src="../../../_images/9_image_48_0.png" />
+</div>
+</div>
+</section>
+<section id="detection-de-contours">
+<h3>Détection de contours<a class="headerlink" href="#detection-de-contours" title="Permalink to this headline">#</a></h3>
+<p>Plutôt que de faire la moyenne des pixels adjacents, on peut faire une moyenne pondérée. Par exemple, pour détecter les contours dans une image, on peut donner un poids de <span class="math notranslate nohighlight">\(8\)</span> au pixel central et un poids de <span class="math notranslate nohighlight">\(-1\)</span> aux pixels adjacents, ce qui correspond au <em>filtre laplacien</em> suivant :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{pmatrix} -1&amp; -1&amp; -1 \\ -1 &amp; 8 &amp; -1 \\ -1 &amp; -1 &amp; -1 \end{pmatrix}\end{split}\]</div>
+<p>Si <span class="math notranslate nohighlight">\(M = (m_{i, j})\)</span>, il faut donc calculer la matrice <span class="math notranslate nohighlight">\(M' = (m_{i, j}')\)</span> telle que :</p>
+<div class="math notranslate nohighlight">
+\[m_{i, j}' = 8 m_{i, j} - m_{i-1, j-1} - m_{i-1, j} - m_{i-1, j+1} - m_{i, j-1} - m_{i, j+1} - m_{i+1, j-1} - m_{i+1, j} - m_{i+1, j+1}\]</div>
+<p>Sachant qu’on ne prend pas en compte les pixels en dehors de l’image.</p>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">detection_contours(m)</span></code> qui renvoie la matrice <code class="docutils literal notranslate"><span class="pre">m2</span></code> telle que <code class="docutils literal notranslate"><span class="pre">m2[i][j]</span></code> est la moyenne pondérée des pixels adjacents à <code class="docutils literal notranslate"><span class="pre">m[i][j]</span></code>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">detection_contours</span><span class="p">(</span><span class="n">m</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+</pre></div>
+</div>
+<img alt="../../../_images/9_image_51_1.png" src="../../../_images/9_image_51_1.png" />
+</div>
+</div>
+<p>Le filtre de Sobel est un autre filtre, permettant spécifiquement de détecter les contours horizontaux et verticaux. Pour détecter un contours vertical, il est défini par  :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{pmatrix} -1&amp; 0&amp; 1 \\ -2 &amp; 0 &amp; 2 \\ -1 &amp; 0 &amp; 1 \end{pmatrix}\end{split}\]</div>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">sobel(m)</span></code> faisant la même chose que <code class="docutils literal notranslate"><span class="pre">detection_contours</span></code>, mais avec le filtre de Sobel ci-dessus.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">sobel</span><span class="p">(</span><span class="n">niveau_gris</span><span class="p">(</span><span class="n">m</span><span class="p">)),</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/9_image_54_0.png" src="../../../_images/9_image_54_0.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./dl/bcpst/9_image"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../8_adn/bioinformatique.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">TP 8 : Bioinformatique appliqué à l’ADN du choléra</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Quentin Fortier<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
