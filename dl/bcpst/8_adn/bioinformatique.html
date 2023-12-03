@@ -516,6 +516,18 @@ Un problème important est de localiser l’ori d’un génome. On sait par la b
 </div>
 </div>
 </div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">cholerae</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">cholerae</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1108250</span>
+
+</pre></div>
+</div>
+</div>
 <p>Considérons aussi l’ori de l’ADN de <em>Vibrio cholerae</em>, sous forme de chaîne de caractères (chaque caractère étant un nucléotide) :</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -528,9 +540,39 @@ Un problème important est de localiser l’ori d’un génome. On sait par la b
 <p class="admonition-title">Question</p>
 <p>Quel est le nombre de nucléotides de l’ori de <em>Vibrio cholerae</em> ?</p>
 </div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">cholerae_ori</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">540</span>
+
+</pre></div>
+</div>
+</div>
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
 <p>La <a class="reference external" href="https://fr.wikipedia.org/wiki/R%C3%A8gles_de_Chargaff">règle de Chargaff</a> dit que la proportion de nucléotides <span class="math notranslate nohighlight">\(A\)</span> est environ égale à celle de nucléotides <span class="math notranslate nohighlight">\(T\)</span> et que la proportion de nucléotides <span class="math notranslate nohighlight">\(C\)</span> est environ égale à celle de nucléotides <span class="math notranslate nohighlight">\(G\)</span>. Vérifiez que cette règle est respectée pour <em>Vibrio cholerae</em>.</p>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">p</span><span class="p">(</span><span class="n">nucl</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cholerae</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">c</span> <span class="o">==</span> <span class="n">nucl</span><span class="p">:</span>
+            <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">n</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">cholerae</span><span class="p">)</span>
+
+<span class="p">[</span><span class="n">p</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="s2">&quot;ATGC&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mf">0.2652307692307692</span><span class="p">,</span>
+ <span class="mf">0.26592465598917214</span><span class="p">,</span>
+ <span class="mf">0.23101646740356419</span><span class="p">,</span>
+ <span class="mf">0.23782810737649449</span><span class="p">]</span>
+
+</pre></div>
+</div>
 </div>
 <section id="motif-dans-un-adn">
 <h2>Motif dans un ADN<a class="headerlink" href="#motif-dans-un-adn" title="Permalink to this headline">#</a></h2>
@@ -564,9 +606,29 @@ Un problème important est de localiser l’ori d’un génome. On sait par la b
 <p class="admonition-title">Question</p>
 <p>À quel indice l’ori de <em>Vibrio cholerae</em> commence t-il dans le génome de <em>Vibrio cholerae</em> ?</p>
 </div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">cholerae</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">cholerae</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="nb">len</span><span class="p">(</span><span class="n">cholerae_ori</span><span class="p">)]</span> <span class="o">==</span> <span class="n">cholerae_ori</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">compter(adn,</span> <span class="pre">motif)</span></code> qui compte le nombre d’apparitions de <code class="docutils literal notranslate"><span class="pre">motif</span></code> dans <code class="docutils literal notranslate"><span class="pre">adn</span></code>.</p>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">compter</span><span class="p">(</span><span class="n">adn</span><span class="p">,</span> <span class="n">motif</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Compte le nombre d&#39;occurences du motif dans l&#39;ADN&quot;&quot;&quot;</span>
+    <span class="n">compteur</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">adn</span><span class="p">)</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">motif</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">adn</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="nb">len</span><span class="p">(</span><span class="n">motif</span><span class="p">)]</span> <span class="o">==</span> <span class="n">motif</span><span class="p">:</span>
+            <span class="n">compteur</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">compteur</span>
+</pre></div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -590,6 +652,22 @@ Un problème important est de localiser l’ori d’un génome. On sait par la b
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">kmer_plus_frequent(adn,</span> <span class="pre">k)</span></code> qui renvoie le <code class="docutils literal notranslate"><span class="pre">k</span></code>-mer qui apparaît le plus souvent dans <code class="docutils literal notranslate"><span class="pre">adn</span></code> (s’il y a plusieurs <code class="docutils literal notranslate"><span class="pre">k</span></code>-mers de fréquence maximum, on en renverra un quelconque).<br />
 Pour cela, on parcourt tous les <code class="docutils literal notranslate"><span class="pre">k</span></code>-mers de <code class="docutils literal notranslate"><span class="pre">adn</span></code> et on compte le nombre d’occurences de chacun d’eux, avec la fonction <code class="docutils literal notranslate"><span class="pre">compter</span></code> écrite précédemment.</p>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">kmer_plus_frequent</span><span class="p">(</span><span class="n">adn</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Retourne le k-mer le plus fréquent dans l&#39;ADN&quot;&quot;&quot;</span>
+    <span class="n">kmer</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">max_compteur</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">adn</span><span class="p">)</span> <span class="o">-</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">motif</span> <span class="o">=</span> <span class="n">adn</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">k</span><span class="p">]</span>
+        <span class="n">compteur</span> <span class="o">=</span> <span class="n">compter</span><span class="p">(</span><span class="n">adn</span><span class="p">,</span> <span class="n">motif</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">compteur</span> <span class="o">&gt;</span> <span class="n">max_compteur</span><span class="p">:</span>
+            <span class="n">kmer</span> <span class="o">=</span> <span class="n">motif</span>
+            <span class="n">max_compteur</span> <span class="o">=</span> <span class="n">compteur</span>
+    <span class="k">return</span> <span class="n">kmer</span>
+</pre></div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -647,6 +725,12 @@ Un dictonnaire est une structure de données qui associe à chaque clé une vale
 <p class="admonition-title">Question</p>
 <p>Créer un dictionnaire <code class="docutils literal notranslate"><span class="pre">complement</span></code> qui associe à chaque nucléotide son complément. Ainsi, <code class="docutils literal notranslate"><span class="pre">complement['A']</span></code> doit valoir <code class="docutils literal notranslate"><span class="pre">'T'</span></code>, <code class="docutils literal notranslate"><span class="pre">complement['T']</span></code> doit valoir <code class="docutils literal notranslate"><span class="pre">'A'</span></code>, <code class="docutils literal notranslate"><span class="pre">complement['C']</span></code> doit valoir <code class="docutils literal notranslate"><span class="pre">G</span></code> et <code class="docutils literal notranslate"><span class="pre">complement['G']</span></code> doit valoir <code class="docutils literal notranslate"><span class="pre">'C'</span></code>.</p>
 </div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">complement</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;A&quot;</span> <span class="p">:</span> <span class="s2">&quot;T&quot;</span><span class="p">,</span> <span class="s2">&quot;T&quot;</span> <span class="p">:</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span> <span class="p">:</span> <span class="s2">&quot;G&quot;</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span> <span class="p">:</span> <span class="s2">&quot;C&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
 <p>On peut parcourir les clés d’un dictionnaire avec une boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> :</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -668,6 +752,17 @@ jean 22
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">cle_max(d)</span></code> qui renvoie la clé associée à la plus grande valeur dans le dictionnaire <code class="docutils literal notranslate"><span class="pre">d</span></code>.</p>
 </div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cle_max</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
+    <span class="n">kmax</span> <span class="o">=</span> <span class="kc">None</span> 
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">kmax</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">d</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">d</span><span class="p">[</span><span class="n">kmax</span><span class="p">]:</span>
+            <span class="n">kmax</span> <span class="o">=</span> <span class="n">k</span>
+    <span class="k">return</span> <span class="n">kmax</span>
+</pre></div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cle_max</span><span class="p">(</span><span class="n">age</span><span class="p">)</span> <span class="c1"># michel est la personne dont l&#39;âge est le plus élevé</span>
@@ -684,6 +779,19 @@ jean 22
 <center><img src=https://miro.medium.com/max/2129/1*Mr6KrtsUqhQ732SwYIljfg.jpeg width=60%></center><div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
 <p>Réécrire une fonction <code class="docutils literal notranslate"><span class="pre">kmer_plus_frequent(adn,</span> <span class="pre">k)</span></code> qui renvoie le <code class="docutils literal notranslate"><span class="pre">k</span></code>-mer qui apparaît le plus souvent dans <code class="docutils literal notranslate"><span class="pre">adn</span></code>, en utilisant un dictionnaire.</p>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">kmer_plus_frequent</span><span class="p">(</span><span class="n">adn</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">adn</span><span class="p">)</span> <span class="o">-</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">motif</span> <span class="o">=</span> <span class="n">adn</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">k</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">motif</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
+            <span class="n">d</span><span class="p">[</span><span class="n">motif</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">d</span><span class="p">[</span><span class="n">motif</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">cle_max</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -745,6 +853,17 @@ jean 22
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">complementaire_inverse(adn)</span></code> qui renvoie le complémentaire inversé de <code class="docutils literal notranslate"><span class="pre">adn</span></code>. Ainsi, si <code class="docutils literal notranslate"><span class="pre">adn</span></code> vaut <span class="math notranslate nohighlight">\(n_1n_2\ldots n_k\)</span>, <code class="docutils literal notranslate"><span class="pre">complementaire_inverse(adn)</span></code> doit renvoyer <span class="math notranslate nohighlight">\(n_k^*n_{k-1}^*\ldots n_1^*\)</span>, où <span class="math notranslate nohighlight">\(n_i^*\)</span> est le complémentaire de <span class="math notranslate nohighlight">\(n_i\)</span> (A &lt;-&gt; T, C -&gt; G).</p>
 </div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">complementaire_inverse</span><span class="p">(</span><span class="n">adn</span><span class="p">):</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;A&quot;</span> <span class="p">:</span> <span class="s2">&quot;T&quot;</span><span class="p">,</span> <span class="s2">&quot;T&quot;</span> <span class="p">:</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span> <span class="p">:</span> <span class="s2">&quot;G&quot;</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span> <span class="p">:</span> <span class="s2">&quot;C&quot;</span><span class="p">}</span>
+    <span class="n">adn_complementaire</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">nucl</span> <span class="ow">in</span> <span class="n">adn</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+        <span class="n">adn_complementaire</span> <span class="o">+=</span> <span class="n">d</span><span class="p">[</span><span class="n">nucl</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">adn_complementaire</span>
+</pre></div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">complementaire_inverse</span><span class="p">(</span><span class="s2">&quot;ATGATCAAG&quot;</span><span class="p">)</span>
@@ -760,6 +879,23 @@ jean 22
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">plus_frequent_inverse(adn,</span> <span class="pre">k)</span></code> qui renvoie le <code class="docutils literal notranslate"><span class="pre">k</span></code>-mer <code class="docutils literal notranslate"><span class="pre">s</span></code> le plus fréquent dans <code class="docutils literal notranslate"><span class="pre">adn</span></code>, en comptant aussi les occurrences de <code class="docutils literal notranslate"><span class="pre">complementaire_inverse(s)</span></code>. On pourra s’inspirer de la fonction <code class="docutils literal notranslate"><span class="pre">kmer_plus_frequent</span></code> écrite précédemment.</p>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plus_frequent_inverse</span><span class="p">(</span><span class="n">adn</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">adn</span><span class="p">)</span> <span class="o">-</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">motif</span> <span class="o">=</span> <span class="n">adn</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">k</span><span class="p">]</span>
+        <span class="n">motif_inverse</span> <span class="o">=</span> <span class="n">complementaire_inverse</span><span class="p">(</span><span class="n">motif</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">motif</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
+            <span class="n">d</span><span class="p">[</span><span class="n">motif</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="n">motif_inverse</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
+            <span class="n">d</span><span class="p">[</span><span class="n">motif_inverse</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">d</span><span class="p">[</span><span class="n">motif</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">d</span><span class="p">[</span><span class="n">motif_inverse</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">cle_max</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -782,6 +918,21 @@ Une “phase ouverte de lecture” (ORF) est une séquence d’ADN commençant p
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">orf(adn)</span></code> qui renvoie la liste des ORFs de <code class="docutils literal notranslate"><span class="pre">adn</span></code>.</p>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">orf</span><span class="p">(</span><span class="n">adn</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Retourne la liste des ORFs de l&#39;ADN&quot;&quot;&quot;</span>
+    <span class="n">orfs</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">adn</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">adn</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">3</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;ATG&quot;</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">3</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">adn</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">adn</span><span class="p">[</span><span class="n">j</span><span class="p">:</span><span class="n">j</span><span class="o">+</span><span class="mi">3</span><span class="p">]</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;TAA&quot;</span><span class="p">,</span> <span class="s2">&quot;TAG&quot;</span><span class="p">,</span> <span class="s2">&quot;TGA&quot;</span><span class="p">]:</span>
+                    <span class="n">orfs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">adn</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">j</span><span class="o">+</span><span class="mi">3</span><span class="p">])</span>
+                    <span class="k">break</span>
+    <span class="k">return</span> <span class="n">orfs</span>
+</pre></div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
