@@ -9,7 +9,8 @@ chapters:
   - cor: bcpst/5_dessin/tp5_dessin.ipynb
   - cor: bcpst/6_applications_math/applications_math.ipynb
   - cor: bcpst/7_wordle/wordle.ipynb
-  - tp: bcpst/8_adn/bioinformatique.ipynb
+  - cor: bcpst/8_adn/bioinformatique.ipynb
+  - file: bcpst/9_image/9_image.ipynb
   # - file: 2_probabilites/simulation.ipynb
   # - file: 4_population/population.ipynb
   # - file: 5_iris/iris.ipynb
@@ -17,7 +18,6 @@ chapters:
   # - file: 7_dessin/tp7_dessin.ipynb
   # - file: 9_automate_cellulaire/automate_cellulaire.ipynb
   # - file: 11_adn/bioinformatique.ipynb
-  # - file: 12_image/image.ipynb
   # - file: 13_random_walk/random_walk.ipynb
   # - tp: bcpst/basket.ipynb
   # - file: 15_tb/exercices_concours.ipynb
