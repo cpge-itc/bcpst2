@@ -11,4 +11,5 @@ chapters:
   - cor: bcpst/7_wordle/wordle.ipynb
   - cor: bcpst/8_adn/bioinformatique.ipynb
   - cor: bcpst/9_image/9_image.ipynb
-  - tp: bcpst/9_automate_cellulaire/automate_cellulaire.ipynb
+  - cor: bcpst/9_automate_cellulaire/automate_cellulaire.ipynb
+  - tp: bcpst/basket.ipynb
