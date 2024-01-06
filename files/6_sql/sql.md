@@ -1,5 +1,7 @@
 # TP 12 et 13 : SQL
 
+---
+
 **Faire les exercices dans l'ordre sur [https://sql-exercices.github.io](https://sql-exercices.github.io) (en revoyant le cours si besoin).**
 
 Quand vous avez fini :
