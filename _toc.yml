@@ -13,4 +13,4 @@ chapters:
   - cor: bcpst/9_image/9_image.ipynb
   - cor: bcpst/9_automate_cellulaire/automate_cellulaire.ipynb
   - cor: bcpst/basket.ipynb
-  - file: bcpst/6_sql/sql.md
+  - file: 6_sql/sql.md
