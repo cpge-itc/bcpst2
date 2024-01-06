@@ -12,4 +12,5 @@ chapters:
   - cor: bcpst/8_adn/bioinformatique.ipynb
   - cor: bcpst/9_image/9_image.ipynb
   - cor: bcpst/9_automate_cellulaire/automate_cellulaire.ipynb
-  - tp: bcpst/basket.ipynb
+  - cor: bcpst/basket.ipynb
+  - file: bcpst/6_sql/sql.md
