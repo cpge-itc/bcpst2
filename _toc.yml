@@ -2,15 +2,16 @@ format: jb-book
 root: intro
 chapters:
   - file: 0_python/aide_memoire.ipynb
-  - cor: bcpst/revisions/revisions.ipynb
-  - cor: bcpst/1_probabilites/simulation.ipynb
-  - cor: bcpst/3_population/population.ipynb
-  - cor: bcpst/4_euler/euler.ipynb
-  - cor: bcpst/5_dessin/tp5_dessin.ipynb
-  - cor: bcpst/6_applications_math/applications_math.ipynb
-  - cor: bcpst/7_wordle/wordle.ipynb
-  - cor: bcpst/8_adn/bioinformatique.ipynb
-  - cor: bcpst/9_image/9_image.ipynb
-  - cor: bcpst/9_automate_cellulaire/automate_cellulaire.ipynb
-  - cor: bcpst/basket.ipynb
+  - tp: bcpst/revisions/revisions.ipynb
+  - tp: bcpst/1_probabilites/simulation.ipynb
+  - tp: bcpst/3_population/population.ipynb
+  - tp: bcpst/4_euler/euler.ipynb
+  - tp: bcpst/5_dessin/tp5_dessin.ipynb
+  - tp: bcpst/6_applications_math/applications_math.ipynb
+  - tp: bcpst/7_wordle/wordle.ipynb
+  - tp: bcpst/8_adn/bioinformatique.ipynb
+  - tp: bcpst/9_image/9_image.ipynb
+  - tp: bcpst/9_automate_cellulaire/automate_cellulaire.ipynb
+  - tp: bcpst/basket.ipynb
   - file: 6_sql/sql.md
+  - file: 13_sql/sqlzoo.md
