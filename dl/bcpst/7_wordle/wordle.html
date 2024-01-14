@@ -172,7 +172,12 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../../6_sql/sql.html">
-   TP 12 et 13 : SQL
+   TP 12 : SQL
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../13_sql/sqlzoo.html">
+   TP 13 : SQL Zoo
   </a>
  </li>
 </ul>
@@ -587,16 +592,6 @@ c
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">appartient(c,</span> <span class="pre">s)</span></code> qui renvoie <code class="docutils literal notranslate"><span class="pre">True</span></code> si le caractère <code class="docutils literal notranslate"><span class="pre">c</span></code> appartient à la chaîne de caractères <code class="docutils literal notranslate"><span class="pre">s</span></code> et <code class="docutils literal notranslate"><span class="pre">False</span></code> sinon.</p>
 </div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">appartient</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">c2</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">c</span> <span class="o">==</span> <span class="n">c2</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">True</span>
-    <span class="k">return</span> <span class="kc">False</span>
-</pre></div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">appartient</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;abc&quot;</span><span class="p">)</span> <span class="c1"># True</span>
@@ -628,34 +623,9 @@ c
 <p class="admonition-title">Question</p>
 <p>Récupérer la liste des mots dans une variable <code class="docutils literal notranslate"><span class="pre">mots</span></code>. Combien y a t-il de mots ?</p>
 </div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mots</span> <span class="o">=</span> <span class="n">telecharger_mots</span><span class="p">()</span>
-<span class="nb">len</span><span class="p">(</span><span class="n">mots</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">20886</span>
-
-</pre></div>
-</div>
-</div>
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
 <p>Dans le jeu de Wordle, les mots doivent être de taille <span class="math notranslate nohighlight">\(5\)</span>. Définir une liste <code class="docutils literal notranslate"><span class="pre">mots5</span></code> contenant les mots de taille <span class="math notranslate nohighlight">\(5\)</span>. Combien y a t-il de mots de taille <span class="math notranslate nohighlight">\(5\)</span> ?</p>
-</div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mots5</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">mot</span> <span class="ow">in</span> <span class="n">mots</span><span class="p">:</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">mot</span><span class="p">)</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
-        <span class="n">mots5</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mot</span><span class="p">)</span>
-<span class="nb">len</span><span class="p">(</span><span class="n">mots5</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1845</span>
-
-</pre></div>
-</div>
 </div>
 </section>
 <section id="simulation">
@@ -664,14 +634,6 @@ c
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">mot_aleatoire</span></code> qui renvoie un mot choisi au hasard dans la liste <code class="docutils literal notranslate"><span class="pre">mots5</span></code>. On pourra utiliser <code class="docutils literal notranslate"><span class="pre">random.randrange(n)</span></code> pour générer un entier aléatoire entre <span class="math notranslate nohighlight">\(0\)</span> et <span class="math notranslate nohighlight">\(n-1\)</span>.</p>
-</div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
-<span class="k">def</span> <span class="nf">mot_aleatoire</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">L</span><span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mots5</span><span class="p">))]</span>
-</pre></div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -688,13 +650,6 @@ c
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">valide(mot)</span></code> qui renvoie <code class="docutils literal notranslate"><span class="pre">True</span></code> si le mot <code class="docutils literal notranslate"><span class="pre">mot</span></code> est dans la liste <code class="docutils literal notranslate"><span class="pre">mots5</span></code>. Sinon, elle renvoie <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
-</div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">valide</span><span class="p">(</span><span class="n">mot</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">mot</span> <span class="ow">in</span> <span class="n">mots5</span>
-</pre></div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -713,21 +668,6 @@ True
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">reponse(mot,</span> <span class="pre">proposition)</span></code> qui renvoie une chaîne de caractères correspondant aux lettres correctes de la proposition par rapport au mot à deviner. On mettra <code class="docutils literal notranslate"><span class="pre">_</span></code> si la lettre de <code class="docutils literal notranslate"><span class="pre">proposition</span></code> n’est pas dans <code class="docutils literal notranslate"><span class="pre">mot</span></code> et <code class="docutils literal notranslate"><span class="pre">*</span></code> si elle y est mais mal placée.</p>
-</div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">reponse</span><span class="p">(</span><span class="n">mot</span><span class="p">,</span> <span class="n">proposition</span><span class="p">):</span>
-    <span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">proposition</span><span class="p">)):</span>
-        <span class="k">if</span> <span class="n">proposition</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">mot</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
-            <span class="n">s</span> <span class="o">+=</span> <span class="n">proposition</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-        <span class="k">elif</span> <span class="n">proposition</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">in</span> <span class="n">mot</span><span class="p">:</span>
-            <span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;*&quot;</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;_&quot;</span>
-    <span class="k">return</span> <span class="n">s</span>
-</pre></div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -750,23 +690,6 @@ True
 <li><p>Tant que l’utilisateur n’a pas trouvé le mot à chercher, demander à l’utilisateur de proposer un mot et afficher la réponse (avec <code class="docutils literal notranslate"><span class="pre">print</span></code>). Le mot proposé par l’utilisateur doit être valide (dans <code class="docutils literal notranslate"><span class="pre">mots5</span></code>).</p></li>
 </ul>
 </div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">jeu</span><span class="p">():</span>
-    <span class="n">mot</span> <span class="o">=</span> <span class="n">mot_aleatoire</span><span class="p">(</span><span class="n">mots5</span><span class="p">)</span>
-    <span class="n">proposition</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-    <span class="k">while</span> <span class="n">proposition</span> <span class="o">!=</span> <span class="n">mot</span><span class="p">:</span>
-        <span class="n">proposition</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Proposition : &quot;</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">valide</span><span class="p">(</span><span class="n">proposition</span><span class="p">):</span>
-            <span class="nb">print</span><span class="p">(</span><span class="n">proposition</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">reponse</span><span class="p">(</span><span class="n">mot</span><span class="p">,</span> <span class="n">proposition</span><span class="p">))</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mot invalide. Recommencez.&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Bravo !&quot;</span><span class="p">)</span>
-
-<span class="n">jeu</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
 </section>
 <section id="resolution-par-l-ordinateur">
 <h2>Résolution par l’ordinateur<a class="headerlink" href="#resolution-par-l-ordinateur" title="Permalink to this headline">#</a></h2>
@@ -774,17 +697,6 @@ True
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">possibles(L,</span> <span class="pre">proposition,</span> <span class="pre">rep)</span></code> qui conserve uniquement les mots <code class="docutils literal notranslate"><span class="pre">m</span></code> de la liste <code class="docutils literal notranslate"><span class="pre">L</span></code> qui donnent la même réponse que <code class="docutils literal notranslate"><span class="pre">proposition</span></code> si on les compare à <code class="docutils literal notranslate"><span class="pre">rep</span></code>, c’est-à-dire tels que <code class="docutils literal notranslate"><span class="pre">reponse(m,</span> <span class="pre">proposition)</span> <span class="pre">==</span> <span class="pre">rep</span></code>.</p>
-</div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">possibles</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">proposition</span><span class="p">,</span> <span class="n">rep</span><span class="p">):</span>
-    <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">mot</span> <span class="ow">in</span> <span class="n">L</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">reponse</span><span class="p">(</span><span class="n">mot</span><span class="p">,</span> <span class="n">proposition</span><span class="p">)</span> <span class="o">==</span> <span class="n">rep</span><span class="p">:</span>
-            <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mot</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">res</span>
-</pre></div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -809,56 +721,13 @@ True
 <p>On renverra le nombre de coups nécessaires pour trouver le mot.<br />
 Pour tester, on pourra utiliser https://wordle.louan.me.</p>
 </div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">resolution</span><span class="p">():</span>
-    <span class="n">L</span> <span class="o">=</span> <span class="n">mots5</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="n">proposition</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
-        <span class="n">rep</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Réponse pour &quot;</span> <span class="o">+</span> <span class="n">proposition</span> <span class="o">+</span> <span class="s2">&quot; : &quot;</span><span class="p">)</span>
-        <span class="n">L</span> <span class="o">=</span> <span class="n">possibles</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">proposition</span><span class="p">,</span> <span class="n">rep</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Le mot est&quot;</span><span class="p">,</span> <span class="n">L</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-    <span class="k">return</span> <span class="n">n</span>
-</pre></div>
-</div>
-</div>
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
 <p>Plutôt que de donner la réponse à la main, on peut faire jouer l’ordinateur contre lui-même. Écrire une fonction <code class="docutils literal notranslate"><span class="pre">resolution2(mot)</span></code> en utilisant <code class="docutils literal notranslate"><span class="pre">reponse(mot,</span> <span class="pre">proposition)</span></code> à chaque proposition de l’ordinateur (au lieu de <code class="docutils literal notranslate"><span class="pre">input</span></code>).</p>
 </div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">resolution2</span><span class="p">(</span><span class="n">mot</span><span class="p">):</span>
-    <span class="n">L</span> <span class="o">=</span> <span class="n">mots5</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="n">proposition</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
-        <span class="n">rep</span> <span class="o">=</span> <span class="n">reponse</span><span class="p">(</span><span class="n">mot</span><span class="p">,</span> <span class="n">proposition</span><span class="p">)</span>
-        <span class="n">L</span> <span class="o">=</span> <span class="n">possibles</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">proposition</span><span class="p">,</span> <span class="n">rep</span><span class="p">)</span>
-    <span class="c1"># print(&quot;Le mot est&quot;, L[0])</span>
-    <span class="k">return</span> <span class="n">n</span>
-</pre></div>
-</div>
-</div>
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">nombre_coups(n)</span></code> qui appelle <code class="docutils literal notranslate"><span class="pre">resolution2</span></code> <span class="math notranslate nohighlight">\(n\)</span> fois (sur des mots choisis aléatoirement) et renvoie le nombre moyen de coups nécessaires pour trouver le mot.</p>
-</div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">nombre_coups</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="n">coups</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-        <span class="n">mot</span> <span class="o">=</span> <span class="n">mot_aleatoire</span><span class="p">(</span><span class="n">mots5</span><span class="p">)</span>
-        <span class="n">coups</span> <span class="o">+=</span> <span class="n">resolution2</span><span class="p">(</span><span class="n">mot</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">coups</span> <span class="o">/</span> <span class="n">n</span>
-
-<span class="n">nombre_coups</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
-</pre></div>
-</div>
 </div>
 </section>
 <section id="amelioration-avec-une-heuristique">
@@ -869,13 +738,6 @@ Pour cela, nous allons utiliser une heuristique (c’est-à-dire une méthode qu
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">numero_lettre(lettre)</span></code> qui renvoie le numéro de la lettre dans l’alphabet (de <span class="math notranslate nohighlight">\(0\)</span> à <span class="math notranslate nohighlight">\(25\)</span>). Par exemple, <code class="docutils literal notranslate"><span class="pre">numero_lettre(&quot;a&quot;)</span></code> renvoie <span class="math notranslate nohighlight">\(0\)</span> et <code class="docutils literal notranslate"><span class="pre">numero_lettre(&quot;z&quot;)</span></code> renvoie <span class="math notranslate nohighlight">\(25\)</span>.<br />
 On utilisera <code class="docutils literal notranslate"><span class="pre">ord(c)</span></code> qui renvoie le code ASCII d’une lettre <code class="docutils literal notranslate"><span class="pre">c</span></code> (par exemple, <code class="docutils literal notranslate"><span class="pre">ord(&quot;a&quot;)</span></code> renvoie <span class="math notranslate nohighlight">\(97\)</span>).</p>
-</div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">numero_lettre</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
-    <span class="k">return</span> <span class="nb">ord</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">-</span> <span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -893,19 +755,6 @@ On utilisera <code class="docutils literal notranslate"><span class="pre">ord(c)
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">compter</span></code> telle que, si <code class="docutils literal notranslate"><span class="pre">L</span></code> est une liste de mots, <code class="docutils literal notranslate"><span class="pre">compter(L)</span></code> renvoie une matrice <code class="docutils literal notranslate"><span class="pre">C</span></code> de taille <span class="math notranslate nohighlight">\(26 \times 5\)</span> telle que <code class="docutils literal notranslate"><span class="pre">C[i][j]</span></code> est le nombre de mots de <code class="docutils literal notranslate"><span class="pre">L</span></code> qui contiennent la lettre numéro <span class="math notranslate nohighlight">\(i\)</span> à la position <span class="math notranslate nohighlight">\(j\)</span>.<br />
 Par exemple, <code class="docutils literal notranslate"><span class="pre">C[1][3]</span></code> doit être le nombre de mots de <code class="docutils literal notranslate"><span class="pre">L</span></code> qui ont la lettre numéro <code class="docutils literal notranslate"><span class="pre">1</span></code> (c’est-à-dire <span class="math notranslate nohighlight">\(b\)</span>) en position <code class="docutils literal notranslate"><span class="pre">3</span></code>.</p>
-</div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="k">def</span> <span class="nf">compter</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
-    <span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">26</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-    <span class="k">for</span> <span class="n">mot</span> <span class="ow">in</span> <span class="n">L</span><span class="p">:</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mot</span><span class="p">)):</span>
-            <span class="n">C</span><span class="p">[</span><span class="n">numero_lettre</span><span class="p">(</span><span class="n">mot</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="n">C</span>
-</pre></div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -948,68 +797,17 @@ Par exemple, <code class="docutils literal notranslate"><span class="pre">C[1][3
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">heuristique(C,</span> <span class="pre">mot)</span></code> qui renvoie la somme de <code class="docutils literal notranslate"><span class="pre">C[c][i]</span></code> pour chaque lettre <code class="docutils literal notranslate"><span class="pre">c</span></code> à la position <code class="docutils literal notranslate"><span class="pre">i</span></code> de <code class="docutils literal notranslate"><span class="pre">mot</span></code>, où <code class="docutils literal notranslate"><span class="pre">C</span></code> est la matrice renvoyée par <code class="docutils literal notranslate"><span class="pre">compter</span></code>.</p>
 </div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">heuristique</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">mot</span><span class="p">):</span>
-    <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-        <span class="n">res</span> <span class="o">+=</span> <span class="n">C</span><span class="p">[</span><span class="n">mot</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="n">i</span><span class="p">]</span>
-    <span class="k">return</span> <span class="n">res</span>
-</pre></div>
-</div>
-</div>
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">meilleure_proposition(L)</span></code> qui renvoie la proposition qui a la plus grande valeur de <code class="docutils literal notranslate"><span class="pre">heuristique(C,</span> <span class="pre">mot)</span></code> pour chaque mot <code class="docutils literal notranslate"><span class="pre">mot</span></code> de <code class="docutils literal notranslate"><span class="pre">L</span></code>, où <code class="docutils literal notranslate"><span class="pre">C</span></code> est la matrice renvoyée par <code class="docutils literal notranslate"><span class="pre">compter(L)</span></code>.</p>
-</div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">meilleure_proposition</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
-    <span class="n">C</span> <span class="o">=</span> <span class="n">compter</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
-    <span class="n">maxi</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">mot</span> <span class="ow">in</span> <span class="n">L</span><span class="p">:</span>
-        <span class="n">h</span> <span class="o">=</span> <span class="n">heuristique</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">mot</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">h</span> <span class="o">&gt;</span> <span class="n">maxi</span><span class="p">:</span>
-            <span class="n">maxi</span> <span class="o">=</span> <span class="n">h</span>
-            <span class="n">proposition</span> <span class="o">=</span> <span class="n">mot</span>
-    <span class="k">return</span> <span class="n">proposition</span>
-</pre></div>
-</div>
 </div>
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">resolution3(mot)</span></code> qui utilise <code class="docutils literal notranslate"><span class="pre">meilleure_proposition</span></code> pour proposer une solution.</p>
 </div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">resolution3</span><span class="p">(</span><span class="n">mot</span><span class="p">):</span>
-    <span class="n">L</span> <span class="o">=</span> <span class="n">mots5</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="n">proposition</span> <span class="o">=</span> <span class="n">meilleure_proposition</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
-        <span class="n">rep</span> <span class="o">=</span> <span class="n">reponse</span><span class="p">(</span><span class="n">mot</span><span class="p">,</span> <span class="n">proposition</span><span class="p">)</span>
-        <span class="n">L</span> <span class="o">=</span> <span class="n">possibles</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">proposition</span><span class="p">,</span> <span class="n">rep</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">n</span>
-</pre></div>
-</div>
-</div>
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">nombre_coups3(n)</span></code> qui appelle <code class="docutils literal notranslate"><span class="pre">resolution3</span></code> <span class="math notranslate nohighlight">\(n\)</span> fois (sur des mots choisis aléatoirement) et renvoie le nombre moyen de coups nécessaires pour trouver le mot. Comparer avec <code class="docutils literal notranslate"><span class="pre">resolution2</span></code>.</p>
-</div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">nombre_coups</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="n">coups</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-        <span class="n">mot</span> <span class="o">=</span> <span class="n">mot_aleatoire</span><span class="p">(</span><span class="n">mots5</span><span class="p">)</span>
-        <span class="n">coups</span> <span class="o">+=</span> <span class="n">resolution3</span><span class="p">(</span><span class="n">mot</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">coups</span> <span class="o">/</span> <span class="n">n</span>
-
-<span class="n">nombre_coups</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
-</pre></div>
-</div>
 </div>
 </section>
 </section>

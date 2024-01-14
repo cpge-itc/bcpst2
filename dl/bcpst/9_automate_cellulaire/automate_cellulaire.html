@@ -172,7 +172,12 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../../6_sql/sql.html">
-   TP 12 et 13 : SQL
+   TP 12 : SQL
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../13_sql/sqlzoo.html">
+   TP 13 : SQL Zoo
   </a>
  </li>
 </ul>
@@ -530,16 +535,6 @@ title="Print to PDF"
 <p class="admonition-title">Exercice</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">identite</span></code> telle que <code class="docutils literal notranslate"><span class="pre">identite(n)</span></code> renvoie une matrice identité de taille <span class="math notranslate nohighlight">\(n\times n\)</span>.</p>
 </div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">identite</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="n">I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-        <span class="n">I</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="n">I</span>
-</pre></div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">identite</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
@@ -605,17 +600,6 @@ title="Print to PDF"
 <p class="admonition-title">Exercice</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">trace</span></code> pour calculer la trace d’une matrice, c’est-à-dire la somme des éléments sur la diagonale.</p>
 </div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">trace</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
-    <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">)):</span>
-        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">])):</span>
-            <span class="n">s</span> <span class="o">+=</span> <span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
-    <span class="k">return</span> <span class="n">s</span>
-</pre></div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trace</span><span class="p">(</span><span class="n">identite</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
@@ -637,29 +621,9 @@ title="Print to PDF"
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">bernouilli(p)</span></code> renvoyant <span class="math notranslate nohighlight">\(1\)</span> avec une probabilité <span class="math notranslate nohighlight">\(p\)</span> et <span class="math notranslate nohighlight">\(0\)</span> avec une probabilité <span class="math notranslate nohighlight">\(1 - p\)</span>.<br />
 On utilisera <code class="docutils literal notranslate"><span class="pre">np.random.rand()</span></code> pour générer un nombre aléatoire entre 0 et 1</p>
 </div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">bernouilli</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">p</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="mi">0</span>
-</pre></div>
-</div>
-</div>
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">compter(L,</span> <span class="pre">e)</span></code> qui renvoie le nombre d’occurrences de l’élément <code class="docutils literal notranslate"><span class="pre">e</span></code> dans la liste <code class="docutils literal notranslate"><span class="pre">L</span></code>.</p>
-</div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">compter</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">e</span><span class="p">):</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">L</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="n">e</span><span class="p">:</span>
-            <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="n">n</span>
-</pre></div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -677,18 +641,6 @@ On utilisera <code class="docutils literal notranslate"><span class="pre">np.ran
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">matrice_aleatoire(n,</span> <span class="pre">p)</span></code> qui renvoie une matrice de taille <span class="math notranslate nohighlight">\(n \times n\)</span> dont chaque élément est égal à 1 avec une probabilité <span class="math notranslate nohighlight">\(p\)</span> et 0 sinon.<br />
 On utilisera <code class="docutils literal notranslate"><span class="pre">np.zeros((n,</span> <span class="pre">n),</span> <span class="pre">dtype=int)</span></code> pour créer une matrice de taille <span class="math notranslate nohighlight">\(n \times n\)</span> remplie de 0.</p>
-</div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">matrice_aleatoire</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
-    <span class="n">M</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">bernouilli</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
-                <span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="n">M</span>
-</pre></div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -710,19 +662,6 @@ On utilisera <code class="docutils literal notranslate"><span class="pre">np.zer
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">voisins(M,</span> <span class="pre">i,</span> <span class="pre">j)</span></code> qui renvoie la liste des <span class="math notranslate nohighlight">\(8\)</span> voisins de la case <code class="docutils literal notranslate"><span class="pre">(i,</span> <span class="pre">j)</span></code> de la matrice <code class="docutils literal notranslate"><span class="pre">M</span></code>. Il s’agit donc des valeurs en position <span class="math notranslate nohighlight">\((k, l)\)</span> où <span class="math notranslate nohighlight">\(k \in \{i-1, i, i+1\}\)</span>, <span class="math notranslate nohighlight">\(l \in \{j-1, j, j+1\}\)</span> et <span class="math notranslate nohighlight">\((k, l) \neq (i, j)\)</span>. On fera attention à ne pas dépasser de la matrice.</p>
-</div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">voisins</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="p">:</span>
-    <span class="n">n</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span>
-    <span class="n">L</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span> <span class="p">:</span>
-        <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span> <span class="p">:</span>
-            <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="ow">and</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">l</span> <span class="o">&lt;</span> <span class="n">p</span> <span class="ow">and</span> <span class="p">(</span><span class="n">k</span> <span class="o">!=</span> <span class="n">i</span> <span class="ow">or</span> <span class="n">l</span> <span class="o">!=</span> <span class="n">j</span><span class="p">):</span>
-                <span class="n">L</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">l</span><span class="p">])</span>
-    <span class="k">return</span> <span class="n">L</span>
-</pre></div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -749,20 +688,6 @@ On utilisera <code class="docutils literal notranslate"><span class="pre">np.zer
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">regle_jeu_vie(M,</span> <span class="pre">i,</span> <span class="pre">j)</span></code> qui renvoie l’état de la cellule <code class="docutils literal notranslate"><span class="pre">(i,</span> <span class="pre">j)</span></code> à l’étape suivante. On pourra réutiliser les fonctions <code class="docutils literal notranslate"><span class="pre">voisins</span></code> et <code class="docutils literal notranslate"><span class="pre">compter</span></code> écrites précédemment.</p>
 </div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">regle_jeu_vie</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="n">compter</span><span class="p">(</span><span class="n">voisins</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">or</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
-            <span class="k">return</span> <span class="mi">1</span>
-        <span class="k">return</span> <span class="mi">0</span>
-    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="mi">0</span>
-</pre></div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">regle_jeu_vie</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
@@ -781,18 +706,6 @@ On utilisera <code class="docutils literal notranslate"><span class="pre">np.zer
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">etape_jeu_vie(M)</span></code> qui renvoie la matrice correspondant à l’étape suivante du jeu de la vie.<br />
 Attention : il ne faut pas modifier <code class="docutils literal notranslate"><span class="pre">M</span></code>, mais renvoyer une nouvelle matrice.</p>
-</div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">etape_jeu_vie</span><span class="p">(</span><span class="n">M</span><span class="p">):</span>
-    <span class="n">n</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">shape</span>
-    <span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
-            <span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">regle_jeu_vie</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">B</span>
-</pre></div>
-</div>
 </div>
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
@@ -3725,7 +3638,7 @@ AAIAhBGAAABhBCAAQBgBCAAQRgACAIQRgAAAYQQgAEAYAQgAEEYAAgCEEYAAAGEEIABAGAEIABDm\
     }, 0);
   })()
 </script>
-</div><img alt="../../../_images/automate_cellulaire_39_1.png" src="../../../_images/automate_cellulaire_39_1.png" />
+</div><img alt="../../../_images/automate_cellulaire_31_1.png" src="../../../_images/automate_cellulaire_31_1.png" />
 </div>
 </div>
 </section>
@@ -3741,17 +3654,6 @@ AAIAhBGAAABhBCAAQBgBCAAQRgACAIQRgAAAYQQgAEAYAQgAEEYAAgCEEYAAAGEEIABAGAEIABDm\
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">voisin_brule(M,</span> <span class="pre">i,</span> <span class="pre">j)</span></code> qui renvoie <code class="docutils literal notranslate"><span class="pre">True</span></code> si la case <code class="docutils literal notranslate"><span class="pre">(i,</span> <span class="pre">j)</span></code> de la matrice <code class="docutils literal notranslate"><span class="pre">M</span></code> est adjacente à au moins une case contenant un arbre en train de brûler et <code class="docutils literal notranslate"><span class="pre">False</span></code> sinon.</p>
 </div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">voisin_brule</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="p">:</span>
-    <span class="n">L</span> <span class="o">=</span> <span class="n">voisins</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">L</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">e</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">True</span>
-    <span class="k">return</span> <span class="kc">False</span>
-</pre></div>
-</div>
-</div>
 <p>À chaque étape :</p>
 <ul class="simple">
 <li><p>Une case contenant un entier <span class="math notranslate nohighlight">\(t &gt; 1\)</span> devient <span class="math notranslate nohighlight">\(t-1\)</span> (arbre en train de brûler).</p></li>
@@ -3762,35 +3664,9 @@ AAIAhBGAAABhBCAAQBgBCAAQRgACAIQRgAAAYQQgAEAYAQgAEEYAAgCEEYAAAGEEIABAGAEIABDm\
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">regle_feu(M,</span> <span class="pre">i,</span> <span class="pre">j,</span> <span class="pre">p)</span></code> qui renvoie l’état de la case <code class="docutils literal notranslate"><span class="pre">(i,</span> <span class="pre">j)</span></code> à l’étape suivante, où <code class="docutils literal notranslate"><span class="pre">p</span></code> est la probabilité ci-dessus.</p>
 </div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">regle_feu</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
-    <span class="n">e</span> <span class="o">=</span> <span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
-    <span class="k">if</span> <span class="n">e</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">e</span> <span class="o">-</span> <span class="mi">1</span>
-    <span class="k">if</span> <span class="n">e</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">e</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
-        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
-    <span class="k">if</span> <span class="n">voisin_brule</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="ow">and</span> <span class="n">bernouilli</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">3</span>
-    <span class="k">return</span> <span class="mi">0</span>
-</pre></div>
-</div>
-</div>
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">etape_feu(M,</span> <span class="pre">p)</span></code> qui renvoie la matrice correspondant à l’étape suivante du feu de forêt. Attention : il ne faut pas modifier <code class="docutils literal notranslate"><span class="pre">M</span></code>, mais renvoyer une nouvelle matrice.</p>
-</div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">etape_feu</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
-    <span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-            <span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">regle_feu</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">B</span>
-</pre></div>
-</div>
 </div>
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
@@ -6608,7 +6484,7 @@ EYAAAMkIQACAZAQgAEAyAhAAIJn/B2IW08wQG3uRAAAAAElFTkSuQmCC\
     }, 0);
   })()
 </script>
-</div><img alt="../../../_images/automate_cellulaire_50_1.png" src="../../../_images/automate_cellulaire_50_1.png" />
+</div><img alt="../../../_images/automate_cellulaire_39_1.png" src="../../../_images/automate_cellulaire_39_1.png" />
 </div>
 </div>
 </section>

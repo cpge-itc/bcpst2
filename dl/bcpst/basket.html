@@ -56,7 +56,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="canonical" href="https://cpge-itc.github.io/bcpst2/dl/bcpst/basket.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="TP 12 et 13 : SQL" href="../../6_sql/sql.html" />
+    <link rel="next" title="TP 12 : SQL" href="../../6_sql/sql.html" />
     <link rel="prev" title="TP 10 : Automates cellulaires" href="9_automate_cellulaire/automate_cellulaire.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -172,7 +172,12 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../6_sql/sql.html">
-   TP 12 et 13 : SQL
+   TP 12 : SQL
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../13_sql/sqlzoo.html">
+   TP 13 : SQL Zoo
   </a>
  </li>
 </ul>
@@ -544,46 +549,11 @@ title="Print to PDF"
 <p class="admonition-title">Question</p>
 <p>Appliquer le principe fondamental de la dynamique sur le ballon pour exprimer <span class="math notranslate nohighlight">\(x(t)\)</span> et <span class="math notranslate nohighlight">\(y(t)\)</span> en fonction de <span class="math notranslate nohighlight">\(v_0\)</span>, <span class="math notranslate nohighlight">\(\alpha_0\)</span>, <span class="math notranslate nohighlight">\(t\)</span> et <span class="math notranslate nohighlight">\(g\)</span> (champ de pesanteur terrestre).</p>
 </div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<p>D’après le PFD :
-$<span class="math notranslate nohighlight">\(m\vec{a} = m \vec{g}\)</span><span class="math notranslate nohighlight">\(
-En projetant le PFD sur les axes \)</span>x<span class="math notranslate nohighlight">\( et \)</span>y$, on obtient :</p>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{align*}
-    a_x &amp;= 0\\
-    a_y &amp;= -g
-\end{align*}\]</div>
-<p>En intégrant :</p>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{align*}
-    v_x(t) &amp;= v_0 \cos(\alpha_0)\\
-    v_y(t) &amp;= v_0 \sin(\alpha_0) - gt
-\end{align*}\]</div>
-<p>En intégrant :</p>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{align*}
-    x(t) &amp;= v_0 \cos(\alpha_0) t\\
-    y(t) &amp;= v_0 \sin(\alpha_0) t - \frac{1}{2}gt^2
-\end{align*}\]</div>
-</div>
 <p>Dans la suite, on utilisera un pas <span class="math notranslate nohighlight">\(\Delta t = 0.01\)</span> et <span class="math notranslate nohighlight">\(g = 9.81\)</span>.</p>
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">trajectoire(v0,</span> <span class="pre">a0)</span></code> renvoyant deux listes <code class="docutils literal notranslate"><span class="pre">x</span></code> et <code class="docutils literal notranslate"><span class="pre">y</span></code> telles que <code class="docutils literal notranslate"><span class="pre">x[k]</span></code> et <code class="docutils literal notranslate"><span class="pre">y[k]</span></code> sont les coordonnées du ballon à l’instant <span class="math notranslate nohighlight">\(k \times \Delta t\)</span>. On arrêtera la trajectoire lorsque le ballon touche le sol.<br />
 On pourra utiliser <code class="docutils literal notranslate"><span class="pre">np.cos</span></code> et <code class="docutils literal notranslate"><span class="pre">np.sin</span></code>.</p>
-</div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">trajectoire</span><span class="p">(</span><span class="n">v0</span><span class="p">,</span> <span class="n">a0</span><span class="p">):</span>
-    <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">g</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">9.81</span>
-    <span class="k">while</span> <span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">t</span> <span class="o">+=</span> <span class="n">dt</span>
-        <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">a0</span><span class="p">)</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
-        <span class="n">y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">a0</span><span class="p">)</span><span class="o">*</span><span class="n">t</span> <span class="o">-</span> <span class="mf">.5</span><span class="o">*</span><span class="n">g</span><span class="o">*</span><span class="n">t</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
-</pre></div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -630,27 +600,13 @@ On pourra utiliser <code class="docutils literal notranslate"><span class="pre">
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/basket_11_0.png" src="../../_images/basket_11_0.png" />
+<img alt="../../_images/basket_9_0.png" src="../../_images/basket_9_0.png" />
 </div>
 </div>
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">resultat</span></code> telle que, si <code class="docutils literal notranslate"><span class="pre">x</span></code> et <code class="docutils literal notranslate"><span class="pre">y</span></code> sont des listes correspondant à une trajectoire (comme renvoyé par <code class="docutils literal notranslate"><span class="pre">trajectoire</span></code>) et <code class="docutils literal notranslate"><span class="pre">p</span></code> les coordonnées du panier, <code class="docutils literal notranslate"><span class="pre">resultat(x,</span> <span class="pre">y,</span> <span class="pre">p)</span></code> renvoie <code class="docutils literal notranslate"><span class="pre">0</span></code> si le ballon rentre dans le panier, <code class="docutils literal notranslate"><span class="pre">1</span></code> si le ballon a été lancé trop fort et <code class="docutils literal notranslate"><span class="pre">-1</span></code> s’il n’a pas été lancé assez fort.<br />
 Pour cela, on cherchera dans <code class="docutils literal notranslate"><span class="pre">y</span></code> un indice <code class="docutils literal notranslate"><span class="pre">i</span></code> tel que <code class="docutils literal notranslate"><span class="pre">y[i]</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">p[1]</span></code> et <code class="docutils literal notranslate"><span class="pre">y[i+1]</span></code> &lt; <code class="docutils literal notranslate"><span class="pre">p[1]</span></code>. On considère que le ballon est rentré dans le panier si <code class="docutils literal notranslate"><span class="pre">abs(x[i]</span> <span class="pre">-</span> <span class="pre">p[0])</span> <span class="pre">&lt;</span> <span class="pre">0.5</span></code>, que le ballon a été lancé trop fort si <code class="docutils literal notranslate"><span class="pre">x[i]</span> <span class="pre">&gt;</span> <span class="pre">p[0]</span></code> et pas assez fort sinon.</p>
-</div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">resultat</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>
-        <span class="k">if</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">and</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
-            <span class="n">dx</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-            <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">dx</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">:</span>
-                <span class="k">return</span> <span class="mi">0</span>
-            <span class="k">if</span> <span class="n">dx</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span> <span class="k">return</span> <span class="mi">1</span>
-            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
-    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
-</pre></div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -693,7 +649,7 @@ Pour cela, on cherchera dans <code class="docutils literal notranslate"><span cl
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/basket_17_0.png" src="../../_images/basket_17_0.png" />
+<img alt="../../_images/basket_14_0.png" src="../../_images/basket_14_0.png" />
 </div>
 </div>
 </section>
@@ -707,16 +663,6 @@ Une première approche consiste à tester beaucoup de valeurs en espérant tombe
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">brute(a0,</span> <span class="pre">p)</span></code> qui teste toutes les valeurs de <span class="math notranslate nohighlight">\(v_0\)</span> comprises entre 0 et 15 par pas de 0.01 et renvoie le premier <span class="math notranslate nohighlight">\(v_0\)</span> qui permet de marquer un panier.</p>
 </div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">brute</span><span class="p">(</span><span class="n">a0</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1500</span><span class="p">):</span>
-        <span class="n">v0</span> <span class="o">=</span> <span class="n">i</span> <span class="o">/</span> <span class="mi">100</span>
-        <span class="k">if</span> <span class="n">resultat</span><span class="p">(</span><span class="o">*</span><span class="n">trajectoire</span><span class="p">(</span><span class="n">v0</span><span class="p">,</span> <span class="n">a0</span><span class="p">),</span> <span class="n">p</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">v0</span>
-</pre></div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">afficher</span><span class="p">(</span><span class="n">brute</span><span class="p">(</span><span class="n">a0</span><span class="p">,</span> <span class="n">p</span><span class="p">),</span> <span class="n">a0</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
@@ -724,7 +670,7 @@ Une première approche consiste à tester beaucoup de valeurs en espérant tombe
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/basket_21_0.png" src="../../_images/basket_21_0.png" />
+<img alt="../../_images/basket_17_0.png" src="../../_images/basket_17_0.png" />
 </div>
 </div>
 </section>
@@ -742,23 +688,6 @@ Une première approche consiste à tester beaucoup de valeurs en espérant tombe
 <p class="admonition-title">Exercice</p>
 <p>Ecrire une fonction <code class="docutils literal notranslate"><span class="pre">dichotomie(a0,</span> <span class="pre">p)</span></code> implémentant cet algorithme.</p>
 </div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dichotomie</span><span class="p">(</span><span class="n">a0</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
-    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">15</span>
-    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-        <span class="n">v0</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
-        <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">trajectoire</span><span class="p">(</span><span class="n">v0</span><span class="p">,</span> <span class="n">a0</span><span class="p">)</span>
-        <span class="n">r</span> <span class="o">=</span> <span class="n">resultat</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">r</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">v0</span>
-        <span class="k">elif</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">a</span> <span class="o">=</span> <span class="n">v0</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">b</span> <span class="o">=</span> <span class="n">v0</span>
-</pre></div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">afficher</span><span class="p">(</span><span class="n">dichotomie</span><span class="p">(</span><span class="n">a0</span><span class="p">,</span> <span class="n">p</span><span class="p">),</span> <span class="n">a0</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
@@ -766,7 +695,7 @@ Une première approche consiste à tester beaucoup de valeurs en espérant tombe
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/basket_26_0.png" src="../../_images/basket_26_0.png" />
+<img alt="../../_images/basket_21_0.png" src="../../_images/basket_21_0.png" />
 </div>
 </div>
 </section>
@@ -786,13 +715,6 @@ Une première approche consiste à tester beaucoup de valeurs en espérant tombe
 <p class="admonition-title">Question</p>
 <p>En déduire une fonction <code class="docutils literal notranslate"><span class="pre">equation(a0,</span> <span class="pre">p)</span></code> qui renvoie la vitesse initiale <span class="math notranslate nohighlight">\(v_0\)</span> permettant de marquer un panier.</p>
 </div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">equation</span><span class="p">(</span><span class="n">a0</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">(</span><span class="mf">9.81</span><span class="o">*</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">a0</span><span class="p">)</span> <span class="o">-</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">])))</span><span class="o">**</span><span class="mf">.5</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">a0</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">afficher</span><span class="p">(</span><span class="n">equation</span><span class="p">(</span><span class="n">a0</span><span class="p">,</span> <span class="n">p</span><span class="p">),</span> <span class="n">a0</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
@@ -800,7 +722,7 @@ Une première approche consiste à tester beaucoup de valeurs en espérant tombe
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/basket_31_0.png" src="../../_images/basket_31_0.png" />
+<img alt="../../_images/basket_25_0.png" src="../../_images/basket_25_0.png" />
 </div>
 </div>
 </section>
@@ -828,21 +750,6 @@ On calcule alors <span class="math notranslate nohighlight">\(x(t + \Delta t)\)<
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">trajectoire2(v0,</span> <span class="pre">a0,</span> <span class="pre">p)</span></code> renvoyant des listes <code class="docutils literal notranslate"><span class="pre">x</span></code> et <code class="docutils literal notranslate"><span class="pre">y</span></code> correspondant à la trajectoire du ballon, avec éventuellement un rebond sur le panneau du panier. On arrêtera la trajectoire lorsque le ballon touche le sol.</p>
 <p>Tester ensuite avec la fonction ci-dessous.</p>
 </div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">trajectoire2</span><span class="p">(</span><span class="n">v0</span><span class="p">,</span> <span class="n">a0</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
-    <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">g</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">9.81</span>
-    <span class="n">s</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="k">while</span> <span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">t</span> <span class="o">+=</span> <span class="n">dt</span>
-        <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">s</span><span class="o">*</span><span class="n">v0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">a0</span><span class="p">)</span><span class="o">*</span><span class="n">dt</span><span class="p">)</span>
-        <span class="n">y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">a0</span><span class="p">)</span><span class="o">*</span><span class="n">t</span> <span class="o">-</span> <span class="mf">.5</span><span class="o">*</span><span class="n">g</span><span class="o">*</span><span class="n">t</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">rebond</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">p</span><span class="p">):</span>
-            <span class="n">s</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
-    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
-</pre></div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">afficher2</span><span class="p">(</span><span class="n">v0</span><span class="p">,</span> <span class="n">a0</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
@@ -863,7 +770,7 @@ On calcule alors <span class="math notranslate nohighlight">\(x(t + \Delta t)\)<
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/basket_36_0.png" src="../../_images/basket_36_0.png" />
+<img alt="../../_images/basket_29_0.png" src="../../_images/basket_29_0.png" />
 </div>
 </div>
 </section>
@@ -906,7 +813,7 @@ On calcule alors <span class="math notranslate nohighlight">\(x(t + \Delta t)\)<
     <a class='right-next' id="next-link" href="../../6_sql/sql.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">TP 12 et 13 : SQL</p>
+        <p class="prev-next-title">TP 12 : SQL</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

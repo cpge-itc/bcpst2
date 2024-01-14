@@ -172,7 +172,12 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../../6_sql/sql.html">
-   TP 12 et 13 : SQL
+   TP 12 : SQL
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../13_sql/sqlzoo.html">
+   TP 13 : SQL Zoo
   </a>
  </li>
 </ul>
@@ -501,13 +506,6 @@ On rappelle que si <code class="docutils literal notranslate"><span class="pre">
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">conjugue(z)</span></code> qui renvoie le complexe conjugué de <code class="docutils literal notranslate"><span class="pre">z</span></code>.</p>
 </div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">conjugue</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">z</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">-</span><span class="n">z</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">conjugue</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
@@ -523,13 +521,6 @@ On rappelle que si <code class="docutils literal notranslate"><span class="pre">
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">module(z)</span></code> qui renvoie le module du nombre complexe <code class="docutils literal notranslate"><span class="pre">z</span></code>.</p>
-</div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">module</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">z</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">z</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span>
-</pre></div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -547,13 +538,6 @@ On rappelle que si <code class="docutils literal notranslate"><span class="pre">
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">somme(z1,</span> <span class="pre">z2)</span></code> qui renvoie la somme des nombres complexes <code class="docutils literal notranslate"><span class="pre">z1</span></code> et <code class="docutils literal notranslate"><span class="pre">z2</span></code>.</p>
 </div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">somme</span><span class="p">(</span><span class="n">z1</span><span class="p">,</span> <span class="n">z2</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">z1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">z2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">z1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">z2</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">somme</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
@@ -569,13 +553,6 @@ On rappelle que si <code class="docutils literal notranslate"><span class="pre">
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">produit(z1,</span> <span class="pre">z2)</span></code> qui renvoie le produit des nombres complexes <code class="docutils literal notranslate"><span class="pre">z1</span></code> et <code class="docutils literal notranslate"><span class="pre">z2</span></code>.</p>
-</div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">produit</span><span class="p">(</span><span class="n">z1</span><span class="p">,</span> <span class="n">z2</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">z1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">z2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">z1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">z2</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">z1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">z2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">z1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">z2</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-</pre></div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -593,16 +570,6 @@ On rappelle que si <code class="docutils literal notranslate"><span class="pre">
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">puissance(z,</span> <span class="pre">n)</span></code> qui renvoie le nombre complexe <code class="docutils literal notranslate"><span class="pre">z</span></code> à la puissance <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p>
 </div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">puissance</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">produit</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">puissance</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">puissance</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
@@ -619,15 +586,6 @@ On rappelle que si <code class="docutils literal notranslate"><span class="pre">
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">fraction(z1,</span> <span class="pre">z2)</span></code> qui renvoie le quotient des nombres complexes <code class="docutils literal notranslate"><span class="pre">z1</span></code> et <code class="docutils literal notranslate"><span class="pre">z2</span></code>. Il faut donc mettre ce nombre sous la forme d’un nombre complexe <span class="math notranslate nohighlight">\(a + ib\)</span>.<br />
 On pourra calculer à la main <span class="math notranslate nohighlight">\(\frac{a_1 + ib_1}{a_2 + ib_2}\)</span> en multipliant par la quantité conjuguée.</p>
-</div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fraction</span><span class="p">(</span><span class="n">z1</span><span class="p">,</span> <span class="n">z2</span><span class="p">):</span>
-    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">produit</span><span class="p">(</span><span class="n">z1</span><span class="p">,</span> <span class="p">(</span><span class="n">z2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">-</span><span class="n">z2</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
-    <span class="n">m</span> <span class="o">=</span> <span class="n">module</span><span class="p">(</span><span class="n">z2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">a</span><span class="o">/</span><span class="n">m</span><span class="p">,</span> <span class="n">b</span><span class="o">/</span><span class="n">m</span><span class="p">)</span>
-</pre></div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -649,16 +607,6 @@ On pourra calculer à la main <span class="math notranslate nohighlight">\(\frac
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">norme(v)</span></code> qui renvoie la norme du vecteur <code class="docutils literal notranslate"><span class="pre">v</span></code>. On rappelle que la norme (euclidienne) d’un vecteur <span class="math notranslate nohighlight">\(v = \begin{pmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{pmatrix}\)</span> est donnée par <span class="math notranslate nohighlight">\(\sqrt{v_1^2 + v_2^2 + \cdots + v_n^2}\)</span>.</p>
 </div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">norme</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">v</span><span class="p">:</span>
-        <span class="n">n</span> <span class="o">+=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
-    <span class="k">return</span> <span class="n">n</span><span class="o">**</span><span class="mf">0.5</span>
-</pre></div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">norme</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
@@ -674,16 +622,6 @@ On pourra calculer à la main <span class="math notranslate nohighlight">\(\frac
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">produit_scalaire(v1,</span> <span class="pre">v2)</span></code> qui renvoie le produit scalaire des vecteurs <code class="docutils literal notranslate"><span class="pre">v1</span></code> et <code class="docutils literal notranslate"><span class="pre">v2</span></code>.</p>
-</div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">produit_scalaire</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">):</span>
-    <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">v1</span><span class="p">)):</span>
-        <span class="n">s</span> <span class="o">+=</span> <span class="n">v1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">v2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-    <span class="k">return</span> <span class="n">s</span>
-</pre></div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -706,13 +644,6 @@ Remarque :</p>
 <li><p>Si <code class="docutils literal notranslate"><span class="pre">x</span></code> est un <code class="docutils literal notranslate"><span class="pre">float</span></code>, il ne faut pas tester si <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">==</span> <span class="pre">0</span></code> mais plutôt <code class="docutils literal notranslate"><span class="pre">abs(x)</span> <span class="pre">&lt;</span> <span class="pre">1e-10</span></code>, car les calculs sur les nombres flottants sont approchés (erreurs d’arrondis).</p></li>
 </ul>
 </div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">orthogonaux</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">produit_scalaire</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-10</span>
-</pre></div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">orthogonaux</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
@@ -734,13 +665,6 @@ Par exemple, <span class="math notranslate nohighlight">\(-2 + 7X^2 + X^3\)</spa
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">degre(P)</span></code> qui renvoie le degré d’un polynôme <code class="docutils literal notranslate"><span class="pre">P</span></code> (représenté par une liste).</p>
 </div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">degre</span><span class="p">(</span><span class="n">P</span><span class="p">):</span>
-    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">P</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
-</pre></div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">degre</span><span class="p">([</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
@@ -756,16 +680,6 @@ Par exemple, <span class="math notranslate nohighlight">\(-2 + 7X^2 + X^3\)</spa
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">evaluer(P,</span> <span class="pre">x)</span></code> qui renvoie la valeur <span class="math notranslate nohighlight">\(P(x)\)</span> du polynôme <code class="docutils literal notranslate"><span class="pre">P</span></code> en <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
-</div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">evaluer</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-    <span class="n">px</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">P</span><span class="p">)):</span>
-        <span class="n">px</span> <span class="o">+=</span> <span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="n">i</span>
-    <span class="k">return</span> <span class="n">px</span>
-</pre></div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -783,16 +697,6 @@ Par exemple, <span class="math notranslate nohighlight">\(-2 + 7X^2 + X^3\)</spa
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">derivee(P)</span></code> qui renvoie la dérivée du polynôme <code class="docutils literal notranslate"><span class="pre">P</span></code>.</p>
 </div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">derivee</span><span class="p">(</span><span class="n">P</span><span class="p">):</span>
-    <span class="n">dP</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">P</span><span class="p">)):</span>
-        <span class="n">dP</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">i</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">dP</span>
-</pre></div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">derivee</span><span class="p">([</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> <span class="c1"># P&#39;(x) = 14X + 3X^2</span>
@@ -808,22 +712,6 @@ Par exemple, <span class="math notranslate nohighlight">\(-2 + 7X^2 + X^3\)</spa
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">somme(P,</span> <span class="pre">Q)</span></code> qui renvoie la somme de deux polynômes <code class="docutils literal notranslate"><span class="pre">P</span></code> et <code class="docutils literal notranslate"><span class="pre">Q</span></code>.</p>
-</div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">somme</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">Q</span><span class="p">):</span>
-    <span class="n">PQ</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">P</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">Q</span><span class="p">))):</span>
-        <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">P</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">Q</span><span class="p">):</span>
-                <span class="n">PQ</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">Q</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">PQ</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">PQ</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Q</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-    <span class="k">return</span> <span class="n">PQ</span>
-</pre></div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -841,19 +729,6 @@ Par exemple, <span class="math notranslate nohighlight">\(-2 + 7X^2 + X^3\)</spa
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">produit(P,</span> <span class="pre">Q)</span></code> qui renvoie le produit <code class="docutils literal notranslate"><span class="pre">R</span></code> de deux polynômes <code class="docutils literal notranslate"><span class="pre">P</span></code> et <code class="docutils literal notranslate"><span class="pre">Q</span></code>. On rappelle que, si <span class="math notranslate nohighlight">\(P(X) = \sum a_k X^k\)</span> et <span class="math notranslate nohighlight">\(Q(X) = \sum b_k X^k\)</span>, alors <span class="math notranslate nohighlight">\(R(X) = \sum c_k X^k\)</span> où <span class="math notranslate nohighlight">\(c_k = \sum_{i+j=k} a_i b_j\)</span>.<br />
 On pourra commencer par créer une liste <code class="docutils literal notranslate"><span class="pre">R</span></code> contenant <span class="math notranslate nohighlight">\(\deg(P) + \deg(Q) + 1\)</span> zéros et, pour chaque coefficient <span class="math notranslate nohighlight">\(a_i\)</span> de <span class="math notranslate nohighlight">\(P\)</span> et <span class="math notranslate nohighlight">\(b_j\)</span> de <span class="math notranslate nohighlight">\(Q\)</span>, ajouter <span class="math notranslate nohighlight">\(a_i b_j\)</span> à <span class="math notranslate nohighlight">\(R[i+j]\)</span>.</p>
-</div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">produit</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">Q</span><span class="p">):</span>
-    <span class="n">R</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">P</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
-        <span class="n">R</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">P</span><span class="p">)):</span>
-        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Q</span><span class="p">)):</span>
-            <span class="n">R</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">Q</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
-    <span class="k">return</span> <span class="n">R</span>
-</pre></div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -878,20 +753,6 @@ On pourra commencer par créer une liste <code class="docutils literal notransla
 <center><img src=https://raw.githubusercontent.com/fortierq/tikz-pdf/main/math/integral/rectangle/rectangle.png width=50%></center><div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">methode_rectangle(f,</span> <span class="pre">a,</span> <span class="pre">b,</span> <span class="pre">n)</span></code> qui renvoie l’approximation de l’intégrale <span class="math notranslate nohighlight">\(\int_a^b f(x) \, dx\)</span> en utilisant la formule ci-dessus. Tester avec une fonction <code class="docutils literal notranslate"><span class="pre">carre</span></code> (à définir) et vérifier à la main.</p>
-</div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">methode_rectangle</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-    <span class="n">h</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="n">n</span>
-    <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-        <span class="n">s</span> <span class="o">+=</span> <span class="n">f</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">i</span><span class="o">*</span><span class="n">h</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">s</span><span class="o">*</span><span class="n">h</span>
-
-<span class="k">def</span> <span class="nf">carre</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
-</pre></div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -967,13 +828,6 @@ a_{n,1} &amp; a_{n,2} &amp; \cdots &amp; a_{n,n} &amp; b_n
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">dilatation</span></code> telle que <code class="docutils literal notranslate"><span class="pre">dilatation(M,</span> <span class="pre">i,</span> <span class="pre">a)</span></code> multiplie la ligne <code class="docutils literal notranslate"><span class="pre">i</span></code> de la matrice <code class="docutils literal notranslate"><span class="pre">M</span></code> par <code class="docutils literal notranslate"><span class="pre">a</span></code>, c’est à dire l’opération <span class="math notranslate nohighlight">\(L_i \leftarrow a L_i\)</span>.</p>
 </div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dilatation</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">l</span><span class="p">):</span>
-    <span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">l</span><span class="o">*</span><span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> 
-</pre></div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dilatation</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
@@ -992,13 +846,6 @@ a_{n,1} &amp; a_{n,2} &amp; \cdots &amp; a_{n,n} &amp; b_n
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">echange(M,</span> <span class="pre">i,</span> <span class="pre">j)</span></code> qui échange les lignes <code class="docutils literal notranslate"><span class="pre">i</span></code> et <code class="docutils literal notranslate"><span class="pre">j</span></code> de la matrice <code class="docutils literal notranslate"><span class="pre">M</span></code>, c’est à dire l’opération <span class="math notranslate nohighlight">\(L_i \leftrightarrow L_j\)</span>.</p>
-</div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">echange</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>
-    <span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">M</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">M</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span> <span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-</pre></div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1019,13 +866,6 @@ a_{n,1} &amp; a_{n,2} &amp; \cdots &amp; a_{n,n} &amp; b_n
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">transvection</span></code> telle que <code class="docutils literal notranslate"><span class="pre">transvection(M,</span> <span class="pre">i,</span> <span class="pre">j,</span> <span class="pre">a)</span></code> ajoute à la ligne <code class="docutils literal notranslate"><span class="pre">i</span></code> de la matrice <code class="docutils literal notranslate"><span class="pre">M</span></code> la ligne <code class="docutils literal notranslate"><span class="pre">j</span></code> multipliée par <code class="docutils literal notranslate"><span class="pre">a</span></code>, c’est à dire l’opération <span class="math notranslate nohighlight">\(L_i \leftarrow L_i + a L_j\)</span>.</p>
 </div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">transvection</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">l</span><span class="p">):</span>
-    <span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">l</span> <span class="o">*</span> <span class="n">M</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">transvection</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
@@ -1044,15 +884,6 @@ a_{n,1} &amp; a_{n,2} &amp; \cdots &amp; a_{n,n} &amp; b_n
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">pivot</span></code> telle que <code class="docutils literal notranslate"><span class="pre">pivot(M,</span> <span class="pre">j)</span></code> renvoie un pivot sur la <code class="docutils literal notranslate"><span class="pre">j</span></code>ème colonne, c’est à dire un indice <span class="math notranslate nohighlight">\(i \geq j\)</span> tel que l’élément <span class="math notranslate nohighlight">\(m_{i, j}\)</span> de <code class="docutils literal notranslate"><span class="pre">M</span></code> soit non nul.</p>
-</div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pivot</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">M</span><span class="p">)):</span>
-        <span class="k">if</span> <span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">i</span>
-</pre></div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1075,16 +906,6 @@ Il faut donc, pour chaque colonne <span class="math notranslate nohighlight">\(j
 <li><p>Pour toute ligne <span class="math notranslate nohighlight">\(i &gt; j\)</span>, effectuer une transvection de façon à mettre un 0 sur la ligne <span class="math notranslate nohighlight">\(i\)</span>, colonne <span class="math notranslate nohighlight">\(j\)</span> de <code class="docutils literal notranslate"><span class="pre">M</span></code>.</p></li>
 </ul>
 </div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">descente</span><span class="p">(</span><span class="n">M</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">M</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
-        <span class="n">echange</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">pivot</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">j</span><span class="p">))</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">M</span><span class="p">)):</span>
-            <span class="n">transvection</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="o">-</span><span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">/</span><span class="n">M</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">j</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">descente</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
@@ -1103,15 +924,6 @@ Il faut donc, pour chaque colonne <span class="math notranslate nohighlight">\(j
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
 <p>De façon similaire, écrire une fonction <code class="docutils literal notranslate"><span class="pre">remontee(M)</span></code> parcourant les colonnes de <code class="docutils literal notranslate"><span class="pre">M</span></code> de droite à gauche (sauf la dernière) en mettant des 0 au dessus de la diagonale. On supposera dans cette fonction que tous les coefficients diagonaux sont non nuls: il n’y a donc pas besoin d’appeller <code class="docutils literal notranslate"><span class="pre">pivot</span></code>.</p>
-</div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">remontee</span><span class="p">(</span><span class="n">M</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">M</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>
-            <span class="n">transvection</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="o">-</span><span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">/</span><span class="n">M</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">j</span><span class="p">])</span>
-</pre></div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1137,16 +949,6 @@ Il faut donc, pour chaque colonne <span class="math notranslate nohighlight">\(j
 <li><p>Mettre des <span class="math notranslate nohighlight">\(1\)</span> sur la diagonale de <code class="docutils literal notranslate"><span class="pre">M</span></code> avec des dilatations.</p></li>
 <li><p>La solution du système <span class="math notranslate nohighlight">\(AX = B\)</span> est alors donnée par la dernière colonne de <code class="docutils literal notranslate"><span class="pre">M</span></code>.</p></li>
 </ul>
-</div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gauss</span><span class="p">(</span><span class="n">M</span><span class="p">):</span>
-    <span class="n">descente</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
-    <span class="n">remontee</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">M</span><span class="p">)):</span>
-        <span class="n">dilatation</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">])</span>
-</pre></div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
