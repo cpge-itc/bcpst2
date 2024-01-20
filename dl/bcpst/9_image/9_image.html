@@ -588,6 +588,16 @@ title="Print to PDF"
 <p class="admonition-title">Exercice</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">identite</span></code> telle que <code class="docutils literal notranslate"><span class="pre">identite(n)</span></code> renvoie une matrice identité de taille <span class="math notranslate nohighlight">\(n\times n\)</span>.</p>
 </div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">identite</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">I</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">I</span>
+</pre></div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">identite</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
@@ -653,6 +663,17 @@ title="Print to PDF"
 <p class="admonition-title">Exercice</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">trace</span></code> pour calculer la trace d’une matrice, c’est-à-dire la somme des éléments sur la diagonale.</p>
 </div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">trace</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">)):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">])):</span>
+            <span class="n">s</span> <span class="o">+=</span> <span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">s</span>
+</pre></div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trace</span><span class="p">(</span><span class="n">identite</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
@@ -703,7 +724,7 @@ En Python, on utilise généralement un tableau <code class="docutils literal no
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/9_image_21_0.png" src="../../../_images/9_image_21_0.png" />
+<img alt="../../../_images/9_image_23_0.png" src="../../../_images/9_image_23_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -748,12 +769,29 @@ On accède à un pixel avec <code class="docutils literal notranslate"><span cla
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/9_image_26_0.png" src="../../../_images/9_image_26_0.png" />
+<img alt="../../../_images/9_image_28_0.png" src="../../../_images/9_image_28_0.png" />
 </div>
 </div>
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
 <p>Modifier le code précédent de façon à cacher la tour Part-Dieu (“tour crayon”), en mettant un rectangle bleu dessus.</p>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">m_red</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">250</span><span class="p">,</span> <span class="mi">300</span><span class="p">):</span>
+        <span class="n">m_red</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">])</span> <span class="c1"># on tous les pixels en rouge</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">m_red</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">Figure</span> <span class="n">size</span> <span class="mi">2000</span><span class="n">x800</span> <span class="k">with</span> <span class="mi">1</span> <span class="n">Axes</span><span class="o">&gt;</span>
+
+</pre></div>
+</div>
 </div>
 </section>
 <section id="inversion-des-couleurs">
@@ -773,6 +811,17 @@ On accède à un pixel avec <code class="docutils literal notranslate"><span cla
 </div>
 </div>
 </div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">inverse</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="c1"># pour éviter de modifier la matrice en dehors de la fonction</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">)):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">])):</span>
+            <span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="mi">255</span> <span class="o">-</span> <span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">m</span>
+</pre></div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">inverse</span><span class="p">(</span><span class="n">m</span><span class="p">))</span>
@@ -781,7 +830,7 @@ On accède à un pixel avec <code class="docutils literal notranslate"><span cla
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/9_image_31_0.png" src="../../../_images/9_image_31_0.png" />
+<img alt="../../../_images/9_image_35_0.png" src="../../../_images/9_image_35_0.png" />
 </div>
 </div>
 </section>
@@ -792,6 +841,17 @@ On accède à un pixel avec <code class="docutils literal notranslate"><span cla
 <p class="admonition-title">Exercice</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">rotation(m)</span></code> renvoie une matrice correspondant à la rotation de <code class="docutils literal notranslate"><span class="pre">m</span></code>. Il faut commencer par créer une nouvelle matrice avec <code class="docutils literal notranslate"><span class="pre">np.zeros((...,</span> <span class="pre">...,</span> <span class="pre">3),</span> <span class="pre">dtype=int)</span></code> avec les bonnes dimensions.</p>
 </div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">rotation</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">),</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">)):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">])):</span>
+            <span class="n">res</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">res</span>
+</pre></div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">rotation</span><span class="p">(</span><span class="n">m</span><span class="p">))</span>
@@ -800,7 +860,7 @@ On accède à un pixel avec <code class="docutils literal notranslate"><span cla
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/9_image_34_0.png" src="../../../_images/9_image_34_0.png" />
+<img alt="../../../_images/9_image_39_0.png" src="../../../_images/9_image_39_0.png" />
 </div>
 </div>
 </section>
@@ -823,6 +883,17 @@ On accède à un pixel avec <code class="docutils literal notranslate"><span cla
 </div>
 </div>
 </div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">niveau_gris</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">])),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">)):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">])):</span>
+            <span class="n">res</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]))</span>
+    <span class="k">return</span> <span class="n">res</span>
+</pre></div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">niveau_gris</span><span class="p">(</span><span class="n">m</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
@@ -831,7 +902,7 @@ On accède à un pixel avec <code class="docutils literal notranslate"><span cla
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/9_image_38_0.png" src="../../../_images/9_image_38_0.png" />
+<img alt="../../../_images/9_image_44_0.png" src="../../../_images/9_image_44_0.png" />
 </div>
 </div>
 </section>
@@ -842,6 +913,17 @@ On accède à un pixel avec <code class="docutils literal notranslate"><span cla
 <p class="admonition-title">Exercice</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">reduction(m,</span> <span class="pre">k)</span></code> renvoie une matrice correspondant au réduction de <code class="docutils literal notranslate"><span class="pre">m</span></code> par un facteur <code class="docutils literal notranslate"><span class="pre">k</span></code>.</p>
 </div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">reduction</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span> <span class="c1"># divise largeur et hauteur par k</span>
+    <span class="n">m_red</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">)</span><span class="o">//</span><span class="n">k</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">//</span><span class="n">k</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span> <span class="c1"># matrice de taille divisée par k</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">m_red</span><span class="p">)):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">m_red</span><span class="p">[</span><span class="mi">0</span><span class="p">])):</span>
+            <span class="n">m_red</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="o">*</span><span class="n">k</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">m_red</span>
+</pre></div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">reduction</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
@@ -850,12 +932,23 @@ On accède à un pixel avec <code class="docutils literal notranslate"><span cla
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/9_image_41_0.png" src="../../../_images/9_image_41_0.png" />
+<img alt="../../../_images/9_image_48_0.png" src="../../../_images/9_image_48_0.png" />
 </div>
 </div>
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
 <p>Faire de même pour augmenter la résolution de l’image. Il faut inverser <code class="docutils literal notranslate"><span class="pre">//</span></code> et <code class="docutils literal notranslate"><span class="pre">*</span></code> par rapport à la fonction précédente.</p>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">augmentation</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span> <span class="c1"># remarque : on pourrait juste appliquer la fonction précédente avec 1/k...</span>
+    <span class="n">m_red</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">)</span><span class="o">*</span><span class="n">k</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">*</span><span class="n">k</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span> <span class="c1"># matrice de taille divisée par k</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">m_red</span><span class="p">)):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">m_red</span><span class="p">[</span><span class="mi">0</span><span class="p">])):</span>
+            <span class="n">m_red</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="o">//</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="o">//</span><span class="n">k</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">m_red</span>
+</pre></div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -865,7 +958,7 @@ On accède à un pixel avec <code class="docutils literal notranslate"><span cla
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/9_image_43_0.png" src="../../../_images/9_image_43_0.png" />
+<img alt="../../../_images/9_image_51_0.png" src="../../../_images/9_image_51_0.png" />
 </div>
 </div>
 </section>
@@ -877,6 +970,20 @@ On accède à un pixel avec <code class="docutils literal notranslate"><span cla
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">moyenne</span></code> telle que, si <code class="docutils literal notranslate"><span class="pre">m</span></code> est une matrice, <code class="docutils literal notranslate"><span class="pre">moyenne(m,</span> <span class="pre">i,</span> <span class="pre">j)</span></code> renvoie la moyenne des <span class="math notranslate nohighlight">\(9\)</span> pixels adjacents autour de <code class="docutils literal notranslate"><span class="pre">m[i][j]</span></code> (c’est-à-dire de <code class="docutils literal notranslate"><span class="pre">m[i+1][j]</span></code>, <code class="docutils literal notranslate"><span class="pre">m[i-1][j]</span></code>…), sans prendre en compte les pixels sortants de l’image.</p>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">moyenne</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">moy</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]:</span>
+        <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="o">-</span><span class="mi">1</span> <span class="o">&lt;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="ow">and</span> <span class="o">-</span><span class="mi">1</span> <span class="o">&lt;</span> <span class="n">l</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+                <span class="n">moy</span> <span class="o">+=</span> <span class="n">m</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">l</span><span class="p">]</span>
+                <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">moy</span><span class="o">/</span><span class="n">n</span>
+</pre></div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -894,6 +1001,17 @@ On accède à un pixel avec <code class="docutils literal notranslate"><span cla
 <p class="admonition-title">Exercice</p>
 <p>En déduire une fonction <code class="docutils literal notranslate"><span class="pre">flou</span></code> telle que <code class="docutils literal notranslate"><span class="pre">flou(m)</span></code> renvoie une image obtenue en prenant la moyenne de chaque pixel dans <code class="docutils literal notranslate"><span class="pre">m</span></code>. Essayer d’appliquer plusieurs fois <code class="docutils literal notranslate"><span class="pre">flou</span></code>.</p>
 </div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">flou</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+    <span class="n">m_flou</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">)):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">])):</span>
+            <span class="n">m_flou</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">moyenne</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">m_flou</span>
+</pre></div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">flou</span><span class="p">(</span><span class="n">m</span><span class="p">))</span>
@@ -902,7 +1020,7 @@ On accède à un pixel avec <code class="docutils literal notranslate"><span cla
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/9_image_48_0.png" src="../../../_images/9_image_48_0.png" />
+<img alt="../../../_images/9_image_58_0.png" src="../../../_images/9_image_58_0.png" />
 </div>
 </div>
 </section>
@@ -919,6 +1037,17 @@ On accède à un pixel avec <code class="docutils literal notranslate"><span cla
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">detection_contours(m)</span></code> qui renvoie la matrice <code class="docutils literal notranslate"><span class="pre">m2</span></code> telle que <code class="docutils literal notranslate"><span class="pre">m2[i][j]</span></code> est la moyenne pondérée des pixels adjacents à <code class="docutils literal notranslate"><span class="pre">m[i][j]</span></code>.</p>
 </div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">detection_contours</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+    <span class="n">m_contours</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">)):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">])):</span>
+            <span class="n">m_contours</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="mi">9</span><span class="o">*</span><span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="mi">9</span><span class="o">*</span><span class="n">moyenne</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">m_contours</span>
+</pre></div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">detection_contours</span><span class="p">(</span><span class="n">m</span><span class="p">))</span>
@@ -930,7 +1059,7 @@ On accède à un pixel avec <code class="docutils literal notranslate"><span cla
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
 </pre></div>
 </div>
-<img alt="../../../_images/9_image_51_1.png" src="../../../_images/9_image_51_1.png" />
+<img alt="../../../_images/9_image_62_1.png" src="../../../_images/9_image_62_1.png" />
 </div>
 </div>
 <p>Le filtre de Sobel est un autre filtre, permettant spécifiquement de détecter les contours horizontaux et verticaux. Pour détecter un contours vertical, il est défini par  :</p>
@@ -940,6 +1069,28 @@ On accède à un pixel avec <code class="docutils literal notranslate"><span cla
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">sobel(m)</span></code> faisant la même chose que <code class="docutils literal notranslate"><span class="pre">detection_contours</span></code>, mais avec le filtre de Sobel ci-dessus.</p>
 </div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sobel</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+    <span class="n">m_sobel</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">)):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">])):</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">m_sobel</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">2</span><span class="o">*</span><span class="n">m</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">j</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">m_sobel</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">-=</span> <span class="n">m</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">m_sobel</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">-=</span> <span class="n">m</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">m_sobel</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">2</span><span class="o">*</span><span class="n">m</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">j</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">m_sobel</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="n">m</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">m_sobel</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="n">m</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">m_sobel</span>
+</pre></div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">sobel</span><span class="p">(</span><span class="n">niveau_gris</span><span class="p">(</span><span class="n">m</span><span class="p">)),</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
@@ -948,7 +1099,7 @@ On accède à un pixel avec <code class="docutils literal notranslate"><span cla
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/9_image_54_0.png" src="../../../_images/9_image_54_0.png" />
+<img alt="../../../_images/9_image_66_0.png" src="../../../_images/9_image_66_0.png" />
 </div>
 </div>
 </section>

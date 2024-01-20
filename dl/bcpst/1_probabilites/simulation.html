@@ -596,14 +596,45 @@ title="Print to PDF"
 <p class="admonition-title">Exercice</p>
 <p>En utilisant <code class="docutils literal notranslate"><span class="pre">random.random()</span></code>, écrire une fonction <code class="docutils literal notranslate"><span class="pre">flip()</span></code> simulant une loi de Bernoulli de paramètre <span class="math notranslate nohighlight">\(p = 0.5\)</span> (<code class="docutils literal notranslate"><span class="pre">flip()</span></code> doit renvoyer <span class="math notranslate nohighlight">\(0\)</span> ou <span class="math notranslate nohighlight">\(1\)</span>, avec probabilité <span class="math notranslate nohighlight">\(0.5\)</span>).</p>
 </div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">flip</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">bernoulli(p)</span></code> simulant une loi de Bernoulli de paramètre <code class="docutils literal notranslate"><span class="pre">p</span></code>. On pourra adapter la fonction précédente.</p>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">bernoulli</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">p</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="mi">0</span>
+</pre></div>
+</div>
 </div>
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">test_bernoulli(p,</span> <span class="pre">n)</span></code> telle que <code class="docutils literal notranslate"><span class="pre">test_bernoulli(p,</span> <span class="pre">n)</span></code> génère <span class="math notranslate nohighlight">\(n\)</span> fois une loi de Bernoulli de paramètre <span class="math notranslate nohighlight">\(p\)</span> et renvoie une liste <code class="docutils literal notranslate"><span class="pre">L</span></code> telle que <code class="docutils literal notranslate"><span class="pre">L[0]</span></code> est le nombre de <span class="math notranslate nohighlight">\(0\)</span> obtenus et <code class="docutils literal notranslate"><span class="pre">L[1]</span></code> est le nombre de <span class="math notranslate nohighlight">\(1\)</span>.<br />
 Vérifier que vous obtenez autant de <span class="math notranslate nohighlight">\(0\)</span> que de <span class="math notranslate nohighlight">\(1\)</span> si <span class="math notranslate nohighlight">\(p = 0.5\)</span>, et deux fois plus de <span class="math notranslate nohighlight">\(0\)</span> que de <span class="math notranslate nohighlight">\(1\)</span> si <span class="math notranslate nohighlight">\(p = \frac{1}{3}\)</span>.</p>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_bernoulli</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">L</span><span class="p">[</span><span class="n">bernoulli</span><span class="p">(</span><span class="n">p</span><span class="p">)]</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">L</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">test_bernoulli</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">1000</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">test_bernoulli</span><span class="p">(</span><span class="mf">0.33</span><span class="p">,</span> <span class="mi">1000</span><span class="p">))</span>
+</pre></div>
+</div>
 </div>
 </section>
 <section id="loi-geometrique">
@@ -617,6 +648,16 @@ Vérifier que vous obtenez autant de <span class="math notranslate nohighlight">
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
 <p>En utilisant la remarque précédente, écrire une fonction <code class="docutils literal notranslate"><span class="pre">geometrique(p)</span></code> simulant une loi géométrique de paramètre <code class="docutils literal notranslate"><span class="pre">p</span></code>.</p>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">geometrique</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># nombre de loi de Bernoulli qu&#39;il a fallu générer</span>
+    <span class="k">while</span> <span class="n">bernoulli</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="c1"># tant que la loi de Bernoulli donne 0</span>
+        <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c1"># augmenter n de 1</span>
+    <span class="k">return</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
 </div>
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
@@ -632,7 +673,7 @@ Vérifier que vous obtenez autant de <span class="math notranslate nohighlight">
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../../_images/simulation_14_0.png" src="../../../_images/simulation_14_0.png" />
+<img alt="../../../_images/simulation_18_01.png" src="../../../_images/simulation_18_01.png" />
 </div>
 </div>
 </section>
@@ -648,6 +689,16 @@ Vérifier que vous obtenez autant de <span class="math notranslate nohighlight">
 <p class="admonition-title">Exercice</p>
 <p>En utilisant cette deuxième définition, écrire une fonction <code class="docutils literal notranslate"><span class="pre">binomial(n,</span> <span class="pre">p)</span></code> simulant une loi binomiale de paramètre <span class="math notranslate nohighlight">\(n\)</span>, <span class="math notranslate nohighlight">\(p\)</span>.</p>
 </div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">binomial</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">X</span> <span class="o">+=</span> <span class="n">bernoulli</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">X</span>
+</pre></div>
+</div>
+</div>
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
 <p>Tester avec la fonction suivante (prendre par exemple <span class="math notranslate nohighlight">\(n = 100\)</span> et <span class="math notranslate nohighlight">\(p = 0.5\)</span>). Vous devez obtenir un dessin ressemblant à celui ci-dessous.</p>
@@ -662,7 +713,7 @@ Vérifier que vous obtenez autant de <span class="math notranslate nohighlight">
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../../_images/simulation_19_0.png" src="../../../_images/simulation_19_0.png" />
+<img alt="../../../_images/simulation_24_01.png" src="../../../_images/simulation_24_01.png" />
 </div>
 </div>
 </section>
@@ -679,9 +730,27 @@ Soit <span class="math notranslate nohighlight">\(S_n = X_1 + ... + X_n\)</span>
 <p class="admonition-title">Exercice</p>
 <p>Calculer <span class="math notranslate nohighlight">\(\mu\)</span> et <span class="math notranslate nohighlight">\(\sigma\)</span> (sur papier, sans utiliser l’ordinateur).</p>
 </div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="math notranslate nohighlight">
+\[
+    \mu = 0\times \mathbb{P}[X_i = 0] + 1\times \mathbb{P}[X_i = 1] = p
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+    \sigma = \sqrt{\mathbb{E}[X^2] - \mathbb{E}[X]^2} = \sqrt{p(1 - p)}
+\]</div>
+</div>
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
 <p>Écrire une fonction  <code class="docutils literal notranslate"><span class="pre">central_limite(n,</span> <span class="pre">p)</span></code> renvoyant <span class="math notranslate nohighlight">\(\frac{S_n - n\mu}{\sigma\sqrt{n}}\)</span>. On remplacera <span class="math notranslate nohighlight">\(\sigma\)</span> et <span class="math notranslate nohighlight">\(\mu\)</span> par les valeurs trouvées à la question précédente.</p>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">central_limite</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">binomial</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span> <span class="o">-</span> <span class="n">n</span><span class="o">*</span><span class="n">p</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">p</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p</span><span class="p">)</span><span class="o">*</span><span class="n">n</span><span class="p">)</span><span class="o">**</span><span class="mf">.5</span>
+</pre></div>
+</div>
 </div>
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
@@ -704,7 +773,7 @@ Soit <span class="math notranslate nohighlight">\(S_n = X_1 + ... + X_n\)</span>
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../../_images/simulation_26_0.png" src="../../../_images/simulation_26_0.png" />
+<img alt="../../../_images/simulation_33_01.png" src="../../../_images/simulation_33_01.png" />
 </div>
 </div>
 </section>
@@ -733,9 +802,34 @@ Soit <span class="math notranslate nohighlight">\(S_n = X_1 + ... + X_n\)</span>
 <p class="admonition-title">Exercice</p>
 <p>Montrer que <span class="math notranslate nohighlight">\(F^{-1}(y) = -\frac{\ln(1 - y)}{a}\)</span> (sur papier, sans utiliser l’ordinateur).</p>
 </div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="math notranslate nohighlight">
+\[
+    y = 1 - e^{-a x}
+\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    \Longleftrightarrow&amp; ~~e^{-a x} = 1 - y\\
+    \Longleftrightarrow&amp; ~~-a x = \ln(1 - y)\\
+    \Longleftrightarrow&amp; ~~x = -\frac{\ln(1 - y)}{a}
+\end{align*}\]</div>
+<p>D’où :</p>
+<div class="math notranslate nohighlight">
+\[
+    \boxed{F^{-1}(x) = -\frac{\ln(1 - x)}{a}}
+\]</div>
+</div>
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
 <p>En déduire une fonction <code class="docutils literal notranslate"><span class="pre">exponentielle(a)</span></code> simulant une loi exponentielle de paramètre <code class="docutils literal notranslate"><span class="pre">a</span></code>. On pourra utiliser <code class="docutils literal notranslate"><span class="pre">np.log</span></code> pour <span class="math notranslate nohighlight">\(\ln\)</span>.</p>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">exponentielle</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+    <span class="k">return</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">())</span><span class="o">/</span><span class="n">a</span>
+</pre></div>
+</div>
 </div>
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
@@ -761,7 +855,7 @@ Soit <span class="math notranslate nohighlight">\(S_n = X_1 + ... + X_n\)</span>
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../../_images/simulation_35_0.png" src="../../../_images/simulation_35_0.png" />
+<img alt="../../../_images/simulation_44_01.png" src="../../../_images/simulation_44_01.png" />
 </div>
 </div>
 </section>
@@ -792,6 +886,18 @@ Alors <span class="math notranslate nohighlight">\(Y\)</span> suit une loi de Po
 </pre></div>
 </div>
 </div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">poisson</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># valeur de Sn</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">s</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">s</span> <span class="o">+=</span> <span class="n">exponentielle</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+        <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">n</span>
+</pre></div>
+</div>
+</div>
 <div class="admonition-exercice admonition">
 <p class="admonition-title">Exercice</p>
 <p>Tester avec la fonction suivante (prendre par exemple <span class="math notranslate nohighlight">\(a = 3\)</span> et <span class="math notranslate nohighlight">\(n = 1000\)</span>).</p>
@@ -806,7 +912,7 @@ Alors <span class="math notranslate nohighlight">\(Y\)</span> suit une loi de Po
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../../_images/simulation_41_0.png" src="../../../_images/simulation_41_0.png" />
+<img alt="../../../_images/simulation_51_01.png" src="../../../_images/simulation_51_01.png" />
 </div>
 </div>
 </section>
