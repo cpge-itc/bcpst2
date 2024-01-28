@@ -15,4 +15,5 @@ chapters:
   - cor: bcpst/basket.ipynb
   - file: 6_sql/sql.md
   - file: 13_sql/sqlzoo.md
-  - tp: bcpst/random_walk/random_walk.ipynb
+  - cor: bcpst/random_walk/random_walk.ipynb
+  - file: 15_tb/exercices_concours.ipynb
