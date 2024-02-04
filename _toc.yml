@@ -17,3 +17,4 @@ chapters:
   - file: 13_sql/sqlzoo.md
   - cor: bcpst/random_walk/random_walk.ipynb
   - file: 15_tb/exercices_concours.ipynb
+  - file: 16_agro_veto.md
