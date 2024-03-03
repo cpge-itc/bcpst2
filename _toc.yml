@@ -18,4 +18,4 @@ chapters:
   - cor: bcpst/random_walk/random_walk.ipynb
   - file: 15_tb/exercices_concours.ipynb
   - file: 16_agro_veto.md
-  - file: g2e/g2e.ipynb
+  - file: bcpst/g2e/g2e.ipynb
