@@ -19,3 +19,4 @@ chapters:
   - file: 15_tb/exercices_concours.ipynb
   - file: 16_agro_veto.md
   - tp: bcpst/g2e/g2e.ipynb
+  - tp: bcpst/revisions/graphe.ipynb
