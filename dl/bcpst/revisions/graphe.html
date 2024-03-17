@@ -491,9 +491,33 @@ Deux sommets sont <strong>voisins</strong> s’ils sont reliés par une arête.<
 <p class="admonition-title">Question</p>
 <p>Définir le graphe ci-dessus dans une matrice <span class="math notranslate nohighlight">\(A\)</span>.</p>
 </div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span>  <span class="p">[</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">voisins(A,</span> <span class="pre">v)</span></code> renvoyant la liste des voisins du sommet <span class="math notranslate nohighlight">\(v\)</span> dans le graphe <span class="math notranslate nohighlight">\(A\)</span>.</p>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">voisins</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">])):</span>
+        <span class="k">if</span> <span class="n">A</span><span class="p">[</span><span class="n">v</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">L</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">L</span>
+</pre></div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -511,6 +535,13 @@ Deux sommets sont <strong>voisins</strong> s’ils sont reliés par une arête.<
 <p class="admonition-title">Question</p>
 <p>Le <strong>degré</strong> d’un sommet est son nombre de voisins. Écrire une fonction <code class="docutils literal notranslate"><span class="pre">degre(A,</span> <span class="pre">v)</span></code> renvoyant le degré de <code class="docutils literal notranslate"><span class="pre">v</span></code>.</p>
 </div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">degre</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">voisins</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">degre</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
@@ -526,6 +557,16 @@ Deux sommets sont <strong>voisins</strong> s’ils sont reliés par une arête.<
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">nombre_arete(A)</span></code> renvoyant le nombre d’arêtes du graphe <span class="math notranslate nohighlight">\(A\)</span>.</p>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">nombre_arete</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)):</span>
+        <span class="n">n</span> <span class="o">+=</span> <span class="n">degre</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">n</span><span class="o">//</span><span class="mi">2</span>
+</pre></div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -544,6 +585,21 @@ Deux sommets sont <strong>voisins</strong> s’ils sont reliés par une arête.<
 Exemple de graphe complet</center><div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">complet(n)</span></code> renvoyant la matrice d’adjacence du graphe complet à <span class="math notranslate nohighlight">\(n\)</span> sommets.</p>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">complet</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">M</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">L</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="n">L</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">M</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">return</span> <span class="n">M</span>
+</pre></div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -564,6 +620,18 @@ Exemple de graphe complet</center><div class="admonition-question admonition">
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
 <p>Écrire une fonction <code class="docutils literal notranslate"><span class="pre">est_complet(A)</span></code> renvoyant <code class="docutils literal notranslate"><span class="pre">True</span></code> si le graphe <span class="math notranslate nohighlight">\(A\)</span> est complet et <code class="docutils literal notranslate"><span class="pre">False</span></code> sinon.</p>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">est_complet</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">j</span> <span class="ow">and</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">return</span> <span class="kc">True</span>
+</pre></div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
