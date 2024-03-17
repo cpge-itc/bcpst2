@@ -20,3 +20,4 @@ chapters:
   - file: 16_agro_veto.md
   - tp: bcpst/g2e/g2e.ipynb
   - tp: bcpst/revisions/graphe.ipynb
+  - file: bcpst/simulation_physique/collision.ipynb
