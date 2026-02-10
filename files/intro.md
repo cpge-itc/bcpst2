@@ -10,3 +10,4 @@
 > - programmer de nouveaux algorithmes sur des applications en lien avec d’autres disciplines, notamment la biologie.
 
 [Programme officiel (en annexe : formulaire Python à connaître)](https://github.com/cpge-itc/bcpst2/raw/main/files/programme_info_bcpst.pdf)
+[Mes autres cours](https://fortierq.github.io/teaching)
